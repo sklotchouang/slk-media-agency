@@ -15,3 +15,5 @@
   .social-proof .client-video{max-width:280px}
   .portfolio-items{grid-template-columns:repeat(2,1fr);gap:16px}
 }
+/* The old click-to-play badge is not needed on autoplaying previews */
+.portfolio-video::before,.portfolio-video::after{display:none}

@@ -142,6 +142,23 @@ export default function SiteBehaviors() {
       );
       autoplayVideos.forEach((video) => viewObserver.observe(video));
       cleanups.push(() => viewObserver.disconnect());
+
+      // When the tab becomes visible again (for example after switching back),
+      // restart whichever preview clips are on screen, since browsers pause
+      // them while the tab is hidden.
+      document.addEventListener(
+        'visibilitychange',
+        () => {
+          if (document.visibilityState !== 'visible') return;
+          autoplayVideos.forEach((video) => {
+            const rect = video.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+              video.play().catch(() => {});
+            }
+          });
+        },
+        { signal }
+      );
     }
 
     // ----- Testimonial carousel -----

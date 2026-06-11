@@ -67,7 +67,7 @@ export default function PortfolioPage() {
                 key={clipNumber}
                 className="portfolio-video"
                 dangerouslySetInnerHTML={{
-                  __html: `<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-${clipNumber}.jpg" aria-label="Portfolio clip ${clipNumber}"><source src="/portfolio/Clip-${clipNumber}.mp4" type="video/mp4"></video>`,
+                  __html: `<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-${clipNumber}.jpg" data-autoplay aria-label="Portfolio clip ${clipNumber}"><source src="/portfolio/Clip-${clipNumber}.mp4" type="video/mp4"></video>`,
                 }}
               />
             ))}
