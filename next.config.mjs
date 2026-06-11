@@ -65,14 +65,7 @@ const nextConfig = {
   async rewrites() {
     return {
       afterFiles: [
-        // Case studies: clean URL -> original HTML file in /public
-        { source: '/success/case-studies', destination: '/success/case-studies.html' },
-        { source: '/success/conjure-queen', destination: '/success/conjure-queen.html' },
-        { source: '/success/brian-burton', destination: '/success/brian-burton.html' },
-        { source: '/success/steve-garrett', destination: '/success/steve-garrett.html' },
-        { source: '/success/rws-group', destination: '/success/rws-group.html' },
-        { source: '/success/sales-fix', destination: '/success/sales-fix.html' },
-        { source: '/success/alpine-institute', destination: '/success/alpine-institute.html' },
+        // Case study pages are real app routes now, so they need no rewrites.
 
         // Resources: clean URL -> original HTML file in /public
         { source: '/resources/authority_builder_checklist', destination: '/resources/authority_builder_checklist.html' },

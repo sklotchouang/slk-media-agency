@@ -35,7 +35,7 @@ export default function TestimonialsPage() {
           <ul className="nav-menu" id="primary-nav">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
-            <li><a href="/success/case-studies">Case Studies</a></li>
+            <li><Link href="/success/case-studies">Case Studies</Link></li>
             <li><Link href="/#faq">FAQ</Link></li>
             <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
@@ -221,7 +221,7 @@ export default function TestimonialsPage() {
         <div className="container">
           <h2>Want results like these for <span className="highlight">your show?</span></h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Your Strategy Call</a>
-          <p style={{ marginTop: '18px' }}><a href="/success/case-studies" className="text-link">Or read the full case studies <i className="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+          <p style={{ marginTop: '18px' }}><Link href="/success/case-studies" className="text-link">Or read the full case studies <i className="fas fa-arrow-right" aria-hidden="true"></i></a></p>
         </div>
       </section>
 

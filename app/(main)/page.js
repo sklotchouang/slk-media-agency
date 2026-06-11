@@ -317,7 +317,7 @@ export default function HomePage() {
           <h2 className="section-title">Real Clients. <span className="highlight">Real Results.</span></h2>
           <p className="subheadline" style={{ textAlign: 'center' }}>Deep-dive case studies from creators who handed us their content engine.</p>
           <div className="case-showcase-grid">
-            <a href="/success/conjure-queen" className="case-card">
+            <Link href="/success/conjure-queen" className="case-card">
               <div className="case-card-media">
                 <span className="case-tag">Spiritual Empowerment</span>
                 <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green — Conjure Queen Podcast" loading="lazy" width={600} height={338} />
@@ -332,8 +332,8 @@ export default function HomePage() {
                 </div>
                 <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
               </div>
-            </a>
-            <a href="/success/brian-burton" className="case-card">
+            </Link>
+            <Link href="/success/brian-burton" className="case-card">
               <div className="case-card-media">
                 <span className="case-tag">B2B Sales Training</span>
                 <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton — Waste No Day Podcast" loading="lazy" width={600} height={338} />
@@ -348,8 +348,8 @@ export default function HomePage() {
                 </div>
                 <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
               </div>
-            </a>
-            <a href="/success/steve-garrett" className="case-card">
+            </Link>
+            <Link href="/success/steve-garrett" className="case-card">
               <div className="case-card-media">
                 <span className="case-tag">Automotive Media</span>
                 <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett — Corvette Today Podcast" loading="lazy" width={600} height={338} />
@@ -364,10 +364,10 @@ export default function HomePage() {
                 </div>
                 <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="cta-center">
-            <a href="/success/case-studies" className="secondary-cta">View All Case Studies</a>
+            <Link href="/success/case-studies" className="secondary-cta">View All Case Studies</Link>
           </div>
         </div>
       </section>
