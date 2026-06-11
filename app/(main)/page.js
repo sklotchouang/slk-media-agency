@@ -159,21 +159,21 @@ export default function HomePage() {
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video poster="/portfolio/thumbnails/Clip-1.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Client success clip — sponsor-ready content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Sponsor-Ready Content</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-1.jpg" data-autoplay aria-label="Client success clip — sponsor-ready content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Sponsor-Ready Content</p></div>',
               }}
             />
             <div
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video poster="/portfolio/thumbnails/Clip-2.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Client success clip — authority-building content"><source src="/portfolio/Clip-2.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Authority-Building Content</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-2.jpg" data-autoplay aria-label="Client success clip — authority-building content"><source src="/portfolio/Clip-2.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Authority-Building Content</p></div>',
               }}
             />
             <div
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video poster="/portfolio/thumbnails/Clip-3.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Client success clip — revenue-driving clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Revenue-Driving Clips</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-3.jpg" data-autoplay aria-label="Client success clip — revenue-driving clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Revenue-Driving Clips</p></div>',
               }}
             />
           </div>

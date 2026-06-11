@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \".claude/hooks/auto-commit-push.ps1\"",
+            "timeout": 300,
+            "statusMessage": "Saving site changes to git"
+          }
+        ]
+      }
+    ]
+  }
+}
