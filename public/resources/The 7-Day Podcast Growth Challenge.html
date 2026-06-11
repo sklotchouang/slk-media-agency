@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 7-Day Podcast Growth Challenge: Your Daily Action Plan for Explosive Growth</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .day-card {
+            border-left: 4px solid;
+        }
+        
+        .day-1 { border-color: #ef4444; }
+        .day-2 { border-color: #f97316; }
+        .day-3 { border-color: #eab308; }
+        .day-4 { border-color: #22c55e; }
+        .day-5 { border-color: #3b82f6; }
+        .day-6 { border-color: #8b5cf6; }
+        .day-7 { border-color: #ec4899; }
+        
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .checkmark:hover {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .task-item:hover {
+            background: #f1f5f9;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+        }
+        
+        .btn-primary {
+            background: #10b981;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <div class="gradient-bg text-white py-16">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-6">
+                    <i class="fas fa-rocket text-2xl"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">The 7-Day Podcast Growth Challenge</h1>
+                <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">Your daily action plan for explosive growth. Follow these simple tasks for just 7 days and watch your podcast audience grow faster than ever before.</p>
+                
+                <!-- Progress Tracking -->
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 max-w-md mx-auto">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-semibold">Your Progress</span>
+                        <span id="progress-text">0/7 Days Complete</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progress-bar" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="max-w-4xl mx-auto px-6 py-12">
+            <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+                <div class="flex items-start mb-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-info-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3">Why This Challenge Works</h2>
+                        <p class="text-gray-600 leading-relaxed">Most podcasters try to do everything at once and get overwhelmed. This challenge breaks growth into small, daily actions that build momentum. Each day focuses on one key area that drives real results.</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-clock text-green-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">15-30 Minutes Daily</h3>
+                        <p class="text-sm text-gray-600">Short, focused tasks that fit into any schedule</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chart-line text-purple-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Proven Results</h3>
+                        <p class="text-sm text-gray-600">Based on strategies that helped 100+ podcasters grow</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-rocket text-orange-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Fast Results</h3>
+                        <p class="text-sm text-gray-600">See growth improvements within the first week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="max-w-4xl mx-auto px-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm day-card day-1 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-red-600">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 1: Set Your Foundation</h2>
+                            <p class="text-gray-600">Get your podcast ready for growth with the right setup</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4 mb-6">
+                        <p class="text-red-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Create a solid foundation that makes growth possible</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Update your podcast description</h4>
+                            <p class="text-gray-600 text-sm">Write a clear description that tells people exactly what your podcast is about and who it's for. Include the main benefit listeners will get.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Create your social media profiles</h4>
+                            <p class="text-gray-600 text-sm">Set up accounts on Instagram, TikTok, and LinkedIn (if you don't have them). Use the same name and profile picture as your podcast.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 15 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Write down your ideal listener</h4>
+                            <p class="text-gray-600 text-sm">Describe one person who would love your podcast. What problems do they have? What do they want to learn? This helps you create better content.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Why This Matters:</h4>
+                        <p class="text-gray-600 text-sm">You can't grow what people can't find or understand. A clear foundation makes it easy for the right people to discover and connect with your podcast.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="max-w-4xl mx-auto px-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm day-card day-2 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-orange-600">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 2: Optimize Your Latest Episode</h2>
+                            <p class="text-gray-600">Make your newest episode work harder for growth</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
+                        <p class="text-orange-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Turn your latest episode into a growth machine</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Find 3 golden moments in your latest episode</h4>
+                            <p class="text-gray-600 text-sm">Listen for moments that made you think "wow" - surprising facts, funny stories, or powerful insights. Write down the timestamps.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 15 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Write a better episode title</h4>
+                            <p class="text-gray-600 text-sm">Create a title that makes people curious or promises a benefit. Instead of "Episode 15," try "The Mistake That Cost Me $10,000 (And How You Can Avoid It)."</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Add chapters to your episode</h4>
+                            <p class="text-gray-600 text-sm">Break your episode into 3-5 chapters with clear titles. This helps people find the parts they want and makes your podcast look more professional.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Pro Tip:</h4>
+                        <p class="text-gray-600 text-sm">Those "golden moments" you found? They're perfect for creating short clips later. Save this list - you'll use it on Day 5!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="max-w-4xl mx-auto px-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm day-card day-3 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-yellow-600">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 3: Build Your Social Media Presence</h2>
+                            <p class="text-gray-600">Start showing up where your audience hangs out</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                        <p class="text-yellow-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Create your first social media content from your podcast</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Post a "behind the scenes" photo</h4>
+                            <p class="text-gray-600 text-sm">Share a photo of your recording setup with a caption like "Recording today's episode about [topic]. What questions do you have about [topic]?"</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Share your best quote from the latest episode</h4>
+                            <p class="text-gray-600 text-sm">Pick one powerful quote and create a simple text post. Add "From today's episode - link in bio!" This drives people to listen.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Follow and engage with 10 people in your niche</h4>
+                            <p class="text-gray-600 text-sm">Find other creators, potential guests, or ideal listeners. Like their posts and leave thoughtful comments. Build relationships, not just followers.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 15 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Remember:</h4>
+                        <p class="text-gray-600 text-sm">Social media isn't about being perfect. It's about being helpful and human. Your audience wants to connect with a real person, not a robot.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="max-w-4xl mx-auto px-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm day-card day-4 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-green-600">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 4: Connect With Your Audience</h2>
+                            <p class="text-gray-600">Turn listeners into loyal fans who share your content</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+                        <p class="text-green-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Build real connections with your existing audience</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Ask your audience a question</h4>
+                            <p class="text-gray-600 text-sm">Post on social media: "What's the biggest challenge you face with [your niche topic]?" Respond to every comment personally. This shows you care and gives you content ideas.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes to post, 10-15 minutes throughout the day to respond</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Send a personal message to your top 5 listeners</h4>
+                            <p class="text-gray-600 text-sm">Think of people who always comment or share your content. Send them a simple "Thanks for being an awesome listener!" message. They'll become your biggest fans.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Create a "listener spotlight" post</h4>
+                            <p class="text-gray-600 text-sm">Share something cool about one of your listeners (with permission). "Shoutout to Sarah who used last week's tip to [result]!" This makes others want to engage more.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-heart text-red-500 mr-2"></i>The Magic of Personal Connection:</h4>
+                        <p class="text-gray-600 text-sm">When people feel seen and appreciated, they become your biggest promoters. One personal message can turn a casual listener into someone who tells all their friends about your podcast.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="max-w-4xl mx-auto px-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm day-card day-5 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-blue-600">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 5: Create Your First Viral Clip</h2>
+                            <p class="text-gray-600">Turn your best content into shareable clips</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                        <p class="text-blue-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Create and share your first short-form video clip</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Pick your best "golden moment" from Day 2</h4>
+                            <p class="text-gray-600 text-sm">Choose the most surprising, funny, or valuable moment you found. It should be 30-60 seconds long and make sense without context.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Create a simple video clip</h4>
+                            <p class="text-gray-600 text-sm">Use your phone or free tools like CapCut. Add simple text that highlights the main point. Keep it simple - good content beats fancy editing.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 15-20 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Post it with a hook caption</h4>
+                            <p class="text-gray-600 text-sm">Start with something like "This changed everything..." or "Most people don't know this, but..." Add "Full episode in bio!" to drive traffic to your podcast.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-fire text-red-500 mr-2"></i>Clip Success Secret:</h4>
+                        <p class="text-gray-600 text-sm">The best clips feel complete on their own but leave people wanting more. If someone thinks "I need to hear the full story," you've won.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="max-w-4xl mx-auto px-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm day-card day-6 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-purple-600">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 6: Track and Improve</h2>
+                            <p class="text-gray-600">Learn what's working so you can do more of it</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4 mb-6">
+                        <p class="text-purple-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Understand your growth and plan improvements</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Check your podcast stats</h4>
+                            <p class="text-gray-600 text-sm">Look at downloads from the past week. Which episodes performed best? What topics got the most engagement? Write down what you notice.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Review your social media performance</h4>
+                            <p class="text-gray-600 text-sm">Which posts got the most likes, comments, or shares? What time of day worked best? This tells you what your audience loves.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Plan next week's content</h4>
+                            <p class="text-gray-600 text-sm">Based on what worked, plan 3-5 social media posts for next week. Include at least one clip, one behind-the-scenes post, and one audience question.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-chart-line text-green-500 mr-2"></i>Growth Mindset:</h4>
+                        <p class="text-gray-600 text-sm">Don't just look at the numbers - look for patterns. Small improvements compound over time. What seems like a tiny win today becomes big growth next month.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="max-w-4xl mx-auto px-6 mb-12">
+            <div class="bg-white rounded-xl shadow-sm day-card day-7 card-hover">
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mr-6">
+                            <span class="text-2xl font-bold text-pink-600">7</span>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Day 7: Plan Your Growth System</h2>
+                            <p class="text-gray-600">Turn this challenge into a sustainable growth system</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-pink-50 border-l-4 border-pink-400 p-4 mb-6">
+                        <p class="text-pink-800 font-medium"><i class="fas fa-target mr-2"></i>Today's Goal: Create a system you can follow every week for continued growth</p>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Tasks to Complete:</h3>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Schedule your weekly content creation time</h4>
+                            <p class="text-gray-600 text-sm">Block 1-2 hours each week for content creation. This becomes your growth time. Treat it like an important meeting that you can't miss.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Create a simple content template</h4>
+                            <p class="text-gray-600 text-sm">Write down a simple weekly plan: Monday (behind-the-scenes), Wednesday (clip or quote), Friday (audience question), Saturday (episode announcement). Adjust to fit your schedule.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 10 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item" onclick="toggleTask(this)">
+                        <div class="checkmark"></div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Celebrate your progress!</h4>
+                            <p class="text-gray-600 text-sm">Post about completing the 7-day challenge! Share what you learned or what surprised you. This shows consistency and might inspire others to follow you.</p>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-clock mr-1"></i>Time: 5 minutes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg mt-6">
+                        <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-trophy text-yellow-500 mr-2"></i>You Did It!</h4>
+                        <p class="text-gray-600 text-sm">Completing this challenge puts you ahead of 95% of podcasters. Most people know what to do but never take action. You're different. Keep going!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Indicators -->
+        <div class="max-w-4xl mx-auto px-6 mb-12">
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Signs You're On The Right Track</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-4"><i class="fas fa-check-circle text-green-500 mr-2"></i>After Week 1, You Should See:</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>More social media engagement</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>New followers on your platforms</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>People asking questions or leaving comments</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>More clarity on what content works</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-4"><i class="fas fa-rocket text-blue-500 mr-2"></i>After Week 2-4, You Should See:</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Steady increase in podcast downloads</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>People sharing your content</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>New listeners finding you through social media</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Content creation feeling easier</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section py-16">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-6">
+                    <i class="fas fa-users text-2xl"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Your Growth to the Next Level?</h2>
+                <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">This 7-day challenge is just the beginning. Imagine having a dedicated team handle all of this for you - every week, automatically, while you focus on creating amazing content.</p>
+                
+                <div class="bg-white bg-opacity-10 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                    <h3 class="text-xl font-semibold mb-4">What if you could...</h3>
+                    <div class="text-left space-y-3">
+                        <p class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i>Get 10-20 professional clips created every month</p>
+                        <p class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i>Have content posted consistently across all platforms</p>
+                        <p class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i>See your audience grow by 10x in the next 6 months</p>
+                        <p class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i>Focus purely on creating great podcast content</p>
+                    </div>
+                </div>
+                
+                <p class="text-lg mb-8">We're SLK Media, and we've helped over 100 podcasters turn their shows into growth machines using our Podcast Multiplier Method™.</p>
+                
+                <a href="https://link.slkmediaagency.com/strmeet" class="btn-primary text-lg" target="_blank" rel="noopener">
+                    <i class="fas fa-calendar-alt mr-2"></i>Book Your Free Growth Strategy Call
+                </a>
+                
+                <p class="text-sm opacity-80 mt-4">⚡ Free 15-minute call • No sales pressure • Just actionable advice</p>
+                
+                <div class="mt-8 text-sm opacity-75">
+                    <p>Limited spots available - we only work with 3 new podcasters each quarter to ensure quality results.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Tips -->
+        <div class="max-w-4xl mx-auto px-6 py-12">
+            <div class="bg-white rounded-xl shadow-sm p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Bonus Tips for Long-Term Success</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3"><i class="fas fa-calendar text-blue-500 mr-2"></i>Stay Consistent</h3>
+                        <p class="text-gray-600 text-sm mb-4">Growth happens through consistent small actions, not big one-time efforts. Pick a realistic schedule and stick to it.</p>
+                        
+                        <h3 class="font-semibold text-gray-800 mb-3"><i class="fas fa-users text-green-500 mr-2"></i>Focus on Community</h3>
+                        <p class="text-gray-600 text-sm">Build relationships, not just followers. Engage genuinely with your audience and other creators in your niche.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3"><i class="fas fa-chart-line text-purple-500 mr-2"></i>Track Everything</h3>
+                        <p class="text-gray-600 text-sm mb-4">What gets measured gets improved. Keep simple notes about what content performs best.</p>
+                        
+                        <h3 class="font-semibold text-gray-800 mb-3"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Keep Learning</h3>
+                        <p class="text-gray-600 text-sm">Platforms change, audiences evolve. Stay curious and keep experimenting with new approaches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-800 text-white py-8">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <p class="opacity-80">&copy; 2026 SLK Media Agency. This resource is designed to help podcasters grow their audience through strategic content creation and distribution.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Progress tracking
+        let completedTasks = 0;
+        const totalTasks = document.querySelectorAll('.task-item').length;
+        
+        function toggleTask(taskElement) {
+            const checkbox = taskElement.querySelector('.checkmark');
+            const isCompleted = checkbox.style.backgroundColor === 'rgb(59, 130, 246)';
+            
+            if (isCompleted) {
+                checkbox.style.backgroundColor = '';
+                checkbox.style.borderColor = '#d1d5db';
+                checkbox.innerHTML = '';
+                completedTasks--;
+                taskElement.style.opacity = '1';
+            } else {
+                checkbox.style.backgroundColor = '#3b82f6';
+                checkbox.style.borderColor = '#3b82f6';
+                checkbox.innerHTML = '<i class="fas fa-check text-white text-sm"></i>';
+                completedTasks++;
+                taskElement.style.opacity = '0.7';
+            }
+            
+            updateProgress();
+        }
+        
+        function updateProgress() {
+            const progressPercentage = (completedTasks / totalTasks) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const completedDays = Math.floor(completedTasks / 3); // Assuming 3 tasks per day on average
+            
+            progressBar.style.width = progressPercentage + '%';
+            progressText.textContent = `${completedDays}/7 Days Complete`;
+        }
+        
+        // Initialize progress tracking
+        updateProgress();
+        
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add hover effects to cards
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>

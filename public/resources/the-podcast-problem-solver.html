@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Podcast Problem Solver: Diagnose What's Killing Your Growth (In 5 Minutes)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .question-card {
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .question-card.active {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .option-button {
+            transition: all 0.3s ease;
+        }
+        
+        .option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .result-card {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .result-card.show {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8">
+                <div class="text-6xl mb-4">🔍</div>
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">The Podcast Problem Solver</h1>
+                <h2 class="text-xl text-gray-600 mb-6">Diagnose What's Killing Your Growth (In 5 Minutes)</h2>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    Are you stuck in podcast growth limbo? Great content but terrible reach? You're about to discover exactly what's holding you back and how to fix it.
+                </p>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-sm font-medium text-gray-600">Progress</span>
+                <span class="text-sm font-medium text-gray-600"><span id="progress-text">0</span>/10</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+                <div id="progress-bar" class="progress-bar bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="bg-white rounded-2xl shadow-2xl p-8 text-center">
+            <div class="text-5xl mb-6">🚀</div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Ready to Solve Your Podcast Growth Problems?</h3>
+            <p class="text-gray-600 mb-8 text-lg">
+                Answer 10 quick questions and get a personalized action plan to break through your growth plateau.
+            </p>
+            <button onclick="startDiagnosis()" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 pulse-effect">
+                Start Your Diagnosis <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <!-- Questions -->
+        <div id="questions-container">
+            <!-- Question 1 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="1">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">1. How many downloads do you get per episode?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(1, 'low-downloads')">
+                        <i class="fas fa-chart-line text-red-500 mr-3"></i>
+                        Less than 100 downloads per episode
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(1, 'medium-downloads')">
+                        <i class="fas fa-chart-line text-yellow-500 mr-3"></i>
+                        100-1,000 downloads per episode
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(1, 'good-downloads')">
+                        <i class="fas fa-chart-line text-green-500 mr-3"></i>
+                        1,000+ downloads per episode
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">2. How often do you post short clips from your episodes?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(2, 'no-clips')">
+                        <i class="fas fa-times-circle text-red-500 mr-3"></i>
+                        Never - I only post the full episodes
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(2, 'random-clips')">
+                        <i class="fas fa-question-circle text-yellow-500 mr-3"></i>
+                        Sometimes - but they don't get much engagement
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(2, 'regular-clips')">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        Regularly - and they perform well
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="3">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">3. How much time do you spend on content creation each week?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(3, 'overwhelmed')">
+                        <i class="fas fa-clock text-red-500 mr-3"></i>
+                        10+ hours - I'm drowning in editing and posting
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(3, 'moderate-time')">
+                        <i class="fas fa-clock text-yellow-500 mr-3"></i>
+                        5-10 hours - It's manageable but tedious
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(3, 'efficient')">
+                        <i class="fas fa-clock text-green-500 mr-3"></i>
+                        Less than 5 hours - I have a good system
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">4. Which platforms do you post on consistently?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(4, 'one-platform')">
+                        <i class="fas fa-podcast text-blue-500 mr-3"></i>
+                        Just my podcast platform (Spotify, Apple, etc.)
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(4, 'few-platforms')">
+                        <i class="fas fa-share-alt text-yellow-500 mr-3"></i>
+                        2-3 social media platforms (but inconsistently)
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(4, 'omni-present')">
+                        <i class="fas fa-globe text-green-500 mr-3"></i>
+                        5+ platforms consistently every week
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="5">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">5. What's your biggest content challenge?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(5, 'time-starved')">
+                        <i class="fas fa-hourglass-end text-red-500 mr-3"></i>
+                        No time to create and post consistently
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(5, 'low-engagement')">
+                        <i class="fas fa-heart-broken text-orange-500 mr-3"></i>
+                        Content gets posted but no one engages
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(5, 'no-strategy')">
+                        <i class="fas fa-compass text-purple-500 mr-3"></i>
+                        Don't know what content actually works
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">6. How do you currently edit your podcast clips?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(6, 'diy-struggle')">
+                        <i class="fas fa-tools text-red-500 mr-3"></i>
+                        I do it myself (and it takes forever)
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(6, 'ai-tools')">
+                        <i class="fas fa-robot text-yellow-500 mr-3"></i>
+                        I use AI tools (but still need to fix things)
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(6, 'freelancer')">
+                        <i class="fas fa-user text-orange-500 mr-3"></i>
+                        I hired a freelancer (but quality is inconsistent)
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(6, 'no-clips')">
+                        <i class="fas fa-ban text-gray-500 mr-3"></i>
+                        I don't create clips at all
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="7">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">7. What's your main goal with your podcast?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(7, 'audience-growth')">
+                        <i class="fas fa-users text-blue-500 mr-3"></i>
+                        Grow my audience and reach more people
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(7, 'authority')">
+                        <i class="fas fa-crown text-purple-500 mr-3"></i>
+                        Build authority and become known in my niche
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(7, 'monetization')">
+                        <i class="fas fa-dollar-sign text-green-500 mr-3"></i>
+                        Make money from sponsors and customers
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">8. How long have you been podcasting?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(8, 'new-podcaster')">
+                        <i class="fas fa-seedling text-green-500 mr-3"></i>
+                        Less than 6 months - I'm just starting
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(8, 'experienced')">
+                        <i class="fas fa-tree text-blue-500 mr-3"></i>
+                        6 months to 2 years - I have some experience
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(8, 'veteran')">
+                        <i class="fas fa-mountain text-purple-500 mr-3"></i>
+                        2+ years - I'm experienced but stuck
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="9">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">9. What happens after someone listens to your podcast?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(9, 'no-follow-up')">
+                        <i class="fas fa-ghost text-gray-500 mr-3"></i>
+                        Nothing - they disappear into the void
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(9, 'some-engagement')">
+                        <i class="fas fa-hand-wave text-yellow-500 mr-3"></i>
+                        Some follow me on social media
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(9, 'strong-funnel')">
+                        <i class="fas fa-funnel-dollar text-green-500 mr-3"></i>
+                        They join my email list or book calls with me
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question-card bg-white rounded-2xl shadow-2xl p-8" data-question="10">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">10. If you could wave a magic wand, what would happen?</h3>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(10, 'hands-off')">
+                        <i class="fas fa-magic text-purple-500 mr-3"></i>
+                        I'd just record and everything else would be handled
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(10, 'viral-content')">
+                        <i class="fas fa-rocket text-red-500 mr-3"></i>
+                        My content would go viral and reach millions
+                    </button>
+                    <button class="option-button w-full p-4 text-left border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50" onclick="selectAnswer(10, 'authority-status')">
+                        <i class="fas fa-trophy text-yellow-500 mr-3"></i>
+                        I'd be the go-to expert everyone listens to
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div id="results-container">
+            <!-- Time-Starved Podcaster Result -->
+            <div class="result-card bg-white rounded-2xl shadow-2xl p-8" data-result="time-starved">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">⏰</div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">You're a Time-Starved Podcaster</h2>
+                    <div class="bg-red-100 border-l-4 border-red-500 p-4 mb-6">
+                        <p class="text-red-700 font-semibold">Diagnosis: You're spending too much time on content creation instead of growing your audience.</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-red-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-red-800 mb-4">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>What's Happening
+                        </h3>
+                        <ul class="text-red-700 space-y-2">
+                            <li>• You're doing everything yourself</li>
+                            <li>• Editing takes hours each week</li>
+                            <li>• No time left for actual growth activities</li>
+                            <li>• Posting is inconsistent or rushed</li>
+                            <li>• You're burning out on content creation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">
+                            <i class="fas fa-lightbulb mr-2"></i>Quick Fixes
+                        </h3>
+                        <ul class="text-green-700 space-y-2">
+                            <li>• Batch record 2-3 episodes at once</li>
+                            <li>• Use templates for consistent posting</li>
+                            <li>• Focus on 2-3 platforms max</li>
+                            <li>• Create content calendars in advance</li>
+                            <li>• Consider automation tools</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-xl mb-8">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4">
+                        <i class="fas fa-route mr-2"></i>Your Action Plan
+                    </h3>
+                    <div class="text-blue-700 space-y-4">
+                        <div class="flex items-start">
+                            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-sm font-semibold mr-3 mt-1">Week 1</span>
+                            <p>Stop doing everything yourself. Identify the 3 most time-consuming tasks and find ways to automate or delegate them.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-sm font-semibold mr-3 mt-1">Week 2</span>
+                            <p>Create templates for your social media posts and captions. This alone will save you hours.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-sm font-semibold mr-3 mt-1">Week 3</span>
+                            <p>Batch create 4 weeks of content in one session. Schedule everything in advance.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-sm font-semibold mr-3 mt-1">Week 4</span>
+                            <p>Use the time you saved to actually engage with your audience and network with other creators.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Low Engagement Result -->
+            <div class="result-card bg-white rounded-2xl shadow-2xl p-8" data-result="low-engagement">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">📉</div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">You're the Invisible Expert</h2>
+                    <div class="bg-orange-100 border-l-4 border-orange-500 p-4 mb-6">
+                        <p class="text-orange-700 font-semibold">Diagnosis: Your content is good but no one is seeing or engaging with it.</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-red-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-red-800 mb-4">
+                            <i class="fas fa-eye-slash mr-2"></i>What's Happening
+                        </h3>
+                        <ul class="text-red-700 space-y-2">
+                            <li>• Great content but terrible reach</li>
+                            <li>• Posts get few likes or comments</li>
+                            <li>• Algorithm isn't showing your content</li>
+                            <li>• Wrong timing or platforms</li>
+                            <li>• Content doesn't hook viewers quickly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">
+                            <i class="fas fa-rocket mr-2"></i>Quick Fixes
+                        </h3>
+                        <ul class="text-green-700 space-y-2">
+                            <li>• Start with stronger hooks in first 3 seconds</li>
+                            <li>• Post when your audience is most active</li>
+                            <li>• Use trending hashtags in your niche</li>
+                            <li>• Create cliffhanger-style clips</li>
+                            <li>• Engage back when people comment</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-xl mb-8">
+                    <h3 class="text-xl font-bold text-purple-800 mb-4">
+                        <i class="fas fa-fire mr-2"></i>Hook Formulas That Work
+                    </h3>
+                    <div class="text-purple-700 space-y-3">
+                        <p><strong>"The mistake that cost me $50,000..."</strong> - Start with consequences</p>
+                        <p><strong>"Here's what nobody tells you about..."</strong> - Promise inside knowledge</p>
+                        <p><strong>"I tried [X] for 30 days. Here's what happened..."</strong> - Story-based hooks</p>
+                        <p><strong>"If you're struggling with [X], stop doing this..."</strong> - Problem-solution format</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scattered Strategy Result -->
+            <div class="result-card bg-white rounded-2xl shadow-2xl p-8" data-result="scattered">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">🎯</div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">You're the Scattered Strategist</h2>
+                    <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6">
+                        <p class="text-yellow-700 font-semibold">Diagnosis: You're doing a lot of things but without a clear strategy or focus.</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-red-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-red-800 mb-4">
+                            <i class="fas fa-dizzy mr-2"></i>What's Happening
+                        </h3>
+                        <ul class="text-red-700 space-y-2">
+                            <li>• Posting on too many platforms</li>
+                            <li>• No clear content strategy</li>
+                            <li>• Inconsistent messaging and branding</li>
+                            <li>• Don't know what content works</li>
+                            <li>• Spinning wheels without direction</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">
+                            <i class="fas fa-target mr-2"></i>Quick Fixes
+                        </h3>
+                        <ul class="text-green-700 space-y-2">
+                            <li>• Pick 2-3 platforms and focus there</li>
+                            <li>• Define your niche and stick to it</li>
+                            <li>• Create content pillars (3-4 topics)</li>
+                            <li>• Track what content gets engagement</li>
+                            <li>• Develop a consistent posting schedule</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-indigo-50 p-6 rounded-xl mb-8">
+                    <h3 class="text-xl font-bold text-indigo-800 mb-4">
+                        <i class="fas fa-map mr-2"></i>Your Focus Framework
+                    </h3>
+                    <div class="text-indigo-700 space-y-4">
+                        <div>
+                            <strong>Step 1: Choose Your Core Message</strong>
+                            <p>What's the ONE thing you want to be known for?</p>
+                        </div>
+                        <div>
+                            <strong>Step 2: Pick Your Power Platforms</strong>
+                            <p>Where does your ideal audience spend time? Focus there.</p>
+                        </div>
+                        <div>
+                            <strong>Step 3: Create Content Pillars</strong>
+                            <p>3-4 topics you'll consistently cover every month.</p>
+                        </div>
+                        <div>
+                            <strong>Step 4: Track and Double Down</strong>
+                            <p>What gets the most engagement? Do more of that.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scaling Success Result -->
+            <div class="result-card bg-white rounded-2xl shadow-2xl p-8" data-result="scaling">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">📈</div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">You're Ready to Scale</h2>
+                    <div class="bg-green-100 border-l-4 border-green-500 p-4 mb-6">
+                        <p class="text-green-700 font-semibold">Diagnosis: You have the basics down but need systems to reach the next level.</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">
+                            <i class="fas fa-check-circle mr-2"></i>What You're Doing Right
+                        </h3>
+                        <ul class="text-blue-700 space-y-2">
+                            <li>• Consistent content creation</li>
+                            <li>• Growing audience engagement</li>
+                            <li>• Clear niche and messaging</li>
+                            <li>• Some level of automation</li>
+                            <li>• Understanding your audience</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-purple-800 mb-4">
+                            <i class="fas fa-arrow-up mr-2"></i>Next Level Moves
+                        </h3>
+                        <ul class="text-purple-700 space-y-2">
+                            <li>• Build a content multiplier system</li>
+                            <li>• Create multiple revenue streams</li>
+                            <li>• Develop strategic partnerships</li>
+                            <li>• Build email list from podcast</li>
+                            <li>• Position for speaking opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gold-50 p-6 rounded-xl mb-8 border border-yellow-200">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-4">
+                        <i class="fas fa-crown mr-2"></i>Authority Building Strategy
+                    </h3>
+                    <div class="text-yellow-800 space-y-4">
+                        <div>
+                            <strong>Month 1-2: Content Multiplication</strong>
+                            <p>Turn each episode into 10+ pieces of content across platforms</p>
+                        </div>
+                        <div>
+                            <strong>Month 3-4: Strategic Partnerships</strong>
+                            <p>Guest on other podcasts, collaborate with influencers</p>
+                        </div>
+                        <div>
+                            <strong>Month 5-6: Monetization</strong>
+                            <p>Launch products, attract sponsors, book speaking gigs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section text-white rounded-2xl shadow-2xl p-8 mt-12 text-center">
+            <div class="text-5xl mb-6">🚀</div>
+            <h2 class="text-3xl font-bold mb-4">Ready to Fix Your Growth Problems?</h2>
+            <p class="text-xl mb-6 opacity-90">
+                You've identified what's holding you back. Now let's create a custom plan to fix it.
+            </p>
+            <p class="text-lg mb-8 opacity-80">
+                Book a free strategy call and we'll show you exactly how to implement these solutions without doing all the work yourself.
+            </p>
+            <a href="https://link.slkmediaagency.com/strmeet" target="_blank" rel="noopener" class="inline-block bg-white text-purple-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 pulse-effect">
+                Book Your Free Strategy Call <i class="fas fa-calendar-alt ml-2"></i>
+            </a>
+            <p class="text-sm mt-4 opacity-70">
+                ⚠️ Limited spots available - We only work with 3 new podcasters per month
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-gray-600">
+            <p class="text-sm">
+                Created by SLK Media Agency • Helping podcasters multiply their reach and revenue
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let answers = {};
+        let userProfile = {};
+
+        function startDiagnosis() {
+            document.getElementById('start-screen').style.display = 'none';
+            showQuestion(1);
+        }
+
+        function showQuestion(questionNum) {
+            // Hide all questions
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Show current question
+            const currentCard = document.querySelector(`[data-question="${questionNum}"]`);
+            if (currentCard) {
+                currentCard.classList.add('active');
+                currentQuestion = questionNum;
+                updateProgress();
+            }
+        }
+
+        function selectAnswer(questionNum, answer) {
+            answers[questionNum] = answer;
+            
+            // Add visual feedback
+            event.target.style.backgroundColor = '#dbeafe';
+            event.target.style.borderColor = '#3b82f6';
+            
+            setTimeout(() => {
+                if (questionNum < 10) {
+                    showQuestion(questionNum + 1);
+                } else {
+                    calculateResult();
+                }
+            }, 500);
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / 10) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = currentQuestion;
+        }
+
+        function calculateResult() {
+            // Hide questions
+            document.getElementById('questions-container').style.display = 'none';
+            
+            // Analyze answers to determine user type
+            let timeStressed = 0;
+            let engagementIssues = 0;
+            let strategyProblems = 0;
+            let scalingReady = 0;
+
+            // Scoring logic
+            if (answers[3] === 'overwhelmed') timeStressed += 3;
+            if (answers[5] === 'time-starved') timeStressed += 3;
+            if (answers[6] === 'diy-struggle') timeStressed += 2;
+            if (answers[10] === 'hands-off') timeStressed += 2;
+
+            if (answers[1] === 'low-downloads') engagementIssues += 3;
+            if (answers[2] === 'no-clips' || answers[2] === 'random-clips') engagementIssues += 2;
+            if (answers[5] === 'low-engagement') engagementIssues += 3;
+            if (answers[9] === 'no-follow-up') engagementIssues += 2;
+
+            if (answers[4] === 'one-platform') strategyProblems += 2;
+            if (answers[5] === 'no-strategy') strategyProblems += 3;
+            if (answers[7] === 'authority' && answers[1] === 'low-downloads') strategyProblems += 2;
+
+            if (answers[1] === 'good-downloads') scalingReady += 2;
+            if (answers[2] === 'regular-clips') scalingReady += 2;
+            if (answers[8] === 'veteran') scalingReady += 1;
+            if (answers[9] === 'strong-funnel') scalingReady += 2;
+
+            // Determine primary result
+            let resultType = 'scattered'; // default
+            
+            if (timeStressed >= 6) {
+                resultType = 'time-starved';
+            } else if (engagementIssues >= 6) {
+                resultType = 'low-engagement';
+            } else if (scalingReady >= 5) {
+                resultType = 'scaling';
+            }
+
+            showResult(resultType);
+        }
+
+        function showResult(resultType) {
+            // Show results container
+            document.getElementById('results-container').style.display = 'block';
+            
+            // Show specific result
+            const resultCard = document.querySelector(`[data-result="${resultType}"]`);
+            if (resultCard) {
+                resultCard.classList.add('show');
+            }
+
+            // Update progress to 100%
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('progress-text').textContent = '10';
+
+            // Scroll to results
+            setTimeout(() => {
+                resultCard.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
+    </script>
+</body>
+</html>

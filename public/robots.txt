@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block internal/funnel pages and documentation from indexing
+Disallow: /pre-call
+Disallow: /pre-call.html
+Disallow: /*.md$
+
+Sitemap: https://slkmediaagency.com/sitemap.xml

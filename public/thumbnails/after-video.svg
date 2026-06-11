@@ -1,0 +1,90 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgAfter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3ba7e7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a96d6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qualityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" rx="8" fill="url(#bgAfter)"/>
+  
+  <!-- Professional Quality Indicators -->
+  <g opacity="0.9">
+    <!-- Clean, professional bars -->
+    <rect x="20" y="30" width="260" height="4" rx="2" fill="url(#successGrad)" opacity="0.8"/>
+    <rect x="20" y="40" width="240" height="3" rx="1.5" fill="url(#successGrad)" opacity="0.6"/>
+    <rect x="20" y="50" width="220" height="3" rx="1.5" fill="url(#successGrad)" opacity="0.4"/>
+  </g>
+  
+  <!-- Perfect Waveform -->
+  <g opacity="0.8">
+    <rect x="30" y="80" width="3" height="20" fill="url(#successGrad)"/>
+    <rect x="37" y="75" width="3" height="30" fill="url(#successGrad)"/>
+    <rect x="44" y="85" width="3" height="10" fill="url(#successGrad)"/>
+    <rect x="51" y="70" width="3" height="40" fill="url(#successGrad)"/>
+    <rect x="58" y="80" width="3" height="20" fill="url(#successGrad)"/>
+    <rect x="65" y="65" width="3" height="50" fill="url(#successGrad)"/>
+    <rect x="72" y="75" width="3" height="30" fill="url(#successGrad)"/>
+    <rect x="79" y="85" width="3" height="10" fill="url(#successGrad)"/>
+    <rect x="86" y="70" width="3" height="40" fill="url(#successGrad)"/>
+    <rect x="93" y="80" width="3" height="20" fill="url(#successGrad)"/>
+    <rect x="100" y="75" width="3" height="30" fill="url(#successGrad)"/>
+    <rect x="107" y="65" width="3" height="50" fill="url(#successGrad)"/>
+  </g>
+  
+  <!-- Quality/Success Icons -->
+  <g opacity="0.9">
+    <circle cx="250" cy="50" r="12" fill="url(#qualityGrad)"/>
+    <path d="M245 50 L248 53 L255 46" stroke="white" stroke-width="2" fill="none"/>
+    
+    <circle cx="220" cy="70" r="8" fill="url(#successGrad)"/>
+    <path d="M216 70 L219 73 L224 68" stroke="white" stroke-width="1.5" fill="none"/>
+  </g>
+  
+  <!-- Professional Content Overlay -->
+  <rect x="50" y="120" width="200" height="60" rx="6" fill="#1a1a2e" opacity="0.9"/>
+  <rect x="60" y="135" width="100" height="4" rx="2" fill="url(#successGrad)" opacity="0.8"/>
+  <rect x="60" y="145" width="140" height="3" rx="1.5" fill="#ffffff" opacity="0.8"/>
+  <rect x="60" y="155" width="120" height="3" rx="1.5" fill="#ffffff" opacity="0.7"/>
+  <rect x="60" y="165" width="110" height="3" rx="1.5" fill="#ffffff" opacity="0.6"/>
+  
+  <!-- Engagement Metrics -->
+  <g opacity="0.7">
+    <rect x="180" y="135" width="30" height="15" rx="3" fill="url(#successGrad)" opacity="0.6"/>
+    <rect x="185" y="140" width="8" height="2" rx="1" fill="white"/>
+    <rect x="185" y="145" width="12" height="2" rx="1" fill="white"/>
+    
+    <rect x="220" y="135" width="30" height="15" rx="3" fill="url(#qualityGrad)" opacity="0.6"/>
+    <rect x="225" y="140" width="10" height="2" rx="1" fill="white"/>
+    <rect x="225" y="145" width="15" height="2" rx="1" fill="white"/>
+  </g>
+  
+  <!-- Professional Glow Effect -->
+  <circle cx="150" cy="100" r="25" fill="none" stroke="url(#successGrad)" stroke-width="1" opacity="0.3"/>
+  <circle cx="150" cy="100" r="35" fill="none" stroke="url(#successGrad)" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Play Button (Professional) -->
+  <circle cx="150" cy="100" r="20" fill="url(#successGrad)" opacity="0.9"/>
+  <polygon points="145,95 145,105 155,100" fill="white"/>
+  
+  <!-- Quality Indicators -->
+  <g opacity="0.6">
+    <rect x="10" y="180" width="40" height="8" rx="4" fill="url(#successGrad)"/>
+    <rect x="12" y="182" width="12" height="4" rx="2" fill="white"/>
+    
+    <rect x="60" y="180" width="40" height="8" rx="4" fill="url(#qualityGrad)"/>
+    <rect x="62" y="182" width="15" height="4" rx="2" fill="white"/>
+    
+    <rect x="110" y="180" width="40" height="8" rx="4" fill="#f39c12"/>
+    <rect x="112" y="182" width="18" height="4" rx="2" fill="white"/>
+  </g>
+</svg>

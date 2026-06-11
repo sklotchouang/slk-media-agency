@@ -1,0 +1,22 @@
+# dependencies
+/node_modules
+
+# next.js build output
+/.next
+/out
+
+# misc
+.DS_Store
+*.log
+
+# local env files
+.env*
+
+# original static site kept as a local reference only
+/legacy-site
+
+# vercel
+.vercel
+
+# local tool settings
+.claude/

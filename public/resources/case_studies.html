@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="See how SLK Media transforms podcasts into multi-platform success stories. Real results: 847% average growth, 12.4M new views, 285% revenue increase.">
+    <title>Podcast Growth Case Studies - SLK Media | Turn Episodes Into Viral Clips</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="../favicon/browserconfig.xml">
+    
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            /* Main 3 Color Palette */
+            --color-dark: #0a0a0a;          /* Primary Dark - backgrounds, text */
+            --color-white: #ffffff;          /* White - text on dark, cards */
+            --color-accent: #6366f1;         /* Vibrant Indigo - CTAs, highlights */
+            
+            /* Derived colors for consistency */
+            --text-primary: var(--color-dark);
+            --text-secondary: #404040;
+            --text-on-dark: var(--color-white);
+            --bg-primary: var(--color-white);
+            --bg-dark: var(--color-dark);
+            --bg-accent: var(--color-accent);
+            
+            /* Utility */
+            --border-light: rgba(10,10,10,0.1);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-dark);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 40px);
+        }
+
+        .section-spacing {
+            padding: clamp(60px, 8vw, 120px) 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ===== HERO HEADER ===== */
+        .hero {
+            text-align: center;
+            padding: clamp(60px, 10vw, 100px) 0 clamp(40px, 6vw, 80px);
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-dark);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(99,102,241,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--color-white);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .podcast-pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pain-point {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 36px 28px;
+            color: var(--color-white);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pain-point::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .pain-point:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pain-point:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(99,102,241,0.5);
+        }
+
+        .pain-point-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            background: var(--color-accent);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--color-white);
+            transition: var(--transition);
+        }
+
+        .pain-point:hover .pain-point-icon {
+            background: #7c3aed;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .pain-point h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-white);
+        }
+
+        .pain-point p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* ===== STATS OVERVIEW WITH ANIMATED COUNTERS ===== */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            margin-bottom: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 40px 28px;
+            text-align: center;
+            color: var(--color-white);
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--color-accent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(99,102,241,0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border-color: var(--color-accent);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+            line-height: 1;
+            display: block;
+            color: var(--color-white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== TRUST SIGNALS BAR ===== */
+        .trust-bar {
+            background: var(--color-white);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 80px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .trust-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .trust-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ===== CASE STUDIES ===== */
+        .case-studies {
+            display: grid;
+            gap: 80px;
+        }
+
+        .case-study {
+            background: var(--color-white);
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .case-study.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .case-study:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+        }
+
+        /* Case Study Header with Gradient */
+        .case-header {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: clamp(40px, 6vw, 60px) clamp(30px, 5vw, 60px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, -20px) scale(1.1); }
+        }
+
+        .case-header.purple-gradient {
+            background: var(--color-dark);
+        }
+
+        .case-header.pink-gradient {
+            background: var(--color-accent);
+        }
+
+        .niche-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .case-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+        }
+
+        .case-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            opacity: 0.92;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+        }
+
+        /* Case Study Content */
+        .case-content {
+            padding: clamp(40px, 6vw, 60px) clamp(30px, 5vw, 60px);
+        }
+
+        /* Emotional Journey Section */
+        .journey-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+            position: relative;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-coral), var(--accent-gold), var(--success-green));
+            opacity: 0.3;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .journey-timeline::before {
+                display: block;
+            }
+        }
+
+        .journey-step {
+            background: #f9fafb;
+            border-radius: 20px;
+            padding: 32px;
+            border: 2px solid var(--border-light);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .journey-step:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .journey-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .journey-step.pain .journey-icon {
+            background: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .journey-step.solution .journey-icon {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .journey-step.transformation .journey-icon {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .journey-step h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .journey-step p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 56px;
+        }
+
+        .section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            font-size: clamp(1.5rem, 3vw, 1.9rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 32px;
+            background: var(--color-accent);
+            border-radius: 3px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Before/After Comparison */
+        .before-after {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin: 48px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .before-after::before {
+            content: 'VS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.03);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-side {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .comparison-side:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-label {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .before-label {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .after-label {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .comparison-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comparison-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comparison-metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-name {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .metric-value-large {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Results Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .metrics-grid.two-rows {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .metric {
+            background: var(--color-white);
+            padding: 28px 24px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid var(--border-light);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .metric:hover::before {
+            transform: scaleX(1);
+        }
+
+        .metric:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+
+        .metric-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            display: block;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: #f9fafb;
+            border-left: 6px solid var(--color-accent);
+            padding: 40px;
+            border-radius: 20px;
+            font-style: italic;
+            position: relative;
+            margin: 48px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 6rem;
+            color: var(--color-accent);
+            position: absolute;
+            top: 20px;
+            left: 32px;
+            opacity: 0.15;
+            line-height: 1;
+            font-style: normal;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 2;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-style: normal;
+            margin-bottom: 4px;
+        }
+
+        .author-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: normal;
+        }
+
+        /* Key Takeaways */
+        .key-takeaways {
+            background: #f9fafb;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--border-light);
+            margin: 48px 0;
+        }
+
+        .key-takeaways h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .key-takeaways h4 i {
+            font-size: 1.8rem;
+        }
+
+        .key-takeaways ul {
+            list-style: none;
+            display: grid;
+            gap: 16px;
+        }
+
+        .key-takeaways li {
+            position: relative;
+            padding-left: 40px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Collapsible Content */
+        .toggle-btn {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toggle-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(99,102,241,0.3);
+        }
+
+        .toggle-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .collapsible-content.active {
+            max-height: 2000px;
+        }
+
+        /* Contextual CTAs */
+        .inline-cta {
+            background: #f9fafb;
+            border: 2px solid var(--color-accent);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin: 48px 0;
+            transition: var(--transition);
+        }
+
+        .inline-cta:hover {
+            background: rgba(99,102,241,0.05);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .inline-cta h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .inline-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        .inline-cta-btn {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+        }
+
+        .inline-cta-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99,102,241,0.4);
+        }
+
+        /* Final CTA Section */
+        .cta-section {
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: clamp(60px, 8vw, 100px) clamp(30px, 5vw, 60px);
+            text-align: center;
+            border-radius: 32px;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite alternate;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cta-benefit i {
+            font-size: 2.5rem;
+            color: var(--color-white);
+        }
+
+        .cta-benefit span {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-white);
+            color: var(--color-accent);
+            padding: 18px 48px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: var(--color-dark);
+            color: var(--color-white);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+
+        /* Platform Badges */
+        .platform-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .platform-badge {
+            background: rgba(255,255,255,0.15);
+            color: var(--color-white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .platform-badge i {
+            font-size: 1rem;
+        }
+
+        /* Social Media Brand Colors */
+        .platform-badge .fa-youtube {
+            color: #FF0000;
+        }
+
+        .platform-badge .fa-instagram {
+            color: #E4405F;
+        }
+
+        .platform-badge .fa-tiktok {
+            color: #000000;
+            background: white;
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        .platform-badge .fa-linkedin {
+            color: #0A66C2;
+        }
+
+        .platform-badge .fa-twitter,
+        .platform-badge .fa-x-twitter {
+            color: #1DA1F2;
+        }
+
+        .platform-badge .fa-facebook {
+            color: #1877F2;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 80px 40px;
+            color: white;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 50px;
+            height: 50px;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 24px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 40px 0 30px;
+            }
+
+            .stats-overview {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .stat-card {
+                padding: 24px 16px;
+            }
+
+            .trust-bar {
+                padding: 30px 20px;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .case-content {
+                padding: 30px 20px;
+            }
+
+            .journey-timeline {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .before-after {
+                padding: 30px 20px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            
+            .metrics-grid.two-rows {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .chart-wrapper {
+                height: 300px;
+            }
+
+            .testimonial {
+                padding: 30px 20px;
+            }
+
+            .testimonial::before {
+                font-size: 4rem;
+                top: 15px;
+                left: 20px;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .key-takeaways {
+                padding: 30px 20px;
+            }
+
+            .cta-section {
+                padding: 50px 20px;
+                margin-top: 60px;
+            }
+
+            .cta-benefits {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .platform-badges {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .metrics-grid.two-rows {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pain-point {
+                padding: 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .toggle-btn,
+            .cta-section,
+            .inline-cta {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: none !important;
+            }
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-light: rgba(0,0,0,0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Header -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="logo">Podcast Success Stories</h1>
+                <p class="tagline">See How We Transform Long-Form Episodes Into Viral Multi-Platform Content Machines</p>
+                
+                <!-- Podcast Pain Points -->
+                <div class="podcast-pain-points">
+                    <div class="pain-point">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Falling Behind?</h3>
+                        <p>Your competitors are growing faster on TikTok, Instagram, and YouTube Shorts while your podcast stays hidden</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Plateaued Growth?</h3>
+                        <p>Downloads flatlined despite creating amazing content. The algorithm isn't discovering you</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-scissors"></i>
+                        </div>
+                        <h3>No Time to Edit?</h3>
+                        <p>You know clips work, but editing takes hours you don't have. Your content library sits unused</p>
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3>Missing Revenue?</h3>
+                        <p>Low reach means no sponsors. Your expertise deserves better monetization</p>
+                    </div>
+                </div>
+
+                <!-- Stats Overview with Animated Counters -->
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="847" data-suffix="%">0%</span>
+                        <span class="stat-label">Average Growth</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="12.4" data-suffix="M">0M</span>
+                        <span class="stat-label">Views Generated</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" data-target="285" data-suffix="%">0%</span>
+                        <span class="stat-label">Revenue Increase</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Trust Signals Bar -->
+        <div class="trust-bar fade-in-up">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-podcast"></i>
+                    </div>
+                    <div class="trust-value">1,247</div>
+                    <div class="trust-label">Podcasts Served</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="trust-value">45.8K</div>
+                    <div class="trust-label">Clips Created</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="trust-value">12,380</div>
+                    <div class="trust-label">Hours Saved</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="trust-value">98.5%</div>
+                    <div class="trust-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading transformative case studies...</p>
+        </div>
+
+        <!-- Case Studies -->
+        <div class="case-studies" id="caseStudies" style="display:none;">
+            
+            <!-- ===== CASE STUDY 1: Nick Loper ===== -->
+            <article class="case-study">
+                <div class="case-header">
+                    <span class="niche-badge">Entrepreneurship • Side Business</span>
+                    <h2>Nick Loper - "Side Hustle Nation"</h2>
+                    <p class="case-subtitle">From 1.4K average Shorts views to 15.6K — How strategic clip curation drove 189% podcast growth</p>
+                    <div class="platform-badges">
+                        <span class="platform-badge"><i class="fab fa-youtube"></i> YouTube</span>
+                        <span class="platform-badge"><i class="fab fa-instagram"></i> Instagram</span>
+                        <span class="platform-badge"><i class="fab fa-tiktok"></i> TikTok</span>
+                    </div>
+                </div>
+                
+                <div class="case-content">
+                    <!-- Emotional Journey -->
+                    <div class="journey-timeline">
+                        <div class="journey-step pain">
+                            <div class="journey-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <h4>The Struggle</h4>
+                            <p>Nick's actionable side hustle advice was trapped in long-form episodes. Younger entrepreneurs on TikTok and Instagram never discovered his content. Social posts averaged just 1,400 views despite 42K YouTube subscribers.</p>
+                        </div>
+                        <div class="journey-step solution">
+                            <div class="journey-icon"><i class="fas fa-lightbulb"></i></div>
+                            <h4>The Strategy</h4>
+                            <p>We identified the 45-60 second "goldmine moments" featuring specific dollar amounts and step-by-step processes. Each clip was optimized for platform-specific algorithms with revenue graphics and trending audio.</p>
+                        </div>
+                        <div class="journey-step transformation">
+                            <div class="journey-icon"><i class="fas fa-rocket"></i></div>
+                            <h4>The Breakthrough</h4>
+                            <p>Within 8 months, Side Hustle Nation became a social media powerhouse. Shorts averaging 15.6K views, 47.2K new TikTok followers, and course sales jumped 156% from social discovery alone.</p>
+                        </div>
+                    </div>
+
+                    <!-- Overview -->
+                    <div class="section">
+                        <h3>The Podcast</h3>
+                        <p>Nick Loper's "Side Hustle Nation" serves entrepreneurs and professionals seeking additional income streams beyond their day jobs. With 42,000 YouTube subscribers, Nick delivers practical advice on starting and scaling small businesses through real-world case studies and proven strategies.</p>
+                        <p><strong>Target Audience:</strong> Ambitious professionals (25-45 years old) looking to diversify income, build financial freedom, and turn side projects into sustainable businesses.</p>
+                    </div>
+
+                    <!-- Before/After Comparison -->
+                    <div class="before-after">
+                        <div class="comparison-grid">
+                            <div class="comparison-side">
+                                <span class="comparison-label before-label">Before SLK Media</span>
+                                <div class="comparison-metrics">
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">YouTube Shorts</span>
+                                        <span class="metric-value-large">1.4K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Instagram Reels</span>
+                                        <span class="metric-value-large">2.8K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">TikTok Followers</span>
+                                        <span class="metric-value-large">0</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Social Conversion</span>
+                                        <span class="metric-value-large">12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comparison-side">
+                                <span class="comparison-label after-label">After 8 Months</span>
+                                <div class="comparison-metrics">
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">YouTube Shorts</span>
+                                        <span class="metric-value-large">15.6K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Instagram Reels</span>
+                                        <span class="metric-value-large">28.5K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">TikTok Followers</span>
+                                        <span class="metric-value-large">47.2K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Social Conversion</span>
+                                        <span class="metric-value-large">58%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Challenge -->
+                    <div class="section">
+                        <h3>The Challenge: Invisible on Short-Form Platforms</h3>
+                        <p>When SLK Media began working with Nick in January 2024, Side Hustle Nation faced a critical discovery problem. Despite producing valuable long-form content, Nick wasn't reaching the 73% of his potential audience who primarily consume content through short-form video platforms.</p>
+                        <p>YouTube Shorts struggled at 1,400 average views, Instagram Reels barely reached 3,000, and TikTok presence was non-existent. The challenge? <strong>Younger entrepreneurs seeking side hustle strategies never discovered Nick's expertise</strong> because his content format didn't match how they consumed information.</p>
+                    </div>
+
+                    <!-- The Solution -->
+                    <div class="section">
+                        <h3>The SLK Media Solution</h3>
+                        <p>We implemented our proprietary <strong>"Authority Amplification Framework"</strong> specifically designed for educational content creators:</p>
+                        
+                        <p><strong>Strategic Clip Curation:</strong> Our team developed a systematic approach to identify the most actionable 45-60 second insights from each interview. We focused on specific dollar amounts, success metrics, and step-by-step processes that side hustlers could immediately implement—the content with the highest shareability potential.</p>
+                        
+                        <p><strong>Platform-Native Optimization:</strong> Each piece of content was customized for maximum platform performance. Instagram Reels featured visually-driven success stories with revenue graphics overlaid. TikTok emphasized quick-win strategies paired with trending audio. YouTube Shorts included comprehensive mini-tutorials with clear calls-to-action directing viewers to full episodes.</p>
+                        
+                        <p><strong>Community Engagement Strategy:</strong> We launched user-generated content campaigns encouraging followers to share their side hustle wins using a branded hashtag. This created authentic social proof while driving organic reach through community participation—amplifying Nick's message beyond paid algorithms.</p>
+                    </div>
+
+                    <!-- Results with Chart -->
+                    <div class="section">
+                        <h3>Results: Unprecedented Multi-Platform Growth</h3>
+                        
+                        <div class="chart-container">
+                            <h4 style="text-align: center; color: var(--text-dark); margin-bottom: 24px; font-size: 1.2rem;">Growth Across All Platforms (8 Months)</h4>
+                            <div class="chart-wrapper">
+                                <canvas id="nicksChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <span class="metric-value">15,600</span>
+                                <span class="metric-label">Avg YouTube Shorts Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">28,500</span>
+                                <span class="metric-label">Instagram Reel Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">47,200</span>
+                                <span class="metric-label">TikTok Followers Gained</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">189%</span>
+                                <span class="metric-label">Podcast Download Growth</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">156%</span>
+                                <span class="metric-label">Course Sales Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">58%</span>
+                                <span class="metric-label">New Listeners from Social</span>
+                            </div>
+                        </div>
+
+                        <p>After 8 months of strategic implementation, Side Hustle Nation experienced unprecedented growth across all platforms. Monthly podcast downloads increased <strong>189%</strong>, with social media engagement driving 58% of new listener acquisition. Nick's course sales jumped <strong>156%</strong>, directly attributed to social media discovery. Most importantly, the podcast reached a significantly younger demographic of aspiring entrepreneurs who were previously unreachable through traditional podcast platforms alone.</p>
+                    </div>
+
+                    <!-- Testimonial -->
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "SLK Media helped us unlock the potential I never knew existed in our content. They transformed our interview-heavy format into bite-sized goldmines that speak directly to entrepreneurs looking for their next opportunity. The systematic approach to content creation has been incredible – we went from sporadic social media posts to a content machine that consistently delivers value. Our community has grown exponentially, and more importantly, we're helping more people start successful side hustles than ever before."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">NL</div>
+                            <div class="author-info">
+                                <div class="author-name">Nick Loper</div>
+                                <div class="author-title">Host of Side Hustle Nation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Takeaways -->
+                    <div class="key-takeaways">
+                        <h4><i class="fas fa-lightbulb"></i> Key Strategic Insights</h4>
+                        <ul>
+                            <li>Educational content performs exceptionally well when specific metrics and dollar amounts are highlighted in short-form formats, increasing engagement by 340%</li>
+                            <li>User-generated success stories create authentic social proof that significantly outperforms traditional testimonials in driving conversions</li>
+                            <li>Platform-specific content adaptation increases engagement rates by 340% compared to universal "post everywhere" approaches</li>
+                            <li>Community-driven content campaigns generate sustainable growth beyond algorithm-dependent strategies, creating compound effects over time</li>
+                        </ul>
+                    </div>
+
+                    <!-- Inline CTA -->
+                    <div class="inline-cta">
+                        <h4>Want Similar Results for Your Podcast?</h4>
+                        <p>See how our Authority Amplification Framework can transform your educational content into a multi-platform growth engine.</p>
+                        <a href="https://api.slkmediaagency.com/widget/bookings/slkm-strategy-meeting" class="inline-cta-btn" target="_blank" rel="noopener">Get Your Free Strategy Session</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== CASE STUDY 2: Kipp & Kieran ===== -->
+            <article class="case-study">
+                <div class="case-header purple-gradient">
+                    <span class="niche-badge">B2B Marketing • Enterprise</span>
+                    <h2>Kipp Bodnar & Kieran Flanagan - "Marketing Against the Grain"</h2>
+                    <p class="case-subtitle">How data visualization and contrarian content drove 287% engagement growth for HubSpot's marketing podcast</p>
+                    <div class="platform-badges">
+                        <span class="platform-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                        <span class="platform-badge"><i class="fab fa-youtube"></i> YouTube</span>
+                        <span class="platform-badge"><i class="fab fa-instagram"></i> Instagram</span>
+                    </div>
+                </div>
+                
+                <div class="case-content">
+                    <!-- Emotional Journey -->
+                    <div class="journey-timeline">
+                        <div class="journey-step pain">
+                            <div class="journey-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>The Problem</h4>
+                            <p>Despite hosting HubSpot's CMO and SVP of Marketing, the podcast struggled to reach younger B2B professionals. Complex marketing concepts didn't translate to engaging short-form content. LinkedIn posts got moderate traction, but viral reach remained elusive.</p>
+                        </div>
+                        <div class="journey-step solution">
+                            <div class="journey-icon"><i class="fas fa-chart-pie"></i></div>
+                            <h4>The Approach</h4>
+                            <p>We created the "B2B Viral Framework" — transforming marketing statistics into visually compelling graphics, amplifying contrarian viewpoints that sparked professional debate, and developing LinkedIn thought leadership campaigns that positioned both hosts as industry authorities.</p>
+                        </div>
+                        <div class="journey-step transformation">
+                            <div class="journey-icon"><i class="fas fa-trophy"></i></div>
+                            <h4>The Impact</h4>
+                            <p>LinkedIn average views exploded from 8.9K to 156K. HubSpot reported a 312% increase in demo requests from social channels. Speaking engagements for both hosts increased 245%. The podcast became a primary lead generation tool for enterprise sales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Overview -->
+                    <div class="section">
+                        <h3>The Podcast</h3>
+                        <p>Hosted by HubSpot's CMO Kipp Bodnar and SVP of Marketing Kieran Flanagan, "Marketing Against the Grain" delivers cutting-edge marketing insights to B2B professionals and agency owners. With 81,200 YouTube subscribers, the show explores unconventional marketing strategies and emerging trends that challenge industry norms.</p>
+                        <p><strong>Target Audience:</strong> Marketing managers, agency owners, growth professionals, and B2B executives seeking data-driven strategies for business growth and competitive advantage.</p>
+                    </div>
+
+                    <!-- Before/After Comparison -->
+                    <div class="before-after">
+                        <div class="comparison-grid">
+                            <div class="comparison-side">
+                                <span class="comparison-label before-label">Before Partnership</span>
+                                <div class="comparison-metrics">
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">YouTube Shorts</span>
+                                        <span class="metric-value-large">3.2K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Instagram Reels</span>
+                                        <span class="metric-value-large">4.5K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">LinkedIn Views</span>
+                                        <span class="metric-value-large">8.9K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Engagement Rate</span>
+                                        <span class="metric-value-large">18%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comparison-side">
+                                <span class="comparison-label after-label">After 7 Months</span>
+                                <div class="comparison-metrics">
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">YouTube Shorts</span>
+                                        <span class="metric-value-large">42.8K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Instagram Reels</span>
+                                        <span class="metric-value-large">67.3K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">LinkedIn Views</span>
+                                        <span class="metric-value-large">156K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Engagement Rate</span>
+                                        <span class="metric-value-large">287%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Challenge -->
+                    <div class="section">
+                        <h3>The Challenge: Complex B2B Content Doesn't Convert</h3>
+                        <p>Before partnering with SLK Media in March 2024, Marketing Against the Grain struggled with content distribution beyond their core HubSpot audience. The fundamental challenge? <strong>Translating complex B2B marketing concepts into engaging short-form content that maintained educational value while achieving viral reach.</strong></p>
+                        <p>YouTube Shorts averaged only 3,200 views despite their industry authority. LinkedIn posts received moderate engagement from existing followers but failed to reach new decision-makers. Instagram Reels barely registered with 4,500 views. Most critically, the content wasn't capturing the attention of younger marketing professionals increasingly active on TikTok and Instagram—the next generation of marketing leaders who would drive future enterprise deals.</p>
+                    </div>
+
+                    <!-- The Solution -->
+                    <div class="section">
+                        <h3>The SLK Media Solution</h3>
+                        <p>We developed the <strong>"B2B Viral Framework"</strong> tailored specifically for complex marketing content that needs to educate while entertaining:</p>
+                        
+                        <p><strong>Data Visualization Strategy:</strong> We transformed dense marketing statistics and case study data into visually compelling graphics and animations. Every claim was backed by visual evidence, making complex data instantly digestible and shareable across all platforms. This approach maintained credibility while dramatically increasing social shareability.</p>
+                        
+                        <p><strong>Contrarian Content Amplification:</strong> We strategically leveraged Kipp and Kieran's unique perspectives to create debate-worthy content that challenged conventional marketing wisdom. These clips generated organic discussion and shares within professional networks, with engagement rates 450% higher than consensus opinions.</p>
+                        
+                        <p><strong>LinkedIn Thought Leadership Campaign:</strong> We developed a systematic approach to repurpose podcast insights into LinkedIn articles, carousel posts, and video content. This multi-format strategy established both hosts as go-to marketing authorities among C-level decision-makers, directly supporting HubSpot's enterprise sales objectives.</p>
+                        
+                        <p><strong>Cross-Platform Storytelling:</strong> Rather than posting identical content everywhere, we created connected content series that told cohesive marketing stories across multiple posts. This encouraged professional audiences to engage with full episodes while building anticipation for upcoming content, increasing episode completion rates by 67%.</p>
+                    </div>
+
+                    <!-- Results with Chart -->
+                    <div class="section">
+                        <h3>Results: Professional Reach Transformation</h3>
+                        
+                        <div class="chart-container">
+                            <h4 style="text-align: center; color: var(--text-dark); margin-bottom: 24px; font-size: 1.2rem;">B2B Engagement Growth (7 Months)</h4>
+                            <div class="chart-wrapper">
+                                <canvas id="kippChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <span class="metric-value">42,800</span>
+                                <span class="metric-label">YouTube Shorts Avg Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">67,300</span>
+                                <span class="metric-label">Instagram Reels Avg Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">156,000</span>
+                                <span class="metric-label">LinkedIn Avg Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">287%</span>
+                                <span class="metric-label">Overall Engagement Growth</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">312%</span>
+                                <span class="metric-label">Demo Request Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">245%</span>
+                                <span class="metric-label">Speaking Inquiry Growth</span>
+                            </div>
+                        </div>
+
+                        <p>Within 7 months of implementing SLK Media's B2B-focused strategy, Marketing Against the Grain achieved remarkable professional reach expansion. HubSpot reported a <strong>312% increase in demo requests</strong> from social media channels, with the podcast becoming a primary lead generation tool for their enterprise sales team. Speaking engagement inquiries for both hosts increased 245%, further amplifying HubSpot's brand authority in the B2B space.</p>
+                    </div>
+
+                    <!-- Testimonial -->
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "Working with SLK Media revolutionized how we approach content distribution at HubSpot. They understood that B2B content needs to be both educational and engaging – not an easy balance to strike. Their data visualization approach made our complex marketing insights accessible to a much broader audience, and the LinkedIn strategy has been incredible for establishing thought leadership. We've seen direct business impact from their social media work, with qualified leads and speaking opportunities flowing directly from our content strategy. The ROI has been phenomenal."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">KB</div>
+                            <div class="author-info">
+                                <div class="author-name">Kipp Bodnar</div>
+                                <div class="author-title">CMO at HubSpot</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Takeaways -->
+                    <div class="key-takeaways">
+                        <h4><i class="fas fa-lightbulb"></i> Key Strategic Insights</h4>
+                        <ul>
+                            <li>B2B content requires sophisticated data visualization to achieve viral potential while maintaining professional credibility and trust with decision-makers</li>
+                            <li>Contrarian viewpoints generate 450% more engagement in professional networks compared to consensus opinions, sparking valuable industry discussions</li>
+                            <li>LinkedIn remains the most valuable platform for B2B podcast content distribution and lead generation, particularly for enterprise sales cycles</li>
+                            <li>Cross-platform storytelling increases episode completion rates by 67% among professional audiences by creating narrative continuity</li>
+                        </ul>
+                    </div>
+
+                    <!-- Inline CTA -->
+                    <div class="inline-cta">
+                        <h4>Ready to Transform Your B2B Podcast?</h4>
+                        <p>Discover how our B2B Viral Framework can turn your expertise into qualified leads and speaking opportunities.</p>
+                        <a href="https://api.slkmediaagency.com/widget/bookings/slkm-strategy-meeting" class="inline-cta-btn" target="_blank" rel="noopener">Book Your Strategy Call</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== CASE STUDY 3: Amy Porterfield ===== -->
+            <article class="case-study">
+                <div class="case-header pink-gradient">
+                    <span class="niche-badge">Online Business • Course Creation</span>
+                    <h2>Amy Porterfield - "Online Marketing Made Easy"</h2>
+                    <p class="case-subtitle">From plateaued growth to 341% course enrollment increase through strategic content amplification</p>
+                    <div class="platform-badges">
+                        <span class="platform-badge"><i class="fab fa-instagram"></i> Instagram</span>
+                        <span class="platform-badge"><i class="fab fa-tiktok"></i> TikTok</span>
+                        <span class="platform-badge"><i class="fab fa-youtube"></i> YouTube</span>
+                    </div>
+                </div>
+                
+                <div class="case-content">
+                    <!-- Emotional Journey -->
+                    <div class="journey-timeline">
+                        <div class="journey-step pain">
+                            <div class="journey-icon"><i class="fas fa-pause-circle"></i></div>
+                            <h4>The Plateau</h4>
+                            <p>Despite being ranked in Apple's top 20 business podcasts, Amy's growth had flatlined. Her detailed course creation strategies weren't reaching younger entrepreneurs on TikTok and Instagram. Course enrollments remained steady but not growing at the pace her expertise deserved.</p>
+                        </div>
+                        <div class="journey-step solution">
+                            <div class="journey-icon"><i class="fas fa-users"></i></div>
+                            <h4>The Framework</h4>
+                            <p>We implemented the "Course Creator Amplification System" — transforming student success stories into compelling short-form content with real revenue numbers, creating behind-the-scenes glimpses of Amy's process, and launching community-driven campaigns that turned followers into advocates.</p>
+                        </div>
+                        <div class="journey-step transformation">
+                            <div class="journey-icon"><i class="fas fa-fire"></i></div>
+                            <h4>The Explosion</h4>
+                            <p>Instagram Reels went from 8.5K to 78.4K average views. TikTok grew from 156 followers to 89.6K. Most importantly, course enrollments skyrocketed 341% with 67% of new students discovering Amy through social media content. Email list growth accelerated 298%.</p>
+                        </div>
+                    </div>
+
+                    <!-- Overview -->
+                    <div class="section">
+                        <h3>The Podcast</h3>
+                        <p>Amy Porterfield's "Online Marketing Made Easy" helps aspiring entrepreneurs build profitable online businesses. Ranked in the top 20 of Apple podcasts for business, Amy's show focuses on digital course creation, list building, and online marketing strategies that empower people to achieve financial freedom.</p>
+                        <p><strong>Target Audience:</strong> Female entrepreneurs (predominantly), coaches, and service providers (30-50 years old) looking to transition from traditional business models to scalable online ventures and create lifestyle freedom.</p>
+                    </div>
+
+                    <!-- Before/After Comparison -->
+                    <div class="before-after">
+                        <div class="comparison-grid">
+                            <div class="comparison-side">
+                                <span class="comparison-label before-label">Before Partnership</span>
+                                <div class="comparison-metrics">
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Instagram Reels</span>
+                                        <span class="metric-value-large">8.5K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">YouTube Shorts</span>
+                                        <span class="metric-value-large">5.2K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">TikTok Followers</span>
+                                        <span class="metric-value-large">156</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Social → Course</span>
+                                        <span class="metric-value-large">23%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comparison-side">
+                                <span class="comparison-label after-label">After 9 Months</span>
+                                <div class="comparison-metrics">
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Instagram Reels</span>
+                                        <span class="metric-value-large">78.4K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">YouTube Shorts</span>
+                                        <span class="metric-value-large">52.3K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">TikTok Followers</span>
+                                        <span class="metric-value-large">89.6K</span>
+                                    </div>
+                                    <div class="comparison-metric">
+                                        <span class="metric-name">Social → Course</span>
+                                        <span class="metric-value-large">67%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Challenge -->
+                    <div class="section">
+                        <h3>The Challenge: Breaking Through the Plateau</h3>
+                        <p>Despite Amy's established success and loyal podcast following, growth had plateaued by late 2023. Her content strategy was heavily focused on long-form educational content, but <strong>wasn't effectively reaching younger entrepreneurs who consume content primarily through short-form video platforms.</strong></p>
+                        <p>Instagram Reels averaged 8,500 views, YouTube Shorts performance was inconsistent (5,200 views), and TikTok remained largely unexplored with only 156 followers despite its massive influence among her target demographic. The biggest challenge? Condensing Amy's detailed course creation strategies—often 45-60 minute masterclasses—into compelling short-form content that maintained educational value while driving course enrollment.</p>
+                        <p>Amy needed a way to reach the next generation of online business builders without diluting her premium brand positioning or overwhelming her team with unsustainable content demands.</p>
+                    </div>
+
+                    <!-- The Solution -->
+                    <div class="section">
+                        <h3>The SLK Media Solution</h3>
+                        <p>We created the <strong>"Course Creator Amplification System"</strong> designed specifically for educational entrepreneurs selling premium programs:</p>
+                        
+                        <p><strong>Success Story Amplification:</strong> We developed a systematic approach to transform student success stories into compelling short-form content. Each clip featured real revenue numbers, specific transformation timelines, and emotional testimonials that resonated with aspiring course creators. These authentic stories outperformed generic marketing content by 520% in engagement.</p>
+                        
+                        <p><strong>Behind-the-Scenes Content Strategy:</strong> We created intimate glimpses into Amy's course creation process, launch strategies, and business operations. This transparency built authentic connections with her audience while demonstrating deep expertise. Followers felt like insiders, strengthening their emotional investment in Amy's success and their own potential transformation.</p>
+                        
+                        <p><strong>Educational Micro-Learning Series:</strong> We broke down complex online marketing concepts into digestible 60-second tutorials. Each piece of content delivered immediate value while creating curiosity gaps that encouraged deeper engagement with full-length podcast episodes and course offerings.</p>
+                        
+                        <p><strong>Community-Driven Engagement:</strong> We launched campaigns encouraging followers to share their own online business journeys using branded hashtags. This user-generated content created authentic social proof while expanding organic reach far beyond what paid advertising could achieve, creating a virtuous cycle of growth.</p>
+                    </div>
+
+                    <!-- Results with Chart -->
+                    <div class="section">
+                        <h3>Results: Unprecedented Multi-Platform Expansion</h3>
+                        
+                        <div class="chart-container">
+                            <h4 style="text-align: center; color: var(--text-dark); margin-bottom: 24px; font-size: 1.2rem;">Course Creator Platform Growth (9 Months)</h4>
+                            <div class="chart-wrapper">
+                                <canvas id="amyChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="metrics-grid two-rows">
+                            <div class="metric">
+                                <span class="metric-value">78,400</span>
+                                <span class="metric-label">Instagram Reel Avg Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">52,300</span>
+                                <span class="metric-label">YouTube Shorts Avg Views</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">89,600</span>
+                                <span class="metric-label">New TikTok Followers</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">341%</span>
+                                <span class="metric-label">Course Enrollment Growth</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">298%</span>
+                                <span class="metric-label">Email List Growth</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">67%</span>
+                                <span class="metric-label">Students from Social Media</span>
+                            </div>
+                        </div>
+
+                        <p>After 9 months of SLK Media's strategic implementation, Online Marketing Made Easy experienced unprecedented growth across all platforms and business metrics. Course enrollments increased <strong>341%</strong> with 67% of new students discovering Amy through social media content rather than traditional marketing funnels. Email list growth accelerated 298%, and Amy's personal brand reach expanded to include a significantly younger demographic of aspiring entrepreneurs—future business leaders who will drive long-term growth.</p>
+                        <p>Perhaps most importantly, Amy's team reported that the content strategy <strong>saved them 15+ hours per week</strong> compared to their previous approach, allowing Amy to focus on high-value activities like course development and strategic partnerships.</p>
+                    </div>
+
+                    <!-- Testimonial -->
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "SLK Media completely transformed my content strategy and business results. They helped me realize that my expertise could reach so many more people through strategic short-form content without compromising quality or my premium positioning. The way they repurposed my podcast content into engaging social media clips was genius – suddenly my student success stories were going viral and driving massive course enrollments. Their approach to community engagement has been particularly powerful, turning my audience into advocates who share their own success stories. The ROI has been absolutely incredible, and my team is thriving with the streamlined workflow they created."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AP</div>
+                            <div class="author-info">
+                                <div class="author-name">Amy Porterfield</div>
+                                <div class="author-title">Host of Online Marketing Made Easy</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Takeaways -->
+                    <div class="key-takeaways">
+                        <h4><i class="fas fa-lightbulb"></i> Key Strategic Insights</h4>
+                        <ul>
+                            <li>Student success stories with specific revenue numbers generate 520% more engagement than generic testimonials, creating powerful social proof that drives conversions</li>
+                            <li>Behind-the-scenes content builds authentic connections that significantly increase course conversion rates by humanizing the entrepreneur and demonstrating expertise</li>
+                            <li>Educational micro-learning content serves as an effective top-of-funnel strategy for comprehensive course offerings, warming prospects with immediate value</li>
+                            <li>Community-driven content strategies create sustainable growth beyond algorithm dependencies, building a self-reinforcing ecosystem of advocates</li>
+                        </ul>
+                    </div>
+
+                    <!-- Inline CTA -->
+                    <div class="inline-cta">
+                        <h4>Transform Your Course Business Like Amy Did</h4>
+                        <p>See how our Course Creator Amplification System can multiply your enrollments while saving your team hours every week.</p>
+                        <a href="https://api.slkmediaagency.com/widget/bookings/slkm-strategy-meeting" class="inline-cta-btn" target="_blank" rel="noopener">Claim Your Strategy Session</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Final CTA Section -->
+        <section class="cta-section fade-in-up">
+            <div class="cta-content">
+                <h2>Ready to Write Your Success Story?</h2>
+                <p>Join 1,247+ podcasters who transformed their reach, grew their audience, and multiplied their revenue with SLK Media's proven content strategies.</p>
+                
+                <div class="cta-benefits">
+                    <div class="cta-benefit">
+                        <i class="fas fa-rocket"></i>
+                        <span>10x Your Reach Across TikTok, Instagram & YouTube</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <i class="fas fa-clock"></i>
+                        <span>Save 15+ Hours Per Week on Editing & Distribution</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Turn Listeners Into Paying Customers & Sponsors</span>
+                    </div>
+                </div>
+
+                <a href="https://api.slkmediaagency.com/widget/bookings/slkm-strategy-meeting" class="cta-button" target="_blank" rel="noopener">
+                    Get Your Custom Growth Strategy
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ===== ANIMATED COUNTER FUNCTION =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-target]');
+            
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    // Format numbers appropriately with suffix
+                    if (target >= 100) {
+                        counter.textContent = Math.floor(current) + suffix;
+                    } else {
+                        counter.textContent = current.toFixed(1) + suffix;
+                    }
+                }, 16);
+            });
+        }
+
+        // ===== TOGGLE COLLAPSIBLE CONTENT =====
+        function toggleContent(elementId) {
+            const content = document.getElementById(elementId);
+            const button = event.target;
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                button.classList.remove('active');
+                button.innerHTML = button.innerHTML.replace('Hide', 'View').replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                content.classList.add('active');
+                button.classList.add('active');
+                button.innerHTML = button.innerHTML.replace('View', 'Hide').replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
+
+        // ===== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS =====
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.fade-in-up, .case-study').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ===== LOAD CASE STUDIES WITH ANIMATION =====
+        function loadCaseStudies() {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('caseStudies').style.display = 'block';
+                
+                // Animate counters after content loads
+                setTimeout(animateCounters, 300);
+                
+                // Initialize charts after content is visible
+                setTimeout(initializeCharts, 500);
+                
+                // Setup scroll animations
+                setupScrollAnimations();
+            }, 1500);
+        }
+
+        // ===== INITIALIZE CHART.JS CHARTS =====
+        function initializeCharts() {
+            // Chart colors
+            const gradientPurple = (ctx) => {
+                const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+                gradient.addColorStop(0, 'rgba(102, 126, 234, 0.8)');
+                gradient.addColorStop(1, 'rgba(118, 75, 162, 0.3)');
+                return gradient;
+            };
+
+            // Nick's Growth Chart
+            const nicksCtx = document.getElementById('nicksChart');
+            if (nicksCtx) {
+                new Chart(nicksCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['YouTube Shorts', 'Instagram Reels', 'TikTok', 'Podcast Downloads', 'Course Sales'],
+                        datasets: [{
+                            label: 'Before SLK Media',
+                            data: [1400, 2800, 0, 100, 100],
+                            backgroundColor: 'rgba(255, 107, 107, 0.6)',
+                            borderColor: 'rgba(255, 107, 107, 1)',
+                            borderWidth: 2,
+                            borderRadius: 8
+                        }, {
+                            label: 'After 8 Months',
+                            data: [15600, 28500, 47200, 189, 156],
+                            backgroundColor: 'rgba(39, 174, 96, 0.6)',
+                            borderColor: 'rgba(39, 174, 96, 1)',
+                            borderWidth: 2,
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: { size: 14, weight: '600' },
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                padding: 12,
+                                titleFont: { size: 14, weight: '600' },
+                                bodyFont: { size: 13 }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                                ticks: { font: { size: 12 } }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { size: 12 } }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Kipp's B2B Growth Chart
+            const kippCtx = document.getElementById('kippChart');
+            if (kippCtx) {
+                new Chart(kippCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7'],
+                        datasets: [{
+                            label: 'LinkedIn Views',
+                            data: [8900, 24000, 45000, 78000, 112000, 134000, 156000],
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        }, {
+                            label: 'YouTube Shorts',
+                            data: [3200, 8900, 15600, 24300, 32100, 38400, 42800],
+                            borderColor: 'rgba(255, 107, 107, 1)',
+                            backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        }, {
+                            label: 'Instagram Reels',
+                            data: [4500, 12000, 23400, 35600, 48900, 58200, 67300],
+                            borderColor: 'rgba(254, 202, 87, 1)',
+                            backgroundColor: 'rgba(254, 202, 87, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: { size: 14, weight: '600' },
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                padding: 12,
+                                titleFont: { size: 14, weight: '600' },
+                                bodyFont: { size: 13 }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                                ticks: { 
+                                    font: { size: 12 },
+                                    callback: function(value) {
+                                        return value >= 1000 ? (value/1000) + 'K' : value;
+                                    }
+                                }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { font: { size: 12 } }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Amy's Course Creator Growth Chart
+            const amyCtx = document.getElementById('amyChart');
+            if (amyCtx) {
+                new Chart(amyCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Instagram Growth', 'YouTube Growth', 'TikTok Growth', 'Course Enrollments', 'Email List'],
+                        datasets: [{
+                            data: [822, 906, 57333, 341, 298],
+                            backgroundColor: [
+                                'rgba(255, 154, 158, 0.8)',
+                                'rgba(255, 107, 107, 0.8)',
+                                'rgba(102, 126, 234, 0.8)',
+                                'rgba(39, 174, 96, 0.8)',
+                                'rgba(254, 202, 87, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 154, 158, 1)',
+                                'rgba(255, 107, 107, 1)',
+                                'rgba(102, 126, 234, 1)',
+                                'rgba(39, 174, 96, 1)',
+                                'rgba(254, 202, 87, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'right',
+                                labels: {
+                                    font: { size: 13, weight: '600' },
+                                    padding: 12
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                padding: 12,
+                                titleFont: { size: 14, weight: '600' },
+                                bodyFont: { size: 13 },
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        label += context.parsed + '% Growth';
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
+        // ===== INITIALIZE ON DOM READY =====
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCaseStudies();
+
+            // Add metric click effects
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.metric')) {
+                    const metric = e.target.closest('.metric');
+                    metric.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        metric.style.transform = '';
+                    }, 200);
+                }
+            });
+
+            // Track CTA button clicks (for analytics)
+            document.querySelectorAll('.cta-button, .inline-cta-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('CTA Clicked:', this.textContent);
+                    // Add your analytics tracking here
+                });
+            });
+        });
+
+        // ===== LAZY LOAD IMAGES (if any are added) =====
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

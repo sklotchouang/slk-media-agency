@@ -1,0 +1,59 @@
+<svg width="280" height="550" viewBox="0 0 280 550" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="280" height="550" rx="20" fill="#1a1a2e"/>
+  
+  <!-- Phone mockup -->
+  <rect x="40" y="80" width="200" height="360" rx="25" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <rect x="50" y="90" width="180" height="340" rx="20" fill="#000"/>
+  
+  <!-- Video content -->
+  <rect x="60" y="100" width="160" height="90" rx="8" fill="#2a2a2a"/>
+  <circle cx="140" cy="145" r="15" fill="#3ba7e7"/>
+  <polygon points="135,140 135,150 145,145" fill="white"/>
+  
+  <!-- Waveform bars -->
+  <rect x="70" y="230" width="3" height="40" fill="#3ba7e7"/>
+  <rect x="78" y="220" width="3" height="60" fill="#3ba7e7"/>
+  <rect x="86" y="235" width="3" height="30" fill="#3ba7e7"/>
+  <rect x="94" y="215" width="3" height="70" fill="#3ba7e7"/>
+  <rect x="102" y="225" width="3" height="50" fill="#3ba7e7"/>
+  <rect x="110" y="240" width="3" height="20" fill="#3ba7e7"/>
+  <rect x="118" y="218" width="3" height="64" fill="#3ba7e7"/>
+  <rect x="126" y="232" width="3" height="36" fill="#3ba7e7"/>
+  <rect x="134" y="222" width="3" height="56" fill="#3ba7e7"/>
+  <rect x="142" y="238" width="3" height="24" fill="#3ba7e7"/>
+  <rect x="150" y="228" width="3" height="44" fill="#3ba7e7"/>
+  <rect x="158" y="216" width="3" height="68" fill="#3ba7e7"/>
+  <rect x="166" y="236" width="3" height="28" fill="#3ba7e7"/>
+  <rect x="174" y="224" width="3" height="52" fill="#3ba7e7"/>
+  <rect x="182" y="242" width="3" height="16" fill="#3ba7e7"/>
+  <rect x="190" y="230" width="3" height="40" fill="#3ba7e7"/>
+  <rect x="198" y="220" width="3" height="60" fill="#3ba7e7"/>
+  <rect x="206" y="234" width="3" height="32" fill="#3ba7e7"/>
+  
+  <!-- Social media icons -->
+  <circle cx="80" cy="320" r="12" fill="#1da1f2"/>
+  <text x="80" y="325" text-anchor="middle" fill="white" font-size="10">T</text>
+  
+  <circle cx="110" cy="320" r="12" fill="#e4405f"/>
+  <rect x="105" y="315" width="10" height="10" rx="2" fill="white"/>
+  
+  <circle cx="140" cy="320" r="12" fill="#0077b5"/>
+  <text x="140" y="325" text-anchor="middle" fill="white" font-size="8">in</text>
+  
+  <circle cx="170" cy="320" r="12" fill="#ff0000"/>
+  <polygon points="165,318 165,322 175,320" fill="white"/>
+  
+  <circle cx="200" cy="320" r="12" fill="#1877f2"/>
+  <text x="200" y="325" text-anchor="middle" fill="white" font-size="10">f</text>
+  
+  <!-- Engagement metrics -->
+  <rect x="60" y="350" width="160" height="60" rx="8" fill="#2a2a2a"/>
+  <text x="70" y="370" fill="#3ba7e7" font-size="12">📈 +250% Engagement</text>
+  <text x="70" y="385" fill="#fff" font-size="10">👥 15.2K Views</text>
+  <text x="70" y="400" fill="#fff" font-size="10">💬 342 Comments</text>
+  
+  <!-- Title -->
+  <text x="140" y="50" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Professional Podcast</text>
+  <text x="140" y="65" text-anchor="middle" fill="#3ba7e7" font-size="12">Clip Example</text>
+</svg>

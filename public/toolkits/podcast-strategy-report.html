@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Have a Podcast? You Need a Plan. | SLK Media Agency</title>
+    <meta name="description" content="You don't need an agency right now. You need a clear plan. Get the Podcast Social Media Strategy Report - $100 one-time.">
+    <link rel="stylesheet" href="../podcast-multiplier-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom timeline styles for this page to match specific design request */
+        .steps-section .section-title {
+            text-align: center !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .steps-timeline {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            max-width: 900px !important;
+        }
+        
+        .steps-timeline::before {
+            left: 22px !important;
+            top: 22px !important;
+            bottom: 22px !important;
+            background: #3ba7e7 !important;
+            width: 2px !important;
+            opacity: 1 !important;
+            border-radius: 0 !important;
+        }
+        
+        .step-item {
+            display: flex !important;
+            align-items: center !important;
+            padding-left: 0 !important;
+            margin-bottom: 40px !important;
+        }
+        
+        .step-item:last-child {
+            margin-bottom: 0 !important;
+        }
+        
+        .step-item-number {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            width: 45px !important;
+            height: 45px !important;
+            background: #3ba7e7 !important;
+            color: #000 !important;
+            font-weight: 700 !important;
+            font-size: 1.2rem !important;
+            border: none !important;
+            margin-right: 25px !important;
+            flex-shrink: 0 !important;
+            z-index: 2 !important;
+            box-shadow: 0 0 10px rgba(59, 167, 231, 0.3);
+        }
+        
+        .step-item-content {
+            flex-grow: 1;
+        }
+
+        .step-item-content h3 {
+            margin-bottom: 0 !important;
+            font-size: 1.4rem !important;
+            text-align: left !important;
+            font-weight: 600 !important;
+        }
+
+        /* Remove numbers from steps-list in What You Get section */
+        .steps-list {
+            counter-reset: none !important;
+        }
+        
+        .steps-list li::before {
+            display: none !important;
+            content: none !important;
+        }
+
+        /* Custom styles for Solution section to match Steps section alignment */
+        .solution-section .section-title {
+            text-align: center !important;
+        }
+
+        .solution-highlight {
+            margin: 20px auto !important;
+            max-width: 900px !important;
+        }
+
+        /* ===========================
+           STRATEGY VIDEO
+           =========================== */
+        .illustration-section {
+            background-color: transparent;
+            padding: 80px 0;
+            border-bottom: 1px solid #1a1a1a;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            max-width: 900px;
+            margin: 40px auto 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1a1a1a;
+            background: #000000;
+            box-shadow: 0 15px 30px rgba(91, 185, 240, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(91, 185, 240, 0.25);
+            border-color: #5BB9F0;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Pricing Card Custom Styles */
+        .pricing-card-custom {
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.7) 0%, rgba(26, 26, 46, 0.7) 100%);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            max-width: 580px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-price-custom {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        .pricing-list-container {
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .pricing-list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .pricing-cta-button {
+            display: block;
+            width: 90%;
+            max-width: 480px;
+            background: #3ba7e7;
+            background: linear-gradient(180deg, #4cb8f5 0%, #3ba7e7 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(59, 167, 231, 0.5);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .pricing-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(59, 167, 231, 0.6);
+        }
+
+        /* Mobile Optimization Media Queries */
+        @media (max-width: 768px) {
+            .steps-section .section-title {
+                margin-bottom: 30px !important;
+                font-size: 2rem !important;
+            }
+
+            .steps-timeline {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .step-item {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                margin-bottom: 30px !important;
+            }
+
+            .step-item-number {
+                margin-bottom: 15px !important;
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1rem !important;
+            }
+
+            .step-item-content h3 {
+                font-size: 1.2rem !important;
+            }
+
+            /* Pricing Section Mobile */
+            .pricing-section {
+                padding: 60px 0 !important;
+            }
+
+            .pricing-section .section-title {
+                font-size: 2rem !important;
+            }
+
+            .pricing-card-custom {
+                padding: 30px 20px;
+            }
+
+            .pricing-price-custom {
+                font-size: 3.5rem;
+            }
+
+            .pricing-list-item span {
+                font-size: 1rem !important;
+            }
+            
+            .pricing-cta-button {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+
+            /* Proof Results Mobile */
+            .steps-list li {
+                font-size: 1rem !important;
+                /* Keep row direction for list items, looks better */
+                flex-direction: row !important;
+                align-items: flex-start !important;
+            }
+
+            .steps-list li i {
+                margin-bottom: 0 !important;
+                margin-right: 15px !important;
+                flex-shrink: 0 !important;
+                margin-top: 3px !important; /* Visual alignment with text */
+            }
+
+            /* General Padding */
+            section {
+                padding: 50px 0;
+            }
+            
+            .hero-section {
+                padding-top: 120px;
+            }
+            
+            .headline {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+                padding: 0 10px;
+            }
+            
+            .sub-headline-blue {
+                font-size: 1.2rem !important;
+                line-height: 1.4 !important;
+                display: block !important;
+                width: 100% !important;
+                white-space: normal !important;
+                margin-bottom: 10px !important;
+            }
+
+            .subheadline {
+                font-size: 1rem !important;
+                padding: 0 10px;
+            }
+
+            .problem-item {
+                font-size: 0.95rem !important;
+                padding: 15px !important;
+                line-height: 1.4 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+    </style>
+    <style>
+        /* FORCED MOBILE OPTIMIZATION - ENSURES STYLES APPLY */
+        @media (max-width: 768px) {
+            /* Hero Text Wrapping Fix */
+            .hero-wrapper .sub-headline-blue {
+                font-size: 1.3rem !important;
+                line-height: 1.4 !important;
+                display: block !important;
+                width: 100% !important;
+                white-space: normal !important;
+                margin-bottom: 15px !important;
+                padding: 0 5px !important;
+                height: auto !important;
+                min-height: auto !important;
+            }
+            
+            .hero-wrapper .headline {
+                font-size: 2.4rem !important;
+                line-height: 1.1 !important;
+                padding: 0 5px !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* Adjust Hero Padding */
+            .hero-section {
+                padding-top: 120px !important;
+                padding-bottom: 40px !important;
+            }
+
+            /* Fix Problem Box Alignment */
+            .problem-item {
+                font-size: 1rem !important;
+                padding: 15px 15px !important;
+                line-height: 1.4 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                text-align: left !important;
+                margin-bottom: 10px !important;
+            }
+            
+            /* Ensure container has breathing room */
+            .container {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Fix How It Works Section Mobile */
+            .steps-timeline {
+                padding-left: 0 !important;
+            }
+
+            .steps-timeline::before {
+                left: 19px !important; /* Center line through 40px circle */
+            }
+            
+            .step-item {
+                flex-direction: row !important;
+                align-items: center !important;
+                margin-bottom: 30px !important;
+            }
+            
+            .step-item-number {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1.2rem !important;
+                margin-bottom: 0 !important;
+                margin-right: 20px !important;
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 2 !important;
+            }
+            
+            .step-item-content {
+                text-align: left !important;
+                flex: 1 !important;
+            }
+
+            .step-item-content h3 {
+                font-size: 1.1rem !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="../favicon/browserconfig.xml">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed-nav">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"><img src="../images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" class="logo-image"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../portfolio.html">Portfolio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <div class="hero-wrapper">
+                <h2 class="sub-headline-blue">Have a Podcast? You Need a Plan</h2>
+                <h1 class="headline">Stop Posting Blind</h1>
+                <p class="subheadline">Get a clear social media strategy for your podcast - so every post actually serves your audience.</p>
+            </div>
+            <div class="cta-center">
+                <a href="https://link.fastpaydirect.com/payment-link/695f6f02bf418284f21b59cc" class="btn-primary" target="_blank" rel="noopener">
+                    👉 Get My Strategy Report
+                </a>
+                <p style="margin-top: 15px; font-size: 14px; color: #fcf4f4;">One-time $100 · No subscription</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honest Truth -->
+    <section class="growth-limbo-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">Here's the Honest Truth</h2>
+            <div class="growth-limbo-content">
+                <p class="section-subtitle">Hiring a full-service podcast agency isn't the right move for everyone.</p>
+                <p class="section-subtitle">If the price feels too high, it usually means one of two things:</p>
+                <div class="problem-list">
+                    <div class="problem-item">🚫 You're not ready for done-for-you execution yet</div>
+                    <div class="problem-item">🚫 Or you need clarity before committing at that level</div>
+                </div>
+                <p><strong>That's exactly why this exists.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Smart Alternative -->
+    <section class="problem-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">The Smart Alternative<br><span style="font-size: 0.6em; font-weight: normal;">(Without Walking Away Empty-Handed)</span></h2>
+            <div class="problem-content">
+                <div class="problem-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="problem-card">
+                         <div class="problem-card-icon"><i class="fas fa-question"></i></div>
+                        <p style="font-weight: bold; margin-top: 10px;">Instead of guessing…</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-card-icon"><i class="fas fa-ban"></i></div>
+                        <p style="font-weight: bold; margin-top: 10px;">Instead of doing nothing…</p>
+                    </div>
+                    <div class="problem-card">
+                         <div class="problem-card-icon"><i class="fas fa-copy"></i></div>
+                        <p style="font-weight: bold; margin-top: 10px;">Instead of copying random clips…</p>
+                    </div>
+                </div>
+                <div class="problem-summary">
+                    <p style="font-size: 1.2rem; margin-bottom: 10px;">Get the <strong>Podcast Social Media Strategy Report</strong>.</p>
+                    <p>It gives you the same strategic thinking we use with agency clients - without the agency price.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What This Does -->
+    <section class="solution-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">What This Does for You</h2>
+            <div class="solution-content">
+                <div class="solution-highlight">
+                    <p><strong>This report tells you:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                        <li style="margin-bottom: 10px;">✅ What to post</li>
+                        <li style="margin-bottom: 10px;">✅ Where to post</li>
+                        <li style="margin-bottom: 10px;">✅ How to turn episodes into growth</li>
+                        <li style="margin-bottom: 10px;">✅ How to position your podcast to attract sponsors</li>
+                    </ul>
+                    <p><strong>So you can:</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">🚀 Execute it yourself</li>
+                        <li style="margin-bottom: 10px;">🚀 Hand it to a freelancer</li>
+                        <li style="margin-bottom: 10px;">🚀 Or come back ready for full-service later</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; font-size: 1.2rem; margin-top: 20px;"><strong>Either way, you move forward.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="proof-results-section" style="background-color: #111; color: white;">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title" style="color: white; text-align: center;">Here's what you get:</h2>
+            <div class="proof-results-content">
+                <ul class="steps-list" style="color: white; list-style: none; padding: 0; max-width: 900px; margin: 0 auto;">
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Complete social media audit</strong> and performance analysis</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Detailed SWOT analysis</strong> that identifies exactly where you are now and where you can grow</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Target audience and competitor analysis</strong> revealing what's working in your niche</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Custom content ideas and pillars</strong> that align with your unique voice and message</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Brand tone and voice guidelines</strong> for consistent, professional messaging</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>SEO keyword and hashtag list</strong> optimized for discoverability in your specific category</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Proven growth tactics</strong> based on what's actually working right now</span>
+                    </li>
+                     <li style="margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: flex-start;">
+                        <i class="fas fa-check-circle" style="color: #3ba7e7; margin-right: 15px; margin-top: 5px;"></i>
+                        <span><strong>Step-by-step implementation guide</strong> so you know exactly what to do next</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="steps-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-timeline">
+                <div class="step-item">
+                    <div class="step-item-number">1</div>
+                    <div class="step-item-content">
+                        <h3>Purchase the report</h3>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-item-number">2</div>
+                    <div class="step-item-content">
+                        <h3>Fill out a short intake form</h3>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-item-number">3</div>
+                    <div class="step-item-content">
+                        <h3>Receive your custom strategy report within 1-2 days</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Illustrations -->
+    <section class="illustration-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">This Is What the Strategy Looks Like</h2>
+            <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 1.5rem auto; color: #cccccc;">Real strategy snapshots from podcasts we’ve worked with - clear, structured, and ready to execute.</p>
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="video/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section" style="padding: 100px 0; background-color: #080808;">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 10px; font-size: 2.5rem;">Your One-Time Investment</h2>
+            <p style="text-align: center; color: white; margin-bottom: 50px; font-size: 1.2rem;">(Compared to Doing Nothing)</p>
+            
+            <div class="pricing-card-custom" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div class="pricing-price-custom">$100</div>
+                <p style="font-size: 1.2rem; color: #aaaaaa; margin-bottom: 40px; font-weight: 500;">One-Time Payment</p>
+                
+                <div class="pricing-list-container">
+                    <div class="pricing-list-item">
+                        <i class="fas fa-check" style="color: #2ecc71; margin-right: 15px; font-size: 1.2rem; margin-top: 4px; flex-shrink: 0;"></i>
+                        <span style="color: #eeeeee; font-size: 1.15rem; font-weight: 500; line-height: 1.4; text-align: left;">Less than one month of guessing.</span>
+                    </div>
+                    <div class="pricing-list-item">
+                        <i class="fas fa-check" style="color: #2ecc71; margin-right: 15px; font-size: 1.2rem; margin-top: 4px; flex-shrink: 0;"></i>
+                        <span style="color: #eeeeee; font-size: 1.15rem; font-weight: 500; line-height: 1.4; text-align: left;">Less than one bad freelancer hire.</span>
+                    </div>
+                    <div class="pricing-list-item">
+                        <i class="fas fa-check" style="color: #2ecc71; margin-right: 15px; font-size: 1.2rem; margin-top: 4px; flex-shrink: 0;"></i>
+                        <span style="color: #eeeeee; font-size: 1.15rem; font-weight: 500; line-height: 1.4; text-align: left;">A fraction of full-service execution.</span>
+                    </div>
+                </div>
+
+                <div style="color: #ff6b6b; font-weight: 600; margin-bottom: 30px; font-size: 1rem; display: flex; align-items: center; justify-content: center; width: 100%;">
+                    <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i> This price is temporary and will increase soon.
+                </div>
+                
+                <a href="https://link.fastpaydirect.com/payment-link/695f6f02bf418284f21b59cc" target="_blank" rel="noopener" class="pricing-cta-button">
+                    👉 Get My Strategy Report
+                </a>
+                <p style="font-size: 0.95rem; color: #999; margin-top: 20px; margin-bottom: 0;">One-time $100 · No subscription</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- This Is the Right Move If... -->
+    <section class="comparison-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">This Is the Right Move If…</h2>
+            <div class="comparison-content" style="text-align: center;">
+                <ul style="list-style: none; padding: 0; display: inline-block; text-align: left; margin-bottom: 30px;">
+                    <li style="margin-bottom: 15px; font-size: 1.2rem;"><i class="fas fa-check-circle" style="color: #4CAF50; margin-right: 10px;"></i> You want to grow, but aren't ready for an agency</li>
+                    <li style="margin-bottom: 15px; font-size: 1.2rem;"><i class="fas fa-check-circle" style="color: #4CAF50; margin-right: 10px;"></i> You'd rather follow a plan than "figure it out"</li>
+                    <li style="margin-bottom: 15px; font-size: 1.2rem;"><i class="fas fa-check-circle" style="color: #4CAF50; margin-right: 10px;"></i> You want to make your next move with confidence</li>
+                </ul>
+                <p class="comparison-conclusion" style="font-size: 1.5rem;"><strong>If you do nothing, nothing changes.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <h2 class="footer-cta-heading">Make the Smart Call</h2>
+            <p class="final-cta-text">You don't need us to do everything for you.<br>You just need to know what actually works.</p>
+            <a href="https://link.fastpaydirect.com/payment-link/695f6f02bf418284f21b59cc" class="btn-primary" target="_blank" rel="noopener">
+                👉 Get My Strategy Report
+            </a>
+            <p style="margin-top: 15px; font-size: 14px; color: #fcf4f4;">One-time $100 · No subscription</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="grid-pattern-overlay"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(323) 892-8644</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@slkmediaagency.com</span>
+                    </div>
+                     <div class="contact-item">
+                        <i class="fas fa-building"></i>
+                        <span>KVK-nummer: 95218300</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-receipt"></i>
+                        <span>BTW-id/VAT: NL004936980B59</span>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <a href="../terms-and-conditions.html" class="legal-link">Terms and Conditions</a>
+                    <span class="separator">|</span>
+                    <a href="../privacy-policy.html" class="legal-link">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2026 SLK Media Agency</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../podcast-multiplier-script.js"></script>
+</body>
+</html>

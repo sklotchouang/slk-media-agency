@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affordable Podcast Growth Solutions | SLK Media Agency</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #e0e7ff;
+            background: #0f172a;
+        }
+        
+        /* Header */
+        .header {
+            padding: 20px 40px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: #6366f1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 40px 80px 40px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25em;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8em;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            font-size: 1.2em;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 0;
+            margin-bottom: 70px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        /* Premium Card (Option 1) */
+        .premium-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            position: relative;
+        }
+        
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+        }
+        
+        /* Mockup Image Section */
+        .mockup-section {
+            width: 100%;
+            padding: 60px;
+            background: rgba(15, 23, 42, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mockup-section img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 60px;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+            justify-content: center;
+        }
+        
+        .tag {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .tag.special {
+            background: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }
+        
+        .card-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .card-title .icon {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+        }
+        
+        .card-title h3 {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .card-title p {
+            font-size: 1.3em;
+            color: #94a3b8;
+        }
+        
+        .description {
+            font-size: 1.2em;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Value Proposition Box */
+        .value-prop {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 35px 0;
+            text-align: center;
+        }
+        
+        .value-prop h4 {
+            color: #10b981;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .value-prop p {
+            font-size: 1.1em;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+        }
+        
+        .features-list li {
+            padding: 16px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1em;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-weight: bold;
+            font-size: 1.6em;
+        }
+        
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 4px solid #6366f1;
+            padding: 25px 30px;
+            margin: 35px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .highlight-box strong {
+            color: #818cf8;
+            font-size: 1.15em;
+        }
+        
+        .highlight-box p {
+            color: #cbd5e1;
+            font-size: 1.05em;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+        
+        /* Risk Reversal */
+        .risk-reversal {
+            background: rgba(168, 85, 247, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin: 35px 0;
+            text-align: center;
+        }
+        
+        .risk-reversal p {
+            font-size: 1.05em;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+        
+        .risk-reversal strong {
+            color: #a855f7;
+        }
+        
+        /* Pricing */
+        .pricing-section {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 45px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .original-price {
+            font-size: 2.2em;
+            color: #64748b;
+            text-decoration: line-through;
+        }
+        
+        .current-price {
+            font-size: 5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .savings-text {
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.4em;
+            margin: 18px 0;
+        }
+        
+        .price-breakdown {
+            color: #94a3b8;
+            font-size: 1.05em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        .urgency-text {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.15em;
+            margin-top: 20px;
+        }
+        
+        .delivery-text {
+            color: #94a3b8;
+            font-size: 1.1em;
+            margin-top: 12px;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            padding: 22px 70px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.4em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            margin-top: 30px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+        
+        .cta-subtext {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.05em;
+            margin-top: 18px;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 70px 40px;
+            text-align: center;
+            margin-top: 120px;
+        }
+        
+        .footer h3 {
+            font-size: 2.2em;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .footer p {
+            font-size: 1.2em;
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+        
+        .footer-signature {
+            margin-top: 45px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-signature .name {
+            font-size: 1.4em;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .footer-signature .company {
+            color: #6366f1;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+            
+            .mockup-section {
+                padding: 30px;
+            }
+            
+            .content-section {
+                padding: 35px;
+            }
+            
+            .card-title h3 {
+                font-size: 1.9em;
+            }
+            
+            .current-price {
+                font-size: 3.5em;
+            }
+            
+            .cta-button {
+                font-size: 1.2em;
+                padding: 18px 45px;
+            }
+            
+            .container {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">SLK <span>Media</span></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="badge">Perfect Solutions For Your Budget</div>
+        <h1>Build Your Podcast <span class="highlight">Foundation</span></h1>
+        <p class="hero-subtitle">
+            Thank you for completing your pre-call survey. While our full-service plan doesn't match your current budget, 
+            I've created three affordable alternatives designed specifically to help podcasters like you build a solid foundation 
+            for explosive growth - without the premium price tag.
+        </p>
+    </div>
+
+    <!-- Option 1: Custom Strategy Report -->
+    <div class="container">
+        <div class="card premium-card">
+            <div class="mockup-section">
+                <img src="https://cdn1.genspark.ai/user-upload-image/5_generated/97b28968-af27-498d-8dcc-9459823ab63a.jpeg" alt="Social Media Strategy Report">
+            </div>
+            
+            <div class="content-section">
+                <div class="tags">
+                    <span class="tag special">24-Hour Special Price</span>
+                    <span class="tag">$200 Bonus Value</span>
+                    <span class="tag">1-2 Days Delivery</span>
+                </div>
+                
+                <div class="card-title">
+                    <div class="icon">🎯</div>
+                    <h3>Custom Social Media Strategy Report</h3>
+                    <p>Your Personalized Podcast Roadmap to Growth</p>
+                </div>
+                
+                <p class="description">
+                    My team will conduct <strong>preliminary research and a comprehensive audit of your show</strong>, 
+                    then craft a custom social media strategy tailored specifically to your podcast, your niche, and your goals. 
+                    This isn't a generic template - it's a personalized roadmap built just for you.
+                </p>
+                
+                <div class="value-prop">
+                    <h4>🎁 Here's What Makes This Different</h4>
+                    <p>
+                        Unlike generic advice you can find online, this report is created by analyzing YOUR specific podcast, 
+                        YOUR audience, and YOUR competitors. You'll get actionable insights you can implement immediately - no guesswork, 
+                        no trial and error.
+                    </p>
+                </div>
+                
+                <ul class="features-list">
+                    <li><strong>Complete social media audit</strong> and performance analysis (normally sold separately for $200)</li>
+                    <li><strong>Detailed SWOT analysis</strong> that identifies exactly where you are now and where you can grow</li>
+                    <li><strong>Target audience and competitor analysis</strong> revealing what's working in your niche</li>
+                    <li><strong>Custom content ideas and pillars</strong> that align with your unique voice and message</li>
+                    <li><strong>Brand tone and voice guidelines</strong> for consistent, professional messaging</li>
+                    <li><strong>SEO keyword and hashtag list</strong> optimized for discoverability in your specific category</li>
+                    <li><strong>Proven growth tactics</strong> based on what's actually working right now</li>
+                    <li><strong>Step-by-step implementation guide</strong> so you know exactly what to do next</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>✨ Perfect For:</strong>
+                    <p>Podcasters who are tired of guessing what content to post, when to post it, and who want a clear, 
+                    proven roadmap to position their show correctly and attract their ideal audience</p>
+                </div>
+                
+                <div class="risk-reversal">
+                    <p>
+                        <strong>This is a one-time investment</strong> that gives you a foundation you can use for years. 
+                        No monthly fees, no subscriptions - just actionable insights delivered to your inbox in 1-2 days.
+                    </p>
+                </div>
+                
+                <div class="pricing-section">
+                    <div class="price-container">
+                        <span class="original-price">$500</span>
+                        <span class="current-price">$100</span>
+                    </div>
+                    <p class="savings-text">Save $400 Today</p>
+                    <p class="price-breakdown">That's less than $0.27 per day over a year</p>
+                    <p class="urgency-text">⏰ This special pricing is only available for the next 24 hours</p>
+                    <p class="delivery-text">📦 Delivered within 1-2 business days - start implementing this week</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="https://api.leadconnectorhq.com/widget/form/4FA5IrkY6dNXh8eSOhVB" target="_blank" rel="noopener" class="cta-button">
+                        Get Your Custom Social Media Strategy Report →
+                    </a>
+                    <p class="cta-subtext">Immediate actionable steps. No fluff. Just results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIY Toolkits Section -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Professional DIY Toolkits</h2>
+            <p>Prefer to implement yourself? Get our professional-grade toolkits with instant access. 
+            These are the exact frameworks and templates my team uses for client work - now available to you.</p>
+        </div>
+        
+        <!-- Toolkit 1: Monetization Blueprint -->
+        <div class="card">
+            <div class="mockup-section">
+                <img src="https://page.gensparksite.com/v1/base64_upload/57584a86de4e4d61da975a09e1845f5f" alt="Podcast Monetization Blueprint">
+            </div>
+            
+            <div class="content-section">
+                <div class="tags">
+                    <span class="tag">Digital Toolkit</span>
+                    <span class="tag">Instant Access</span>
+                    <span class="tag special">76% Off Today</span>
+                </div>
+                
+                <div class="card-title">
+                    <div class="icon">💰</div>
+                    <h3>Podcast Monetization Blueprint</h3>
+                    <p>Transform Your Podcast into a Profitable Business</p>
+                </div>
+                
+                <p class="description">
+                    Stop waiting for the "perfect moment" to monetize. This complete 6-part system gives you everything you need to 
+                    <strong>attract sponsors, build authority, and create multiple revenue streams</strong> starting today. 
+                    This isn't just theory - it's the exact framework we use with our clients.
+                </p>
+                
+                <div class="value-prop">
+                    <h4>💡 The Real Value</h4>
+                    <p>
+                        Most podcasters leave money on the table because they don't know how to position themselves to sponsors. 
+                        This blueprint gives you the exact templates and scripts to present your podcast professionally and 
+                        confidently to potential sponsors.
+                    </p>
+                </div>
+                
+                <ul class="features-list">
+                    <li><strong>Revenue Stream Planner</strong> - Discover 8+ ways to monetize your podcast beyond just sponsorships</li>
+                    <li><strong>Media Kit Builder</strong> - Create a professional press kit that makes sponsors want to work with you</li>
+                    <li><strong>Authority Building Roadmap</strong> - Position yourself as the go-to expert in your niche</li>
+                    <li><strong>Sponsor Pitch Template Library</strong> - Professional templates to approach sponsors confidently</li>
+                    <li><strong>Brand Partnership Tracker</strong> - Manage relationships and never miss a follow-up opportunity</li>
+                    <li><strong>Pricing Strategy Guide</strong> - Price your sponsorships based on real value</li>
+                    <li><strong>Client Attraction Scripts</strong> - Turn your listeners into paying clients with proven conversion scripts</li>
+                    <li><strong>Implementation Timeline & Success Metrics</strong> - Know exactly what to do and when to see results</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>✨ Perfect For:</strong>
+                    <p>Podcasters who are ready to stop treating their show as "just a hobby" and start generating real income. 
+                    Whether you're landing your first sponsor or scaling to multiple revenue streams, this blueprint shows you how.</p>
+                </div>
+                
+                <div class="pricing-section">
+                    <div class="price-container">
+                        <span class="original-price">$197</span>
+                        <span class="current-price">$47</span>
+                    </div>
+                    <p class="savings-text">Save $150 - That's 76% Off</p>
+                    <p class="price-breakdown">One-time investment with lifetime access</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="https://samuellk.gumroad.com/l/tpmb" target="_blank" rel="noopener" class="cta-button">
+                        Get Instant Access →
+                    </a>
+                    <p class="cta-subtext">Download now and start implementing today</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Toolkit 2: Content Goldmine -->
+        <div class="card">
+            <div class="mockup-section">
+                <img src="https://page.gensparksite.com/v1/base64_upload/d849184833299390f90ea388d95dbe19" alt="Content Goldmine Toolkit">
+            </div>
+            
+            <div class="content-section">
+                <div class="tags">
+                    <span class="tag">Digital Toolkit</span>
+                    <span class="tag">40+ Templates</span>
+                    <span class="tag special">72% Off Today</span>
+                </div>
+                
+                <div class="card-title">
+                    <div class="icon">🎬</div>
+                    <h3>Podcast Content Goldmine Toolkit</h3>
+                    <p>Transform One Episode into Weeks of Engaging Content</p>
+                </div>
+                
+                <p class="description">
+                    You're already spending hours creating amazing podcast episodes. But are you getting the maximum reach from that effort? 
+                    This toolkit shows you how to <strong>extract more value from every episode</strong> by repurposing it into content 
+                    that works consistently to grow your audience across every platform.
+                </p>
+                
+                <div class="value-prop">
+                    <h4>⏰ Save Hours Every Week</h4>
+                    <p>
+                        Stop staring at a blank screen wondering what to post. With 40+ ready-to-use templates and a proven framework, 
+                        you'll turn one episode into multiple pieces of high-performing content quickly and efficiently.
+                    </p>
+                </div>
+                
+                <ul class="features-list">
+                    <li><strong>Peak Moment Identifier Framework</strong> - Find the most shareable clips in every episode</li>
+                    <li><strong>40+ Ready-to-Use Clip Templates</strong> - Proven formats optimized for each social platform</li>
+                    <li><strong>Content Calendar Planner</strong> - Plan months of content in advance - never scramble again</li>
+                    <li><strong>Hook & CTA Library</strong> - 170+ attention-grabbing hooks and calls-to-action that drive engagement</li>
+                    <li><strong>Analytics Tracking System</strong> - Know exactly what's working so you can do more of it</li>
+                    <li><strong>Advanced Strategies Bonus Section</strong> - Advanced tactics for scaling your reach even further</li>
+                    <li><strong>Quick Reference Guide</strong> - One-page cheat sheets for when you need answers fast</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>✨ Perfect For:</strong>
+                    <p>Podcasters who are tired of spending hours creating content that doesn't get the reach it deserves. If you want your 
+                    hard work to actually reach people and grow your audience, this is your solution.</p>
+                </div>
+                
+                <div class="pricing-section">
+                    <div class="price-container">
+                        <span class="original-price">$97</span>
+                        <span class="current-price">$27</span>
+                    </div>
+                    <p class="savings-text">Save $70 - That's 72% Off</p>
+                    <p class="price-breakdown">One-time investment with lifetime access</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="https://samuellk.gumroad.com/l/tpcgt" target="_blank" rel="noopener" class="cta-button">
+                        Get Instant Access →
+                    </a>
+                    <p class="cta-subtext">Start maximizing your content reach today</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Toolkit 3: Background Music Guide -->
+        <div class="card">
+            <div class="mockup-section">
+                <img src="https://page.gensparksite.com/v1/base64_upload/2a8c53efd9bd72ef17cd0c0b6f05e6b5" alt="Background Music Guide">
+            </div>
+            
+            <div class="content-section">
+                <div class="tags">
+                    <span class="tag">Digital Toolkit</span>
+                    <span class="tag">102 Curated Tracks</span>
+                    <span class="tag special">81% Off Today</span>
+                </div>
+                
+                <div class="card-title">
+                    <div class="icon">🎵</div>
+                    <h3>Background Music & Sound Selection Guide</h3>
+                    <p>Professional Audio Toolkit for Video Podcasters</p>
+                </div>
+                
+                <p class="description">
+                    The difference between an amateur podcast and a professional one often comes down to audio quality. Transform your podcast's 
+                    production quality with this data-driven audio toolkit. <strong>The right background music can significantly increase 
+                    listener engagement</strong> - this guide gives you everything you need to sound like a pro.
+                </p>
+                
+                <div class="value-prop">
+                    <h4>🎧 Instant Professional Sound</h4>
+                    <p>
+                        Stop scrolling through endless royalty-free music sites trying to find "the right track." We've done the work 
+                        for you. 102 hand-curated tracks organized by mood, industry, and energy level - plus the exact mixing guidelines 
+                        to make them sound perfect in your episodes.
+                    </p>
+                </div>
+                
+                <ul class="features-list">
+                    <li><strong>102 Curated Music Tracks</strong> - Pre-selected by mood, industry, and energy for every podcast segment</li>
+                    <li><strong>Professional Mixing Guidelines</strong> - Technical specs for perfect audio balance (no sound engineering degree required)</li>
+                    <li><strong>23 Copyright-Safe Sources</strong> - Detailed licensing info so you never worry about copyright issues</li>
+                    <li><strong>Science-Based Psychology Guide</strong> - Learn how music affects listener behavior and retention</li>
+                    <li><strong>Complete Implementation Manual</strong> - Step-by-step instructions with screenshots and examples</li>
+                    <li><strong>Mood & Energy Matching System</strong> - Quick-reference guide to pick the perfect track quickly</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <strong>✨ Perfect For:</strong>
+                    <p>Video podcasters who want to create a more immersive, professional listening experience that keeps people engaged 
+                    from start to finish. This helps make your content feel premium and worth their time.</p>
+                </div>
+                
+                <div class="pricing-section">
+                    <div class="price-container">
+                        <span class="original-price">$47</span>
+                        <span class="current-price">$9</span>
+                    </div>
+                    <p class="savings-text">Save $38 - That's 81% Off</p>
+                    <p class="price-breakdown">One-time investment with lifetime access</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="https://samuellk.gumroad.com/l/zcqazh" target="_blank" rel="noopener" class="cta-button">
+                        Get Instant Access →
+                    </a>
+                    <p class="cta-subtext">Elevate your production quality starting with your next episode</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h3>Have Questions?</h3>
+        <p>I'm here to help you choose the best option for your podcast growth journey.</p>
+        <p>Every podcaster's situation is unique, and I want to make sure you get exactly what you need.</p>
+        <p style="margin-top: 25px;">Shoot me a message at samuellk@slkmediaagency.com</p>
+        
+        <div class="footer-signature">
+            <p>Best regards,</p>
+            <p class="name">Samuel LK</p>
+            <p class="company">SLK Media Agency</p>
+        </div>
+    </div>
+</body>
+</html>

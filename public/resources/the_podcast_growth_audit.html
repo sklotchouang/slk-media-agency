@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Podcast Growth Audit: 10 Questions to Discover What's Holding You Back</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="../favicon/browserconfig.xml">
+    <style>
+        .audit-container {
+            background: var(--gradient-dark-purple);
+            min-height: 100vh;
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .audit-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: var(--pattern-overlay);
+            background-size: var(--pattern-size);
+            opacity: var(--pattern-opacity);
+            z-index: -1;
+        }
+        .audit-header {
+            background: var(--gradient-dark-purple);
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .audit-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(59, 167, 231, 0.2) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(59, 167, 231, 0.2) 0%, transparent 25%);
+            background-size: 100% 100%;
+            opacity: 1;
+            z-index: 0;
+        }
+        .audit-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .question-card {
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.7) 0%, rgba(26, 26, 46, 0.7) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+            backdrop-filter: blur(10px);
+        }
+        .question-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        .question-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .question-option:hover {
+            background: rgba(59, 167, 231, 0.1);
+            border-color: var(--primary-color);
+        }
+        .question-option input[type="radio"]:checked + span {
+            color: var(--primary-color);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            height: 8px;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(59, 167, 231, 0.5);
+        }
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .result-card {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        .result-card.show {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .score-circle {
+            transition: all 0.3s ease;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(59, 167, 231, 0.3);
+        }
+        .intro-card {
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.7) 0%, rgba(26, 26, 46, 0.7) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .calculate-button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(59, 167, 231, 0.5);
+        }
+        .calculate-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(59, 167, 231, 0.7);
+        }
+        .calculate-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .results-section {
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.7) 0%, rgba(26, 26, 46, 0.7) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"><img src="../images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" class="logo-image"></a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../portfolio.html">Portfolio</a></li>
+                <li><a href="../index.html#process">Process</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="https://link.slkmediaagency.com/strmeet" class="cta-button" target="_blank" rel="noopener">Schedule a Call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="audit-container">
+        <!-- Header -->
+        <div class="audit-header">
+            <div class="container">
+                <i class="fas fa-search-plus" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
+                <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">The Podcast Growth Audit</h1>
+                <p style="font-size: 1.3rem; color: var(--text-color-muted); margin-bottom: 10px;">10 Questions to Discover What's Holding You Back</p>
+                <p style="font-size: 1.1rem; color: var(--text-color-muted);">Get your personalized growth plan in just 3 minutes</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container" style="padding: 60px 20px;">
+            <!-- Introduction -->
+            <div class="intro-card">
+                <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                    <i class="fas fa-lightbulb" style="color: var(--magic-color); margin-right: 10px;"></i>
+                    Why This Audit Works
+                </h2>
+                <p style="color: var(--text-color-muted); margin-bottom: 20px; line-height: 1.6;">Most podcasters are stuck because they can't see what's really blocking their growth. This audit helps you identify your biggest obstacles so you can focus on what actually moves the needle.</p>
+                <p style="color: var(--text-color-muted); margin-bottom: 30px; line-height: 1.6;">Answer honestly for the best results. There are no wrong answers - only insights that will help you grow faster.</p>
+                
+                <!-- Progress Bar -->
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-color-muted); margin-bottom: 10px;">
+                        <span>Progress</span>
+                        <span><span id="current-question">0</span>/10 Questions</span>
+                    </div>
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Questions -->
+            <div id="questions-container">
+                <!-- Question 1 -->
+                <div class="question-card" data-question="1">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">1</span>
+                        How many hours per week do you spend on podcast editing and content creation?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q1" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Less than 2 hours - I barely have time to record</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q1" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>2-4 hours - I do basic editing but nothing else</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q1" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>5-8 hours - I spend significant time but struggle with results</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q1" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>9+ hours - I'm spending way too much time on content work</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card" data-question="2">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">2</span>
+                        How often do you post content from your podcast episodes on social media?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q2" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Rarely or never - I just upload episodes and hope for the best</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q2" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Sometimes - I post when I remember or have time</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q2" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Weekly - I try to post clips regularly but it's inconsistent</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q2" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Daily - I post multiple times per week across platforms</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-card" data-question="3">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">3</span>
+                        How would you describe your podcast's current growth?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q3" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Stuck - My numbers haven't changed in months</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q3" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Slow - I see small increases but nothing exciting</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q3" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Inconsistent - Good weeks followed by flat weeks</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q3" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Growing steadily - I see regular increases</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-card" data-question="4">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">4</span>
+                        When you create clips from your episodes, what happens?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q4" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I don't create clips - too time consuming</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q4" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I make clips but they get very few views</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q4" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>My clips get some views but rarely go viral</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q4" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>My clips perform well and get shared regularly</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-card" data-question="5">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">5</span>
+                        How do you feel about editing your podcast content?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q5" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I hate it - it drains my energy and takes forever</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q5" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>It's a necessary evil - I do basic editing only</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q5" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I don't mind it but it takes way too much time</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q5" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I enjoy editing and have a good system</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question-card" data-question="6">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">6</span>
+                        How well do you track which content performs best?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q6" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I don't track anything - just post and hope</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q6" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I check views occasionally but don't analyze patterns</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q6" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I track basic metrics but don't know what they mean</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q6" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I track everything and use data to improve content</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question-card" data-question="7">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">7</span>
+                        How many social media platforms do you actively post on?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q7" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Just one or none - I can barely keep up</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q7" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>2-3 platforms but inconsistently</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q7" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>3-4 platforms with regular posting</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q7" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>5+ platforms with consistent, quality content</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question-card" data-question="8">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">8</span>
+                        How do you choose which parts of your episode to turn into clips?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q8" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I randomly pick parts or don't make clips at all</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q8" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I pick parts that sound interesting to me</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q8" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I have some strategy but it's not systematic</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q8" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I have a clear system for finding viral moments</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question-card" data-question="9">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">9</span>
+                        How often do brands or potential clients reach out to you?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q9" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Never - despite having good content, no one finds me</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q9" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Rarely - maybe once every few months</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q9" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Sometimes - I get some inquiries but not consistently</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q9" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>Regularly - I get multiple inquiries per month</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question-card" data-question="10">
+                    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                        <span style="background: var(--primary-color); color: white; padding: 8px 12px; border-radius: 20px; font-size: 0.9rem; margin-right: 15px;">10</span>
+                        What's your biggest frustration with your current podcast promotion?
+                    </h3>
+                    <div>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q10" value="1" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I work really hard but feel invisible online</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q10" value="2" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I know I should do more but don't have time</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q10" value="3" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I'm not sure what content actually works</span>
+                        </label>
+                        <label class="question-option" style="display: flex; align-items: center;">
+                            <input type="radio" name="q10" value="4" style="margin-right: 12px; accent-color: var(--primary-color);">
+                            <span>I'm doing okay but want to scale faster</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculate Button -->
+            <div style="text-align: center; margin-top: 40px;">
+                <button id="calculate-btn" onclick="calculateResults()" class="calculate-button" disabled>
+                    <i class="fas fa-calculator" style="margin-right: 8px;"></i>
+                    Get My Personalized Growth Plan
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-section" class="result-card">
+                <!-- Score Display -->
+                <div class="results-section" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">Your Podcast Growth Score</h2>
+                    <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                        <div id="score-circle" class="score-circle" style="width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700; color: white; background: conic-gradient(#667eea 0deg, #764ba2 360deg);">
+                            <span id="score-display">0</span>
+                        </div>
+                    </div>
+                    <p id="score-description" style="font-size: 1.2rem; color: var(--text-color-muted); margin-bottom: 20px;"></p>
+                </div>
+
+                <!-- Personalized Recommendations -->
+                <div id="recommendations" class="results-section" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; color: var(--text-color);">
+                        <i class="fas fa-target" style="color: var(--primary-color); margin-right: 10px;"></i>
+                        Your Personalized Action Plan
+                    </h3>
+                    <div id="recommendation-content"></div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-box">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">Ready to Fix What's Holding You Back?</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; line-height: 1.6;">Get a custom growth strategy for your podcast in a free 15-minute call. We'll show you exactly how to turn your episodes into a content engine that attracts your ideal audience.</p>
+                    <a href="https://link.slkmediaagency.com/strmeet" target="_blank" rel="noopener" style="display: inline-block; background: white; color: var(--primary-dark); padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+                        <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
+                        Book Your Free Strategy Call
+                    </a>
+                    <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.75;">No sales pitch. Just a real plan to grow your podcast faster.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Podcast into a Revenue-Generating Machine?</h2>
+            <p>Book a free strategy call and discover how to turn your episodes into viral content that attracts your ideal audience.</p>
+            <a href="../pre-call.html" class="primary-cta">Book Your Free Strategy Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+31 6 83 84 35 05</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@slkmediaagency.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-building"></i>
+                        <span>KVK-nummer: 95218300</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-receipt"></i>
+                        <span>BTW-id/VAT: NL004936980B59</span>
+                    </div>
+                </div>
+                
+                <div class="footer-legal">
+                    <a href="../terms-and-conditions.html">Terms and Conditions</a>
+                    <span class="separator">|</span>
+                    <a href="../privacy-policy.html">Privacy Policy</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 SLK Media Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="../pre-call.html" class="primary-cta">Book Free Strategy Call</a>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        const totalQuestions = 10;
+        
+        // Update progress as user answers questions
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.addEventListener('change', updateProgress);
+        });
+
+        function updateProgress() {
+            const answeredQuestions = new Set();
+            document.querySelectorAll('input[type="radio"]:checked').forEach(input => {
+                answeredQuestions.add(input.name);
+            });
+            
+            const progress = (answeredQuestions.size / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('current-question').textContent = answeredQuestions.size;
+            
+            // Enable calculate button when all questions are answered
+            const calculateBtn = document.getElementById('calculate-btn');
+            if (answeredQuestions.size === totalQuestions) {
+                calculateBtn.disabled = false;
+            } else {
+                calculateBtn.disabled = true;
+            }
+        }
+
+        function calculateResults() {
+            const answers = {};
+            let totalScore = 0;
+            
+            // Collect all answers
+            for (let i = 1; i <= totalQuestions; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer) {
+                    answers[`q${i}`] = parseInt(answer.value);
+                    totalScore += parseInt(answer.value);
+                }
+            }
+            
+            // Calculate percentage score
+            const maxScore = totalQuestions * 4;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+            
+            // Show results
+            showResults(percentage, answers);
+        }
+
+        function showResults(score, answers) {
+            // Scroll to results
+            document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show results section
+            document.getElementById('results-section').classList.add('show');
+            
+            // Update score display
+            document.getElementById('score-display').textContent = score + '%';
+            
+            // Generate personalized content based on score
+            let description, recommendations;
+            
+            if (score < 30) {
+                description = "Your podcast has huge untapped potential! You're in the early stages where small changes can create big results.";
+                recommendations = generateLowScoreRecommendations(answers);
+                document.getElementById('score-circle').style.background = 'conic-gradient(#ef4444 0deg, #dc2626 360deg)';
+            } else if (score < 60) {
+                description = "You're making progress but there are key areas holding back your growth. Focus on these improvements to break through.";
+                recommendations = generateMidScoreRecommendations(answers);
+                document.getElementById('score-circle').style.background = 'conic-gradient(#f59e0b 0deg, #d97706 360deg)';
+            } else if (score < 80) {
+                description = "Great work! You have solid fundamentals. Now it's time to optimize and scale what's working.";
+                recommendations = generateHighScoreRecommendations(answers);
+                document.getElementById('score-circle').style.background = 'conic-gradient(#10b981 0deg, #059669 360deg)';
+            } else {
+                description = "Excellent! You're doing most things right. Focus on fine-tuning and scaling your systems.";
+                recommendations = generateExcellentScoreRecommendations(answers);
+                document.getElementById('score-circle').style.background = 'conic-gradient(#667eea 0deg, #764ba2 360deg)';
+            }
+            
+            document.getElementById('score-description').textContent = description;
+            document.getElementById('recommendation-content').innerHTML = recommendations;
+        }
+
+        function generateLowScoreRecommendations(answers) {
+            let recommendations = '';
+            
+            recommendations += `
+                <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-400 rounded-lg">
+                    <h4 class="font-bold text-red-800 mb-2">🚨 Priority #1: Stop the Time Drain</h4>
+                    <p class="text-red-700">You're spending too much time on tasks that don't grow your audience. Focus on creating a simple system first, then optimize later.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">✅ Quick Win #1</h5>
+                        <p class="text-gray-600">Pick ONE platform to focus on. Master it before adding more.</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">✅ Quick Win #2</h5>
+                        <p class="text-gray-600">Create just 2-3 clips per episode. Quality over quantity.</p>
+                    </div>
+                </div>
+            `;
+
+            if (answers.q1 >= 3) {
+                recommendations += `
+                    <div class="mb-4 p-4 bg-yellow-50 border rounded-lg">
+                        <h5 class="font-bold text-yellow-800 mb-2">⏰ Time Management Issue Detected</h5>
+                        <p class="text-yellow-700">You're spending 5+ hours weekly on content but not seeing results. This suggests you need better systems, not more time.</p>
+                    </div>
+                `;
+            }
+
+            if (answers.q4 <= 2) {
+                recommendations += `
+                    <div class="mb-4 p-4 bg-blue-50 border rounded-lg">
+                        <h5 class="font-bold text-blue-800 mb-2">📹 Clip Strategy Gap</h5>
+                        <p class="text-blue-700">Your clips aren't performing because they lack strategic elements like hooks, captions, and proper formatting.</p>
+                    </div>
+                `;
+            }
+
+            return recommendations;
+        }
+
+        function generateMidScoreRecommendations(answers) {
+            let recommendations = '';
+            
+            recommendations += `
+                <div class="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
+                    <h4 class="font-bold text-yellow-800 mb-2">⚡ You're On the Right Track</h4>
+                    <p class="text-yellow-700">You have good foundations but need to optimize your process and be more strategic about content distribution.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">🎯 Focus Area #1</h5>
+                        <p class="text-gray-600">Improve your clip selection strategy using proven viral elements.</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">🎯 Focus Area #2</h5>
+                        <p class="text-gray-600">Scale to 2-3 platforms with consistent posting schedule.</p>
+                    </div>
+                </div>
+            `;
+
+            if (answers.q6 <= 2) {
+                recommendations += `
+                    <div class="mb-4 p-4 bg-purple-50 border rounded-lg">
+                        <h5 class="font-bold text-purple-800 mb-2">📊 Analytics Opportunity</h5>
+                        <p class="text-purple-700">Start tracking which clips perform best. This data will 10x your content strategy effectiveness.</p>
+                    </div>
+                `;
+            }
+
+            if (answers.q8 <= 2) {
+                recommendations += `
+                    <div class="mb-4 p-4 bg-green-50 border rounded-lg">
+                        <h5 class="font-bold text-green-800 mb-2">🔍 Content Strategy Gap</h5>
+                        <p class="text-green-700">Learn to identify "viral moments" in your episodes - controversial takes, actionable tips, and emotional stories.</p>
+                    </div>
+                `;
+            }
+
+            return recommendations;
+        }
+
+        function generateHighScoreRecommendations(answers) {
+            let recommendations = '';
+            
+            recommendations += `
+                <div class="mb-6 p-4 bg-green-50 border-l-4 border-green-400 rounded-lg">
+                    <h4 class="font-bold text-green-800 mb-2">🚀 Ready to Scale</h4>
+                    <p class="text-green-700">You have strong fundamentals! Now focus on optimization, automation, and scaling your successful systems.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">📈 Scale Strategy #1</h5>
+                        <p class="text-gray-600">Expand to more platforms while maintaining quality and consistency.</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">📈 Scale Strategy #2</h5>
+                        <p class="text-gray-600">Automate your workflow to create more content in less time.</p>
+                    </div>
+                </div>
+            `;
+
+            if (answers.q9 <= 2) {
+                recommendations += `
+                    <div class="mb-4 p-4 bg-indigo-50 border rounded-lg">
+                        <h5 class="font-bold text-indigo-800 mb-2">💼 Monetization Opportunity</h5>
+                        <p class="text-indigo-700">Your content quality is good but you're not attracting enough inbound opportunities. Focus on authority-building content.</p>
+                    </div>
+                `;
+            }
+
+            recommendations += `
+                <div class="mb-4 p-4 bg-blue-50 border rounded-lg">
+                    <h5 class="font-bold text-blue-800 mb-2">🎯 Next Level Strategy</h5>
+                    <p class="text-blue-700">Consider working with a team to handle the execution while you focus on creating great content and growing your business.</p>
+                </div>
+            `;
+
+            return recommendations;
+        }
+
+        function generateExcellentScoreRecommendations(answers) {
+            return `
+                <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-lg">
+                    <h4 class="font-bold text-blue-800 mb-2">🏆 Podcast Growth Champion</h4>
+                    <p class="text-blue-700">You're in the top tier of podcasters! Focus on fine-tuning your systems and scaling what's working.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">🔧 Optimization #1</h5>
+                        <p class="text-gray-600">A/B test different clip formats to maximize engagement rates.</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <h5 class="font-bold text-gray-800 mb-2">🔧 Optimization #2</h5>
+                        <p class="text-gray-600">Partner with a professional team to scale your success even faster.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4 p-4 bg-purple-50 border rounded-lg">
+                    <h5 class="font-bold text-purple-800 mb-2">💡 Advanced Strategy</h5>
+                    <p class="text-purple-700">Your systems are working well. Consider partnering with experts who can help you scale without increasing your workload.</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
