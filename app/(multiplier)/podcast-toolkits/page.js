@@ -71,7 +71,7 @@ const faqs = [
 
 export default function PodcastToolkitsPage() {
   return (
-    <>
+    <div className="pt-page">
       {/* Navigation */}
       <nav className="navbar fixed-nav">
         <div className="container">
@@ -353,6 +353,6 @@ export default function PodcastToolkitsPage() {
           <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Strategy Report</a>
         </div>
       </div>
-    </>
+    </div>
   );
 }

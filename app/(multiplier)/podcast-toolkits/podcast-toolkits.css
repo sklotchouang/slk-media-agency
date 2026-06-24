@@ -39,6 +39,18 @@
   text-align: center;
 }
 
+/* Center every section heading, subheading, and intro copy on this page so the
+   whole layout sits on one axis (scoped to .pt-page, only loaded on this route). */
+.pt-page .section-title,
+.pt-page .section-subtitle {
+  text-align: center !important;
+}
+.pt-page .growth-limbo-content,
+.pt-page .growth-limbo-content p,
+.pt-page .growth-limbo-content .problem-item {
+  text-align: center !important;
+}
+
 /* ----- Reusable lists ----- */
 .pt-list {
   list-style: none;
