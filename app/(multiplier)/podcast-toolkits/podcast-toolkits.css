@@ -51,6 +51,23 @@
   text-align: center !important;
 }
 
+/* Keep the demo video clipped to its 920px frame (the inner <video> was
+   overflowing to the right and breaking the centering). */
+.pt-page .pt-video-wrapper {
+  overflow: hidden;
+}
+.pt-page .pt-video-wrapper video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Center each checklist item under the centered "This Is the Right Move If" heading */
+.pt-page .pt-qualify li {
+  justify-content: center;
+}
+
 /* ----- Reusable lists ----- */
 .pt-list {
   list-style: none;
