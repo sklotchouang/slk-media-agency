@@ -53,11 +53,11 @@ const faqs = [
   ],
   [
     'How fast will I get it?',
-    'Within 1 to 2 days after you complete a short intake form. The form arrives by email the moment your payment goes through.',
+    'Within 1 to 2 days after you complete the intake form. It arrives by email the moment your payment goes through.',
   ],
   [
     'What do you need from me?',
-    'About five minutes. After you buy, you fill in a short intake (your podcast, your channels, and your goals). We take it from there.',
+    'After you buy, you complete the intake form covering your podcast, your channels, and your goals. We take it from there.',
   ],
   [
     'Is this a generic template?',
@@ -73,9 +73,15 @@ const faqs = [
   ],
 ];
 
-// Real client testimonials, lifted verbatim from the SLK Media Agency testimonials page.
+// Real video testimonials, same clients and quotes as the main SLK Media Agency site.
+// Videos and posters live in /public/video-testimonials.
 const testimonials = [
   {
+    video: 'steve',
+    ar: '16 / 9',
+    chipIcon: 'fab fa-youtube',
+    chip: '11.9K subscribers · 599+ episodes',
+    headline: 'A game-changer for my podcast',
     quote:
       'Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we’ve gained across multiple platforms is incredible.',
     name: 'Steve Garrett',
@@ -83,11 +89,28 @@ const testimonials = [
     initials: 'SG',
   },
   {
+    video: 'shatavia',
+    ar: '1 / 1',
+    chipIcon: 'fas fa-award',
+    chip: '100K+ subscribers · Silver Play Button',
+    headline: 'My content workflow got so much easier',
     quote:
-      'Working with SLK Media has been an amazing experience. They took a huge burden off my shoulders and freed up my time. The content quality improved, and Sam was flexible and great to work with. Highly recommend!',
+      'Working with SLK Media has been an amazing experience. As someone juggling multiple platforms, they took a huge burden off my shoulders and freed up my time. The process became easier, the content quality improved, and Sam was flexible and great to work with. Highly recommend!',
     name: 'Shatavia Green',
     role: 'Conjure Queen Podcast',
     initials: 'SG',
+  },
+  {
+    video: 'brian',
+    ar: '16 / 9',
+    chipIcon: 'fas fa-video',
+    chip: '8 to 12 clips per episode, every episode',
+    headline: 'I count SLK Media among the A-players',
+    quote:
+      'I have several teams across three different businesses and I consider you one of the “A-Players” on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and so has the communication, the support, and the professionalism.',
+    name: 'Brian Burton',
+    role: 'Waste No Day Podcast',
+    initials: 'BB',
   },
 ];
 
@@ -238,23 +261,31 @@ export default function PodcastToolkitsPage() {
         </div>
       </section>
 
-      {/* Social proof */}
-      <section className="pt-testimonials-section">
+      {/* Social proof — real video testimonials from the main site */}
+      <section className="pt-vtest-section">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">Built on the Playbook Podcasters Trust</h2>
-          <p className="section-subtitle pt-center">Your report uses the same strategic thinking behind results like these.</p>
-          <div className="pt-testimonials">
+          <h2 className="section-title">Podcasters Who Work With SLK Media Agency</h2>
+          <p className="section-subtitle pt-center">Your report is built on the same strategy that drives results like these.</p>
+          <div className="pt-vtests">
             {testimonials.map((t) => (
-              <figure className="pt-testimonial" key={t.name}>
-                <div className="pt-stars" aria-hidden="true">★★★★★</div>
-                <blockquote>{t.quote}</blockquote>
-                <figcaption className="pt-t-person">
-                  <span className="pt-t-avatar" aria-hidden="true">{t.initials}</span>
-                  <span className="pt-t-meta">
-                    <span className="pt-t-name">{t.name}</span>
-                    <span className="pt-t-role">{t.role}</span>
-                  </span>
+              <figure className="pt-vtest" key={t.name}>
+                <div className="pt-vtest-video" style={{ aspectRatio: t.ar }}>
+                  <video controls preload="none" poster={`/video-testimonials/poster-${t.video}.webp`} playsInline>
+                    <source src={`/video-testimonials/testimonial-${t.video}.mp4`} type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption className="pt-vtest-body">
+                  <span className="pt-vtest-chip"><i className={t.chipIcon} aria-hidden="true"></i> {t.chip}</span>
+                  <h3>{t.headline}</h3>
+                  <blockquote>{t.quote}</blockquote>
+                  <div className="pt-vtest-person">
+                    <span className="pt-t-avatar" aria-hidden="true">{t.initials}</span>
+                    <span className="pt-t-meta">
+                      <span className="pt-t-name">{t.name}</span>
+                      <span className="pt-t-role">{t.role}</span>
+                    </span>
+                  </div>
                 </figcaption>
               </figure>
             ))}
@@ -275,8 +306,8 @@ export default function PodcastToolkitsPage() {
             </div>
             <div className="pt-step">
               <div className="pt-step-number">2</div>
-              <h3>Fill a short intake</h3>
-              <p>Five minutes about your podcast, channels, and goals. <a href={SURVEY_URL} target="_blank" rel="noopener" className="pt-step-link">Preview the questions</a>.</p>
+              <h3>Fill the intake form</h3>
+              <p>Tell us about your podcast, your channels, and your goals. <a href={SURVEY_URL} target="_blank" rel="noopener" className="pt-step-link">Preview the questions</a>.</p>
             </div>
             <div className="pt-step">
               <div className="pt-step-number">3</div>
