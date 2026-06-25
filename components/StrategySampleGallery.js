@@ -13,7 +13,9 @@ const sampleNumbers = Array.from({ length: 16 }, (_, index) => index + 1);
  */
 export default function StrategySampleGallery() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [showAll, setShowAll] = useState(false);
   const isOpen = openIndex !== null;
+  const visible = showAll ? sampleNumbers : sampleNumbers.slice(0, 6);
 
   const close = useCallback(() => setOpenIndex(null), []);
   const show = useCallback(
@@ -39,7 +41,7 @@ export default function StrategySampleGallery() {
   return (
     <>
       <div className="pt-gallery">
-        {sampleNumbers.map((number, index) => (
+        {visible.map((number, index) => (
           <button
             type="button"
             className="pt-thumb"
@@ -58,6 +60,14 @@ export default function StrategySampleGallery() {
           </button>
         ))}
       </div>
+
+      {!showAll && (
+        <div className="pt-gallery-more-wrap">
+          <button type="button" className="pt-gallery-more" onClick={() => setShowAll(true)}>
+            Show all 16 pages
+          </button>
+        </div>
+      )}
 
       {isOpen && (
         <div className="pt-lightbox" role="dialog" aria-modal="true" aria-label="Strategy report sample viewer" onClick={close}>

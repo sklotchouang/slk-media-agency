@@ -7,6 +7,10 @@ import './podcast-toolkits.css';
 // n8n bridge can fire the GoHighLevel optin automation without marking buyers new clients.
 const CHECKOUT_URL = 'https://buy.stripe.com/aFa4gydJa5bq7zLgrX18c07';
 
+// The intake questionnaire buyers complete after purchase. Linked before purchase too,
+// so people can see exactly what we ask and buy with confidence.
+const SURVEY_URL = 'https://survey.slkmediaagency.com/0kdj1o';
+
 export const metadata = {
   title: 'Custom Podcast Social Media Strategy Report ($100) | SLK Media Agency',
   description:
@@ -69,6 +73,24 @@ const faqs = [
   ],
 ];
 
+// Real client testimonials, lifted verbatim from the SLK Media Agency testimonials page.
+const testimonials = [
+  {
+    quote:
+      'Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we’ve gained across multiple platforms is incredible.',
+    name: 'Steve Garrett',
+    role: 'Corvette Today Podcast',
+    initials: 'SG',
+  },
+  {
+    quote:
+      'Working with SLK Media has been an amazing experience. They took a huge burden off my shoulders and freed up my time. The content quality improved, and Sam was flexible and great to work with. Highly recommend!',
+    name: 'Shatavia Green',
+    role: 'Conjure Queen Podcast',
+    initials: 'SG',
+  },
+];
+
 export default function PodcastToolkitsPage() {
   return (
     <div className="pt-page">
@@ -85,7 +107,7 @@ export default function PodcastToolkitsPage() {
           </button>
           <ul className="nav-menu" id="nav-menu">
             <li><Link href="/">Home</Link></li>
-            <li><a href="#pricing" className="cta-button">Get the Report</a></li>
+            <li><a href="#pricing" className="cta-button">Get the Plan</a></li>
           </ul>
         </div>
       </nav>
@@ -101,8 +123,9 @@ export default function PodcastToolkitsPage() {
           </div>
           <div className="cta-center">
             <p className="pt-anchor"><span className="pt-old-price">$500</span> <span className="pt-new-price">$100 today</span></p>
-            <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Strategy Report</a>
+            <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
             <p className="pt-cta-note">One-time $100. No subscription. Delivered in 1 to 2 days.</p>
+            <p className="pt-intake-link"><a href={SURVEY_URL} target="_blank" rel="noopener">See exactly what we ask before you buy →</a></p>
           </div>
           <p className="tagline">⚡ This price is temporary and will increase soon.</p>
         </div>
@@ -215,6 +238,30 @@ export default function PodcastToolkitsPage() {
         </div>
       </section>
 
+      {/* Social proof */}
+      <section className="pt-testimonials-section">
+        <div className="grid-pattern-overlay"></div>
+        <div className="container">
+          <h2 className="section-title">Built on the Playbook Podcasters Trust</h2>
+          <p className="section-subtitle pt-center">Your report uses the same strategic thinking behind results like these.</p>
+          <div className="pt-testimonials">
+            {testimonials.map((t) => (
+              <figure className="pt-testimonial" key={t.name}>
+                <div className="pt-stars" aria-hidden="true">★★★★★</div>
+                <blockquote>{t.quote}</blockquote>
+                <figcaption className="pt-t-person">
+                  <span className="pt-t-avatar" aria-hidden="true">{t.initials}</span>
+                  <span className="pt-t-meta">
+                    <span className="pt-t-name">{t.name}</span>
+                    <span className="pt-t-role">{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="steps-section">
         <div className="grid-pattern-overlay"></div>
@@ -229,7 +276,7 @@ export default function PodcastToolkitsPage() {
             <div className="pt-step">
               <div className="pt-step-number">2</div>
               <h3>Fill a short intake</h3>
-              <p>Five minutes about your podcast, channels, and goals.</p>
+              <p>Five minutes about your podcast, channels, and goals. <a href={SURVEY_URL} target="_blank" rel="noopener" className="pt-step-link">Preview the questions</a>.</p>
             </div>
             <div className="pt-step">
               <div className="pt-step-number">3</div>
@@ -259,7 +306,7 @@ export default function PodcastToolkitsPage() {
             </ul>
             <div className="pt-delivery-badge"><i className="fas fa-bolt" aria-hidden="true"></i> Delivered within 1 to 2 days</div>
             <div className="pt-urgency"><i className="fas fa-exclamation-triangle" aria-hidden="true"></i> This price is temporary and will increase soon.</div>
-            <a href={CHECKOUT_URL} className="btn-primary pt-buy" target="_blank" rel="noopener">Get My Strategy Report</a>
+            <a href={CHECKOUT_URL} className="btn-primary pt-buy" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
             <p className="pt-cta-note">One-time $100 · No subscription · Delivered in 1 to 2 days</p>
           </div>
         </div>
@@ -306,7 +353,7 @@ export default function PodcastToolkitsPage() {
         <div className="container">
           <h2 className="footer-cta-heading">Make the Smart Call</h2>
           <p className="final-cta-text">You do not need us to do everything for you. You just need to know what actually works.</p>
-          <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Strategy Report</a>
+          <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
           <p className="pt-cta-note">One-time $100 · No subscription · Delivered in 1 to 2 days</p>
         </div>
       </section>
@@ -335,6 +382,8 @@ export default function PodcastToolkitsPage() {
               </div>
             </div>
             <div className="footer-legal">
+              <Link href="/" className="legal-link">SLK Media Agency Home</Link>
+              <span className="separator">|</span>
               <Link href="/terms-and-conditions" className="legal-link">Terms and Conditions</Link>
               <span className="separator">|</span>
               <Link href="/privacy-policy" className="legal-link">Privacy Policy</Link>
@@ -350,7 +399,7 @@ export default function PodcastToolkitsPage() {
       <div className="sticky-cta">
         <div className="container">
           <p className="sticky-cta-text">Custom strategy report · <strong>$100</strong> one-time · delivered in 1 to 2 days</p>
-          <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Strategy Report</a>
+          <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
         </div>
       </div>
     </div>

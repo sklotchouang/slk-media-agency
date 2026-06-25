@@ -388,9 +388,122 @@
 }
 
 /* ----- Responsive ----- */
+/* ----- Intake preview links ----- */
+.pt-intake-link {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+.pt-intake-link a {
+  color: var(--pt-blue-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pt-intake-link a:hover {
+  color: #ffffff;
+}
+.pt-step-link {
+  color: var(--pt-blue-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ----- Gallery "show all" toggle ----- */
+.pt-gallery-more-wrap {
+  text-align: center;
+  margin-top: 18px;
+}
+.pt-gallery-more {
+  background: transparent;
+  color: var(--pt-blue-light);
+  border: 1px solid rgba(59, 167, 231, 0.5);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.pt-gallery-more:hover {
+  background: var(--pt-blue);
+  color: #04121d;
+  border-color: var(--pt-blue);
+}
+
+/* ----- Testimonials ----- */
+.pt-testimonials-section {
+  background-color: transparent;
+  padding: 80px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+.pt-testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 920px;
+  margin: 34px auto 0;
+}
+.pt-testimonial {
+  margin: 0;
+  background: var(--pt-card);
+  border: 1px solid var(--pt-border);
+  border-radius: 14px;
+  padding: 28px 26px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pt-stars {
+  color: #ffc24b;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+.pt-testimonial blockquote {
+  margin: 0;
+  color: #e8edf2;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.pt-t-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+.pt-t-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--pt-blue);
+  color: #04121d;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pt-t-meta {
+  display: flex;
+  flex-direction: column;
+}
+.pt-t-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+.pt-t-role {
+  color: var(--pt-muted);
+  font-size: 0.9rem;
+}
+
+/* ----- Footer clearance so the fixed sticky bar never covers it ----- */
+.pt-page .footer-section {
+  padding-bottom: 96px;
+}
+
 @media (max-width: 768px) {
   .pt-deliverables,
-  .pt-steps {
+  .pt-steps,
+  .pt-testimonials {
     grid-template-columns: 1fr;
   }
   .pt-gallery {
