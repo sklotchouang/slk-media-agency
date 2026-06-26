@@ -317,7 +317,7 @@ export default function PodcastMultiplierPage() {
           <p className="section-subtitle clips-subtitle">Three clips straight from client episodes. The exact style of sponsor-ready content your show gets every week.</p>
           <div className="clip-grid">
             <figure className="clip-card video-wrapper">
-              <video poster="/portfolio/thumbnails/Clip-1.jpg" preload="none" playsInline controls aria-label="Client clip example 1">
+              <video poster="/portfolio/thumbnails/Clip-1.jpg" preload="none" playsInline aria-label="Client clip example 1">
                 <source src="/portfolio/Clip-1.mp4" type="video/mp4" />
               </video>
               <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 1">
@@ -325,7 +325,7 @@ export default function PodcastMultiplierPage() {
               </div>
             </figure>
             <figure className="clip-card video-wrapper">
-              <video poster="/portfolio/thumbnails/Clip-5.jpg" preload="none" playsInline controls aria-label="Client clip example 2">
+              <video poster="/portfolio/thumbnails/Clip-5.jpg" preload="none" playsInline aria-label="Client clip example 2">
                 <source src="/portfolio/Clip-5.mp4" type="video/mp4" />
               </video>
               <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 2">
@@ -333,7 +333,7 @@ export default function PodcastMultiplierPage() {
               </div>
             </figure>
             <figure className="clip-card video-wrapper">
-              <video poster="/portfolio/thumbnails/Clip-8.jpg" preload="none" playsInline controls aria-label="Client clip example 3">
+              <video poster="/portfolio/thumbnails/Clip-8.jpg" preload="none" playsInline aria-label="Client clip example 3">
                 <source src="/portfolio/Clip-8.mp4" type="video/mp4" />
               </video>
               <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 3">

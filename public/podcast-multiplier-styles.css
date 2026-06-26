@@ -76,4 +76,6 @@
 .clip-card:hover .video-overlay{background:radial-gradient(circle at 50% 45%,rgba(8,10,20,.12),rgba(6,8,16,.5))}
 .clip-card .play-icon{width:64px;height:64px;border-radius:50%;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;box-shadow:0 10px 28px rgba(59,167,231,.5);transition:transform .3s ease}
 .clip-card:hover .play-icon{transform:scale(1.08)}
-.clip-card.is-playing .video-overlay{opacity:0;pointer-events:none}
+.clip-card.is-playing .video-overlay{background:transparent}
+.clip-card.is-playing .play-icon{opacity:0;transform:scale(.82);pointer-events:none}
+.clip-card.is-playing:hover .video-overlay{background:radial-gradient(circle at 50% 88%,rgba(6,8,16,.55),transparent 55%)}
