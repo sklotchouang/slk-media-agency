@@ -96,3 +96,15 @@
   .founder-section .founder-quote{max-width:100%}
   .founder-section .founder-photo{width:200px;height:200px}
 }
+
+/* === Merged results section: stats on top + case-study image header inside cards === */
+.results-stats{max-width:1000px;margin:38px auto 6px}
+.results-stats h3{text-align:center;font-size:1.3rem;margin-bottom:22px}
+.ba-card-media{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#10101c}
+.ba-card-media img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transition:transform .5s ease}
+.ba-card:hover .ba-card-media img{transform:scale(1.05)}
+.ba-card-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(8,8,16,.55))}
+.ba-case-link{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;color:#3ba7e7;font-weight:700;font-size:.92rem;border-top:1px solid rgba(255,255,255,.08);transition:background .2s ease}
+.ba-case-link:hover{background:rgba(59,167,231,.08);color:#5cb7ed}
+.ba-case-link i{transition:transform .2s ease}
+.ba-card:hover .ba-case-link i{transform:translateX(4px)}

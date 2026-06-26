@@ -160,11 +160,38 @@ export default function PodcastMultiplierPage() {
       <section className="results-section" id="results">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">Before SLK Media Agency vs After</h2>
-          <p className="section-subtitle results-subtitle">Real shifts from real client shows, at a glance.</p>
+          <h2 className="section-title">💰 Real Results from Established Podcasters</h2>
+          <p className="section-subtitle results-subtitle">Before SLK Media Agency vs After, real shifts from real client shows.</p>
+
+          <div className="results-stats">
+            <h3>Average Client Results (90-Day Benchmark)</h3>
+            <div className="stats-band">
+              <div className="stat-card">
+                <div className="stat-number">2.3X</div>
+                <div className="stat-label">More Sponsor Inquiries</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-number">$4.2-8.5K</div>
+                <div className="stat-label">Monthly Sponsorship Revenue</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-number">40-60%</div>
+                <div className="stat-label">Less Time on Production</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-number">180-320%</div>
+                <div className="stat-label">More Social Reach</div>
+              </div>
+            </div>
+          </div>
+
           <div className="ba-grid">
 
             <article className="ba-card">
+              <Link href="/success/conjure-queen" className="ba-card-media">
+                <span className="case-tag">Spiritual Empowerment</span>
+                <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green, Conjure Queen Podcast" loading="lazy" width={600} height={338} />
+              </Link>
               <header className="ba-card-head">
                 <h3>Shatavia Green</h3>
                 <span className="ba-show">Conjure Queen Podcast</span>
@@ -188,9 +215,14 @@ export default function PodcastMultiplierPage() {
                 </div>
               </div>
               <div className="ba-headline"><i className="fas fa-award" aria-hidden="true"></i> 100K+ subscribers, Silver Play Button</div>
+              <Link href="/success/conjure-queen" className="ba-case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></Link>
             </article>
 
             <article className="ba-card">
+              <Link href="/success/brian-burton" className="ba-card-media">
+                <span className="case-tag">B2B Sales Training</span>
+                <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton, Waste No Day Podcast" loading="lazy" width={600} height={338} />
+              </Link>
               <header className="ba-card-head">
                 <h3>Brian Burton</h3>
                 <span className="ba-show">Waste No Day Podcast</span>
@@ -214,9 +246,14 @@ export default function PodcastMultiplierPage() {
                 </div>
               </div>
               <div className="ba-headline"><i className="fas fa-video" aria-hidden="true"></i> 8-12 sponsor-ready clips, every episode</div>
+              <Link href="/success/brian-burton" className="ba-case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></Link>
             </article>
 
             <article className="ba-card">
+              <Link href="/success/steve-garrett" className="ba-card-media">
+                <span className="case-tag">Automotive Media</span>
+                <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett, Corvette Today Podcast" loading="lazy" width={600} height={338} />
+              </Link>
               <header className="ba-card-head">
                 <h3>Steve Garrett</h3>
                 <span className="ba-show">Corvette Today Podcast</span>
@@ -240,11 +277,12 @@ export default function PodcastMultiplierPage() {
                 </div>
               </div>
               <div className="ba-headline"><i className="fab fa-youtube" aria-hidden="true"></i> 11.9K subscribers, 599+ episodes</div>
+              <Link href="/success/steve-garrett" className="ba-case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></Link>
             </article>
 
           </div>
           <div className="cta-center" style={{ marginTop: '40px' }}>
-            <Link href="/success/case-studies" className="btn-primary">See Full Case Studies</Link>
+            <Link href="/success/case-studies" className="btn-primary">View All Case Studies</Link>
           </div>
         </div>
       </section>
@@ -343,158 +381,6 @@ export default function PodcastMultiplierPage() {
           </div>
           <div className="cta-center" style={{ marginTop: '40px' }}>
             <Link href="/portfolio" className="btn-primary">View Full Portfolio</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Section: Proof & Results */}
-      <section className="proof-results-section" id="proof-results">
-        <div className="grid-pattern-overlay"></div>
-        <div className="container">
-          <h2 className="section-title">💰 Real Results from Established Podcasters</h2>
-          <div className="proof-results-content">
-
-            <div className="proof-item">
-              <div className="proof-text">
-                <h3>Conjure Queen: Podcast Multiplier Success Story</h3>
-                <p><strong>BEFORE:</strong> Doing everything herself (recording, editing, clipping, posting), inconsistent engagement with no clear strategy, mental fatigue and burnout, no time for strategy, powerful content not reaching the people who needed it</p>
-                <p><strong>AFTER:</strong> 100% done-for-you content creation, audience engagement doubled across platforms, 100K+ YouTube subscribers, Silver Play Button earned, fully booked coaching calendar, reclaimed energy to focus on her mission</p>
-                <p className="quote">"I knew I needed to be creating clips and getting on social media, but between recording, editing, and managing the show... I had no time left for my actual mission: helping people reclaim their divine power."</p>
-              </div>
-              <div className="proof-metrics">
-                <div className="result-metric">
-                  <span className="rm-label">YouTube Subscribers</span>
-                  <span className="rm-value">100K+</span>
-                </div>
-                <div className="result-metric">
-                  <span className="rm-label">YouTube Milestone</span>
-                  <span className="rm-value">Silver Play Button</span>
-                </div>
-                <div className="result-metric">
-                  <span className="rm-label">Coaching Calendar</span>
-                  <span className="rm-value">Fully Booked</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="proof-item">
-              <div className="proof-text">
-                <h3>Brian Burton: Blue Collar Closer</h3>
-                <p><strong>BEFORE:</strong> Content was basically invisible beyond full episodes, no short-form strategy, no time to repurpose while running the business, limited reach (1.82K YouTube subscribers), competitors dominating discovery on social</p>
-                <p><strong>AFTER:</strong> 8-12 clips per episode, automated clip production, reaching ideal clients across 4+ platforms, consistent hundreds to thousands of views per short, zero additional hours added to his week</p>
-                <p className="quote">"I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising. And also the communication, definitely the support, the communication, and professionalism."</p>
-              </div>
-              <div className="proof-metrics">
-                <div className="result-metric">
-                  <span className="rm-label">YouTube Subscribers</span>
-                  <span className="rm-value">1.82K</span>
-                </div>
-                <div className="result-metric">
-                  <span className="rm-label">Clips Per Episode</span>
-                  <span className="rm-value">8-12</span>
-                </div>
-                <div className="result-metric">
-                  <span className="rm-label">Shorts Views</span>
-                  <span className="rm-value">Hundreds to thousands per clip</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="proof-item">
-              <div className="proof-text">
-                <h3>Steve Garrett: Corvette Today: The Podcast</h3>
-                <p><strong>BEFORE:</strong> Repurposing was always on the to-do list, key moments stayed trapped inside long-form episodes, growth plateau without consistent clips on social, missed monetization upside due to limited exposure</p>
-                <p><strong>AFTER:</strong> Content repurposed for 4+ platforms, automated clip creation, expanded reach and new audience discovery, zero extra hours added to his workload</p>
-                <p className="quote">"Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we've gained across multiple platforms is incredible."</p>
-              </div>
-              <div className="proof-metrics">
-                <div className="result-metric">
-                  <span className="rm-label">YouTube Subscribers</span>
-                  <span className="rm-value">11.9K</span>
-                </div>
-                <div className="result-metric">
-                  <span className="rm-label">Episodes Published</span>
-                  <span className="rm-value">599+</span>
-                </div>
-                <div className="result-metric">
-                  <span className="rm-label">Platforms</span>
-                  <span className="rm-value">4+</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="proof-summary" style={{ marginTop: '60px' }}>
-              <h3 style={{ textAlign: 'center' }}>Average Client Results (90-Day Benchmark)</h3>
-              <div className="stats-band">
-                <div className="stat-card">
-                  <div className="stat-number">2.3X</div>
-                  <div className="stat-label">More Sponsor Inquiries</div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-number">$4.2-8.5K</div>
-                  <div className="stat-label">Monthly Sponsorship Revenue</div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-number">40-60%</div>
-                  <div className="stat-label">Less Time on Production</div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-number">180-320%</div>
-                  <div className="stat-label">More Social Reach</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="case-showcase-grid">
-              <Link href="/success/conjure-queen" className="case-card">
-                <div className="case-card-media">
-                  <span className="case-tag">Spiritual Empowerment</span>
-                  <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green, Conjure Queen Podcast" loading="lazy" width={600} height={338} />
-                </div>
-                <div className="case-card-body">
-                  <h3>Shatavia Green</h3>
-                  <div className="case-show">Conjure Queen Podcast</div>
-                  <p>Doubled engagement and passed 100K subscribers without editing a single clip herself.</p>
-                  <div className="case-stats">
-                    <span><i className="fas fa-award" aria-hidden="true"></i> Silver Play Button</span>
-                  </div>
-                  <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </div>
-              </Link>
-              <Link href="/success/brian-burton" className="case-card">
-                <div className="case-card-media">
-                  <span className="case-tag">B2B Sales Training</span>
-                  <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton, Waste No Day Podcast" loading="lazy" width={600} height={338} />
-                </div>
-                <div className="case-card-body">
-                  <h3>Brian Burton</h3>
-                  <div className="case-show">Waste No Day Podcast</div>
-                  <p>Turned his podcast into a lead generation machine with consistent clips on every platform.</p>
-                  <div className="case-stats">
-                    <span><i className="fas fa-video" aria-hidden="true"></i> 8-12 clips/episode</span>
-                  </div>
-                  <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </div>
-              </Link>
-              <Link href="/success/steve-garrett" className="case-card">
-                <div className="case-card-media">
-                  <span className="case-tag">Automotive Media</span>
-                  <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett, Corvette Today Podcast" loading="lazy" width={600} height={338} />
-                </div>
-                <div className="case-card-body">
-                  <h3>Steve Garrett</h3>
-                  <div className="case-show">Corvette Today Podcast</div>
-                  <p>Scaled reach across 4+ platforms without adding a single hour to his workweek.</p>
-                  <div className="case-stats">
-                    <span><i className="fab fa-youtube" aria-hidden="true"></i> 11.9K subscribers</span>
-                  </div>
-                  <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </div>
-              </Link>
-            </div>
-          </div>
-          <div className="cta-center" style={{ marginTop: '40px' }}>
-            <Link href="/success/case-studies" className="btn-primary">View All Case Studies</Link>
           </div>
         </div>
       </section>
