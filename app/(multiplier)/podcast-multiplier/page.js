@@ -355,18 +355,18 @@ export default function PodcastMultiplierPage() {
           <p className="section-subtitle clips-subtitle">Three clips straight from client episodes. The exact style of sponsor-ready content your show gets every week.</p>
           <div className="clip-grid">
             <figure className="clip-card video-wrapper">
-              <video poster="/portfolio/thumbnails/Clip-1.jpg" preload="none" playsInline aria-label="Client clip example 1">
-                <source src="/portfolio/Clip-1.mp4" type="video/mp4" />
+              <video poster="/portfolio/thumbnails/Steve-Before-After.jpg" preload="none" playsInline aria-label="Steve Garrett before and after clip">
+                <source src="/portfolio/Steve-Before-After.mp4" type="video/mp4" />
               </video>
-              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 1">
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play Steve Garrett before and after clip">
                 <span className="play-icon" aria-hidden="true"><i className="fas fa-play"></i></span>
               </div>
             </figure>
             <figure className="clip-card video-wrapper">
-              <video poster="/portfolio/thumbnails/Clip-5.jpg" preload="none" playsInline aria-label="Client clip example 2">
-                <source src="/portfolio/Clip-5.mp4" type="video/mp4" />
+              <video poster="/portfolio/thumbnails/Brian-Before-After.jpg" preload="none" playsInline aria-label="Brian Burton before and after clip">
+                <source src="/portfolio/Brian-Before-After.mp4" type="video/mp4" />
               </video>
-              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 2">
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play Brian Burton before and after clip">
                 <span className="play-icon" aria-hidden="true"><i className="fas fa-play"></i></span>
               </div>
             </figure>
