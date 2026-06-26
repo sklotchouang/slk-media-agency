@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Thank You — Your Strategy Report Is On the Way | SLK Media Agency',
+  title: 'Thank You: Your Strategy Report Is On the Way | SLK Media Agency',
   description: 'Your Custom Social Media Strategy Report purchase is confirmed.',
   robots: { index: false, follow: false },
   alternates: { canonical: '/podcast-toolkits/thank-you' },
@@ -20,7 +20,7 @@ export default function PodcastToolkitsThankYouPage() {
       <nav className="navbar fixed-nav">
         <div className="container">
           <div className="logo">
-            <Link href="/" aria-label="SLK Media Agency — home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" /></Link>
+            <Link href="/" aria-label="SLK Media Agency, home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" /></Link>
           </div>
         </div>
       </nav>

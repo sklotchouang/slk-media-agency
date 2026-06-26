@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Client Testimonials — What Our Happy Clients Said | SLK Media Agency',
+  title: 'Client Testimonials: What Our Happy Clients Said | SLK Media Agency',
   description:
-    "Hear directly from podcasters and brands — Conjure Queen, RWS Group, Corvette Today, Waste No Day and more — on working with SLK Media Agency's done-for-you content system.",
+    "Hear directly from podcasters and brands (Conjure Queen, RWS Group, Corvette Today, Waste No Day and more) on working with SLK Media Agency's done-for-you content system.",
   robots: { index: true, follow: true },
   alternates: { canonical: '/testimonials' },
   openGraph: {
@@ -11,7 +11,7 @@ export const metadata = {
     siteName: 'SLK Media Agency',
     title: 'Client Testimonials | SLK Media Agency',
     description:
-      'Real clients. Real videos. Real results — what podcasters and brands say about working with SLK Media Agency.',
+      'Real clients. Real videos. Real results: what podcasters and brands say about working with SLK Media Agency.',
     url: '/testimonials',
     images: [{ url: '/og-image.jpg' }],
   },
@@ -25,7 +25,7 @@ export default function TestimonialsPage() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <Link href="/" aria-label="SLK Media Agency — home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
+            <Link href="/" aria-label="SLK Media Agency, home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
           </div>
           <button className="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="primary-nav" aria-expanded="false">
             <span></span>
@@ -49,7 +49,7 @@ export default function TestimonialsPage() {
         <div className="container">
           <span className="tpage-badge"><i className="fas fa-star" aria-hidden="true"></i> TESTIMONIALS</span>
           <h1>What Our <span className="highlight">Happy Clients</span> Said</h1>
-          <p className="subheadline">Unscripted, on camera, in their own words — podcasters and brands on what changed after handing their content to SLK Media.</p>
+          <p className="subheadline">Unscripted, on camera, in their own words: podcasters and brands on what changed after handing their content to SLK Media.</p>
           <div className="stats-band">
             <div className="stat-card">
               <div className="stat-number">12.4M</div>
@@ -131,9 +131,9 @@ export default function TestimonialsPage() {
               </div>
             </div>
             <div className="t-feature-quote">
-              <span className="t-result-chip"><i className="fas fa-video" aria-hidden="true"></i> 8–12 clips per episode, every episode</span>
+              <span className="t-result-chip"><i className="fas fa-video" aria-hidden="true"></i> 8-12 clips per episode, every episode</span>
               <h2 className="t-headline">I count SLK Media among the A-players</h2>
-              <blockquote>I have several teams across three different businesses and I consider you one of the "A-Players" on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising — and also the communication, the support, and the professionalism.</blockquote>
+              <blockquote>I have several teams across three different businesses and I consider you one of the "A-Players" on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and also the communication, the support, and the professionalism.</blockquote>
               <div className="person">
                 <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">BB</span></div>
                 <div className="meta">

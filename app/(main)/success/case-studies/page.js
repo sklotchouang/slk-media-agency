@@ -23,7 +23,7 @@ const caseStudies = [
     href: '/success/conjure-queen',
     tag: 'Spiritual Empowerment',
     image: '/thumbnails/Shatavia Green - Conjure Queen.webp',
-    alt: 'Shatavia Green — Conjure Queen Podcast',
+    alt: 'Shatavia Green, Conjure Queen Podcast',
     name: 'Shatavia Green',
     show: 'Conjure Queen Podcast',
     text: 'From overwhelmed to omnipresent: How we helped a spiritual guide reclaim her energy, double engagement, and hit 100K+ subscribers without editing a single clip.',
@@ -36,7 +36,7 @@ const caseStudies = [
     href: '/success/brian-burton',
     tag: 'B2B Sales Training',
     image: '/thumbnails/Brian Burton - Blue Collar Closer.webp',
-    alt: 'Brian Burton — Waste No Day Podcast',
+    alt: 'Brian Burton, Waste No Day Podcast',
     name: 'Brian Burton',
     show: 'Waste No Day podcast',
     text: 'How a sales coach turned his podcast into a lead generation machine with 8-12 clips per episode and hundreds of views on every short.',
@@ -49,7 +49,7 @@ const caseStudies = [
     href: '/success/steve-garrett',
     tag: 'Automotive Media',
     image: '/thumbnails/Steve Garrett - Corvette Today.webp',
-    alt: 'Steve Garrett — Corvette Today Podcast',
+    alt: 'Steve Garrett, Corvette Today Podcast',
     name: 'Steve Garrett',
     show: 'Corvette Today Podcast',
     text: 'How a niche automotive podcaster scaled his reach across 4+ platforms without adding a single hour to his workweek.',
@@ -62,7 +62,7 @@ const caseStudies = [
     href: '/success/rws-group',
     tag: 'Language Services & Technology',
     image: '/thumbnails/David Hetling - RWS Group.webp',
-    alt: 'David Hetling — RWS Group',
+    alt: 'David Hetling, RWS Group',
     name: 'David Hetling',
     show: 'RWS Group',
     text: 'How SLK Media helped a global leader in language services take over B2B social media with rapid audience growth and all-time high engagement.',
@@ -75,7 +75,7 @@ const caseStudies = [
     href: '/success/sales-fix',
     tag: 'Sales Training & Coaching',
     image: '/thumbnails/Julien Recoussine - SalesFix.webp',
-    alt: 'Julien Recoussine — Sales Fix',
+    alt: 'Julien Recoussine, Sales Fix',
     name: 'Julien Recoussine',
     show: 'Sales Fix',
     text: 'From skeptic to success: How we proved the value of strategic social media and drove immediate growth for a sales training company.',
@@ -88,7 +88,7 @@ const caseStudies = [
     href: '/success/alpine-institute',
     tag: 'Biotechnology Research',
     image: '/thumbnails/Kelly Bellaria - Alpine Institute.webp',
-    alt: 'Kelly Bellaria — Alpine Institute',
+    alt: 'Kelly Bellaria, Alpine Institute',
     name: 'Kelly Bellaria',
     show: 'Alpine Institute',
     text: 'Biotech branding done right: How we built a digital presence from zero and positioned a research organization as an industry thought leader.',
@@ -114,7 +114,7 @@ export default function CaseStudiesPage() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <Link href="/" aria-label="SLK Media Agency — home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
+            <Link href="/" aria-label="SLK Media Agency, home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
           </div>
           <button className="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="primary-nav" aria-expanded="false">
             <span></span>

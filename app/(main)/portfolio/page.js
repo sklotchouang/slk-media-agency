@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Portfolio — Podcast Clips We've Produced | SLK Media Agency",
+  title: "Portfolio: Podcast Clips We've Produced | SLK Media Agency",
   description:
     'See how SLK Media Agency transforms podcast episodes into scroll-stopping, sponsor-ready clips across LinkedIn, YouTube Shorts, TikTok and Instagram.',
   robots: { index: true, follow: true },
@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'SLK Media Agency',
-    title: "Portfolio — Podcast Clips We've Produced | SLK Media Agency",
+    title: "Portfolio: Podcast Clips We've Produced | SLK Media Agency",
     description: 'Real client work: podcast episodes turned into high-impact short-form video.',
     url: '/portfolio',
     images: [{ url: '/og-image.jpg' }],
@@ -32,7 +32,7 @@ export default function PortfolioPage() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <Link href="/" aria-label="SLK Media Agency — home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
+            <Link href="/" aria-label="SLK Media Agency, home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
           </div>
           <button className="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="primary-nav" aria-expanded="false">
             <span></span>

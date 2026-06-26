@@ -121,7 +121,7 @@ export default function PodcastToolkitsPage() {
       <nav className="navbar fixed-nav">
         <div className="container">
           <div className="logo">
-            <Link href="/" aria-label="SLK Media Agency — home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" /></Link>
+            <Link href="/" aria-label="SLK Media Agency, home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" /></Link>
           </div>
           <button className="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="nav-menu" aria-expanded="false">
             <span></span>
@@ -261,7 +261,7 @@ export default function PodcastToolkitsPage() {
         </div>
       </section>
 
-      {/* Social proof — real video testimonials from the main site */}
+      {/* Social proof: real video testimonials from the main site */}
       <section className="pt-vtest-section">
         <div className="grid-pattern-overlay"></div>
         <div className="container">

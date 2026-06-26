@@ -3,7 +3,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'The Content Engine for Established Podcasters | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns every episode into 10–20 sponsor-ready clips and distributes them across LinkedIn, YouTube, TikTok and more — done-for-you content for established podcasters scaling to $10K+/month.',
+    'The Podcast Multiplier™ turns every episode into 10-20 sponsor-ready clips and distributes them across LinkedIn, YouTube, TikTok and more, done-for-you content for established podcasters scaling to $10K+/month.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
   openGraph: {
@@ -19,7 +19,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'The Content Engine for Established Podcasters | SLK Media Agency',
     description:
-      'We turn every podcast episode into 10–20 sponsor-ready clips and distribute them everywhere your sponsors look.',
+      'We turn every podcast episode into 10-20 sponsor-ready clips and distribute them everywhere your sponsors look.',
     images: ['/og-image.jpg'],
   },
 };
@@ -51,7 +51,7 @@ export default function HomePage() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <Link href="/" aria-label="SLK Media Agency — home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
+            <Link href="/" aria-label="SLK Media Agency, home"><img src="/images/SLK Media Agency LOGO. 500x500 - CROPPED.png" alt="SLK Media Agency" className="logo-image" width={120} height={45} /></Link>
           </div>
           <button className="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="primary-nav" aria-expanded="false">
             <span></span>
@@ -159,21 +159,21 @@ export default function HomePage() {
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-1.jpg" data-autoplay aria-label="Client success clip — sponsor-ready content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Sponsor-Ready Content</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-1.jpg" data-autoplay aria-label="Client success clip, sponsor-ready content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Sponsor-Ready Content</p></div>',
               }}
             />
             <div
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-2.jpg" data-autoplay aria-label="Client success clip — authority-building content"><source src="/portfolio/Clip-2.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Authority-Building Content</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-2.jpg" data-autoplay aria-label="Client success clip, authority-building content"><source src="/portfolio/Clip-2.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Authority-Building Content</p></div>',
               }}
             />
             <div
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-3.jpg" data-autoplay aria-label="Client success clip — revenue-driving clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Revenue-Driving Clips</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-3.jpg" data-autoplay aria-label="Client success clip, revenue-driving clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Revenue-Driving Clips</p></div>',
               }}
             />
           </div>
@@ -320,7 +320,7 @@ export default function HomePage() {
             <Link href="/success/conjure-queen" className="case-card">
               <div className="case-card-media">
                 <span className="case-tag">Spiritual Empowerment</span>
-                <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green — Conjure Queen Podcast" loading="lazy" width={600} height={338} />
+                <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green, Conjure Queen Podcast" loading="lazy" width={600} height={338} />
               </div>
               <div className="case-card-body">
                 <h3>Shatavia Green</h3>
@@ -336,14 +336,14 @@ export default function HomePage() {
             <Link href="/success/brian-burton" className="case-card">
               <div className="case-card-media">
                 <span className="case-tag">B2B Sales Training</span>
-                <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton — Waste No Day Podcast" loading="lazy" width={600} height={338} />
+                <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton, Waste No Day Podcast" loading="lazy" width={600} height={338} />
               </div>
               <div className="case-card-body">
                 <h3>Brian Burton</h3>
                 <div className="case-show">Waste No Day Podcast</div>
                 <p>How a sales coach turned his podcast into a lead generation machine with consistent clips on every platform.</p>
                 <div className="case-stats">
-                  <span><i className="fas fa-video" aria-hidden="true"></i> 8–12 clips/episode</span>
+                  <span><i className="fas fa-video" aria-hidden="true"></i> 8-12 clips/episode</span>
                   <span><i className="fas fa-eye" aria-hidden="true"></i> 800+ views/short</span>
                 </div>
                 <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
@@ -352,7 +352,7 @@ export default function HomePage() {
             <Link href="/success/steve-garrett" className="case-card">
               <div className="case-card-media">
                 <span className="case-tag">Automotive Media</span>
-                <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett — Corvette Today Podcast" loading="lazy" width={600} height={338} />
+                <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett, Corvette Today Podcast" loading="lazy" width={600} height={338} />
               </div>
               <div className="case-card-body">
                 <h3>Steve Garrett</h3>
@@ -377,7 +377,7 @@ export default function HomePage() {
         <div className="container">
           <div className="testimonial-carousel">
             <div className="testimonial-slide active">
-              <p className="testimonial-text">"I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams I want to do business with for a long time. The quality of the short reels has been surprising — and the communication, support, and professionalism."</p>
+              <p className="testimonial-text">"I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams I want to do business with for a long time. The quality of the short reels has been surprising, and the communication, support, and professionalism."</p>
               <div className="testimonial-author">Brian Burton, Waste No Day Podcast</div>
             </div>
             <div className="testimonial-slide">

@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'The Podcast Multiplier™ — Sponsor-Magnet Content for Podcasters | SLK Media Agency',
+  title: 'The Podcast Multiplier™: Sponsor-Magnet Content for Podcasters | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns every episode into sponsor-attracting clips and distributes them across every platform — done-for-you content production for established podcasters.',
+    'The Podcast Multiplier™ turns every episode into sponsor-attracting clips and distributes them across every platform. Done-for-you content production for established podcasters.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/podcast-multiplier' },
   openGraph: {
@@ -33,6 +33,8 @@ export default function PodcastMultiplierPage() {
           </button>
           <ul className="nav-menu" id="nav-menu">
             <li><Link href="/">Home</Link></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><a href="#next-steps">Get Started</a></li>
           </ul>
@@ -47,12 +49,20 @@ export default function PodcastMultiplierPage() {
             <p className="sub-headline-blue">The Podcast Multiplier™</p>
             <h1 className="headline">The Content Engine That Turns Established Podcasts Into Sponsor Magnets</h1>
             <p className="subheadline">Your show deserves more than 200-view clips. Let us convert every episode into high-impact, sponsor-magnet assets while you stay focused on creating great content.</p>
-
           </div>
-           <div className="cta-center">
+          <div className="cta-center">
             <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Let's Chat - Qualified Shows Only</a>
           </div>
           <p className="tagline">⚡ LIMITED CAPACITY: Only 3 spots available per quarter.</p>
+
+          <div className="hero-snapshot" aria-label="How it works in three steps">
+            <div className="hsnap-step"><span className="hsnap-num">1</span><span>You record your episode</span></div>
+            <span className="hsnap-arrow" aria-hidden="true"><i className="fas fa-arrow-right"></i></span>
+            <div className="hsnap-step"><span className="hsnap-num">2</span><span>We multiply it into 20+ assets</span></div>
+            <span className="hsnap-arrow" aria-hidden="true"><i className="fas fa-arrow-right"></i></span>
+            <div className="hsnap-step"><span className="hsnap-num">3</span><span>You show up everywhere</span></div>
+          </div>
+          <p className="hero-pricing-peek">Done-for-you content from <strong>$1,597/mo</strong>. <a href="#pricing">See what is included</a></p>
         </div>
       </section>
 
@@ -70,10 +80,15 @@ export default function PodcastMultiplierPage() {
               <div className="problem-item">🚫 Sponsors want "social proof" but your Instagram has 12 sporadic posts</div>
               <div className="problem-item">🚫 You know you should be on LinkedIn, TikTok, and YouTube Shorts... but who has time?</div>
             </div>
-            <p><strong>The brutal math:</strong> 10 hours/week × 4 weeks = <strong>40 hours per month</strong> spent on content production.</p>
-            <p>That's <strong>$2,000-$5,000 in opportunity cost</strong> if you valued your time at $50-125/hour (which you should, because that's billable time you could spend closing sponsors or creating paid products).</p>
-            <p><strong>Meanwhile, your best episodes die after publication because you're too exhausted to promote them.</strong></p>
-            <p><strong>Here's what you actually need:</strong> A dedicated content team that treats your podcast like the revenue asset it is - multiplying every episode into 20+ sponsor-attracting assets while you focus on recording and monetization strategy.</p>
+            <div className="cost-callout">
+              <div className="cost-callout-icon"><i className="fas fa-hourglass-half" aria-hidden="true"></i></div>
+              <div className="cost-callout-body">
+                <p><strong>The brutal math:</strong> 10 hours/week × 4 weeks = <strong>40 hours per month</strong> spent on content production.</p>
+                <p>That's <strong>$2,000-$5,000 in opportunity cost</strong> if you valued your time at $50-125/hour (which you should, because that's billable time you could spend closing sponsors or creating paid products).</p>
+                <p><strong>Meanwhile, your best episodes die after publication because you're too exhausted to promote them.</strong></p>
+              </div>
+            </div>
+            <p><strong>Here's what you actually need:</strong> A dedicated content team that treats your podcast like the revenue asset it is, multiplying every episode into 20+ sponsor-attracting assets while you focus on recording and monetization strategy.</p>
           </div>
         </div>
       </section>
@@ -90,18 +105,18 @@ export default function PodcastMultiplierPage() {
                 <div className="problem-card-icon"><i className="fas fa-robot"></i></div>
                 <h3>AI Clipping Tools (Descript, OpusClip, Repurpose.io)</h3>
                 <p><strong>What they promised:</strong> "Just upload your episode! AI will find the best clips automatically!"</p>
-                <p><strong>What actually happened:</strong> Algorithm clips random 60-second segments with zero context. Misses your best punchlines, cuts off stories mid-sentence. You spend 3 hours per week "fixing" AI output-defeating the purpose.</p>
-                <p><strong>Why it failed:</strong> AI optimizes for "engagement patterns" (loud moments, laughter), not sponsor psychology (authority demonstrations, expertise showcases). Brands don't partner because clips are "engaging"-they partner because clips prove audience trust and commercial alignment.</p>
+                <p><strong>What actually happened:</strong> Algorithm clips random 60-second segments with zero context. Misses your best punchlines, cuts off stories mid-sentence. You spend 3 hours per week "fixing" AI output, defeating the purpose.</p>
+                <p><strong>Why it failed:</strong> AI optimizes for "engagement patterns" (loud moments, laughter), not sponsor psychology (authority demonstrations, expertise showcases). Brands don't partner because clips are "engaging." They partner because clips prove audience trust and commercial alignment.</p>
               </div>
               <div className="problem-card">
                 <div className="problem-card-icon"><i className="fas fa-laptop-code"></i></div>
                 <h3>Cheap Freelancers on Fiverr/Upwork ($200-800/month)</h3>
                 <p><strong>What you thought you'd get:</strong> "Affordable editor who'll handle clips so I can focus on recording."</p>
                 <p><strong>What actually happened:</strong> Week 1: Promising start. Week 3: Quality drops. Week 5: Disappears for 4 days. Week 8: You're re-editing their clips because they don't understand your audience. Week 10: Ghosted.</p>
-                <p><strong>Why it failed:</strong> You hired task-based labor, not a strategic partner. Freelancers aren't invested in your revenue outcomes-they're optimizing for speed and volume, not sponsor appeal. Plus, you're managing another employee (revisions, feedback, deadlines), which defeats the "time savings" promise.</p>
+                <p><strong>Why it failed:</strong> You hired task-based labor, not a strategic partner. Freelancers aren't invested in your revenue outcomes. They're optimizing for speed and volume, not sponsor appeal. Plus, you're managing another employee (revisions, feedback, deadlines), which defeats the "time savings" promise.</p>
               </div>
             </div>
-            <p className="problem-summary"><strong>The Real Problem (That Nobody Talks About):</strong> You don't have a content problem. You have a leverage problem. Successful podcasters at $25K-$100K+/month aren't better interviewers than you. <strong>They have content teams</strong> that multiply their effort: 1 hour of recording → 20 hours of distributed content across multiple platforms.</p>
+            <p className="problem-summary"><strong>The Real Problem (That Nobody Talks About):</strong> You don't have a content problem. You have a leverage problem. Successful podcasters at $25K-$100K+/month aren't better interviewers than you. <strong>They have content teams</strong> that multiply their effort: 1 hour of recording into 20 hours of distributed content across multiple platforms.</p>
           </div>
         </div>
       </section>
@@ -118,10 +133,118 @@ export default function PodcastMultiplierPage() {
             <div className="solution-highlight">
               <p><strong>You record your podcast episodes.</strong></p>
               <p><strong>We turn them into sponsor-ready assets published across your entire ecosystem.</strong></p>
-              <p><strong>You show up everywhere, effortlessly-and sponsors notice.</strong></p>
+              <p><strong>You show up everywhere, effortlessly, and sponsors notice.</strong></p>
             </div>
-            <p><strong>The result:</strong> By the time a brand Googles you, they've already seen you 8 times across multiple platforms. You're not a "podcast" - you're a <em>media presence</em>.</p>
+            <p><strong>The result:</strong> By the time a brand Googles you, they've already seen you 8 times across multiple platforms. You're not a "podcast." You're a <em>media presence</em>.</p>
             <Link href="/portfolio" className="btn-primary" target="_blank" rel="noopener">See Portfolio</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Founder mini-strip (humanize early) */}
+      <section className="founder-mini-section">
+        <div className="grid-pattern-overlay"></div>
+        <div className="container">
+          <div className="founder-mini">
+            <img src="/images/founder.webp" alt="Samuel K. Lotchouang, Founder of SLK Media Agency" className="founder-mini-photo" width={140} height={140} loading="lazy" />
+            <div className="founder-mini-text">
+              <span className="founder-mini-tag"><i className="fas fa-quote-left" aria-hidden="true"></i> Why I built this</span>
+              <p>I watched too many talented podcasters burn out editing clips instead of closing sponsor deals. SLK Media Agency exists so you record, we multiply, and sponsors notice. When you book a call, you speak directly with me, not a sales rep.</p>
+              <span className="founder-mini-sign">Samuel K. Lotchouang, CEO &amp; Founder</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Before / After results grid (proof, surfaced early) */}
+      <section className="results-section" id="results">
+        <div className="grid-pattern-overlay"></div>
+        <div className="container">
+          <h2 className="section-title">Before SLK Media Agency vs After</h2>
+          <p className="section-subtitle results-subtitle">Real shifts from real client shows, at a glance.</p>
+          <div className="ba-grid">
+
+            <article className="ba-card">
+              <header className="ba-card-head">
+                <h3>Shatavia Green</h3>
+                <span className="ba-show">Conjure Queen Podcast</span>
+              </header>
+              <div className="ba-cols">
+                <div className="ba-col ba-before">
+                  <span className="ba-tag">Before</span>
+                  <ul>
+                    <li>Editing and posting everything herself</li>
+                    <li>Inconsistent engagement, no strategy</li>
+                    <li>Burned out, no time for her mission</li>
+                  </ul>
+                </div>
+                <div className="ba-col ba-after">
+                  <span className="ba-tag">After</span>
+                  <ul>
+                    <li>100% done-for-you content</li>
+                    <li>Engagement doubled across platforms</li>
+                    <li>Reclaimed energy and focus</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="ba-headline"><i className="fas fa-award" aria-hidden="true"></i> 100K+ subscribers, Silver Play Button</div>
+            </article>
+
+            <article className="ba-card">
+              <header className="ba-card-head">
+                <h3>Brian Burton</h3>
+                <span className="ba-show">Waste No Day Podcast</span>
+              </header>
+              <div className="ba-cols">
+                <div className="ba-col ba-before">
+                  <span className="ba-tag">Before</span>
+                  <ul>
+                    <li>Invisible beyond full episodes</li>
+                    <li>No short-form strategy or time</li>
+                    <li>Competitors dominating discovery</li>
+                  </ul>
+                </div>
+                <div className="ba-col ba-after">
+                  <span className="ba-tag">After</span>
+                  <ul>
+                    <li>8-12 clips produced per episode</li>
+                    <li>Reaching ideal clients on 4+ platforms</li>
+                    <li>Zero extra hours in his week</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="ba-headline"><i className="fas fa-video" aria-hidden="true"></i> 8-12 sponsor-ready clips, every episode</div>
+            </article>
+
+            <article className="ba-card">
+              <header className="ba-card-head">
+                <h3>Steve Garrett</h3>
+                <span className="ba-show">Corvette Today Podcast</span>
+              </header>
+              <div className="ba-cols">
+                <div className="ba-col ba-before">
+                  <span className="ba-tag">Before</span>
+                  <ul>
+                    <li>Repurposing stuck on the to-do list</li>
+                    <li>Key moments trapped in long episodes</li>
+                    <li>Growth plateau, limited exposure</li>
+                  </ul>
+                </div>
+                <div className="ba-col ba-after">
+                  <span className="ba-tag">After</span>
+                  <ul>
+                    <li>Repurposed across 4+ platforms</li>
+                    <li>Expanded reach and new discovery</li>
+                    <li>Zero extra hours added</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="ba-headline"><i className="fab fa-youtube" aria-hidden="true"></i> 11.9K subscribers, 599+ episodes</div>
+            </article>
+
+          </div>
+          <div className="cta-center" style={{ marginTop: '40px' }}>
+            <Link href="/success/case-studies" className="btn-primary">See Full Case Studies</Link>
           </div>
         </div>
       </section>
@@ -141,9 +264,9 @@ export default function PodcastMultiplierPage() {
                   ✅ <strong>Sponsor Psychology Analysis:</strong> We study your niche's top sponsored podcasts. What clip types do they produce? What messages do brands respond to?<br /><br />
                   ✅ <strong>Competitor Intelligence Report:</strong> Who's winning sponsor deals in your space? What's their content distribution strategy?<br /><br />
                   ✅ <strong>Platform Optimization Blueprint:</strong> Where do sponsors in your niche discover podcasts? (B2B brands scout LinkedIn. DTC brands hunt TikTok and Instagram.)<br /><br />
-                  ✅ <strong>90-Day Revenue-First Content Calendar:</strong> We map exactly what clips to produce, when to publish them, and which platforms to prioritize-aligned with your sponsor outreach timeline<br />
+                  ✅ <strong>90-Day Revenue-First Content Calendar:</strong> We map exactly what clips to produce, when to publish them, and which platforms to prioritize, aligned with your sponsor outreach timeline<br />
                   <br />
-                  🚀 <strong>Quick win:</strong> You will receive a full social media strategy report - giving you clarity on what to expect in the coming weeks/months.
+                  🚀 <strong>Quick win:</strong> You will receive a full social media strategy report, giving you clarity on what to expect in the coming weeks/months.
                 </p>
                 <p><strong>This is the step every other service skips.</strong> They treat editing like a commodity. We treat it like sponsor development.</p>
               </div>
@@ -151,17 +274,16 @@ export default function PodcastMultiplierPage() {
             <div className="step-item">
               <div className="step-item-number">2</div>
               <div className="step-item-content">
-                <h3>Content Multiplication (Ongoing - Every Episode)</h3>
+                <h3>Content Multiplication (Ongoing, Every Episode)</h3>
                 <p>Our team transforms each episode into <strong>10-20+ sponsor-attracting assets.</strong></p>
                 <p><strong>But here's what makes us different: We don't edit chronologically. We edit strategically.</strong></p>
                 <p>
-                  ✅ <strong>Strategic Clip Selection:</strong> We hunt for "sponsor moments"-authority demonstrations, audience engagement proof, expertise showcases<br /><br />
+                  ✅ <strong>Strategic Clip Selection:</strong> We hunt for "sponsor moments," authority demonstrations, audience engagement proof, expertise showcases<br /><br />
                   ✅ <strong>Platform-Native Optimization:</strong> LinkedIn clips focus on credibility. TikTok clips focus on virality. YouTube clips focus on watch time. Same episode, different psychology<br /><br />
                   ✅ <strong>Sponsor-Ready Packaging:</strong> Every clip includes engagement metrics, audience demographics, and CTA performance in our weekly reports<br /><br />
                   ✅ <strong>Brand Consistency Obsession:</strong> Custom style guides, tone matching, zero generic templates<br />
                   <br />
                   <strong>We don't just edit. We turn your podcast into an omnipresent content machine.</strong>
-
                 </p>
               </div>
             </div>
@@ -169,14 +291,14 @@ export default function PodcastMultiplierPage() {
               <div className="step-item-number">3</div>
               <div className="step-item-content">
                 <h3>Omnichannel Distribution (Autopilot)</h3>
-                <p>We don't just create content-we publish it strategically across your entire ecosystem:</p>
+                <p>We don't just create content. We publish it strategically across your entire ecosystem:</p>
                 <p>
                   ✅ <strong>Multi-Platform Scheduling:</strong> LinkedIn, YouTube, Instagram, TikTok, X, Facebook (wherever your sponsors look)<br /><br />
                   ✅ <strong>Engagement Amplification:</strong> We monitor comments, tag relevant industry figures, cross-promote with guests<br /><br />
                   ✅ <strong>Sponsor Signal Tracking:</strong> When brands engage with your content, we flag it immediately<br /><br />
                   ✅ <strong>Weekly Performance Intelligence:</strong> Which clips drive sponsor inquiries? Which platforms generate leads? We track everything<br />
                   <br />
-                  <strong>The result:</strong> By the time a brand Googles you, they've already seen you 8 times across multiple platforms. You're not a "podcast" - you're a <em>media presence</em>.
+                  <strong>The result:</strong> By the time a brand Googles you, they've already seen you 8 times across multiple platforms. You're not a "podcast." You're a <em>media presence</em>.
                 </p>
               </div>
             </div>
@@ -192,23 +314,32 @@ export default function PodcastMultiplierPage() {
         <div className="grid-pattern-overlay"></div>
         <div className="container">
           <h2 className="section-title">See The Output For Yourself</h2>
-          <p className="subheadline" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>Three clips straight from client episodes — the exact style of sponsor-ready content your show gets every week.</p>
+          <p className="section-subtitle clips-subtitle">Three clips straight from client episodes. The exact style of sponsor-ready content your show gets every week.</p>
           <div className="clip-grid">
-            <div className="clip-card">
-              <video poster="/portfolio/thumbnails/Clip-1.jpg" preload="none" controls playsInline aria-label="Client clip example 1">
+            <figure className="clip-card video-wrapper">
+              <video poster="/portfolio/thumbnails/Clip-1.jpg" preload="none" playsInline controls aria-label="Client clip example 1">
                 <source src="/portfolio/Clip-1.mp4" type="video/mp4" />
               </video>
-            </div>
-            <div className="clip-card">
-              <video poster="/portfolio/thumbnails/Clip-5.jpg" preload="none" controls playsInline aria-label="Client clip example 2">
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 1">
+                <span className="play-icon" aria-hidden="true"><i className="fas fa-play"></i></span>
+              </div>
+            </figure>
+            <figure className="clip-card video-wrapper">
+              <video poster="/portfolio/thumbnails/Clip-5.jpg" preload="none" playsInline controls aria-label="Client clip example 2">
                 <source src="/portfolio/Clip-5.mp4" type="video/mp4" />
               </video>
-            </div>
-            <div className="clip-card">
-              <video poster="/portfolio/thumbnails/Clip-8.jpg" preload="none" controls playsInline aria-label="Client clip example 3">
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 2">
+                <span className="play-icon" aria-hidden="true"><i className="fas fa-play"></i></span>
+              </div>
+            </figure>
+            <figure className="clip-card video-wrapper">
+              <video poster="/portfolio/thumbnails/Clip-8.jpg" preload="none" playsInline controls aria-label="Client clip example 3">
                 <source src="/portfolio/Clip-8.mp4" type="video/mp4" />
               </video>
-            </div>
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play client clip 3">
+                <span className="play-icon" aria-hidden="true"><i className="fas fa-play"></i></span>
+              </div>
+            </figure>
           </div>
           <div className="cta-center" style={{ marginTop: '40px' }}>
             <Link href="/portfolio" className="btn-primary">View Full Portfolio</Link>
@@ -225,132 +356,69 @@ export default function PodcastMultiplierPage() {
 
             <div className="proof-item">
               <div className="proof-text">
-                <h3>Conjure Queen - Podcast Multiplier Success Story</h3>
+                <h3>Conjure Queen: Podcast Multiplier Success Story</h3>
                 <p><strong>BEFORE:</strong> Doing everything herself (recording, editing, clipping, posting), inconsistent engagement with no clear strategy, mental fatigue and burnout, no time for strategy, powerful content not reaching the people who needed it</p>
                 <p><strong>AFTER:</strong> 100% done-for-you content creation, audience engagement doubled across platforms, 100K+ YouTube subscribers, Silver Play Button earned, fully booked coaching calendar, reclaimed energy to focus on her mission</p>
                 <p className="quote">"I knew I needed to be creating clips and getting on social media, but between recording, editing, and managing the show... I had no time left for my actual mission: helping people reclaim their divine power."</p>
               </div>
-              <div className="proof-chart">
-                <div className="chart-row">
-                  <span className="chart-label">YouTube Subscribers</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">100K+</span>
-                  </div>
+              <div className="proof-metrics">
+                <div className="result-metric">
+                  <span className="rm-label">YouTube Subscribers</span>
+                  <span className="rm-value">100K+</span>
                 </div>
-                <div className="chart-row">
-                  <span className="chart-label">YouTube Milestone</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">Silver Play Button Earned</span>
-                  </div>
+                <div className="result-metric">
+                  <span className="rm-label">YouTube Milestone</span>
+                  <span className="rm-value">Silver Play Button</span>
                 </div>
-                <div className="chart-row">
-                  <span className="chart-label">Coaching Calendar</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">Fully Booked</span>
-                  </div>
+                <div className="result-metric">
+                  <span className="rm-label">Coaching Calendar</span>
+                  <span className="rm-value">Fully Booked</span>
                 </div>
               </div>
             </div>
 
             <div className="proof-item">
               <div className="proof-text">
-                <h3>Brian Burton - Blue Collar Closer</h3>
+                <h3>Brian Burton: Blue Collar Closer</h3>
                 <p><strong>BEFORE:</strong> Content was basically invisible beyond full episodes, no short-form strategy, no time to repurpose while running the business, limited reach (1.82K YouTube subscribers), competitors dominating discovery on social</p>
                 <p><strong>AFTER:</strong> 8-12 clips per episode, automated clip production, reaching ideal clients across 4+ platforms, consistent hundreds to thousands of views per short, zero additional hours added to his week</p>
                 <p className="quote">"I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising. And also the communication, definitely the support, the communication, and professionalism."</p>
               </div>
-              <div className="proof-chart">
-                <div className="chart-row">
-                  <span className="chart-label">YouTube Subscribers</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">1.82K</span>
-                  </div>
+              <div className="proof-metrics">
+                <div className="result-metric">
+                  <span className="rm-label">YouTube Subscribers</span>
+                  <span className="rm-value">1.82K</span>
                 </div>
-                <div className="chart-row">
-                  <span className="chart-label">Clips Per Episode</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">8-12</span>
-                  </div>
+                <div className="result-metric">
+                  <span className="rm-label">Clips Per Episode</span>
+                  <span className="rm-value">8-12</span>
                 </div>
-                <div className="chart-row">
-                  <span className="chart-label">Shorts Views</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">Hundreds to thousands per clip</span>
-                  </div>
+                <div className="result-metric">
+                  <span className="rm-label">Shorts Views</span>
+                  <span className="rm-value">Hundreds to thousands per clip</span>
                 </div>
               </div>
             </div>
 
             <div className="proof-item">
               <div className="proof-text">
-                <h3>Steve Garrett - Corvette Today: The Podcast</h3>
+                <h3>Steve Garrett: Corvette Today: The Podcast</h3>
                 <p><strong>BEFORE:</strong> Repurposing was always on the to-do list, key moments stayed trapped inside long-form episodes, growth plateau without consistent clips on social, missed monetization upside due to limited exposure</p>
                 <p><strong>AFTER:</strong> Content repurposed for 4+ platforms, automated clip creation, expanded reach and new audience discovery, zero extra hours added to his workload</p>
                 <p className="quote">"Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we've gained across multiple platforms is incredible."</p>
               </div>
-              <div className="proof-chart">
-                <div className="chart-row">
-                  <span className="chart-label">YouTube Subscribers</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">11.9K</span>
-                  </div>
+              <div className="proof-metrics">
+                <div className="result-metric">
+                  <span className="rm-label">YouTube Subscribers</span>
+                  <span className="rm-value">11.9K</span>
                 </div>
-                <div className="chart-row">
-                  <span className="chart-label">Episodes Published</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">599+</span>
-                  </div>
+                <div className="result-metric">
+                  <span className="rm-label">Episodes Published</span>
+                  <span className="rm-value">599+</span>
                 </div>
-                <div className="chart-row">
-                  <span className="chart-label">Platforms</span>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar before-bar" style={{ width: '0%' }}></div>
-                    <span className="chart-value">—</span>
-                  </div>
-                  <div className="chart-bar-container">
-                    <div className="chart-bar after-bar" style={{ width: '100%' }}></div>
-                    <span className="chart-value">4+</span>
-                  </div>
+                <div className="result-metric">
+                  <span className="rm-label">Platforms</span>
+                  <span className="rm-value">4+</span>
                 </div>
               </div>
             </div>
@@ -363,15 +431,15 @@ export default function PodcastMultiplierPage() {
                   <div className="stat-label">More Sponsor Inquiries</div>
                 </div>
                 <div className="stat-card">
-                  <div className="stat-number">$4.2–8.5K</div>
+                  <div className="stat-number">$4.2-8.5K</div>
                   <div className="stat-label">Monthly Sponsorship Revenue</div>
                 </div>
                 <div className="stat-card">
-                  <div className="stat-number">40–60%</div>
+                  <div className="stat-number">40-60%</div>
                   <div className="stat-label">Less Time on Production</div>
                 </div>
                 <div className="stat-card">
-                  <div className="stat-number">180–320%</div>
+                  <div className="stat-number">180-320%</div>
                   <div className="stat-label">More Social Reach</div>
                 </div>
               </div>
@@ -381,7 +449,7 @@ export default function PodcastMultiplierPage() {
               <Link href="/success/conjure-queen" className="case-card">
                 <div className="case-card-media">
                   <span className="case-tag">Spiritual Empowerment</span>
-                  <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green — Conjure Queen Podcast" loading="lazy" width={600} height={338} />
+                  <img src="/thumbnails/Shatavia Green - Conjure Queen.webp" alt="Shatavia Green, Conjure Queen Podcast" loading="lazy" width={600} height={338} />
                 </div>
                 <div className="case-card-body">
                   <h3>Shatavia Green</h3>
@@ -396,14 +464,14 @@ export default function PodcastMultiplierPage() {
               <Link href="/success/brian-burton" className="case-card">
                 <div className="case-card-media">
                   <span className="case-tag">B2B Sales Training</span>
-                  <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton — Waste No Day Podcast" loading="lazy" width={600} height={338} />
+                  <img src="/thumbnails/Brian Burton - Blue Collar Closer.webp" alt="Brian Burton, Waste No Day Podcast" loading="lazy" width={600} height={338} />
                 </div>
                 <div className="case-card-body">
                   <h3>Brian Burton</h3>
                   <div className="case-show">Waste No Day Podcast</div>
                   <p>Turned his podcast into a lead generation machine with consistent clips on every platform.</p>
                   <div className="case-stats">
-                    <span><i className="fas fa-video" aria-hidden="true"></i> 8–12 clips/episode</span>
+                    <span><i className="fas fa-video" aria-hidden="true"></i> 8-12 clips/episode</span>
                   </div>
                   <span className="case-link">Read case study <i className="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </div>
@@ -411,7 +479,7 @@ export default function PodcastMultiplierPage() {
               <Link href="/success/steve-garrett" className="case-card">
                 <div className="case-card-media">
                   <span className="case-tag">Automotive Media</span>
-                  <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett — Corvette Today Podcast" loading="lazy" width={600} height={338} />
+                  <img src="/thumbnails/Steve Garrett - Corvette Today.webp" alt="Steve Garrett, Corvette Today Podcast" loading="lazy" width={600} height={338} />
                 </div>
                 <div className="case-card-body">
                   <h3>Steve Garrett</h3>
@@ -475,8 +543,8 @@ export default function PodcastMultiplierPage() {
             </table>
           </div>
           <div className="comparison-content">
-            <p><strong>The difference:</strong> We're not a "service provider" - we're an extension of your revenue team. Every clip decision is filtered through: <em>"Does this help us close the next sponsor?"</em></p>
-            <p><strong>Example:</strong> Shatavia Green, founder of Conjure Queen, went from content burnout and inconsistent leads to a fully booked coaching calendar using the Podcast Multiplier™ system-so much so that she had to pause marketing to keep up with demand.</p>
+            <p><strong>The difference:</strong> We're not a "service provider." We're an extension of your revenue team. Every clip decision is filtered through: <em>"Does this help us close the next sponsor?"</em></p>
+            <p><strong>Example:</strong> Shatavia Green, founder of Conjure Queen, went from content burnout and inconsistent leads to a fully booked coaching calendar using the Podcast Multiplier™ system, so much so that she had to pause marketing to keep up with demand.</p>
             <div className="cta-group">
               <a href="https://gamma.app/docs/From-Burnout-to-Breakthrough-How-SLK-Media-Helped-Conjure-Queen-H-27tv5yjdnca6upb" className="btn-primary" target="_blank" rel="noopener">See Shatavia's Case Study</a>
             </div>
@@ -534,11 +602,11 @@ export default function PodcastMultiplierPage() {
           <h2 className="section-title">A Message From Our Founder</h2>
           <div className="founder-content">
             <div className="founder-image">
-              <img src="/images/founder.webp" alt="Samuel Lotchouang Kouam, CEO & Founder" className="founder-photo" width={300} height={300} loading="lazy" />
+              <img src="/images/founder.webp" alt="Samuel Lotchouang Kouam, CEO &amp; Founder" className="founder-photo" width={300} height={300} loading="lazy" />
             </div>
             <div className="founder-text">
-              <p className="founder-quote">"Hi, I'm Samuel. I built SLK Media after watching too many talented podcasters burn out editing clips instead of closing sponsor deals. When you book a strategy call, you'll speak directly with me-not a sales rep. I'll be honest: if we don't think we can deliver 3X ROI on our fee, I'll tell you to wait. We only work with podcasters we KNOW we can help scale. Looking forward to our conversation."</p>
-              <p className="founder-signature">- Samuel K. Lotchouang, CEO & Founder, SLK Media Agency</p>
+              <p className="founder-quote">"Hi, I'm Samuel. I built SLK Media after watching too many talented podcasters burn out editing clips instead of closing sponsor deals. When you book a strategy call, you'll speak directly with me, not a sales rep. I'll be honest: if we don't think we can deliver 3X ROI on our fee, I'll tell you to wait. We only work with podcasters we KNOW we can help scale. Looking forward to our conversation."</p>
+              <p className="founder-signature">Samuel K. Lotchouang, CEO &amp; Founder, SLK Media Agency</p>
             </div>
           </div>
         </div>
@@ -597,9 +665,9 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Short answer:</strong> AI tools are for beginners learning content repurposing. The Podcast Multiplier™ is for established podcasters scaling revenue.</p>
-                <p><strong>Long answer:</strong> AI tools optimize for engagement metrics (watch time, likes, shares). They clip moments that the algorithm THINKS are interesting-usually loud moments, laughter, or high-energy segments.</p>
+                <p><strong>Long answer:</strong> AI tools optimize for engagement metrics (watch time, likes, shares). They clip moments that the algorithm THINKS are interesting, usually loud moments, laughter, or high-energy segments.</p>
                 <p><strong>The Podcast Multiplier™ optimizes for sponsor appeal.</strong> We clip moments that demonstrate: Authority (you're an expert, not just entertaining), Audience trust (engaged listeners, not passive consumers), Commercial alignment (your content attracts brands naturally).</p>
-                <p><strong>Example:</strong> AI tool picks the funniest joke from your episode (gets 5K views, 200 likes, zero sponsor inquiries). We pick the 60-second segment where you broke down industry trends and cited data-boring to casual viewers, but GOLD to sponsors who want to reach your audience (gets 2K views, 80 likes, 3 sponsor inquiries).</p>
+                <p><strong>Example:</strong> AI tool picks the funniest joke from your episode (gets 5K views, 200 likes, zero sponsor inquiries). We pick the 60-second segment where you broke down industry trends and cited data, boring to casual viewers, but GOLD to sponsors who want to reach your audience (gets 2K views, 80 likes, 3 sponsor inquiries).</p>
                 <p><strong>Bottom line:</strong> AI tools save you time. We make you money.</p>
               </div>
             </div>
@@ -610,7 +678,7 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>Because <strong>you're not buying editing hours-you're buying a revenue outcome.</strong></p>
+                <p>Because <strong>you're not buying editing hours. You're buying a revenue outcome.</strong></p>
                 <p><strong>Freelancers on Fiverr give you:</strong> Task-based labor (you tell them what to do), inconsistent quality (depends on their mood, workload, skill level), zero strategy (they don't understand sponsor psychology), management burden (you're revising, giving feedback, chasing deadlines).</p>
                 <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), revenue-first approach (every clip filtered through "does this attract sponsors?"), full autonomy (we run on autopilot after Week 1).</p>
                 <p><strong>The math:</strong> Freelancer approach: $200/month + 4 hours/week managing them (16 hrs/month) = $200 + $1,600 opportunity cost = $1,800 total cost. Output: 5-8 mediocre clips per episode, no strategy, you're still the bottleneck.</p>
@@ -625,11 +693,11 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>No-and you should run from anyone who does.</strong></p>
+                <p><strong>No, and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and distribution. We don't control: Your recording quality, guest selection, or topic relevance; How aggressively you pursue sponsor outreach (we give you ammunition; you pull the trigger); Market conditions in your niche; Your existing audience quality and engagement rates.</p>
                 <p><strong>What we DO guarantee:</strong> professionally edited, sponsor-ready clips per episode (delivered on time, every time), Multi-platform distribution on schedule (we never miss a publish date), Weekly performance reports (you'll know exactly what's working).</p>
                 <p><strong>What our average client sees:</strong> 2.3X increase in sponsor inquiries within 90 days, $4,200-$8,500/month in new sponsorship revenue, 40-60% reduction in time spent on content production.</p>
-                <p>But that requires YOU to actively pursue sponsors, negotiate deals, and record compelling episodes. We create the visibility-you close the partnerships.</p>
+                <p>But that requires YOU to actively pursue sponsors, negotiate deals, and record compelling episodes. We create the visibility. You close the partnerships.</p>
               </div>
             </div>
 
@@ -664,9 +732,9 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Honest answer:</strong> We work best with shows publishing <strong>2-4 episodes/month.</strong></p>
-                <p>Here's why: Content volume drives sponsor visibility. Sponsors want to see consistent presence across platforms - not sporadic posts every 3 weeks. 1 episode/month = 10-15 clips = ~2 weeks of posting (if we spread it out). That leaves 2 weeks of silence. Your audience thinks you've abandoned social media. Sponsors see inconsistent engagement.</p>
+                <p>Here's why: Content volume drives sponsor visibility. Sponsors want to see consistent presence across platforms, not sporadic posts every 3 weeks. 1 episode/month = 10-15 clips = ~2 weeks of posting (if we spread it out). That leaves 2 weeks of silence. Your audience thinks you've abandoned social media. Sponsors see inconsistent engagement.</p>
                 <p><strong>If you're publishing 1 episode/month:</strong> Option 1: Batch-record 3-4 episodes per quarter and release them consistently (2/month). Option 2: Start with our service once you increase production cadence. Option 3: We can still work together, but set expectations: Growth will be slower due to content gaps.</p>
-                <p>We're happy to strategize on increasing output sustainably-many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
+                <p>We're happy to strategize on increasing output sustainably. Many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
               </div>
             </div>
 
@@ -780,7 +848,7 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="footer-cta-heading">The only risk is waiting while your competitors scale their sponsor pipelines.</h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call - Qualified Shows Only</a>
-          <p style={{ marginTop: '20px', fontSize: '14px', color: '#fcf4f4' }}>📍 <strong>Note on Pricing Transparency:</strong> Our full-service package is $1,597/month. If that investment doesn't align with your current budget, we recommend starting with Descript ($30/month) or OpusClip ($50/month) until your podcast revenue supports professional content production. Come back when you're ready to scale-no hard feelings.</p>
+          <p style={{ marginTop: '20px', fontSize: '14px', color: '#fcf4f4' }}>📍 <strong>Note on Pricing Transparency:</strong> Our full-service package is $1,597/month. If that investment doesn't align with your current budget, we recommend starting with Descript ($30/month) or OpusClip ($50/month) until your podcast revenue supports professional content production. Come back when you're ready to scale, no hard feelings.</p>
         </div>
       </section>
 
@@ -822,7 +890,7 @@ export default function PodcastMultiplierPage() {
       {/* Sticky CTA */}
       <div className="sticky-cta">
         <div className="container">
-          <p className="sticky-cta-text">Limited capacity — only 3 client spots available per quarter</p>
+          <p className="sticky-cta-text">Limited capacity: only 3 client spots available per quarter</p>
           <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Check Availability & Book Now</a>
         </div>
       </div>
