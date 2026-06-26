@@ -79,3 +79,20 @@
 .clip-card.is-playing .video-overlay{background:transparent}
 .clip-card.is-playing .play-icon{opacity:0;transform:scale(.82);pointer-events:none}
 .clip-card.is-playing:hover .video-overlay{background:radial-gradient(circle at 50% 88%,rgba(6,8,16,.55),transparent 55%)}
+
+/* === Revision: bigger vertical reel clips + aligned round founder === */
+.clips-section .clip-grid{grid-template-columns:repeat(3,minmax(0,340px));justify-content:center;gap:28px;max-width:none;margin:48px auto 0}
+.clips-section .clip-card{aspect-ratio:9/16;border-radius:18px}
+.clips-section .clip-card video{object-position:center}
+.clips-section .clip-card .play-icon{width:74px;height:74px;font-size:26px}
+@media (max-width:760px){.clips-section .clip-grid{grid-template-columns:1fr;max-width:360px}}
+
+.founder-section .founder-content{max-width:900px;margin-left:auto;margin-right:auto;align-items:center;gap:44px}
+.founder-section .founder-image{flex:0 0 auto}
+.founder-section .founder-photo{width:248px;height:248px;border-radius:50%}
+@media (max-width:680px){
+  .founder-section .founder-content{flex-direction:column;text-align:center;gap:24px}
+  .founder-section .founder-text{align-items:center}
+  .founder-section .founder-quote{max-width:100%}
+  .founder-section .founder-photo{width:200px;height:200px}
+}
