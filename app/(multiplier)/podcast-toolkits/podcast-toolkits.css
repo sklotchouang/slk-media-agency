@@ -35,6 +35,15 @@
   font-size: 0.9rem;
   color: var(--pt-muted);
 }
+/* Small, muted checkout processing-fee disclosure shown under each Pay button. */
+.pt-fee-note {
+  margin: 8px auto 0;
+  max-width: 420px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--pt-muted);
+  opacity: 0.8;
+}
 .pt-center {
   text-align: center;
 }
