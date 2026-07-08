@@ -433,6 +433,15 @@ section {
   border-color: var(--hairline-strong);
 }
 
+/* founder photos: quiet ring instead of a bright outline */
+.founder-photo,
+.founder-mini-photo {
+  border: 1px solid var(--hairline-strong);
+  box-shadow:
+    0 0 0 3px rgba(76, 178, 240, 0.16),
+    0 24px 60px -24px rgba(0, 0, 0, 0.7);
+}
+
 /* featured pricing card: confident but not loud */
 .pricing-tier.featured {
   border-color: rgba(76, 178, 240, 0.35);
