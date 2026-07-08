@@ -23,3 +23,6 @@
 
 # local tool settings (the shared settings and hooks ARE committed)
 .claude/settings.local.json
+
+# critique-loop screenshots (working artifacts)
+/shots

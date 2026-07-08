@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HeroAtmosphere from '../../components/HeroAtmosphere';
 
 export const metadata = {
   title: 'The Content Engine for Established Podcasters | SLK Media Agency',
@@ -71,6 +72,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="hero">
+        <HeroAtmosphere />
         <div className="container">
           <div className="grid-pattern"></div>
           <h1 className="headline"><span className="highlight">The Content Engine for Established Podcasters</span></h1>
