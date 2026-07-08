@@ -433,6 +433,14 @@ section {
   border-color: var(--hairline-strong);
 }
 
+/* featured pricing card: confident but not loud */
+.pricing-tier.featured {
+  border-color: rgba(76, 178, 240, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(76, 178, 240, 0.18),
+    0 30px 80px -36px rgba(76, 178, 240, 0.3);
+}
+
 /* stat presentation */
 .stat-number {
   font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
@@ -453,6 +461,17 @@ section {
 /* sections that hardcode the old purple wash */
 .problem {
   background: var(--gradient-dark-red);
+}
+
+/* hamburger: consistent reset across both route groups */
+button.menu-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+button.menu-toggle span {
+  background-color: var(--text-primary);
 }
 
 /* mobile slide-down menu panel */
@@ -803,4 +822,14 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   border-bottom: 1px solid var(--hairline);
   padding-bottom: 28px;
   margin-bottom: 28px;
+}
+
+/* 404 */
+.error-code {
+  font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
+  font-weight: 560;
+  background: linear-gradient(115deg, #f5f6f8 0%, #cfe9fb 48%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
