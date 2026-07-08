@@ -1,4 +1,6 @@
 import SiteBehaviors from '../../components/SiteBehaviors';
+import MotionLayer from '../../components/MotionLayer';
+import { fontClassNames } from '../../components/fonts';
 
 export const metadata = {
   metadataBase: new URL('https://slkmediaagency.com'),
@@ -18,7 +20,7 @@ export const metadata = {
     statusBarStyle: 'black',
   },
   other: {
-    'msapplication-TileColor': '#0a0a0a',
+    'msapplication-TileColor': '#0a0a0b',
     'msapplication-config': '/favicon/browserconfig.xml',
   },
 };
@@ -26,21 +28,16 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0a0a0a',
+  themeColor: '#0a0a0b',
 };
 
 export default function MultiplierLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontClassNames}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/podcast-multiplier-styles.css" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="stylesheet" href="/premium.css" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -49,6 +46,7 @@ export default function MultiplierLayout({ children }) {
       <body>
         {children}
         <SiteBehaviors />
+        <MotionLayer />
       </body>
     </html>
   );

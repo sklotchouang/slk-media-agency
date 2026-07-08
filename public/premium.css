@@ -1,0 +1,605 @@
+/* ==========================================================================
+   premium.css - SLK Media Agency premium design layer
+   Loaded AFTER styles.css / podcast-multiplier-styles.css in every layout.
+   One source of truth for tokens, typography, rhythm, surfaces, and motion
+   utilities across every page. Copy and CTAs are untouched by this file.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens: remap the legacy variable set to the refined palette so the
+      entire existing CSS inherits the new look without a rewrite.
+   -------------------------------------------------------------------------- */
+:root {
+  /* refined palette */
+  --bg-base: #0a0a0b;
+  --bg-raised: #111114;
+  --bg-overlay: #17171c;
+  --text-primary: #f5f6f8;
+  --text-secondary: #b6bac3;
+  --text-muted-2: #8b8f99;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --accent: #4cb2f0;
+  --accent-strong: #7cc6f5;
+  --accent-ink: #071019; /* text on accent surfaces */
+
+  /* legacy remap */
+  --primary-color: var(--accent);
+  --primary-dark: #2f9de0;
+  --primary-light: var(--accent-strong);
+  --bg-color: var(--bg-base);
+  --bg-color-light: var(--bg-raised);
+  --bg-color-lighter: var(--bg-overlay);
+  --text-color: var(--text-primary);
+  --text-color-muted: var(--text-secondary);
+  --border-color: var(--hairline);
+  --border-soft: var(--hairline-strong);
+  --surface-1: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --border-radius: 12px;
+  --shadow-card: 0 24px 60px -24px rgba(0, 0, 0, 0.6);
+  --magic-color: var(--accent);
+  --accent-grad: linear-gradient(135deg, #7cc6f5 0%, #4cb2f0 55%, #2f9de0 100%);
+
+  /* atmosphere: quiet radial light instead of purple/red washes */
+  --gradient-dark-purple:
+    radial-gradient(90rem 56rem at 80% -18%, rgba(76, 178, 240, 0.07), transparent 55%),
+    radial-gradient(72rem 48rem at -12% 112%, rgba(76, 178, 240, 0.04), transparent 60%),
+    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
+  --gradient-dark-red:
+    radial-gradient(80rem 50rem at 50% -20%, rgba(76, 178, 240, 0.05), transparent 55%),
+    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
+  --gradient-dark-blue:
+    radial-gradient(90rem 56rem at 80% -18%, rgba(76, 178, 240, 0.07), transparent 55%),
+    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
+  --pattern-opacity: 0.16;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
+  --dur-quick: 0.28s;
+  --dur-reveal: 0.75s;
+  --transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* rhythm */
+  --space-section: clamp(84px, 11vh, 132px);
+  --radius-pill: 999px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base: page canvas, selection, scrollbar, grain, focus
+   -------------------------------------------------------------------------- */
+html {
+  background: var(--bg-base);
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+/* Lenis owns scrolling when active; native smooth would fight it */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+html.lenis body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-body, Inter), Inter, system-ui, sans-serif;
+  background: var(--gradient-dark-purple);
+  background-attachment: fixed;
+  color: var(--text-secondary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(76, 178, 240, 0.32);
+  color: #ffffff;
+}
+
+/* fine film grain over everything, quiet enough to feel, not see */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 3000;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+.accordion-header:focus-visible,
+.menu-toggle:focus-visible,
+.video-overlay:focus-visible,
+.control:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link:focus {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography: Fraunces display voice, Inter body, fluid scale
+   -------------------------------------------------------------------------- */
+h1, h2,
+.headline,
+.section-title,
+.footer-cta-heading {
+  font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  text-wrap: balance;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+h3, h4, h5, h6 {
+  color: var(--text-primary);
+  letter-spacing: -0.008em;
+  text-wrap: balance;
+}
+
+.headline,
+.hero h1,
+.hero-section h1,
+.portfolio-hero h1,
+.tpage-hero h1,
+.cs-hero h1 {
+  font-size: clamp(2.5rem, 5.4vw, 4.3rem);
+  line-height: 1.06;
+  font-weight: 560;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 3.3vw, 2.7rem);
+  line-height: 1.14;
+  font-weight: 580;
+}
+
+.subheadline,
+.section-subtitle {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+strong {
+  color: var(--text-primary);
+  font-weight: 620;
+}
+
+/* overline/eyebrow labels */
+.sub-headline-blue,
+.tpage-badge {
+  font-family: var(--font-body, Inter), Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 620;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tpage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid rgba(76, 178, 240, 0.28);
+  border-radius: var(--radius-pill);
+  background: rgba(76, 178, 240, 0.07);
+}
+
+/* --------------------------------------------------------------------------
+   4. Rhythm and layout
+   -------------------------------------------------------------------------- */
+section {
+  padding: var(--space-section) 0;
+}
+
+.navbar,
+.sticky-cta {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar { padding: 14px 0; }
+.navbar.scrolled { padding: 10px 0; }
+.sticky-cta { padding: 14px 0; }
+
+/* --------------------------------------------------------------------------
+   5. Navigation: quiet glass, hairline, precise links
+   -------------------------------------------------------------------------- */
+.navbar {
+  background: rgba(10, 10, 11, 0.55);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), padding 0.4s var(--ease-out);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 11, 0.78);
+  border-bottom-color: var(--hairline);
+  box-shadow: 0 12px 40px -20px rgba(0, 0, 0, 0.8);
+}
+
+.nav-menu a:not(.cta-button) {
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-menu a:not(.cta-button):hover {
+  color: var(--text-primary);
+}
+
+/* animated underline for nav + inline text links */
+.nav-menu a:not(.cta-button)::after,
+.accordion-content a::after,
+.footer-legal .legal-link::after,
+.pt-intake-link a::after,
+.pt-step-link::after,
+.hero-pricing-peek a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.nav-menu a:not(.cta-button),
+.accordion-content a,
+.footer-legal .legal-link,
+.pt-intake-link a,
+.pt-step-link,
+.hero-pricing-peek a {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-menu a:not(.cta-button):hover::after,
+.accordion-content a:hover::after,
+.footer-legal .legal-link:hover::after,
+.pt-intake-link a:hover::after,
+.pt-step-link:hover::after,
+.hero-pricing-peek a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons: one accent, dark ink, spring feel
+   -------------------------------------------------------------------------- */
+.primary-cta,
+.btn-primary,
+.cta-button {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  font-weight: 620;
+  letter-spacing: 0.005em;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 10px 30px -12px rgba(76, 178, 240, 0.55);
+  transition: transform 0.32s var(--ease-spring), box-shadow 0.32s var(--ease-out), background 0.32s var(--ease-out);
+  will-change: transform;
+}
+
+.primary-cta:hover,
+.btn-primary:hover,
+.cta-button:hover {
+  background: var(--accent-strong);
+  color: var(--accent-ink);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 16px 40px -14px rgba(76, 178, 240, 0.7);
+}
+
+.primary-cta:active,
+.btn-primary:active,
+.cta-button:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.primary-cta::before { display: none; }
+
+.secondary-cta {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hairline-strong);
+  color: var(--text-primary);
+  border-radius: 10px;
+  font-weight: 560;
+  transition: transform 0.32s var(--ease-spring), border-color 0.32s var(--ease-out), background 0.32s var(--ease-out);
+}
+
+.secondary-cta:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. Surfaces: cards, panels, hairline structure
+   -------------------------------------------------------------------------- */
+.feature,
+.problem-point,
+.qualification-item,
+.accordion-item,
+.stat-card,
+.case-card,
+.cs-card,
+.ba-card,
+.problem-card,
+.pricing-tier,
+.pt-deliverable,
+.pt-vtest,
+.pt-step,
+.pt-pricing-card,
+.testimonial-mini,
+.cost-callout,
+.solution-highlight,
+.limited-spots,
+.t-feature-quote {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.card-lift {
+  transition: transform 0.45s var(--ease-out), border-color 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--hairline-strong);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+}
+
+.accordion-item:hover {
+  border-color: var(--hairline-strong);
+}
+
+/* stat presentation */
+.stat-number {
+  font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  color: var(--text-muted-2);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 540;
+}
+
+/* --------------------------------------------------------------------------
+   8. Accordion: smoother open, precise icon
+   -------------------------------------------------------------------------- */
+.accordion-content {
+  transition: max-height 0.6s var(--ease-out), padding 0.4s var(--ease-out);
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 2400px;
+}
+
+.accordion-icon {
+  transition: transform 0.45s var(--ease-spring), color 0.3s var(--ease-out);
+}
+
+/* --------------------------------------------------------------------------
+   9. Tables: editorial rules, featured column
+   -------------------------------------------------------------------------- */
+.comparison-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-raised);
+}
+
+.comparison-table th,
+.comparison-table td {
+  border-bottom: 1px solid var(--hairline);
+  border-right: 1px solid var(--hairline);
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+  border-right: none;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.comparison-table th.featured,
+.comparison-table td.positive {
+  background: rgba(76, 178, 240, 0.07);
+}
+
+/* --------------------------------------------------------------------------
+   10. Video and media containers
+   -------------------------------------------------------------------------- */
+.client-video,
+.portfolio-video,
+.clip-card,
+.video-wrapper,
+.t-feature-media,
+.pt-vtest-video {
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-raised);
+  transition: transform 0.5s var(--ease-out), border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+.client-video:hover,
+.portfolio-video:hover,
+.clip-card:hover {
+  transform: translateY(-4px) scale(1.012);
+  border-color: var(--hairline-strong);
+  box-shadow: 0 32px 70px -30px rgba(0, 0, 0, 0.75);
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer: quiet, structured
+   -------------------------------------------------------------------------- */
+.footer,
+.footer-section {
+  border-top: 1px solid var(--hairline);
+  background: #0a0a0b;
+  padding: 64px 0 40px;
+}
+
+.footer .contact-item,
+.footer-section .contact-item {
+  color: var(--text-muted-2);
+}
+
+.footer .contact-item i,
+.footer-section .contact-item i {
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.footer-bottom p {
+  color: var(--text-muted-2);
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Sticky CTA: overlay glass
+   -------------------------------------------------------------------------- */
+.sticky-cta {
+  background: rgba(16, 16, 20, 0.72);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  border-top: 1px solid var(--hairline-strong);
+  transition: transform 0.55s var(--ease-out);
+}
+
+/* --------------------------------------------------------------------------
+   13. Motion utilities (driven by MotionLayer)
+       Reveal states only apply once JS marks <html data-motion="on">,
+       so content is never hidden if JS fails or motion is reduced.
+   -------------------------------------------------------------------------- */
+html[data-motion="on"] .rv {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+html[data-motion="on"] .rv.rv-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
+  transition-delay: var(--rv-delay, 0s);
+}
+
+html[data-motion="on"] .rv-fade {
+  opacity: 0;
+  transform: none;
+}
+
+html[data-motion="on"] .rv-fade.rv-in {
+  opacity: 1;
+  transition: opacity 0.9s var(--ease-out);
+  transition-delay: var(--rv-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-motion="on"] .rv,
+  html[data-motion="on"] .rv-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Legal and long-form reading comfort
+   -------------------------------------------------------------------------- */
+.privacy-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.privacy-content h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+}
+
+.privacy-content h2 {
+  font-size: 1.35rem;
+  margin-top: 40px;
+}
+
+.privacy-content p,
+.privacy-content li {
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.policy-section {
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+}
