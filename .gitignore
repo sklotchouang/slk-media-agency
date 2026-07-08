@@ -12,6 +12,9 @@
 # local env files
 .env*
 
+# raw (unoptimized) generated art; only the optimized versions are committed
+/public/generated/raw
+
 # original static site kept as a local reference only
 /legacy-site
 

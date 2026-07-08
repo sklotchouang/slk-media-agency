@@ -87,6 +87,9 @@ export default function MotionLayer() {
         duration: 1.05,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
+      // Exposed so in-page anchor scrolling (SiteBehaviors) and the
+      // screenshot tooling can drive the scroller instead of fighting it.
+      window.__lenis = lenis;
       const raf = (time) => {
         lenis.raf(time);
         rafId = requestAnimationFrame(raf);
@@ -97,6 +100,7 @@ export default function MotionLayer() {
       cancelled = true;
       cancelAnimationFrame(rafId);
       if (lenis) lenis.destroy();
+      if (window.__lenis === lenis) delete window.__lenis;
     });
 
     // ----- Scroll-in reveals -----
