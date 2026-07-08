@@ -88,6 +88,37 @@ const assets = [
       'near-black field, glowing softly in cool blue (#4cb2f0), thin and precise like a long-exposure light ' +
       'painting, everything else empty darkness.',
   },
+  // Hero mockup-card artwork: podcast-specific, cinematic, no text, no logos.
+  {
+    name: 'card-clip',
+    aspect_ratio: '2:3',
+    resolution: '2K',
+    prompt:
+      'Cinematic close-up of a modern smartphone held vertically in the dark, its screen glowing with a paused ' +
+      'podcast video clip: a charismatic host silhouette at a microphone, bold blurred caption shapes and a play ' +
+      'button, cool blue interface glow (#4cb2f0) on a near-black scene, premium product-photography lighting, ' +
+      'shallow depth of field, no readable text, no logos, no watermark.',
+  },
+  {
+    name: 'card-studio',
+    aspect_ratio: '2:3',
+    resolution: '2K',
+    prompt:
+      'Cinematic podcast studio scene in the dark: a professional broadcast microphone in sharp focus with ' +
+      'studio headphones resting beside it, a soft cool-blue rim light (#4cb2f0), faint audio waveform bokeh ' +
+      'lights in the black background, matte premium editorial photography, moody and expensive, no people, ' +
+      'no text, no logos, no watermark.',
+  },
+  {
+    name: 'card-distribution',
+    aspect_ratio: '2:3',
+    resolution: '2K',
+    prompt:
+      'Abstract 3D visualization of one glowing podcast microphone icon at the center radiating content to many ' +
+      'floating glass tiles arranged around it in the dark, thin light trails connecting them, cool blue glow ' +
+      '(#4cb2f0) on near-black, premium tech-keynote aesthetic, high detail, no readable text, no logos, ' +
+      'no watermark.',
+  },
 ];
 
 async function createTask(key, input) {

@@ -56,7 +56,7 @@ export default function TestimonialsPage() {
               <div className="stat-label">Views Generated</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">1k+</div>
+              <div className="stat-number">10k+</div>
               <div className="stat-label">Clips Created</div>
             </div>
             <div className="stat-card">

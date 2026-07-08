@@ -41,17 +41,11 @@
   --magic-color: var(--accent);
   --accent-grad: linear-gradient(135deg, #7cc6f5 0%, #4cb2f0 55%, #2f9de0 100%);
 
-  /* atmosphere: quiet radial light instead of purple/red washes */
-  --gradient-dark-purple:
-    radial-gradient(90rem 56rem at 80% -18%, rgba(76, 178, 240, 0.07), transparent 55%),
-    radial-gradient(72rem 48rem at -12% 112%, rgba(76, 178, 240, 0.04), transparent 60%),
-    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
-  --gradient-dark-red:
-    radial-gradient(80rem 50rem at 50% -20%, rgba(76, 178, 240, 0.05), transparent 55%),
-    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
-  --gradient-dark-blue:
-    radial-gradient(90rem 56rem at 80% -18%, rgba(76, 178, 240, 0.07), transparent 55%),
-    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
+  /* Sections are transparent: the whole page shares ONE continuous
+     atmosphere painted on html plus the fixed soundfield layer below. */
+  --gradient-dark-purple: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+  --gradient-dark-red: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+  --gradient-dark-blue: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
   --pattern-opacity: 0.16;
 
   /* motion */
@@ -70,7 +64,10 @@
    2. Base: page canvas, selection, scrollbar, grain, focus
    -------------------------------------------------------------------------- */
 html {
-  background: var(--bg-base);
+  background:
+    radial-gradient(90rem 56rem at 80% -18%, rgba(76, 178, 240, 0.07), transparent 55%),
+    radial-gradient(72rem 48rem at -12% 112%, rgba(76, 178, 240, 0.04), transparent 60%),
+    var(--bg-base);
   scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
 }
 
@@ -85,11 +82,37 @@ html.lenis body {
 
 body {
   font-family: var(--font-body, Inter), Inter, system-ui, sans-serif;
-  background: var(--gradient-dark-purple);
-  background-attachment: fixed;
+  background: transparent;
   color: var(--text-secondary);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* the site-wide atmosphere: one fixed soundfield behind every page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("/generated/hero-soundfield.webp") center 70% / cover no-repeat;
+  background-image: image-set(
+    url("/generated/hero-soundfield.avif") type("image/avif"),
+    url("/generated/hero-soundfield.webp") type("image/webp")
+  );
+  opacity: 0.42;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes page-breathe {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.06); }
+  }
+
+  body::before {
+    animation: page-breathe 60s ease-in-out infinite alternate;
+    will-change: transform;
+  }
 }
 
 ::selection {
@@ -581,8 +604,7 @@ button.menu-toggle span {
 .t-cta {
   border-top: 1px solid var(--hairline);
   background:
-    radial-gradient(56rem 30rem at 50% 0%, rgba(76, 178, 240, 0.09), transparent 62%),
-    #0a0a0b;
+    radial-gradient(56rem 30rem at 50% 0%, rgba(76, 178, 240, 0.09), transparent 62%);
   text-align: center;
 }
 
@@ -602,7 +624,7 @@ button.menu-toggle span {
 .footer,
 .footer-section {
   border-top: 1px solid var(--hairline);
-  background: #0a0a0b;
+  background: transparent;
   padding: 64px 0 40px;
 }
 
@@ -731,6 +753,9 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
   position: relative;
 }
 
+/* Heroes ride the page-wide fixed soundfield (body::before); the canvas
+   waveform and spotlight supply the hero-level life. A soft glow anchors
+   the headline area. */
 .hero::before,
 .hero-section::before,
 .portfolio-hero::before,
@@ -738,18 +763,12 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
 .cs-hero::before {
   content: "";
   position: absolute;
-  inset: -8%;
+  inset: 0;
   width: auto;
   height: auto;
   z-index: 0;
   pointer-events: none;
-  background: url("/generated/hero-soundfield.webp") center 65% / cover no-repeat;
-  background-image: image-set(
-    url("/generated/hero-soundfield.avif") type("image/avif"),
-    url("/generated/hero-soundfield.webp") type("image/webp")
-  );
-  opacity: 0.55;
-  will-change: transform;
+  background: radial-gradient(52rem 30rem at 50% 18%, rgba(76, 178, 240, 0.08), transparent 65%);
 }
 
 /* subtle mesh wash behind alternating content sections */
@@ -808,23 +827,9 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes atmo-drift {
-    0% { transform: translate3d(0, 0, 0) scale(1); }
-    50% { transform: translate3d(-2%, 1.2%, 0) scale(1.05); }
-    100% { transform: translate3d(1.6%, -1%, 0) scale(1.02); }
-  }
-
   @keyframes ribbon-drift {
-    0% { transform: translate3d(-1.5%, 0, 0) scale(1.03); }
-    100% { transform: translate3d(1.5%, 0, 0) scale(1.03); }
-  }
-
-  .hero::before,
-  .hero-section::before,
-  .portfolio-hero::before,
-  .tpage-hero::before,
-  .cs-hero::before {
-    animation: atmo-drift 40s ease-in-out infinite alternate;
+    0% { transform: translate3d(-1.5%, 0, 0) scale(1.06); }
+    100% { transform: translate3d(1.5%, 0, 0) scale(1.06); }
   }
 
   .footer-cta::before,
@@ -833,6 +838,7 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
   .mid-cta::before,
   .t-cta::before {
     animation: ribbon-drift 26s ease-in-out infinite alternate;
+    will-change: transform;
   }
 }
 
@@ -877,24 +883,58 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
 }
 
 /* --------------------------------------------------------------------------
-   14b. Home hero floating mockups: mute the demo cards into the atmosphere
+   14b. Home hero floating cards: generated podcast artwork, caption on a
+        bottom scrim
    -------------------------------------------------------------------------- */
 .floating-cards .card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid var(--hairline);
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline-strong);
   border-radius: 18px;
   box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.8);
 }
 
-.mockup-video {
-  background: linear-gradient(160deg, rgba(76, 178, 240, 0.5), rgba(47, 157, 224, 0.28));
+.floating-cards .card-content {
+  padding: 0;
 }
 
-.mockup-title {
-  color: var(--text-muted-2);
-  letter-spacing: 0.06em;
+.floating-cards .mockup-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.card-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-cards .mockup-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34%;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 7, 9, 0.88) 100%);
+  pointer-events: none;
+}
+
+.floating-cards .mockup-title {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 16px;
+  z-index: 1;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.72rem;
+  margin: 0;
 }
 
 /* --------------------------------------------------------------------------
