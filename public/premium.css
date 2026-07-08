@@ -393,11 +393,24 @@ section {
   backdrop-filter: none;
 }
 
-.card-lift {
+.feature,
+.case-card,
+.cs-card,
+.ba-card,
+.problem-card,
+.pt-deliverable,
+.pt-step,
+.pt-vtest {
   transition: transform 0.45s var(--ease-out), border-color 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
 }
 
-.card-lift:hover {
+.feature:hover,
+.case-card:hover,
+.cs-card:hover,
+.ba-card:hover,
+.problem-card:hover,
+.pt-deliverable:hover,
+.pt-step:hover {
   transform: translateY(-4px);
   border-color: var(--hairline-strong);
   box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
@@ -628,6 +641,74 @@ html[data-motion="on"] .rv-fade.rv-in {
 .hero .container {
   position: relative;
   z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   14b. Home hero floating mockups: mute the demo cards into the atmosphere
+   -------------------------------------------------------------------------- */
+.floating-cards .card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.8);
+}
+
+.mockup-video {
+  background: linear-gradient(160deg, rgba(76, 178, 240, 0.5), rgba(47, 157, 224, 0.28));
+}
+
+.mockup-title {
+  color: var(--text-muted-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+/* --------------------------------------------------------------------------
+   14c. Price anchor reveal (/podcast-toolkits): the $500 takes the strike,
+        then the $100 lands. Only runs when motion is on.
+   -------------------------------------------------------------------------- */
+.pt-old-price,
+.pt-price-old {
+  position: relative;
+}
+
+.pt-old-price::after,
+.pt-price-old::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 52%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(1);
+  transform-origin: left center;
+  border-radius: 2px;
+}
+
+html[data-motion="on"] .price-anchor-wait .pt-old-price::after,
+html[data-motion="on"] .price-anchor-wait .pt-price-old::after {
+  transform: scaleX(0);
+}
+
+html[data-motion="on"] .price-anchor-go .pt-old-price::after,
+html[data-motion="on"] .price-anchor-go .pt-price-old::after {
+  transform: scaleX(1);
+  transition: transform 0.55s var(--ease-out) 0.25s;
+}
+
+html[data-motion="on"] .price-anchor-wait .pt-new-price,
+html[data-motion="on"] .price-anchor-wait .pt-price-now {
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+}
+
+html[data-motion="on"] .price-anchor-go .pt-new-price,
+html[data-motion="on"] .price-anchor-go .pt-price-now {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s var(--ease-out) 0.7s, transform 0.6s var(--ease-spring) 0.7s;
 }
 
 /* --------------------------------------------------------------------------

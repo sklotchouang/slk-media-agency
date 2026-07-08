@@ -159,6 +159,30 @@ export default function MotionLayer() {
       cleanups.push(() => statIo.disconnect());
     }
 
+    // ----- Price anchor reveal (/podcast-toolkits) -----
+    const anchors = Array.from(
+      document.querySelectorAll('.pt-anchor, .pt-price-row')
+    ).filter((el) => el.querySelector('.pt-old-price, .pt-price-old'));
+    if (anchors.length && 'IntersectionObserver' in window) {
+      anchors.forEach((el) => el.classList.add('price-anchor-wait'));
+      const priceIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            priceIo.unobserve(entry.target);
+            entry.target.classList.remove('price-anchor-wait');
+            entry.target.classList.add('price-anchor-go');
+          });
+        },
+        { threshold: 0.6 }
+      );
+      anchors.forEach((el) => priceIo.observe(el));
+      cleanups.push(() => priceIo.disconnect());
+      cleanups.push(() => {
+        anchors.forEach((el) => el.classList.remove('price-anchor-wait', 'price-anchor-go'));
+      });
+    }
+
     // ----- Magnetic primary buttons (fine pointers only) -----
     if (window.matchMedia('(pointer: fine)').matches) {
       const buttons = document.querySelectorAll('.primary-cta, .btn-primary, .cta-button');
