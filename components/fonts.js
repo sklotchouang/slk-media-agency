@@ -1,9 +1,9 @@
-import { Fraunces, Inter } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 /**
- * Self-hosted variable fonts via next/font: zero layout shift, no Google CDN
- * request. Fraunces carries the editorial display voice; Inter stays the
- * body and UI face the site already used.
+ * Self-hosted via next/font: zero layout shift, no Google CDN request.
+ * Inter carries the whole site, same as the original design: headings are
+ * bold Inter, exactly the original text format.
  */
 export const inter = Inter({
   subsets: ['latin'],
@@ -11,11 +11,4 @@ export const inter = Inter({
   variable: '--font-body',
 });
 
-export const fraunces = Fraunces({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-display',
-  axes: ['opsz'],
-});
-
-export const fontClassNames = `${inter.variable} ${fraunces.variable}`;
+export const fontClassNames = inter.variable;

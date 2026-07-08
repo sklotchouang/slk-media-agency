@@ -66,8 +66,7 @@ Legacy variables (`--primary-color`, `--bg-color`, gradients...) are re-mapped t
 
 ### Typography
 
-- **Display**: Fraunces (variable, optical sizing) via `next/font/google`, self-hosted at build, `display: swap`, no CLS. Justification: Fraunces' high-contrast editorial voice reads "premium studio", the opposite of the AI-default grotesk-on-dark, and pairs with audio-industry warmth.
-- **Body/UI**: Inter (already the site's body face) via `next/font/google`, keeping body rhythm familiar while removing the CDN request.
+- **One face: Inter** via `next/font/google` (self-hosted, `display: swap`, no CLS, CDN removed). Samuel's call on 2026-07-09: keep the original page's text format. Headings are bold Inter (800 display / 700 sections) with the original flat accent highlight, exactly the original voice; the premium feel comes from the palette, rhythm, atmosphere, and motion instead. (Fraunces was tried and reverted.)
 - **Scale** (fluid, clamp-based): display `clamp(2.6rem, 5.5vw, 4.4rem)`, h2 `clamp(1.9rem, 3.4vw, 2.75rem)`, h3 `1.25rem`, body `1.0625rem`, small `0.875rem`, overline `0.75rem` tracked +0.14em.
 - Headings: `text-wrap: balance` (no orphans), `hyphens: none` (no mid-word breaks), tight leading 1.08 for display, 1.15 for h2.
 
@@ -85,7 +84,7 @@ Legacy variables (`--primary-color`, `--bg-color`, gradients...) are re-mapped t
 
 ## 4. Atmosphere assets (KIE.ai GPT Image 2)
 
-`scripts/generate-assets.mjs` (run once, local): hero-soundfield (3:2), section-mesh (3:2), grain (1:1), ribbon-accent (3:2). Output optimized with sharp to AVIF + WebP at <= 1920px, committed under `public/generated/`, referenced via `next/image` or CSS `image-set()`. Key read from `process.env.KIE_API_KEY` (`.env.local`, gitignored via `.env*`). Never in client code, never logged. STATUS: `.env.local` not present at build start; script is ready and the design layers assets as progressive enhancement (pages are complete without them, richer with them).
+`scripts/generate-assets.mjs` (run once, local): hero-soundfield (3:2), hero-soundfield-tall (2:3), section-mesh (3:2), grain (1:1), ribbon-accent (3:2). Output optimized with sharp to AVIF + WebP at <= 1920px, committed under `public/generated/`. Key read from `process.env.KIE_API_KEY` (`.env.local`, gitignored via `.env*`). Never in client code, never logged. STATUS: generated 2026-07-09 and wired site-wide via CSS `image-set()` pseudo-element layers: soundfield behind every hero (slow 40s ambient drift), mesh behind alternating content sections, ribbon across the CTA bands (26s drift). All drift animation is inside `prefers-reduced-motion: no-preference`.
 
 ## 5. Motion layer
 

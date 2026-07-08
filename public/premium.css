@@ -129,15 +129,15 @@ button:focus-visible,
 }
 
 /* --------------------------------------------------------------------------
-   3. Typography: Fraunces display voice, Inter body, fluid scale
+   3. Typography: the original Inter format, tuned for rhythm only
    -------------------------------------------------------------------------- */
 h1, h2,
 .headline,
 .section-title,
 .footer-cta-heading {
-  font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-family: var(--font-body, Inter), Inter, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   text-wrap: balance;
   hyphens: none;
@@ -147,7 +147,6 @@ h1, h2,
 
 h3, h4, h5, h6 {
   color: var(--text-primary);
-  letter-spacing: -0.008em;
   text-wrap: balance;
 }
 
@@ -157,30 +156,20 @@ h3, h4, h5, h6 {
 .portfolio-hero h1,
 .tpage-hero h1,
 .cs-hero h1 {
-  font-size: clamp(2.5rem, 5.4vw, 4.3rem);
-  line-height: 1.06;
-  font-weight: 560;
+  font-size: clamp(2.4rem, 5vw, 3.9rem);
+  line-height: 1.1;
+  font-weight: 800;
   margin-bottom: 24px;
 }
 
 .section-title {
-  font-size: clamp(1.85rem, 3.3vw, 2.7rem);
-  line-height: 1.14;
-  font-weight: 580;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  line-height: 1.18;
+  font-weight: 700;
 }
 
-/* Highlighted headline spans: luminous gradient instead of flat accent */
-h1 .highlight,
-.headline .highlight {
-  background: linear-gradient(115deg, #f5f6f8 0%, #cfe9fb 48%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--accent); /* fallback */
-}
-
-h2 .highlight,
-.section-title .highlight {
+/* Highlighted spans keep the original flat accent color */
+.highlight {
   color: var(--accent);
 }
 
@@ -452,8 +441,7 @@ section {
 
 /* stat presentation */
 .stat-number {
-  font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
-  font-weight: 560;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -697,7 +685,159 @@ html[data-motion="on"] .rv-fade.rv-in {
 }
 
 /* --------------------------------------------------------------------------
-   14. Home hero atmosphere: canvas waveform + pointer spotlight
+   13a-2. Micro-life: accent rule draws under section titles on reveal,
+          play buttons breathe gently.
+   -------------------------------------------------------------------------- */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin: 18px auto 0;
+  border-radius: 2px;
+  background: var(--accent-grad);
+}
+
+html[data-motion="on"] .section-title.rv::after {
+  transform: scaleX(0);
+}
+
+html[data-motion="on"] .section-title.rv.rv-in::after {
+  transform: scaleX(1);
+  transition: transform 0.9s var(--ease-out) 0.35s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes play-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+  }
+
+  .video-overlay .play-icon {
+    animation: play-breathe 2.6s ease-in-out infinite;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13b. Generated atmosphere imagery (public/generated), site-wide.
+        Layered as pseudo-elements so no markup changes; slow ambient drift
+        keeps the pages feeling alive, disabled under reduced motion.
+   -------------------------------------------------------------------------- */
+.hero,
+.hero-section,
+.portfolio-hero,
+.tpage-hero,
+.cs-hero {
+  position: relative;
+}
+
+.hero::before,
+.hero-section::before,
+.portfolio-hero::before,
+.tpage-hero::before,
+.cs-hero::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/generated/hero-soundfield.webp") center 65% / cover no-repeat;
+  background-image: image-set(
+    url("/generated/hero-soundfield.avif") type("image/avif"),
+    url("/generated/hero-soundfield.webp") type("image/webp")
+  );
+  opacity: 0.55;
+  will-change: transform;
+}
+
+/* subtle mesh wash behind alternating content sections */
+.usp::before,
+.case-showcase::before,
+.solution-section::before,
+.proof-results-section::before,
+.pricing-section::before,
+.steps-section::before,
+.results-section::before,
+.t-features::before,
+.cs-section--alt::before,
+.pt-vtest-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/generated/section-mesh.webp") center / cover no-repeat;
+  background-image: image-set(
+    url("/generated/section-mesh.avif") type("image/avif"),
+    url("/generated/section-mesh.webp") type("image/webp")
+  );
+  opacity: 0.35;
+}
+
+/* one elegant light ribbon across the CTA bands */
+.footer-cta::before,
+.footer-cta-section::before,
+.final-cta-section::before,
+.mid-cta::before,
+.t-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/generated/ribbon-accent.webp") center / cover no-repeat;
+  background-image: image-set(
+    url("/generated/ribbon-accent.avif") type("image/avif"),
+    url("/generated/ribbon-accent.webp") type("image/webp")
+  );
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.usp, .case-showcase, .solution-section, .proof-results-section,
+.pricing-section, .steps-section, .results-section, .t-features,
+.cs-section--alt, .pt-vtest-section,
+.footer-cta, .footer-cta-section, .final-cta-section, .mid-cta, .t-cta {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes atmo-drift {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-2%, 1.2%, 0) scale(1.05); }
+    100% { transform: translate3d(1.6%, -1%, 0) scale(1.02); }
+  }
+
+  @keyframes ribbon-drift {
+    0% { transform: translate3d(-1.5%, 0, 0) scale(1.03); }
+    100% { transform: translate3d(1.5%, 0, 0) scale(1.03); }
+  }
+
+  .hero::before,
+  .hero-section::before,
+  .portfolio-hero::before,
+  .tpage-hero::before,
+  .cs-hero::before {
+    animation: atmo-drift 40s ease-in-out infinite alternate;
+  }
+
+  .footer-cta::before,
+  .footer-cta-section::before,
+  .final-cta-section::before,
+  .mid-cta::before,
+  .t-cta::before {
+    animation: ribbon-drift 26s ease-in-out infinite alternate;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Hero atmosphere: canvas waveform + pointer spotlight
    -------------------------------------------------------------------------- */
 .hero {
   position: relative;
@@ -833,12 +973,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   margin-bottom: 28px;
 }
 
-/* 404 */
+/* 404 keeps its original gradient numerals, Inter weight */
 .error-code {
-  font-family: var(--font-display, Fraunces), Fraunces, Georgia, serif;
-  font-weight: 560;
-  background: linear-gradient(115deg, #f5f6f8 0%, #cfe9fb 48%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 800;
 }
