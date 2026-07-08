@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HeroAtmosphere from '../../../components/HeroAtmosphere';
 
 export const metadata = {
   title: 'The Podcast Multiplier™: Sponsor-Magnet Content for Podcasters | SLK Media Agency',
@@ -43,6 +44,7 @@ export default function PodcastMultiplierPage() {
 
       {/* Section 1: Hero Section */}
       <section className="hero-section">
+        <HeroAtmosphere />
         <div className="grid-pattern-overlay"></div>
         <div className="container">
           <div className="hero-wrapper">

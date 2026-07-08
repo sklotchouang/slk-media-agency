@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HeroAtmosphere from '../../components/HeroAtmosphere';
 
 export const metadata = {
   title: 'The Content Engine for Established Podcasters | SLK Media Agency',
@@ -71,6 +72,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="hero">
+        <HeroAtmosphere />
         <div className="container">
           <div className="grid-pattern"></div>
           <h1 className="headline"><span className="highlight">The Content Engine for Established Podcasters</span></h1>
@@ -85,21 +87,7 @@ export default function HomePage() {
             <div className="card card-1">
               <div className="card-content">
                 <div className="mockup-container">
-                  <div className="mockup-phone">
-                    <div className="mockup-screen">
-                      <div className="mockup-video">
-                        <div className="mockup-play-button">▶</div>
-                      </div>
-                      <div className="mockup-controls">
-                        <div className="mockup-progress"></div>
-                        <div className="mockup-stats">
-                          <span>👁 15K</span>
-                          <span>❤️ 892</span>
-                          <span>💬 156</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <img src="/generated/card-clip.webp" alt="Podcast clip playing on a phone" className="card-art" width={640} height={960} loading="lazy" />
                   <div className="mockup-title">Sponsor-Ready Content</div>
                 </div>
               </div>
@@ -107,20 +95,7 @@ export default function HomePage() {
             <div className="card card-2">
               <div className="card-content">
                 <div className="mockup-container">
-                  <div className="mockup-studio">
-                    <div className="mockup-mic"></div>
-                    <div className="mockup-waveform">
-                      <div className="wave-bar"></div>
-                      <div className="wave-bar"></div>
-                      <div className="wave-bar"></div>
-                      <div className="wave-bar"></div>
-                      <div className="wave-bar"></div>
-                    </div>
-                    <div className="mockup-controls-studio">
-                      <div className="record-btn"></div>
-                      <div className="play-btn-studio">▶</div>
-                    </div>
-                  </div>
+                  <img src="/generated/card-studio.webp" alt="Podcast studio microphone and headphones" className="card-art" width={640} height={960} loading="lazy" />
                   <div className="mockup-title">Revenue-First Strategy</div>
                 </div>
               </div>
@@ -128,20 +103,7 @@ export default function HomePage() {
             <div className="card card-3">
               <div className="card-content">
                 <div className="mockup-container">
-                  <div className="mockup-distribution">
-                    <div className="mockup-hub">
-                      <div className="mockup-podcast-icon">💰</div>
-                    </div>
-                    <div className="mockup-platforms">
-                      <div className="platform yt">YT</div>
-                      <div className="platform ig">IG</div>
-                      <div className="platform tk">TK</div>
-                      <div className="platform ln">LN</div>
-                      <div className="platform tw">TW</div>
-                      <div className="platform fb">FB</div>
-                    </div>
-                    <div className="mockup-arrows"></div>
-                  </div>
+                  <img src="/generated/card-distribution.webp" alt="One podcast distributed to many platforms" className="card-art" width={640} height={960} loading="lazy" />
                   <div className="mockup-title">Sponsor-Focused Distribution</div>
                 </div>
               </div>
@@ -189,7 +151,7 @@ export default function HomePage() {
               <div className="stat-label">Views Generated</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">1k+</div>
+              <div className="stat-number">10k+</div>
               <div className="stat-label">Clips Created</div>
             </div>
             <div className="stat-card">

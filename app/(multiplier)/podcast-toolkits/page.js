@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import StrategySampleGallery from '../../../components/StrategySampleGallery';
+import HeroAtmosphere from '../../../components/HeroAtmosphere';
 import './podcast-toolkits.css';
 
 // Live Stripe Payment Link for the Custom Social Media Strategy Report ($100).
@@ -32,7 +33,7 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0a0a0a',
+  themeColor: '#0a0a0b',
 };
 
 const deliverables = [
@@ -137,6 +138,7 @@ export default function PodcastToolkitsPage() {
 
       {/* Hero */}
       <section className="hero-section">
+        <HeroAtmosphere />
         <div className="grid-pattern-overlay"></div>
         <div className="container">
           <div className="hero-wrapper">

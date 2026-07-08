@@ -250,10 +250,12 @@ export default function SiteBehaviors() {
         if (!target) return;
         event.preventDefault();
         closeMenu();
-        window.scrollTo({
-          top: target.getBoundingClientRect().top + window.pageYOffset - 80,
-          behavior: 'smooth',
-        });
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        if (window.__lenis) {
+          window.__lenis.scrollTo(top);
+        } else {
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       },
       { signal }
     );

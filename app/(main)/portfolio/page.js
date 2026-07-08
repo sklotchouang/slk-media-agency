@@ -20,7 +20,7 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#ffffff',
+  themeColor: '#0a0a0b',
 };
 
 const clipNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
