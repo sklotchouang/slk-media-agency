@@ -116,6 +116,29 @@ Page-specific:
 - >= 3 critique passes: `/`, `/podcast-multiplier`, `/podcast-toolkits`, `/portfolio`. >= 1 thorough pass: every case study, `/testimonials`, legal pages, `/pre-call`, thank-you, 404.
 - Final checks: build passes, zero console errors, CTAs/copy diff-verified unchanged, videos play, 360-1920px, reduced motion clean, no key in repo or bundle.
 
-## 7. Per-route change log (filled in during the work)
+## 7. Per-route change log
 
-(updated at handoff)
+Shared across every route (from the one design layer, no per-page forks): refined palette remapped onto the legacy tokens, Fraunces display + Inter body via next/font (Google Fonts CDN removed), fluid type scale with balanced headings, hairline surfaces and soft elevation, glass navbar and sticky bar, film-grain overlay, animated link underlines, staggered scroll reveals, stat count-ups, magnetic CTAs, Lenis smooth scroll, and a clean static path under prefers-reduced-motion. Copy, CTAs, links, prices, disclosures, KVK/BTW identifiers: unchanged (verified via `git diff main -- app/`, which contains no text-node or href changes).
+
+| Route | What changed (visual/motion only) | Screens |
+|---|---|---|
+| `/` | Living hero: canvas waveform reacting to cursor + pointer spotlight (code-split, idle-mounted, paused offscreen), gradient display headline, muted mockup cards, count-up stats band, hardcoded purple problem-section wash removed, CTA band treatment | [before](docs/screens/before-home.webp) / [after](docs/screens/after-home.webp), [mobile](docs/screens/after-home-mobile.webp), [reduced-motion](docs/screens/after-home-reduced-motion.webp) |
+| `/podcast-multiplier` | Editorial hero, refined comparison table (featured column, semantic cell tints), pricing card glow, founder sections, FAQ list polish, section reveals pacing the long copy | [before](docs/screens/before-podcast-multiplier.webp) / [after](docs/screens/after-podcast-multiplier.webp), [comparison](docs/screens/after-podcast-multiplier-comparison.webp) |
+| `/podcast-toolkits` | Price anchor reveal ($500 strike draws, $100 lands on spring), polished sample carousel + lightbox (kept lazy), deliverable cards, testimonial features; Stripe CTA, survey link, and fee disclosure untouched; hamburger reset fixed | [before](docs/screens/before-podcast-toolkits.webp) / [after](docs/screens/after-podcast-toolkits.webp), [mobile](docs/screens/after-podcast-toolkits-mobile.webp) |
+| `/podcast-toolkits/thank-you` | Shared system typography/surfaces, quiet motion | [after](docs/screens/after-thank-you.webp) |
+| `/portfolio` | Premium clip grid with hover lift + shadow (autoplay-in-view kept), CTA panel, theme-color fixed from #ffffff to the site base | [before](docs/screens/before-portfolio.webp) / [after](docs/screens/after-portfolio.webp), [CTA](docs/screens/after-portfolio-cta.webp) |
+| `/testimonials` | Editorial pull-quote features (Fraunces), badge chips, stats count-up, video grid unchanged functionally | [after](docs/screens/after-testimonials.webp) |
+| `/success/case-studies` | Consistent case cards with hover lift | [after](docs/screens/after-case-studies-index.webp) |
+| `/success/*` (6 studies) | One edit through the shared `CaseStudy` template: editorial hero with display stats, badge system, before/after columns, section rhythm | [after](docs/screens/after-case-study.webp) |
+| `/terms-and-conditions`, `/privacy-policy` | 720px reading column, 1.75 line-height, Fraunces section heads, hairline separators, motion minimal | [terms](docs/screens/after-terms.webp), [privacy](docs/screens/after-privacy.webp) |
+| `/pre-call` | System typography and surfaces, video container polish | [after](docs/screens/after-pre-call.webp) |
+| 404 | Display-face gradient numerals, system buttons | [after](docs/screens/after-404.webp) |
+
+## 8. Handoff notes
+
+- Branch `premium-redesign`, clean commits, not pushed. Review via Vercel preview after pushing.
+- `npm run build` passes; all 18 routes prerender.
+- Console: zero errors across routes at 1440x900 and 390x844 (the only console entry anywhere is the expected HTTP 404 status on the 404 route itself).
+- KIE_API_KEY was not present in `.env.local` during the build, so the four atmosphere assets are not yet generated. The design stands complete without them (CSS radial light + SVG grain deliver the atmosphere). When the key lands: `node scripts/generate-assets.mjs`, then wire `public/generated/*.avif|webp` into the hero and section backdrops (one small CSS/commit step). The script is confirmed against the current KIE docs (`resolution` parameter, not `quality`).
+- Deviation from the suggested motion stack, on purpose: no Framer Motion/GSAP. Pages stay server-rendered; a 4KB DOM-driven layer (Lenis + IntersectionObserver + WAAPI-style transitions) delivers the same result with a smaller bundle and zero risk to frozen copy.
+- tools/shot.js: `node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--reduced-motion]` - prints `{"out","docHeight","scrollY","errors":[]}`.
