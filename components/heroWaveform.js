@@ -39,7 +39,7 @@ export function mountWaveform(host) {
     rafId = requestAnimationFrame(draw);
     if (!visible) return;
 
-    t += 0.004;
+    t += 0.007;
     pointer.x += (pointer.tx - pointer.x) * 0.04;
     pointer.y += (pointer.ty - pointer.y) * 0.04;
 
@@ -50,8 +50,8 @@ export function mountWaveform(host) {
 
     for (let line = 0; line < LINES; line += 1) {
       const phase = t * (1 + line * 0.18) + line * 1.7;
-      const amp = (height * 0.055) * (1 - line / (LINES + 1)) * influence;
-      const alpha = 0.16 - line * 0.024;
+      const amp = (height * 0.095) * (1 - line / (LINES + 1)) * influence;
+      const alpha = 0.38 - line * 0.055;
 
       ctx.beginPath();
       const steps = isMobile ? 60 : 110;
@@ -68,8 +68,10 @@ export function mountWaveform(host) {
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
-      ctx.strokeStyle = `rgba(76, 178, 240, ${alpha})`;
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = line === 0
+        ? `rgba(124, 198, 245, ${alpha})`
+        : `rgba(76, 178, 240, ${alpha})`;
+      ctx.lineWidth = line === 0 ? 1.8 : 1.3;
       ctx.stroke();
     }
   }

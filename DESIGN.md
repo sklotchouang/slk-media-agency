@@ -101,6 +101,7 @@ Shared primitives (`components/MotionLayer.js`, mounted in both layouts):
 - Spring-feel FAQ accordion (grid-rows transition with overshoot easing).
 - Subtle card hover lift + hairline glow.
 - Always-on ambient life (liveliness pass 2026-07-11, all inside the reduced-motion gate): accent shimmer sweeping through `.highlight` spans, a quiet pulse ring plus periodic sheen sweep on primary CTAs, breathing hero glow, drifting section mesh, faster ribbon drift (18s, wider travel), and a stronger page-wide soundfield breathe (34s scale plus drift).
+- Injected motion visuals (round 2 of the liveliness pass, same day): two large aurora orbs drifting behind every page (CSS only, `html::before/::after`), glowing 7-bar equalizer dividers injected at the top of the major text sections (decorative, aria-hidden, motion-on only), an infinite platform-icon marquee gliding under the hero on `/` and `/podcast-multiplier` (Font Awesome brand icons, two duplicated sets for a seamless -50% loop), and alternating side-glide reveals for grid items (`--rv-x` set per item by MotionLayer). The home hero canvas waveform was amplified to feature level: roughly double amplitude, much higher stroke alpha, thicker two-tone lines, faster phase.
 - All gated behind `prefers-reduced-motion: reduce` -> clean static render.
 
 Page-specific:

@@ -662,7 +662,7 @@ button.menu-toggle span {
    -------------------------------------------------------------------------- */
 html[data-motion="on"] .rv {
   opacity: 0;
-  transform: translateY(30px) scale(0.985);
+  transform: translate3d(var(--rv-x, 0px), 30px, 0) scale(0.985);
   filter: blur(5px);
 }
 
@@ -808,6 +808,115 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
     transform: translateX(-130%) skewX(-18deg);
     animation: cta-sheen 4.6s ease-in-out infinite;
   }
+}
+
+/* aurora orbs: two large accent glows drifting behind every page */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes orb-a {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(-9rem, 8rem, 0) scale(1.18); }
+  }
+
+  @keyframes orb-b {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(11rem, -7rem, 0) scale(1.14); }
+  }
+
+  html::before,
+  html::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(64px);
+    will-change: transform;
+  }
+
+  html::before {
+    width: 56rem;
+    height: 56rem;
+    top: -20rem;
+    right: -16rem;
+    background: radial-gradient(circle, rgba(76, 178, 240, 0.17) 0%, transparent 62%);
+    animation: orb-a 21s ease-in-out infinite alternate;
+  }
+
+  html::after {
+    width: 46rem;
+    height: 46rem;
+    bottom: -18rem;
+    left: -14rem;
+    background: radial-gradient(circle, rgba(47, 157, 224, 0.14) 0%, transparent 62%);
+    animation: orb-b 27s ease-in-out infinite alternate;
+  }
+}
+
+/* equalizer dividers: audio bars marking the break between long sections
+   (elements injected by MotionLayer, aria-hidden, motion-on only) */
+.eq-divider {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  height: 40px;
+  padding-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes eq-bounce {
+  0% { transform: scaleY(0.2); }
+  100% { transform: scaleY(1); }
+}
+
+.eq-divider span {
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent-grad);
+  box-shadow: 0 0 12px rgba(76, 178, 240, 0.5);
+  transform-origin: bottom center;
+  animation: eq-bounce 0.9s ease-in-out infinite alternate;
+}
+
+.eq-divider span:nth-child(1) { animation-duration: 0.82s; animation-delay: -0.30s; height: 55%; }
+.eq-divider span:nth-child(2) { animation-duration: 1.04s; animation-delay: -0.65s; height: 80%; }
+.eq-divider span:nth-child(3) { animation-duration: 0.72s; animation-delay: -0.10s; height: 100%; }
+.eq-divider span:nth-child(4) { animation-duration: 1.12s; animation-delay: -0.45s; height: 70%; }
+.eq-divider span:nth-child(5) { animation-duration: 0.92s; animation-delay: -0.80s; height: 88%; }
+.eq-divider span:nth-child(6) { animation-duration: 1.20s; animation-delay: -0.22s; height: 62%; }
+.eq-divider span:nth-child(7) { animation-duration: 0.78s; animation-delay: -0.55s; height: 46%; }
+
+/* platform marquee: distribution icons gliding under the hero
+   (element injected by MotionLayer on / and /podcast-multiplier) */
+.platform-marquee {
+  overflow: hidden;
+  padding: 26px 0 10px;
+  position: relative;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+}
+
+@keyframes marquee-glide {
+  to { transform: translateX(-50%); }
+}
+
+.platform-marquee .marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  width: max-content;
+  padding-right: 72px;
+  animation: marquee-glide 30s linear infinite;
+  will-change: transform;
+}
+
+.platform-marquee i {
+  font-size: 2rem;
+  color: var(--text-muted-2);
+  opacity: 0.85;
 }
 
 /* scroll progress hairline (element injected by MotionLayer) */

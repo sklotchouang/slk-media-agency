@@ -36,6 +36,8 @@ function annotateReveals(root) {
         Array.from(child.children).forEach((item, index) => {
           item.classList.add('rv');
           item.style.setProperty('--rv-delay', `${Math.min(index * 70, 420)}ms`);
+          // grid items glide in from alternating sides
+          item.style.setProperty('--rv-x', index % 2 ? '44px' : '-44px');
           annotated.push(item);
         });
       } else {
@@ -103,6 +105,57 @@ export default function MotionLayer() {
       if (window.__lenis === lenis) delete window.__lenis;
     });
 
+    // ----- Injected motion visuals: equalizer dividers + platform marquee -----
+    // Decorative only (aria-hidden), added client-side so the server-rendered
+    // copy stays untouched. Only exists while motion is on.
+    const injected = [];
+
+    const EQ_SECTIONS = [
+      '.problem', '.how-it-works', '.testimonials', '.qualification', '.faq',
+      '.problem-section', '.results-section', '.comparison-section',
+      '.t-features', '.cs-section',
+    ].join(',');
+    document.querySelectorAll(EQ_SECTIONS).forEach((section) => {
+      const container = section.querySelector(':scope > .container') || section;
+      const eq = document.createElement('div');
+      eq.className = 'eq-divider';
+      eq.setAttribute('aria-hidden', 'true');
+      for (let i = 0; i < 7; i += 1) eq.appendChild(document.createElement('span'));
+      container.insertBefore(eq, container.firstChild);
+      injected.push(eq);
+    });
+
+    if (pathname === '/' || pathname === '/podcast-multiplier') {
+      const hero = document.querySelector('.hero, .hero-section');
+      if (hero) {
+        const ICONS = [
+          'fa-brands fa-youtube', 'fa-brands fa-spotify', 'fa-brands fa-tiktok',
+          'fa-brands fa-instagram', 'fa-brands fa-linkedin-in', 'fa-brands fa-x-twitter',
+          'fa-brands fa-facebook-f', 'fa-brands fa-apple', 'fa-solid fa-podcast',
+        ];
+        const marquee = document.createElement('div');
+        marquee.className = 'platform-marquee';
+        marquee.setAttribute('aria-hidden', 'true');
+        const track = document.createElement('div');
+        track.className = 'marquee-track';
+        // two identical sets so the -50% glide loops seamlessly
+        for (let set = 0; set < 2; set += 1) {
+          ICONS.forEach((cls) => {
+            const icon = document.createElement('i');
+            icon.className = cls;
+            track.appendChild(icon);
+          });
+        }
+        marquee.appendChild(track);
+        hero.insertAdjacentElement('afterend', marquee);
+        injected.push(marquee);
+      }
+    }
+
+    cleanups.push(() => {
+      injected.forEach((el) => el.remove());
+    });
+
     // ----- Scroll progress hairline + parallax variable -----
     const progressBar = document.createElement('div');
     progressBar.className = 'scroll-progress';
@@ -152,6 +205,7 @@ export default function MotionLayer() {
       revealed.forEach((el) => {
         el.classList.remove('rv', 'rv-in');
         el.style.removeProperty('--rv-delay');
+        el.style.removeProperty('--rv-x');
       });
     });
 
