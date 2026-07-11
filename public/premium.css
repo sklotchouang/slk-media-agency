@@ -52,7 +52,7 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.44, 1);
   --dur-quick: 0.28s;
-  --dur-reveal: 0.75s;
+  --dur-reveal: 0.85s;
   --transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 
   /* rhythm */
@@ -105,12 +105,12 @@ body::before {
 
 @media (prefers-reduced-motion: no-preference) {
   @keyframes page-breathe {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.06); }
+    0% { transform: scale(1.03) translate3d(-0.7%, 0.4%, 0); }
+    100% { transform: scale(1.09) translate3d(0.7%, -0.6%, 0); }
   }
 
   body::before {
-    animation: page-breathe 60s ease-in-out infinite alternate;
+    animation: page-breathe 34s ease-in-out infinite alternate;
     will-change: transform;
   }
 }
@@ -662,15 +662,18 @@ button.menu-toggle span {
    -------------------------------------------------------------------------- */
 html[data-motion="on"] .rv {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(30px) scale(0.985);
+  filter: blur(5px);
 }
 
 html[data-motion="on"] .rv.rv-in {
   opacity: 1;
   transform: none;
+  filter: none;
   transition:
     opacity var(--dur-reveal) var(--ease-out),
-    transform var(--dur-reveal) var(--ease-out);
+    transform var(--dur-reveal) var(--ease-out),
+    filter var(--dur-reveal) var(--ease-out);
   transition-delay: var(--rv-delay, 0s);
 }
 
@@ -690,6 +693,7 @@ html[data-motion="on"] .rv-fade.rv-in {
   html[data-motion="on"] .rv-fade {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
 
@@ -741,6 +745,92 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
 }
 
 /* --------------------------------------------------------------------------
+   13a-3. Liveliness layer: always-on ambient life, added 2026-07-11.
+          Accent shimmer on highlighted spans, a soft pulse plus sheen sweep
+          on primary CTAs, a scroll progress hairline, and a gentle parallax
+          on the home hero cards. Everything sits inside the reduced-motion
+          gate; the static render is unchanged.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* accent shimmer: a lighter tint slides through the highlight gradient */
+  @keyframes highlight-sheen {
+    0%, 100% { background-position: 100% 0; }
+    50% { background-position: 0% 0; }
+  }
+
+  .highlight {
+    background: linear-gradient(100deg, #2f9de0 0%, #4cb2f0 30%, #a8d9f9 50%, #4cb2f0 70%, #2f9de0 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: highlight-sheen 6s ease-in-out infinite;
+  }
+
+  /* primary CTAs: a quiet pulse ring so the main action never sits dead */
+  @keyframes cta-pulse {
+    0% { outline: 3px solid rgba(76, 178, 240, 0.34); outline-offset: 0px; }
+    62% { outline: 3px solid rgba(76, 178, 240, 0); outline-offset: 13px; }
+    100% { outline: 3px solid rgba(76, 178, 240, 0); outline-offset: 13px; }
+  }
+
+  .primary-cta:not(:hover):not(:focus-visible),
+  .btn-primary:not(:hover):not(:focus-visible),
+  .cta-button:not(:hover):not(:focus-visible) {
+    animation: cta-pulse 3.4s var(--ease-out) infinite;
+  }
+
+  /* sheen sweep across primary CTAs */
+  @keyframes cta-sheen {
+    0% { transform: translateX(-130%) skewX(-18deg); }
+    14% { transform: translateX(230%) skewX(-18deg); }
+    100% { transform: translateX(230%) skewX(-18deg); }
+  }
+
+  .primary-cta,
+  .btn-primary,
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .primary-cta::after,
+  .btn-primary::after,
+  .cta-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 42%;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.32) 50%, transparent 100%);
+    transform: translateX(-130%) skewX(-18deg);
+    animation: cta-sheen 4.6s ease-in-out infinite;
+  }
+}
+
+/* scroll progress hairline (element injected by MotionLayer) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 4000;
+  pointer-events: none;
+  background: var(--accent-grad);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left center;
+  box-shadow: 0 0 12px rgba(76, 178, 240, 0.55);
+}
+
+/* gentle parallax: home hero cards ride the scroll slightly slower */
+html[data-motion="on"] .floating-cards {
+  transform: translateY(calc(var(--sy, 0) * -0.07px));
+}
+
+/* --------------------------------------------------------------------------
    13b. Generated atmosphere imagery (public/generated), site-wide.
         Layered as pseudo-elements so no markup changes; slow ambient drift
         keeps the pages feeling alive, disabled under reduced motion.
@@ -768,7 +858,7 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
   height: auto;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(52rem 30rem at 50% 18%, rgba(76, 178, 240, 0.08), transparent 65%);
+  background: radial-gradient(52rem 30rem at 50% 18%, rgba(76, 178, 240, 0.11), transparent 65%);
 }
 
 /* subtle mesh wash behind alternating content sections */
@@ -828,8 +918,8 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
 
 @media (prefers-reduced-motion: no-preference) {
   @keyframes ribbon-drift {
-    0% { transform: translate3d(-1.5%, 0, 0) scale(1.06); }
-    100% { transform: translate3d(1.5%, 0, 0) scale(1.06); }
+    0% { transform: translate3d(-4%, 0, 0) scale(1.1); }
+    100% { transform: translate3d(4%, 0, 0) scale(1.1); }
   }
 
   .footer-cta::before,
@@ -837,8 +927,41 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
   .final-cta-section::before,
   .mid-cta::before,
   .t-cta::before {
-    animation: ribbon-drift 26s ease-in-out infinite alternate;
+    animation: ribbon-drift 18s ease-in-out infinite alternate;
     will-change: transform;
+  }
+
+  @keyframes mesh-drift {
+    0% { transform: translate3d(-2%, 0, 0) scale(1.08); }
+    100% { transform: translate3d(2%, 1.2%, 0) scale(1.08); }
+  }
+
+  .usp::before,
+  .case-showcase::before,
+  .solution-section::before,
+  .proof-results-section::before,
+  .pricing-section::before,
+  .steps-section::before,
+  .results-section::before,
+  .t-features::before,
+  .cs-section--alt::before,
+  .pt-vtest-section::before {
+    animation: mesh-drift 28s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes hero-glow-breathe {
+    0%, 100% { opacity: 0.65; }
+    50% { opacity: 1; }
+  }
+
+  .hero::before,
+  .hero-section::before,
+  .portfolio-hero::before,
+  .tpage-hero::before,
+  .cs-hero::before {
+    animation: hero-glow-breathe 8s ease-in-out infinite;
+    will-change: opacity;
   }
 }
 

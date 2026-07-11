@@ -92,12 +92,15 @@ Stack decision: **Lenis (smooth scroll) + custom DOM-driven motion primitives on
 
 Shared primitives (`components/MotionLayer.js`, mounted in both layouts):
 - Lenis smooth scroll with custom easing (skipped entirely under reduced motion).
-- Scroll-in reveals: sections' direct children get staggered rise+fade via auto-annotation (no per-page copy edits), custom cubic-bezier(0.22, 1, 0.36, 1).
+- Scroll-in reveals: sections' direct children get staggered rise+fade via auto-annotation (no per-page copy edits), custom cubic-bezier(0.22, 1, 0.36, 1). Liveliness pass 2026-07-11: reveals now include a slight scale and blur settle (30px rise, blur(5px) to sharp, 0.85s).
+- Scroll progress hairline: a 2px accent bar fixed at the top of the viewport, injected by MotionLayer and driven by a `--scroll-progress` variable.
+- Parallax: MotionLayer sets a `--sy` scroll variable on `<html>`; the home hero floating cards ride it slightly slower than the page.
 - Animated link underlines and nav states (CSS).
 - Magnetic/spring primary CTAs (pointer-fine devices only).
 - Count-up on `.stat-number` when in view.
 - Spring-feel FAQ accordion (grid-rows transition with overshoot easing).
 - Subtle card hover lift + hairline glow.
+- Always-on ambient life (liveliness pass 2026-07-11, all inside the reduced-motion gate): accent shimmer sweeping through `.highlight` spans, a quiet pulse ring plus periodic sheen sweep on primary CTAs, breathing hero glow, drifting section mesh, faster ribbon drift (18s, wider travel), and a stronger page-wide soundfield breathe (34s scale plus drift).
 - All gated behind `prefers-reduced-motion: reduce` -> clean static render.
 
 Page-specific:

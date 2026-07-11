@@ -103,6 +103,32 @@ export default function MotionLayer() {
       if (window.__lenis === lenis) delete window.__lenis;
     });
 
+    // ----- Scroll progress hairline + parallax variable -----
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    progressBar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(progressBar);
+    let scrollRaf = 0;
+    const onScroll = () => {
+      if (scrollRaf) return;
+      scrollRaf = requestAnimationFrame(() => {
+        scrollRaf = 0;
+        const max = html.scrollHeight - window.innerHeight;
+        const y = window.scrollY;
+        html.style.setProperty('--scroll-progress', max > 0 ? String(Math.min(1, y / max)) : '0');
+        html.style.setProperty('--sy', String(Math.min(y, 900)));
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    cleanups.push(() => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(scrollRaf);
+      progressBar.remove();
+      html.style.removeProperty('--scroll-progress');
+      html.style.removeProperty('--sy');
+    });
+
     // ----- Scroll-in reveals -----
     const revealed = annotateReveals(document);
     if (revealed.length && 'IntersectionObserver' in window) {
