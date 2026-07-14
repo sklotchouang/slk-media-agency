@@ -128,9 +128,11 @@ export default function MotionLayer() {
     if (pathname === '/' || pathname === '/podcast-multiplier') {
       const hero = document.querySelector('.hero, .hero-section');
       if (hero) {
+        // no fa-x-twitter: it only ships in Font Awesome 6.4.2 and the site
+        // pins 6.4.0, so it rendered as a 0px wide dead slot in the strip
         const ICONS = [
           'fa-brands fa-youtube', 'fa-brands fa-spotify', 'fa-brands fa-tiktok',
-          'fa-brands fa-instagram', 'fa-brands fa-linkedin-in', 'fa-brands fa-x-twitter',
+          'fa-brands fa-instagram', 'fa-brands fa-linkedin-in',
           'fa-brands fa-facebook-f', 'fa-brands fa-apple', 'fa-solid fa-podcast',
         ];
         const marquee = document.createElement('div');
