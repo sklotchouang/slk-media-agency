@@ -903,11 +903,15 @@ html[data-motion="on"] .section-title.rv.rv-in::after {
   to { transform: translateX(-50%); }
 }
 
+/* MotionLayer sizes the track so one half always spans the viewport. The auto
+   margins are a fallback: if it ever comes up narrower than the page, the icons
+   stay centered instead of bunching against the left edge. */
 .platform-marquee .marquee-track {
   display: flex;
   align-items: center;
   gap: 72px;
   width: max-content;
+  margin: 0 auto;
   padding-right: 72px;
   animation: marquee-glide 30s linear infinite;
   will-change: transform;

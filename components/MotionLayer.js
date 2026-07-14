@@ -138,16 +138,31 @@ export default function MotionLayer() {
         marquee.setAttribute('aria-hidden', 'true');
         const track = document.createElement('div');
         track.className = 'marquee-track';
-        // two identical sets so the -50% glide loops seamlessly
-        for (let set = 0; set < 2; set += 1) {
+        marquee.appendChild(track);
+        hero.insertAdjacentElement('afterend', marquee);
+
+        const addSet = () => {
           ICONS.forEach((cls) => {
             const icon = document.createElement('i');
             icon.className = cls;
             track.appendChild(icon);
           });
-        }
-        marquee.appendChild(track);
-        hero.insertAdjacentElement('afterend', marquee);
+        };
+
+        // The glide is translateX(-50%), so it travels exactly one half of the
+        // track. That half has to be at least as wide as the viewport, or the
+        // icons run off the left and leave dead space on the right. Two sets
+        // were not enough on a wide screen. Measure one set in place, then
+        // repeat it until a half covers the widest this window can get
+        // (maximising cannot exceed the screen). Under-measuring, e.g. before
+        // the icon font loads, only ever adds sets, so it errs safe.
+        addSet();
+        const setWidth = Math.max(track.scrollWidth, 1);
+        const widest = Math.max(window.innerWidth, (window.screen && window.screen.width) || 0);
+        const setsPerHalf = Math.min(12, Math.max(1, Math.ceil(widest / setWidth)));
+        // one set is already in; fill out the half, then mirror it so -50% loops seamlessly
+        for (let set = 1; set < setsPerHalf * 2; set += 1) addSet();
+
         injected.push(marquee);
       }
     }
