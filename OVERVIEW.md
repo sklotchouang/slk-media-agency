@@ -143,6 +143,10 @@ Every page loads two stylesheets, in this order:
 
 Because `premium.css` is loaded last and remaps the legacy tokens, most visual changes are made there, not in the two big legacy files. Editing a legacy token value flows through the whole site because the premium layer inherits from it.
 
+`premium.css` also owns the base pricing layout (a `PRICING` block at the end of the file). This is worth knowing before you touch a pricing section: the base `.pricing-*` rules (`.pricing-grid`, `.pricing-tier`, `.pricing-header`, `.pricing-price`, `.pricing-period`, `.pricing-content`, `.pricing-footer`) originally lived only in `podcast-multiplier-styles.css`, which the `(main)` group does not load, so pricing markup on the home page would have rendered as an unstyled stack of text (the home page had no pricing section before, so nothing was ever broken in production). The layout was ported into `premium.css` (loaded by both groups) with values mirroring the multiplier stylesheet, so `/podcast-multiplier` renders as it did before and `/` now styles correctly. The card background, radius and the `.featured` accent glow still come from the shared card rules higher up in `premium.css`; the `PRICING` block adds only the `.featured` border width. The same block styles the two pricing sub-components, `.pricing-cost-anchor` and `.pricing-outcome`.
+
+Mind the cascade when you edit that block. `premium.css` loads after `podcast-multiplier-styles.css`, so at equal specificity anything declared in the `PRICING` block wins on `/podcast-multiplier` too, and it is easy to change that page by accident. The trap that already bit once: `.pricing-tier.featured` (the accent glow) and `.pricing-tier:hover` have the same specificity, so declaring `box-shadow` on the hover rule silently erases the featured glow. That is why the hover rule sets only `transform`, and the shadow lives on `.pricing-tier:not(.featured):hover`.
+
 One page also has a page-scoped stylesheet imported directly in its component: `app/(multiplier)/podcast-toolkits/podcast-toolkits.css`.
 
 Fonts: the whole site runs on Inter, self-hosted through `next/font` (`components/fonts.js`). The font CSS variable is applied via a class on `<html>` in each layout. There is no render-blocking Google Fonts request.
@@ -176,6 +180,8 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/podcast-toolkits/thank-you` | `app/(multiplier)/podcast-toolkits/thank-you/page.js` | Purchase confirmation | internal / email |
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
+
+Three pages show a price. `/` and `/podcast-multiplier` each have a `pricing-section` (id `pricing`) for the $1,597/month Content Engine, and `/podcast-toolkits` has one for the $100 strategy report. They are not a shared component: the markup is inlined per page, so a change to the $1,597/month card means editing both `app/(main)/page.js` and `app/(multiplier)/podcast-multiplier/page.js`. The `/podcast-toolkits` section is a different product (a one-time report, Stripe checkout, its own fee disclosure) and is deliberately not kept in sync with the other two. See the pricing rules in section 9.
 
 ### 7.2 Nav and footer
 
@@ -226,6 +232,8 @@ node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--redu
 
 - Copy, CTAs, links, prices, disclosures, and legal identifiers (KVK/BTW) are frozen. This project has been a visual and motion upgrade, not a content rewrite. Do not change any text node or `href` unless Samuel asks for that specific change.
 - The paid product on `/podcast-toolkits` shows a price anchor ($500 struck through to $100) and a processing-fee disclosure. Leave the Stripe link, the survey link, and the fee text exactly as they are.
+- Pricing is never presented as a bare number. The two `$1,597/month` pricing sections (`/` and `/podcast-multiplier`, both `<section className="pricing-section" id="pricing">`) each pair the price with two required elements: a `.pricing-cost-anchor` block that anchors it against the $50,000 to $80,000 a year cost of a full-time in-house video editor, and a single `.pricing-outcome` line tying the spend to the clips delivered. Each section carries exactly one CTA, the booking link (`strmeet`). Keep it that way if you edit them.
+- No free-work language anywhere in a pricing section: no free trial, free audit, free sample, demo, money-back, or guarantee wording. SLK Media Agency does not offer free work. (The separate `guarantee-section` on `/podcast-multiplier` is pre-existing and untouched; do not extend that language into pricing.)
 - Company name is always written in full: "SLK Media Agency". Never "SLK" or "SLK Media".
 - No em dashes and no en dashes anywhere in site copy or in this repo's docs. Use commas, colons, periods, and parentheses.
 - Never assume Samuel personally records a podcast. The agency serves podcasters.
@@ -267,4 +275,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-07-09.
+Last verified against the codebase: 2026-07-14.

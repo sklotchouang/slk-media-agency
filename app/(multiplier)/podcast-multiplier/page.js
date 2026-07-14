@@ -452,6 +452,9 @@ export default function PodcastMultiplierPage() {
                 <h3>Content Engine</h3>
                 <p className="pricing-period">(DFY)</p>
                 <div className="pricing-price">$1,597/month</div>
+                <p className="pricing-cost-anchor">
+                  <strong>The math:</strong> A full-time in-house video editor in the US runs <span className="pricing-cost-anchor-figure">$50,000 to $80,000</span> a year, before software, equipment, and management time. SLK Media Agency delivers done-for-you repurposing across LinkedIn, YouTube, Instagram, Facebook and TikTok for a fraction of that. No one to hire. No one to manage.
+                </p>
               </div>
               <div className="pricing-content">
                 <ul>
@@ -464,6 +467,7 @@ export default function PodcastMultiplierPage() {
                   <li>Weekly Consultation Calls</li>
                 </ul>
               </div>
+              <p className="pricing-outcome">You record once. We turn it into <strong>5-10+ platform-ready clips</strong>, posted consistently across every platform, every month.</p>
               <div className="pricing-footer">
                 <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a>
               </div>

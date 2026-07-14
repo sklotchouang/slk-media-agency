@@ -1249,3 +1249,237 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 .error-code {
   font-weight: 800;
 }
+
+/* ---------------------------------------------------------------
+   PRICING
+   Base pricing layout lives only in podcast-multiplier-styles.css,
+   which the (main) group does not load. The home page pricing
+   section would otherwise render as an unstyled stack, so the
+   layout is ported here (this file loads in both route groups).
+   Values mirror podcast-multiplier-styles.css so that
+   /podcast-multiplier renders exactly as it did before, which matters
+   because this file loads AFTER that stylesheet: at equal specificity
+   anything declared here wins. Card background, radius and the
+   .featured accent glow stay with the shared card rules above. These
+   are layout and typography only.
+   --------------------------------------------------------------- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding-bottom: 20px;
+}
+
+.pricing-tier {
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The card lift lived only in the multiplier sheet, so the home card
+   would have sat dead on hover. Shadow and border are deliberately NOT
+   set here: .pricing-tier.featured above carries the accent glow at the
+   same specificity (0,2,0), and this rule is later in the file, so
+   declaring them would silently overwrite that glow on hover. */
+.pricing-tier:hover {
+  transform: translateY(-5px);
+}
+
+.pricing-tier:not(.featured):hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(76, 178, 240, 0.3);
+}
+
+/* .featured is a 2px accent border on the multiplier. Without this the
+   home card falls back to the 1px generic card border. No-op on the
+   multiplier, which already resolves to 2px. */
+.pricing-tier.featured {
+  border-width: 2px;
+}
+
+.pricing-tier.compact {
+  padding: 18px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.pricing-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 20px;
+}
+
+.pricing-tier.compact .pricing-header {
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.pricing-header h3 {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.pricing-tier.compact .pricing-header h3 {
+  font-size: 1.2rem;
+}
+
+.pricing-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.pricing-tier.compact .pricing-price {
+  font-size: 2rem;
+}
+
+/* --text-secondary, not --text-muted-2: the multiplier sets
+   var(--text-color-muted), which :root remaps to --text-secondary */
+.pricing-period {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.pricing-content {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.pricing-tier.compact .pricing-content {
+  padding: 0 6px;
+}
+
+.pricing-content ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.pricing-tier.compact .pricing-content ul {
+  margin-bottom: 12px;
+}
+
+.pricing-content li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+}
+
+.pricing-tier.compact .pricing-content li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  padding-left: 20px;
+  line-height: 1.4;
+}
+
+.pricing-content li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.pricing-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-footer .btn-primary {
+  width: 100%;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing-tier.compact .pricing-footer .btn-primary {
+  width: 70%;
+  max-width: 320px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+
+/* cost anchor: the price never stands alone, it is read against
+   what an in-house hire would cost */
+.pricing-cost-anchor {
+  margin: 14px auto 0;
+  max-width: 56ch;
+  padding: 12px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.pricing-cost-anchor strong {
+  color: var(--text-primary);
+  font-weight: 640;
+}
+
+.pricing-cost-anchor-figure {
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* outcome line: ties the spend to what actually ships */
+.pricing-outcome {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.pricing-outcome strong {
+  color: var(--accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* The compact card keeps its 18px padding and its 70%/320px CTA at every
+   width (top-level .pricing-tier.compact is (0,2,0) and beats the (0,1,0)
+   .pricing-tier rule below, since a media query adds no specificity), so
+   nothing here overrides it. Only the two new sub-components tighten up. */
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pricing-tier {
+    padding: 20px;
+  }
+
+  .pricing-cost-anchor {
+    padding: 11px 12px;
+    font-size: 0.86rem;
+  }
+
+  .pricing-outcome {
+    font-size: 0.9rem;
+  }
+}
