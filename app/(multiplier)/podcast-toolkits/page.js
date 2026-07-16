@@ -113,6 +113,19 @@ const testimonials = [
     role: 'Waste No Day Podcast',
     initials: 'BB',
   },
+  {
+    video: 'preston',
+    ar: '9 / 16',
+    vertical: true,
+    chipIcon: 'fas fa-bolt',
+    chip: 'Fast turnaround on every edit',
+    headline: 'What you do is so professional',
+    quote:
+      'I showed him your intro video, which I think is fantastic. It’s not done, but it’s fantastic. I love it. I don’t like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast. I don’t know how you make any money with all the time these edits take. I don’t know how you charge so cheap for what you do.',
+    name: 'Preston Hurd',
+    role: 'The Filtered Brew Podcast',
+    initials: 'PH',
+  },
 ];
 
 export default function PodcastToolkitsPage() {
@@ -273,7 +286,7 @@ export default function PodcastToolkitsPage() {
           <div className="pt-vtests">
             {testimonials.map((t) => (
               <figure className="pt-vtest" key={t.name}>
-                <div className="pt-vtest-video" style={{ aspectRatio: t.ar }}>
+                <div className={`pt-vtest-video${t.vertical ? ' is-vertical' : ''}`} style={{ aspectRatio: t.ar }}>
                   <video controls preload="none" poster={`/video-testimonials/poster-${t.video}.webp`} playsInline>
                     <source src={`/video-testimonials/testimonial-${t.video}.mp4`} type="video/mp4" />
                   </video>

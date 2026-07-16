@@ -386,6 +386,13 @@ export default function HomePage() {
                     '<video poster="/video-testimonials/poster-kelly.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-kelly.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Kelly Bellaria</p><p class="video-description">Alpine Institute</p></div>',
                 }}
               />
+              <div
+                className="client-video ar-916"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<video poster="/video-testimonials/poster-preston.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-preston.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Preston Hurd</p><p class="video-description">The Filtered Brew Podcast</p></div>',
+                }}
+              />
             </div>
             <div className="view-more-testimonials">
               <Link href="/testimonials" className="view-more-btn">View More Testimonials</Link>

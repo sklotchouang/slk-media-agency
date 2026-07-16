@@ -1487,3 +1487,75 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     font-size: 0.9rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   VERTICAL (9:16) TESTIMONIAL VIDEOS
+   --------------------------------------------------------------------------
+   The legacy aspect-ratio scale in styles.css stops at 16:9 (.ar-169), 4:5
+   (.ar-45) and 1:1 (.ar-11). Preston Hurd's testimonial is a vertical 9:16
+   reel, so it needs its own rung. The !important matches its .ar-* siblings
+   and beats the .client-video base rule, which hard-codes aspect-ratio:16/9
+   at the same specificity.
+   -------------------------------------------------------------------------- */
+.ar-916 {
+  aspect-ratio: 9 / 16 !important;
+}
+
+/* 320px is the width the feature grid already falls back to below 880px;
+   300px matches the 9:16 cards in .social-proof and .cs-showcase. */
+.t-feature-media.ar-916 {
+  max-width: 320px;
+}
+
+.client-video.ar-916 {
+  max-width: 300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* The home "See What Our Clients Say" row was a hard-coded 4-column grid built
+   for exactly four videos. Preston makes five, and five is prime: every column
+   count below five strands an orphan, which grid parks against the left edge.
+   Flex wraps instead and centres whatever lands on the last row, so the row
+   stays balanced from 1440px down to the 768px breakpoint where the legacy
+   single-column rule takes over. The row tops out at roughly 1103px of inner
+   width, so 190px keeps five cards plus four 30px gaps (1070px) comfortably
+   inside it rather than tipping a card onto a second row; narrower viewports
+   wrap to a centred 4+1 or 3+2. */
+.video-testimonials .client-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-testimonials .client-video {
+  flex: 0 1 190px;
+}
+
+/* grid-template-columns:1fr stops applying once the row is flex, so the legacy
+   single-column mobile layout has to be restated here. */
+@media (max-width: 768px) {
+  .video-testimonials .client-video {
+    flex-basis: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Known bug, deliberately scoped: .t-feature on /testimonials never collapses
+   to one column on phones. styles.css stacks it under max-width:880px, but a
+   later unscoped .t-feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+   overrides that at equal specificity (a media query adds none), so every
+   block renders as two ~139px columns at 390px wide.
+
+   The six original blocks are left exactly as they are. A 9:16 reel is
+   unreadable at 137px, so the vertical block opts into the stack the base CSS
+   already intended, via a class rather than :nth-child so that appending a
+   testimonial later cannot move this rule onto the wrong block. Widening the
+   fix to every block is a one-line change here: drop .t-feature-vertical.
+   -------------------------------------------------------------------------- */
+@media (max-width: 880px) {
+  .t-feature.t-feature-vertical {
+    grid-template-columns: 1fr;
+  }
+}

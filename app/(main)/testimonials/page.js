@@ -213,6 +213,29 @@ export default function TestimonialsPage() {
             </div>
           </div>
 
+          <div className="t-feature t-feature-vertical">
+            <div className="t-feature-media video-wrapper ar-916">
+              <video poster="/video-testimonials/poster-preston.webp" preload="none" playsInline controls>
+                <source src="/video-testimonials/testimonial-preston.mp4" type="video/mp4" />
+              </video>
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play Preston Hurd's video testimonial">
+                <div className="play-icon" aria-hidden="true">▶</div>
+              </div>
+            </div>
+            <div className="t-feature-quote">
+              <span className="t-result-chip"><i className="fas fa-bolt" aria-hidden="true"></i> Fast turnaround on every edit</span>
+              <h2 className="t-headline">What you do is so professional</h2>
+              <blockquote>I showed him your intro video, which I think is fantastic. It's not done, but it's fantastic. I love it. I don't like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast. I don't know how you make any money with all the time these edits take. I don't know how you charge so cheap for what you do.</blockquote>
+              <div className="person">
+                <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">PH</span></div>
+                <div className="meta">
+                  <div className="name">Preston Hurd</div>
+                  <div className="role">The Filtered Brew Podcast</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -221,7 +244,7 @@ export default function TestimonialsPage() {
         <div className="container">
           <h2>Want results like these for <span className="highlight">your show?</span></h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Your Strategy Call</a>
-          <p style={{ marginTop: '18px' }}><Link href="/success/case-studies" className="text-link">Or read the full case studies <i className="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+          <p style={{ marginTop: '18px' }}><Link href="/success/case-studies" className="text-link">Or read the full case studies <i className="fas fa-arrow-right" aria-hidden="true"></i></Link></p>
         </div>
       </section>
 
