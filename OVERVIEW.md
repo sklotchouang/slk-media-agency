@@ -8,14 +8,15 @@ Keep this file current. Every time the website changes, update this document in 
 
 ## 1. What this is
 
-This is the public marketing website for SLK Media Agency, served at https://slkmediaagency.com. SLK Media Agency helps podcasters grow through short-form clips and distribution. The website is a lead-generation site: its job is to send qualified visitors to book a strategy call, and to sell one paid entry-level product (a paid strategy report).
+This is the public marketing website for SLK Media Agency, served at https://slkmediaagency.com. SLK Media Agency helps podcasters grow through short-form clips and distribution. The website is a lead-generation site: its job is to send qualified visitors to book a strategy call, and to sell two paid entry-level products directly (a paid strategy report and a paid 10-Day Trial).
 
 The site began as a hand-written static HTML site. It was converted to a Next.js App Router application (same copy, same design intent, cleaner URLs and app-like navigation), then given a site-wide premium visual and motion re-skin. The original static site is kept locally as `legacy-site/` for reference only and is not part of the repo (git-ignored, not deployed).
 
-Every visitor path ends at one of three actions:
+Every visitor path ends at one of four actions:
 
 - Book a strategy call: `https://link.slkmediaagency.com/strmeet` (the primary CTA, labelled "Book Strategy Call" or similar, on almost every page).
 - Buy the paid strategy report: Stripe checkout `https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08` (on `/podcast-toolkits` only).
+- Buy the paid 10-Day Trial: Myfundbox checkout `https://checkout.myfundbox.com/pay/pla_38942` (in the pricing section on `/` and `/podcast-multiplier`). Note this is Myfundbox, not Stripe, and the $597 already includes processing fees, so it carries no fee disclosure of the kind `/podcast-toolkits` shows.
 - Fill the survey after purchase: `https://survey.slkmediaagency.com/0kdj1o` (on `/podcast-toolkits`).
 
 These links, along with all copy, pricing, and legal identifiers, are treated as frozen. Do not change them without an explicit instruction. See "Content and copy rules" (section 9).
@@ -147,6 +148,10 @@ Because `premium.css` is loaded last and remaps the legacy tokens, most visual c
 
 `premium.css` also carries the 9:16 rung of the aspect-ratio scale. The legacy `styles.css` defines `.ar-169` (16:9), `.ar-45` (4:5) and `.ar-11` (1:1) for the testimonial and clip cards. Preston Hurd's testimonial is a vertical reel, so `.ar-916` lives in a block at the end of `premium.css` together with the two width caps it needs (`.t-feature-media.ar-916` and `.client-video.ar-916`). That same block turns the home page's "See What Our Clients Say" row from a hard-coded four-column grid into a centred flex row: the row now holds five videos, and five is prime, so every grid column count below five strands an orphan against the left edge. `/podcast-toolkits` does not use these classes at all. It sets `aspect-ratio` inline from its own `testimonials` array, so a vertical entry there carries `vertical: true` and gets capped by `.pt-vtest-video.is-vertical` in `app/(multiplier)/podcast-toolkits/podcast-toolkits.css`, which keeps a 9:16 clip from filling the 411px video column and standing over 700px tall.
 
+The `PRICING` block was written when the pricing section held a single centred card, but `.pricing-grid` is `repeat(auto-fit, minmax(300px, 1fr))` inside a 1200px cap, so it absorbed the move to three tiers with no CSS change at all: three columns of roughly 367px on desktop, stacking to one column below the breakpoint. `.pricing-tier.compact` keeps its `max-width: 720px`, which is simply a no-op inside a grid cell narrower than that. If a fourth tier is ever added, check this block again rather than assuming it still holds.
+
+Because `.pricing-tier` is a column flex container with `.pricing-content { flex-grow: 1 }`, the outcome line and CTA of every tier pin to the bottom and stay aligned across the row even though the tiers have different numbers of bullets. The `.pricing-cost-anchor` blocks do not align with each other, because their text lengths genuinely differ; that is accepted, not a bug to chase.
+
 Mind the cascade when you edit that block. `premium.css` loads after `podcast-multiplier-styles.css`, so at equal specificity anything declared in the `PRICING` block wins on `/podcast-multiplier` too, and it is easy to change that page by accident. The trap that already bit once: `.pricing-tier.featured` (the accent glow) and `.pricing-tier:hover` have the same specificity, so declaring `box-shadow` on the hover rule silently erases the featured glow. That is why the hover rule sets only `transform`, and the shadow lives on `.pricing-tier:not(.featured):hover`.
 
 One page also has a page-scoped stylesheet imported directly in its component: `app/(multiplier)/podcast-toolkits/podcast-toolkits.css`.
@@ -163,7 +168,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 | Route | File | Purpose | CTA(s) |
 |---|---|---|---|
-| `/` | `app/(main)/page.js` | Home, long-form sales | Book Strategy Call (strmeet) |
+| `/` | `app/(main)/page.js` | Home, long-form sales | Book Strategy Call (strmeet) + 10-Day Trial checkout (Myfundbox) in the pricing section |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
@@ -177,13 +182,19 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/privacy-policy` | `app/(main)/privacy-policy/page.js` | Legal | none |
 | `/terms-and-conditions` | `app/(main)/terms-and-conditions/page.js` | Legal | none |
 | 404 | `app/(main)/not-found.js` (+ `[...rest]/page.js` catch-all) | Not-found | internal links |
-| `/podcast-multiplier` | `app/(multiplier)/podcast-multiplier/page.js` | Long-form sales page | strmeet + a gamma.app case study link |
+| `/podcast-multiplier` | `app/(multiplier)/podcast-multiplier/page.js` | Long-form sales page | strmeet + 10-Day Trial checkout (Myfundbox) + a gamma.app case study link |
 | `/podcast-toolkits` | `app/(multiplier)/podcast-toolkits/page.js` | Paid strategy report offer | Stripe checkout + survey link |
 | `/podcast-toolkits/thank-you` | `app/(multiplier)/podcast-toolkits/thank-you/page.js` | Purchase confirmation | internal / email |
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
 
-Three pages show a price. `/` and `/podcast-multiplier` each have a `pricing-section` (id `pricing`) for the $1,597/month Content Engine, and `/podcast-toolkits` has one for the $100 strategy report. They are not a shared component: the markup is inlined per page, so a change to the $1,597/month card means editing both `app/(main)/page.js` and `app/(multiplier)/podcast-multiplier/page.js`. The `/podcast-toolkits` section is a different product (a one-time report, Stripe checkout, its own fee disclosure) and is deliberately not kept in sync with the other two. See the pricing rules in section 9.
+Three pages show a price. `/` and `/podcast-multiplier` each have a `pricing-section` (id `pricing`) carrying the same three tiers, and `/podcast-toolkits` has one for the $100 strategy report. The three tiers, in the order they render (ascending, with the anchor tier last):
+
+1. **10-Day Trial**, $597 one-time, 5 clips delivered within 10 days. Its CTA is the Myfundbox checkout, not the booking link.
+2. **Content Engine Lite**, $997/month, 10 clips/month. Identical deliverables to the Content Engine apart from clip volume.
+3. **Content Engine**, $1,597/month, 20 clips/month. Carries `.featured` (the accent border and glow) and is the anchor tier.
+
+They are not a shared component: the markup is inlined per page, so any change to a tier means editing both `app/(main)/page.js` and `app/(multiplier)/podcast-multiplier/page.js`. The two files must stay identical in this section. The `/podcast-toolkits` section is a different product (a one-time report, Stripe checkout, its own fee disclosure) and is deliberately not kept in sync with the other two. See the pricing rules in section 9.
 
 ### 7.2 Nav and footer
 
@@ -202,7 +213,7 @@ They are outside the premium re-skin. Restyling them means editing each independ
 
 | File | Client/Server | What it does |
 |---|---|---|
-| `components/SiteBehaviors.js` | client | Recreates the original `script.js` behaviors for the app: mobile menu, navbar shadow on scroll, video play/pause overlays, autoplay preview clips paused offscreen (IntersectionObserver), testimonial carousel, FAQ accordion, in-page anchor smooth scroll, sticky CTA bar. Re-runs after each navigation and cleans up after itself. Mounted in both layouts. |
+| `components/SiteBehaviors.js` | client | Recreates the original `script.js` behaviors for the app: mobile menu, navbar shadow on scroll, video play/pause overlays, autoplay preview clips paused offscreen (IntersectionObserver), testimonial carousel, FAQ accordion, in-page anchor smooth scroll, sticky CTA bar. Re-runs after each navigation and cleans up after itself. Mounted in both layouts. The anchor handler also moves keyboard focus to the target: it calls `preventDefault()`, which suppresses the browser's native anchor focus behavior, so it applies `tabindex="-1"` to the target and focuses it. Without that step the "Skip to content" link is inert (see section 11). |
 | `components/MotionLayer.js` | client | Site-wide motion primitives applied to the server-rendered DOM so page copy never has to become client-side: Lenis smooth scroll, staggered scroll-in reveals (auto-annotated per section, grid items glide in from alternating sides), `.stat-number` count-ups, magnetic CTAs, spring FAQ, card hover lift, a scroll progress hairline, a `--sy` scroll variable that drives the home hero card parallax, plus injected decorative visuals: glowing equalizer-bar dividers at the top of major text sections site-wide, and a platform-icon marquee under the hero on `/` and `/podcast-multiplier`. The marquee glides with `translateX(-50%)`, so it travels exactly one half of its track: `MotionLayer` therefore measures one icon set and repeats it until a half is at least as wide as the screen, otherwise the icons run off the left and leave dead space on the right. Do not hard-code the number of icon sets. All injected elements are aria-hidden, exist only while motion is on, and are removed on cleanup. All gated behind `prefers-reduced-motion`. Mounted in both layouts. |
 | `components/HeroAtmosphere.js` | client | The home hero's living background: canvas waveform field + pointer spotlight. Code-split, mounts after idle, pauses offscreen, never mounts under reduced motion. Home page only. |
 | `components/heroWaveform.js` | module | The actual canvas 2D drawing code, imported dynamically by `HeroAtmosphere` so it never ships in the shared bundle. |
@@ -234,8 +245,23 @@ node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--redu
 
 - Copy, CTAs, links, prices, disclosures, and legal identifiers (KVK/BTW) are frozen. This project has been a visual and motion upgrade, not a content rewrite. Do not change any text node or `href` unless Samuel asks for that specific change.
 - The paid product on `/podcast-toolkits` shows a price anchor ($500 struck through to $100) and a processing-fee disclosure. Leave the Stripe link, the survey link, and the fee text exactly as they are.
-- Pricing is never presented as a bare number. The two `$1,597/month` pricing sections (`/` and `/podcast-multiplier`, both `<section className="pricing-section" id="pricing">`) each pair the price with two required elements: a `.pricing-cost-anchor` block that anchors it against the $50,000 to $80,000 a year cost of a full-time in-house video editor, and a single `.pricing-outcome` line tying the spend to the clips delivered. Each section carries exactly one CTA, the booking link (`strmeet`). Keep it that way if you edit them.
-- No free-work language anywhere in a pricing section: no free trial, free audit, free sample, demo, money-back, or guarantee wording. SLK Media Agency does not offer free work. (The separate `guarantee-section` on `/podcast-multiplier` is pre-existing and untouched; do not extend that language into pricing.)
+- Pricing is never presented as a bare number. Every tier in the two pricing sections (`/` and `/podcast-multiplier`, both `<section className="pricing-section" id="pricing">`) pairs its price with two required elements: a `.pricing-cost-anchor` block and a single `.pricing-outcome` line tying the spend to what actually ships. The Content Engine's anchor (the $50,000 to $80,000 a year in-house editor comparison) and its outcome line are the originals and are frozen.
+- The pricing sections now carry two CTA destinations, not one: the booking link (`strmeet`) on both monthly tiers, and the Myfundbox checkout on the 10-Day Trial, which is a direct purchase. This replaces the former "exactly one CTA per pricing section" rule, which was correct only while the section held a single tier.
+- No free-work language anywhere in a pricing section: no free trial, free audit, free sample, demo, money-back, or guarantee wording. SLK Media Agency does not offer free work. (The separate `guarantee-section` on `/podcast-multiplier` is pre-existing and untouched; do not extend that language into pricing.) The 10-Day Trial is not an exception: it is a paid $597 product, and the word "trial" must never appear without its price beside it.
+
+### Size-gating copy, revised 2026-08-03
+
+The audience-qualification copy was deliberately unfrozen once and rewritten, at Samuel's explicit request. The qualification filter was kept, but its axis moved from **show size** to **fit**: publishing consistency, seriousness about growth, and ability to fund the engagement. What changed:
+
+- Every "established podcasters / established shows" instance was replaced across both long-form pages, their metadata (title, description, OpenGraph, Twitter, JSON-LD), `public/favicon/site.webmanifest`, and the `/resources/the-podcast-scaling-roadmap` lead magnet.
+- Both hard download thresholds were deleted outright: "5,000+ downloads/month" from the green list and "under 5,000 downloads" from the red list. The lists now run three items each. **No replacement download number was invented, and none should be.**
+- The `$1,000+` marketing-budget qualifier was dropped rather than renumbered. It had contradicted the $1,597/month price stated in the same section.
+- "$10K+/month in podcast-driven revenue" softened to a revenue-channel goal, and the two "Ready to Scale Your Podcast to $10K+/Month?" headings lost the figure.
+- Proof now uses the real client range (1.82K to over 100K subscribers, both verifiable in the case studies) instead of a "$50K+/month" claim.
+
+What was deliberately **kept**, because it filters on the approved axis rather than on size: publishing cadence and tenure ("2+ episodes/month for 6+ months", "minimum 15 episodes live", "we work best with shows publishing 2-4 episodes/month"), the hobby and side-project exclusion, the "exploring options" exclusion, and the "if we don't think we can deliver 3X ROI, we'll tell you to wait" line. The Descript and OpusClip recommendation was kept too, but re-anchored from a download threshold to budget readiness.
+
+If you are asked to touch this copy again, keep the filter and keep it on that axis.
 - Company name is always written in full: "SLK Media Agency". Never "SLK" or "SLK Media".
 - No em dashes and no en dashes anywhere in site copy or in this repo's docs. Use commas, colons, periods, and parentheses.
 - Never assume Samuel personally records a podcast. The agency serves podcasters.
@@ -264,6 +290,7 @@ node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--redu
 - `public/script.js` and `public/podcast-multiplier-script.js` are legacy and are not used by the app. Do not wire new behavior into them; use the React components.
 - The `/resources/*` and `/toolkits/*` pages are standalone legacy HTML, outside the design system. Do not expect shared styles to reach them.
 - Open bug on `/testimonials`: the `.t-feature` blocks do not collapse to one column on phones. `styles.css` stacks them under `@media (max-width:880px)`, but a later unscoped `.t-feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}` in the same file overrides it at equal specificity (a media query adds none), so each block renders as two roughly 139px columns at 390px wide. Only the vertical block opts out, through `.t-feature.t-feature-vertical` in `premium.css`, because a 9:16 reel is unreadable at that size. The other six are knowingly left as they are. To fix them all, drop `.t-feature-vertical` from that rule.
+- Fixed 2026-08-03: the "Skip to content" link was inert on all seven pages that carry it. Two causes, one symptom. The global anchor handler in `SiteBehaviors.js` intercepts every `a[href^="#"]` click and calls `preventDefault()`, which suppresses the browser's native behavior of moving focus to the target; and `<main id="main">` sits at absolute offset 0 (the navbar is out of flow), so the handler's `target.top - 80` scroll resolved to a negative number, clamped to 0, which is where the reader already was. Nothing moved and nothing focused. The handler now applies `tabindex="-1"` to the target and focuses it, with `[tabindex="-1"]:focus { outline: none }` in `premium.css` to suppress the ring on the container. If you ever add a new page, the skip link works automatically; do not reintroduce a per-page workaround.
 - No TypeScript, no test suite. Verification is visual (build + screenshots + console-error check).
 - Secrets live only in `.env.local` (git-ignored). Never commit a key, never log it, never put it in client code.
 
@@ -279,4 +306,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-07-16.
+Last verified against the codebase: 2026-08-03.

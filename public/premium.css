@@ -151,6 +151,14 @@ button:focus-visible,
   color: var(--accent-ink);
 }
 
+/* Anchor targets (#main, #pricing, #faq) get tabindex="-1" applied by
+   SiteBehaviors so focus can follow the scroll. They are never reachable by
+   tabbing, only programmatically, so the focus ring on the container itself
+   would be noise: the real indicator appears on the next Tab press. */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 /* --------------------------------------------------------------------------
    3. Typography: the original Inter format, tuned for rhythm only
    -------------------------------------------------------------------------- */

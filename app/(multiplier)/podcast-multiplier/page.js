@@ -4,14 +4,14 @@ import HeroAtmosphere from '../../../components/HeroAtmosphere';
 export const metadata = {
   title: 'The Podcast Multiplier™: Sponsor-Magnet Content for Podcasters | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns every episode into sponsor-attracting clips and distributes them across every platform. Done-for-you content production for established podcasters.',
+    'The Podcast Multiplier™ turns every episode into sponsor-attracting clips and distributes them across every platform. Done-for-you content production for podcasters who publish consistently.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/podcast-multiplier' },
   openGraph: {
     type: 'website',
     siteName: 'SLK Media Agency',
     title: 'The Podcast Multiplier™ | SLK Media Agency',
-    description: 'The content engine that turns established podcasts into sponsor magnets.',
+    description: 'The content engine that turns consistent podcasts into sponsor magnets.',
     url: '/podcast-multiplier',
     images: [{ url: '/og-image.jpg' }],
   },
@@ -49,7 +49,7 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <div className="hero-wrapper">
             <p className="sub-headline-blue">The Podcast Multiplier™</p>
-            <h1 className="headline">The Content Engine That Turns Established Podcasts Into Sponsor Magnets</h1>
+            <h1 className="headline">The Content Engine That Turns Consistent Podcasts Into Sponsor Magnets</h1>
             <p className="subheadline">Your show deserves more than 200-view clips. Let us convert every episode into high-impact, sponsor-magnet assets while you stay focused on creating great content.</p>
           </div>
           <div className="cta-center">
@@ -64,7 +64,7 @@ export default function PodcastMultiplierPage() {
             <span className="hsnap-arrow" aria-hidden="true"><i className="fas fa-arrow-right"></i></span>
             <div className="hsnap-step"><span className="hsnap-num">3</span><span>You show up everywhere</span></div>
           </div>
-          <p className="hero-pricing-peek">Done-for-you content from <strong>$1,597/mo</strong>. <a href="#pricing">See what is included</a></p>
+          <p className="hero-pricing-peek">Done-for-you content from <strong>$997/mo</strong>, or try us first for <strong>$597</strong>. <a href="#pricing">See what is included</a></p>
         </div>
       </section>
 
@@ -72,9 +72,9 @@ export default function PodcastMultiplierPage() {
       <section className="growth-limbo-section">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">Why Monetized Podcasts Hit A Revenue Ceiling</h2>
+          <h2 className="section-title">Why Podcast Growth Hits A Ceiling</h2>
           <div className="growth-limbo-content">
-            <p className="section-subtitle">You've already done the hard part: Built a real audience, published consistently for 6+ months, and maybe even landed your first sponsor or two.</p>
+            <p className="section-subtitle">You've already done the hard part: shown up and published consistently for 6+ months.</p>
             <p className="section-subtitle"><strong>But you've hit a revenue plateau. And you know exactly why:</strong></p>
             <div className="problem-list">
               <div className="problem-item">🚫 You're spending 10-20 hours per week editing, clipping, captioning, and scheduling posts</div>
@@ -130,7 +130,7 @@ export default function PodcastMultiplierPage() {
           <h2 className="section-title">Introducing: The Podcast Multiplier™</h2>
           <div className="solution-content">
             <p className="section-subtitle">Your Dedicated Content Team With One Job: Fill Your Sponsor Pipeline</p>
-            <p>This isn't a tool. It's not a contractor. It's a <strong>strategic content system</strong> designed specifically for podcasters who've proven their show works and are ready to scale revenue.</p>
+            <p>This isn't a tool. It's not a contractor. It's a <strong>strategic content system</strong> designed specifically for podcasters who publish consistently and are ready to invest in scaling.</p>
             <p><strong>Here's how it works:</strong></p>
             <div className="solution-highlight">
               <p><strong>You record your podcast episodes.</strong></p>
@@ -162,7 +162,7 @@ export default function PodcastMultiplierPage() {
       <section className="results-section" id="results">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">💰 Real Results from Established Podcasters</h2>
+          <h2 className="section-title">💰 Real Clients, Real Results</h2>
           <p className="section-subtitle results-subtitle">Before SLK Media Agency vs After, real shifts from real client shows.</p>
 
           <div className="results-stats">
@@ -391,7 +391,7 @@ export default function PodcastMultiplierPage() {
       <section className="comparison-section" id="comparison">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">Why Established Podcasters Choose The Podcast Multiplier™</h2>
+          <h2 className="section-title">Why Growth-Focused Podcasters Choose The Podcast Multiplier™</h2>
           <div className="comparison-table-container">
             <table className="comparison-table">
               <thead>
@@ -447,6 +447,53 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="section-title">Simple, Transparent Investment</h2>
           <div className="pricing-grid">
+            <div className="pricing-tier compact">
+              <div className="pricing-header">
+                <h3>10-Day Trial</h3>
+                <p className="pricing-period">(One-time)</p>
+                <div className="pricing-price">$597</div>
+                <p className="pricing-cost-anchor">
+                  <strong>See it first:</strong> a one-time project so you can judge our work on <span className="pricing-cost-anchor-figure">your own episodes</span>, not on somebody else's portfolio. No subscription, no commitment, nothing to cancel.
+                </p>
+              </div>
+              <div className="pricing-content">
+                <ul>
+                  <li>5 clips produced from your episodes</li>
+                  <li>Delivered within 10 days</li>
+                  <li>One-time payment, no subscription</li>
+                </ul>
+              </div>
+              <p className="pricing-outcome">You send your episodes. We deliver <strong>5 finished clips</strong> within 10 days, so you see the quality before you commit.</p>
+              <div className="pricing-footer">
+                <a href="https://checkout.myfundbox.com/pay/pla_38942" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
+              </div>
+            </div>
+            <div className="pricing-tier compact">
+              <div className="pricing-header">
+                <h3>Content Engine Lite</h3>
+                <p className="pricing-period">(DFY)</p>
+                <div className="pricing-price">$997/month</div>
+                <p className="pricing-cost-anchor">
+                  <strong>The math:</strong> The same system as the Content Engine at <span className="pricing-cost-anchor-figure">half the monthly clip volume</span>. Built for shows that publish less often, or that want to start smaller without giving up strategy, copywriting and scheduling.
+                </p>
+              </div>
+              <div className="pricing-content">
+                <ul>
+                  <li>Complete Social Media Strategy Document</li>
+                  <li>Target Audience Research, Competitor Analysis</li>
+                  <li>10 clips/month with custom thumbnails</li>
+                  <li>Copywriting (captions, hashtags, CTAs)</li>
+                  <li>Full scheduling across all platforms</li>
+                  <li>Dedicated Project Manager</li>
+                  <li>Weekly Consultation Calls</li>
+                  <li>Weekly Reporting</li>
+                </ul>
+              </div>
+              <p className="pricing-outcome">You record once. We turn it into <strong>10 platform-ready clips</strong>, posted consistently across every platform, every month.</p>
+              <div className="pricing-footer">
+                <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a>
+              </div>
+            </div>
             <div className="pricing-tier featured compact">
               <div className="pricing-header">
                 <h3>Content Engine</h3>
@@ -465,6 +512,7 @@ export default function PodcastMultiplierPage() {
                   <li>Full scheduling across all platforms</li>
                   <li>Dedicated Project Manager</li>
                   <li>Weekly Consultation Calls</li>
+                  <li>Weekly Reporting</li>
                 </ul>
               </div>
               <p className="pricing-outcome">You record once. We turn it into <strong>5-10+ platform-ready clips</strong>, posted consistently across every platform, every month.</p>
@@ -508,13 +556,13 @@ export default function PodcastMultiplierPage() {
       <section className="next-steps-section" id="next-steps">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">Ready to Scale Your Podcast to $10K+/Month?</h2>
+          <h2 className="section-title">Ready to Scale Your Podcast?</h2>
           <div className="next-steps-content">
             <p><strong>Here's what happens next:</strong></p>
             <ul className="steps-list">
               <li>
                 <h3>Step 1: Book Your Strategy Call (30 Minutes)</h3>
-                <p>You'll speak directly with Samuel, our founder. We'll discuss your current download numbers, monetization status, biggest content bottlenecks, and whether The Podcast Multiplier™ is the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we can deliver 3X ROI on our fee, we'll tell you to wait.</p>
+                <p>You'll speak directly with Samuel, our founder. We'll discuss your content, your goals, biggest content bottlenecks, and whether The Podcast Multiplier™ is the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we can deliver 3X ROI on our fee, we'll tell you to wait.</p>
                 <p><a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a></p>
               </li>
               <li>
@@ -556,7 +604,7 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Short answer:</strong> AI tools are for beginners learning content repurposing. The Podcast Multiplier™ is for established podcasters scaling revenue.</p>
+                <p><strong>Short answer:</strong> AI tools are for podcasters testing the waters with content repurposing. The Podcast Multiplier™ is for podcasters who are serious about scaling revenue.</p>
                 <p><strong>Long answer:</strong> AI tools optimize for engagement metrics (watch time, likes, shares). They clip moments that the algorithm THINKS are interesting, usually loud moments, laughter, or high-energy segments.</p>
                 <p><strong>The Podcast Multiplier™ optimizes for sponsor appeal.</strong> We clip moments that demonstrate: Authority (you're an expert, not just entertaining), Audience trust (engaged listeners, not passive consumers), Commercial alignment (your content attracts brands naturally).</p>
                 <p><strong>Example:</strong> AI tool picks the funniest joke from your episode (gets 5K views, 200 likes, zero sponsor inquiries). We pick the 60-second segment where you broke down industry trends and cited data, boring to casual viewers, but GOLD to sponsors who want to reach your audience (gets 2K views, 80 likes, 3 sponsor inquiries).</p>
@@ -740,7 +788,7 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="footer-cta-heading">The only risk is waiting while your competitors scale their sponsor pipelines.</h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call - Qualified Shows Only</a>
-          <p style={{ marginTop: '20px', fontSize: '14px', color: '#fcf4f4' }}>📍 <strong>Note on Pricing Transparency:</strong> Our full-service package is $1,597/month. If that investment doesn't align with your current budget, we recommend starting with Descript ($30/month) or OpusClip ($50/month) until your podcast revenue supports professional content production. Come back when you're ready to scale, no hard feelings.</p>
+          <p style={{ marginTop: '20px', fontSize: '14px', color: '#fcf4f4' }}>📍 <strong>Note on Pricing Transparency:</strong> Our monthly plans start at $997/month, and the 10-Day Trial is $597 one-time. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
         </div>
       </section>
 

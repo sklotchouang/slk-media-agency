@@ -256,6 +256,18 @@ export default function SiteBehaviors() {
         } else {
           window.scrollTo({ top, behavior: 'smooth' });
         }
+        // Move keyboard focus to the target as well. preventDefault above
+        // suppresses the browser's native anchor behavior, which normally
+        // moves focus for us. Without this the "Skip to content" link does
+        // nothing a keyboard user can perceive: <main id="main"> sits at the
+        // very top of the document (the navbar is out of flow), so the scroll
+        // resolves to 0 and the next Tab press lands back in the navbar.
+        // Section targets are not focusable by default, so give them a
+        // programmatic-only tab stop first.
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+        }
+        target.focus({ preventScroll: true });
       },
       { signal }
     );

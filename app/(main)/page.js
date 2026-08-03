@@ -2,15 +2,15 @@ import Link from 'next/link';
 import HeroAtmosphere from '../../components/HeroAtmosphere';
 
 export const metadata = {
-  title: 'The Content Engine for Established Podcasters | SLK Media Agency',
+  title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns every episode into 10-20 sponsor-ready clips and distributes them across LinkedIn, YouTube, TikTok and more, done-for-you content for established podcasters scaling to $10K+/month.',
+    'The Podcast Multiplier™ turns every episode into 10-20 sponsor-ready clips and distributes them across LinkedIn, YouTube, TikTok and more, done-for-you content for podcasters who publish consistently and are ready to invest in growth.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     siteName: 'SLK Media Agency',
-    title: 'The Content Engine for Established Podcasters | SLK Media Agency',
+    title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
     description:
       'Done-for-you clip production and distribution. We turn every episode into sponsor-magnet assets while you focus on creating great content.',
     url: '/',
@@ -18,7 +18,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Content Engine for Established Podcasters | SLK Media Agency',
+    title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
     description:
       'We turn every podcast episode into 10-20 sponsor-ready clips and distribute them everywhere your sponsors look.',
     images: ['/og-image.jpg'],
@@ -30,7 +30,7 @@ const structuredData = {
   '@type': 'ProfessionalService',
   name: 'SLK Media Agency',
   description:
-    'Done-for-you podcast clip production and omnichannel distribution for established podcasters.',
+    'Done-for-you podcast clip production and omnichannel distribution for podcasters who publish consistently.',
   url: 'https://slkmediaagency.com/',
   email: 'hello@slkmediaagency.com',
   telephone: '+1-323-892-8644',
@@ -75,8 +75,8 @@ export default function HomePage() {
         <HeroAtmosphere />
         <div className="container">
           <div className="grid-pattern"></div>
-          <h1 className="headline"><span className="highlight">The Content Engine for Established Podcasters</span></h1>
-          <p className="subheadline">Your show deserves more than 200-view clips. Let us convert every episode into high-impact, sponsor-magnet assets while you stay focused on creating great content.<br /><br /><strong>The Podcast Multiplier™: Done-for-you clip production and distribution for established shows.</strong></p>
+          <h1 className="headline"><span className="highlight">The Content Engine for Podcasters Ready to Scale</span></h1>
+          <p className="subheadline">Your show deserves more than 200-view clips. Let us convert every episode into high-impact, sponsor-magnet assets while you stay focused on creating great content.<br /><br /><strong>The Podcast Multiplier™: Done-for-you clip production and distribution for shows that are serious about growing.</strong></p>
           <div className="cta-group">
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
             <a href="#process" className="secondary-cta">See our process</a>
@@ -115,7 +115,7 @@ export default function HomePage() {
       {/* Social Proof Section */}
       <section className="social-proof">
         <div className="container">
-          <p className="social-proof-text">Join established podcasters who've scaled to $50K+/month with our content system.</p>
+          <p className="social-proof-text">Join podcasters who've grown from 1.82K to over 100K subscribers with our content system.</p>
           <div className="client-videos">
             <div
               className="client-video"
@@ -169,7 +169,7 @@ export default function HomePage() {
       {/* Problem Section */}
       <section className="problem" id="services">
         <div className="container">
-          <h2 className="section-title">Why Monetized Podcasts Hit A Revenue Ceiling
+          <h2 className="section-title">Why Podcast Growth Hits A Ceiling
           </h2>
           <div className="problem-points">
             <div className="problem-point">
@@ -404,7 +404,7 @@ export default function HomePage() {
       {/* Comparison Table */}
       <section className="comparison">
         <div className="container">
-          <h2 className="section-title">Why Established Podcasters Choose The Podcast Multiplier™</h2>
+          <h2 className="section-title">Why Growth-Focused Podcasters Choose The Podcast Multiplier™</h2>
           <div className="table-container">
             <table className="comparison-table">
               <thead>
@@ -458,6 +458,53 @@ export default function HomePage() {
         <div className="container">
           <h2 className="section-title">Simple, Transparent Investment</h2>
           <div className="pricing-grid">
+            <div className="pricing-tier compact">
+              <div className="pricing-header">
+                <h3>10-Day Trial</h3>
+                <p className="pricing-period">(One-time)</p>
+                <div className="pricing-price">$597</div>
+                <p className="pricing-cost-anchor">
+                  <strong>See it first:</strong> a one-time project so you can judge our work on <span className="pricing-cost-anchor-figure">your own episodes</span>, not on somebody else's portfolio. No subscription, no commitment, nothing to cancel.
+                </p>
+              </div>
+              <div className="pricing-content">
+                <ul>
+                  <li>5 clips produced from your episodes</li>
+                  <li>Delivered within 10 days</li>
+                  <li>One-time payment, no subscription</li>
+                </ul>
+              </div>
+              <p className="pricing-outcome">You send your episodes. We deliver <strong>5 finished clips</strong> within 10 days, so you see the quality before you commit.</p>
+              <div className="pricing-footer">
+                <a href="https://checkout.myfundbox.com/pay/pla_38942" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
+              </div>
+            </div>
+            <div className="pricing-tier compact">
+              <div className="pricing-header">
+                <h3>Content Engine Lite</h3>
+                <p className="pricing-period">(DFY)</p>
+                <div className="pricing-price">$997/month</div>
+                <p className="pricing-cost-anchor">
+                  <strong>The math:</strong> The same system as the Content Engine at <span className="pricing-cost-anchor-figure">half the monthly clip volume</span>. Built for shows that publish less often, or that want to start smaller without giving up strategy, copywriting and scheduling.
+                </p>
+              </div>
+              <div className="pricing-content">
+                <ul>
+                  <li>Complete Social Media Strategy Document</li>
+                  <li>Target Audience Research, Competitor Analysis</li>
+                  <li>10 clips/month with custom thumbnails</li>
+                  <li>Copywriting (captions, hashtags, CTAs)</li>
+                  <li>Full scheduling across all platforms</li>
+                  <li>Dedicated Project Manager</li>
+                  <li>Weekly Consultation Calls</li>
+                  <li>Weekly Reporting</li>
+                </ul>
+              </div>
+              <p className="pricing-outcome">You record once. We turn it into <strong>10 platform-ready clips</strong>, posted consistently across every platform, every month.</p>
+              <div className="pricing-footer">
+                <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a>
+              </div>
+            </div>
             <div className="pricing-tier featured compact">
               <div className="pricing-header">
                 <h3>Content Engine</h3>
@@ -476,6 +523,7 @@ export default function HomePage() {
                   <li>Full scheduling across all platforms</li>
                   <li>Dedicated Project Manager</li>
                   <li>Weekly Consultation Calls</li>
+                  <li>Weekly Reporting</li>
                 </ul>
               </div>
               <p className="pricing-outcome">You record once. We turn it into <strong>5-10+ platform-ready clips</strong>, posted consistently across every platform, every month.</p>
@@ -501,15 +549,11 @@ export default function HomePage() {
                 </div>
                 <div className="qualification-item">
                   <i className="fas fa-check"></i>
-                  <p>Current audience: 5,000+ downloads/month OR existing sponsor/revenue</p>
+                  <p>Ready to invest in professional-grade content production</p>
                 </div>
                 <div className="qualification-item">
                   <i className="fas fa-check"></i>
-                  <p>Monthly marketing budget: $1,000+ allocated to podcast growth</p>
-                </div>
-                <div className="qualification-item">
-                  <i className="fas fa-check"></i>
-                  <p>Goal: Scale to $10K+/month in podcast-driven revenue within 12 months</p>
+                  <p>Goal: Turn your podcast into a real revenue channel</p>
                 </div>
               </div>
             </div>
@@ -526,24 +570,20 @@ export default function HomePage() {
                 </div>
                 <div className="qualification-item">
                   <i className="fas fa-times"></i>
-                  <p>Monthly downloads under 5,000 with no current monetization</p>
-                </div>
-                <div className="qualification-item">
-                  <i className="fas fa-times"></i>
                   <p>Exploring options or "seeing what's out there"</p>
                 </div>
               </div>
             </div>
           </div>
-          <p className="disclaimer" style={{ marginTop: '40px', textAlign: 'center', fontSize: '16px', color: '#ffffff' }}><strong>Not there yet?</strong> We recommend starting with Descript ($30/month) or OpusClip ($50/month) until you hit 5K downloads/month. Come back when you're ready to scale - no hard feelings.</p>
+          <p className="disclaimer" style={{ marginTop: '40px', textAlign: 'center', fontSize: '16px', color: '#ffffff' }}><strong>Not sure yet?</strong> Start with the 10-Day Trial ($597 one-time) and judge our work on your own episodes before committing to anything monthly. If a monthly content budget is not realistic for your show yet, Descript ($30/month) or OpusClip ($50/month) will serve you better for now, no hard feelings.</p>
         </div>
       </section>
 
       {/* Mid-Page CTA */}
       <section className="mid-cta">
         <div className="container">
-          <h2>Ready to Scale Your Podcast to $10K+/Month?</h2>
-          <p style={{ margin: '20px 0', fontSize: '18px' }}>You'll speak directly with our founder, Samuel LK. We'll discuss your download numbers, monetization status, and whether we're the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we can deliver 3X ROI on our fee, we'll tell you to wait.</p>
+          <h2>Ready to Scale Your Podcast?</h2>
+          <p style={{ margin: '20px 0', fontSize: '18px' }}>You'll speak directly with our founder, Samuel LK. We'll discuss your content, your goals, and whether we're the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we can deliver 3X ROI on our fee, we'll tell you to wait.</p>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
           <p className="guarantee">🚨 LIMITED CAPACITY: Only 3 spots available per quarter</p>
         </div>
@@ -560,7 +600,7 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Short answer:</strong> AI tools are for beginners learning content repurposing. The Podcast Multiplier™ is for established podcasters scaling revenue.</p>
+                <p><strong>Short answer:</strong> AI tools are for podcasters testing the waters with content repurposing. The Podcast Multiplier™ is for podcasters who are serious about scaling revenue.</p>
                 <p><strong>Long answer:</strong> AI tools optimize for engagement metrics (watch time, likes, shares). They clip moments that the algorithm THINKS are interesting - usually loud moments, laughter, or high-energy segments.</p>
                 <p><strong>The Podcast Multiplier™ optimizes for sponsor appeal.</strong> We clip moments that demonstrate: Authority (you're an expert, not just entertaining), Audience trust (engaged listeners, not passive consumers), Commercial alignment (your content attracts brands naturally).</p>
                 <p><strong>Bottom line:</strong> AI tools save you time. We make you money.</p>
@@ -646,8 +686,9 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>No discounted trial, but we offer a 14-day money-back guarantee.</strong></p>
-                <p><strong>Instead:</strong> Pay the full $1,597 for Month 1. If you don't see the value by Day 14, we refund you completely. You keep everything we've produced. This filters out casual browsers and ensures we give you 100% effort from Day 1.</p>
+                <p><strong>Yes. The 10-Day Trial is $597 one-time and delivers 5 clips.</strong></p>
+                <p>It exists so you can judge our work on your own episodes before committing to anything monthly. One-time payment, no subscription, nothing to cancel.</p>
+                <p><strong>On the monthly plans:</strong> we also offer a 14-day money-back guarantee. If you don't see the value by Day 14, we refund you completely and you keep everything we've produced.</p>
               </div>
             </div>
 
@@ -778,7 +819,7 @@ export default function HomePage() {
         <div className="container">
           <h2>The only risk is waiting while your competitors scale their sponsor pipelines.</h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
-          <p style={{ marginTop: '20px', fontSize: '14px', color: '#ffffff' }}>📍 <strong>Note on Pricing Transparency:</strong> Our full-service package is $1,597/month. If that investment doesn't align with your current budget, we recommend starting with Descript ($30/month) or OpusClip ($50/month) until your podcast revenue supports professional content production. Come back when you're ready to scale-no hard feelings.</p>
+          <p style={{ marginTop: '20px', fontSize: '14px', color: '#ffffff' }}>📍 <strong>Note on Pricing Transparency:</strong> Our monthly plans start at $997/month, and the 10-Day Trial is $597 one-time. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
         </div>
       </section>
 
