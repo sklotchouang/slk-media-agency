@@ -1428,6 +1428,21 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   font-size: 0.95rem;
 }
 
+/* Checkout processing-fee disclosure, shown under a tier's buy button so the
+   figure on the card reconciles with the figure at checkout. Only the direct
+   -purchase tier needs one; the tiers whose CTA is the booking link do not.
+   Mirrors .pt-fee-note on /podcast-toolkits, which lives in that page's own
+   stylesheet and is therefore not available to the other route groups. */
+.pricing-fee-note {
+  margin: 10px auto 0;
+  max-width: 420px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
 /* cost anchor: the price never stands alone, it is read against
    what an in-house hire would cost */
 .pricing-cost-anchor {

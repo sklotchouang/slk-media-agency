@@ -467,6 +467,7 @@ export default function PodcastMultiplierPage() {
               <div className="pricing-footer">
                 <a href="https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
               </div>
+              <p className="pricing-fee-note">Price excludes the Stripe processing fee. The fee is added at checkout, bringing the total to $617.</p>
             </div>
             <div className="pricing-tier compact">
               <div className="pricing-header">
