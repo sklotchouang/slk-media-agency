@@ -465,7 +465,7 @@ export default function PodcastMultiplierPage() {
               </div>
               <p className="pricing-outcome">You send your episodes. We deliver <strong>5 finished clips</strong> within 10 days, so you see the quality before you commit.</p>
               <div className="pricing-footer">
-                <a href="https://checkout.myfundbox.com/pay/pla_38942" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
+                <a href="https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
               </div>
             </div>
             <div className="pricing-tier compact">
@@ -515,7 +515,7 @@ export default function PodcastMultiplierPage() {
                   <li>Weekly Reporting</li>
                 </ul>
               </div>
-              <p className="pricing-outcome">You record once. We turn it into <strong>5-10+ platform-ready clips</strong>, posted consistently across every platform, every month.</p>
+              <p className="pricing-outcome">You record once. We turn it into <strong>20 platform-ready clips</strong>, posted consistently across every platform, every month.</p>
               <div className="pricing-footer">
                 <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a>
               </div>
