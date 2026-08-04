@@ -223,7 +223,35 @@ They are outside the premium re-skin. Restyling them means editing each independ
 
 ---
 
-## 8. Generated atmosphere art and screenshot tooling
+## 8. Assets: portfolio clips, generated atmosphere art, screenshot tooling
+
+### Portfolio clip encoding convention
+
+Read this before you encode a replacement clip, because the older files on disk do not follow it and copying them would be a mistake.
+
+Both surfaces that show these clips render them in a **9:16 box with `object-fit: cover`**: `.portfolio-video` and `.social-proof .client-video`, set in the scoped block near the end of `public/styles.css`. Whatever you hand the browser gets cropped to 9:16 and centred.
+
+The legacy files (`Clip-7` through `Clip-12`, plus `Brian-Before-After` and `Steve-Before-After`) are **720x406 landscape with the real 9:16 composition pillarboxed in the middle**, so the CSS crops the black bars back off and only about 228x406 of each file is ever visible. They also carry a roughly 96 kbps AAC track that can never be heard: the markup hard-codes `muted` and `SiteBehaviors.js` only ever toggles play/pause, it never unmutes. Two thirds of the frame and the whole audio track are wasted.
+
+`Clip-1` through `Clip-6` were re-encoded natively on 2026-08-04 and are the pattern to follow: **540x960 (native 9:16), H.264 High, 30fps, no audio track, faststart**. At 540 wide they serve a 2x display for the ~267px card the grid gives them. The recipe:
+
+```
+ffmpeg -i <source>.mp4 -vf "scale=540:960:flags=lanczos" \
+  -c:v libx264 -profile:v high -level 4.0 -preset veryslow -crf 32 \
+  -maxrate 850k -bufsize 1700k -pix_fmt yuv420p -g 60 -an \
+  -movflags +faststart public/portfolio/Clip-<n>.mp4
+```
+
+The poster must match the video's shape, so grab it from the encoded file rather than reusing a 16:9 still:
+
+```
+ffmpeg -ss <seconds> -i public/portfolio/Clip-<n>.mp4 -frames:v 1 -q:v 4 \
+  public/portfolio/thumbnails/Clip-<n>.jpg
+```
+
+CRF 32 was chosen by comparing frames: it keeps the fine detail in these compositions (the editing-timeline strip and the logo strapline) legible while holding a 40 to 50 second clip near 1.5 MB. Source masters for these are 1080x1920. If you raise the resolution or lower the CRF, remember `/portfolio` autoplays twelve of these at once and the home page pulls three of them.
+
+### Generated atmosphere art and screenshot tooling
 
 Atmosphere art (`public/generated/`): hero soundfield (wide and tall), section mesh, film grain, ribbon accent for CTA bands, plus three generated podcast card images. Committed as optimized AVIF + WebP. They are produced by `scripts/generate-assets.mjs`, a one-time local script that calls KIE.ai GPT Image 2 and optimizes output with sharp. It reads `KIE_API_KEY` from `.env.local` (never committed, never logged, never in client code). You only re-run it if you want to regenerate the art:
 
@@ -277,6 +305,7 @@ If you are asked to touch this copy again, keep the filter and keep it on that a
 - Add a redirect or serve a new static HTML page at a clean URL: edit `next.config.mjs` (`redirects()` for old-to-new, `rewrites()` for clean-URL-to-file).
 - Change page metadata, favicon, theme color, or the CSS/font wiring: edit the relevant `app/(group)/layout.js`. Remember there are two layouts, one per route group, and they should usually stay in sync.
 - Add a video testimonial: encode to the folder convention (720px wide, 30fps, H.264 High profile, AAC around 96kbps, `+faststart`) and export a matching `poster-<name>.webp` at the same pixel dimensions, then put both in `public/video-testimonials/` as `testimonial-<name>.mp4` and `poster-<name>.webp`. The testimonial then has to be added in three places, because they do not share a component: the feature block in `app/(main)/testimonials/page.js`, the row in `app/(main)/page.js`, and the `testimonials` array in `app/(multiplier)/podcast-toolkits/page.js`. Pick the aspect-ratio class that matches the source (`.ar-169`, `.ar-45`, `.ar-11`, `.ar-916`) rather than cropping the video into a shape the layout already has.
+- Replace a portfolio clip: overwrite `public/portfolio/Clip-<n>.mp4` and its poster `public/portfolio/thumbnails/Clip-<n>.jpg`. No markup changes are needed, because both surfaces build the paths from the clip number. Mind which slots you touch: `/portfolio` renders `Clip-1` through `Clip-12` in order, and the home page social-proof row reuses `Clip-1`, `Clip-2` and `Clip-3`, so replacing any of those three changes the home page too. `/podcast-multiplier` separately uses `Clip-8`. The encode convention is in section 8.
 - Adjust interactive behavior (menu, carousel, accordion, sticky bar, autoplay clips): `components/SiteBehaviors.js`. Adjust motion/reveals: `components/MotionLayer.js`.
 - After any visual change, verify with `tools/shot.js` at 1440x900 and 390x844, including a reduced-motion pass, and confirm `npm run build` passes with zero console errors.
 
@@ -291,6 +320,7 @@ If you are asked to touch this copy again, keep the filter and keep it on that a
 - The `/resources/*` and `/toolkits/*` pages are standalone legacy HTML, outside the design system. Do not expect shared styles to reach them.
 - Open bug on `/testimonials`: the `.t-feature` blocks do not collapse to one column on phones. `styles.css` stacks them under `@media (max-width:880px)`, but a later unscoped `.t-feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}` in the same file overrides it at equal specificity (a media query adds none), so each block renders as two roughly 139px columns at 390px wide. Only the vertical block opts out, through `.t-feature.t-feature-vertical` in `premium.css`, because a 9:16 reel is unreadable at that size. The other six are knowingly left as they are. To fix them all, drop `.t-feature-vertical` from that rule.
 - Fixed 2026-08-03: the "Skip to content" link was inert on all seven pages that carry it. Two causes, one symptom. The global anchor handler in `SiteBehaviors.js` intercepts every `a[href^="#"]` click and calls `preventDefault()`, which suppresses the browser's native behavior of moving focus to the target; and `<main id="main">` sits at absolute offset 0 (the navbar is out of flow), so the handler's `target.top - 80` scroll resolved to a negative number, clamped to 0, which is where the reader already was. Nothing moved and nothing focused. The handler now applies `tabindex="-1"` to the target and focuses it, with `[tabindex="-1"]:focus { outline: none }` in `premium.css` to suppress the ring on the container. If you ever add a new page, the skip link works automatically; do not reintroduce a per-page workaround.
+- The portfolio grid is mixed quality as of 2026-08-04. `Clip-1` through `Clip-6` are native 9:16 at 540x960; `Clip-7` through `Clip-12` are still the legacy 720x406 pillarboxed files, whose visible area is only about 228x406 and therefore renders visibly soft next to the new ones. This is cosmetic, not broken, and it clears itself as the rest are replaced. See section 8 for the convention.
 - No TypeScript, no test suite. Verification is visual (build + screenshots + console-error check).
 - Secrets live only in `.env.local` (git-ignored). Never commit a key, never log it, never put it in client code.
 
@@ -306,4 +336,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-08-03.
+Last verified against the codebase: 2026-08-04.
