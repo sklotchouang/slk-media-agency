@@ -231,9 +231,9 @@ Read this before you encode a replacement clip, because the older files on disk 
 
 Both surfaces that show these clips render them in a **9:16 box with `object-fit: cover`**: `.portfolio-video` and `.social-proof .client-video`, set in the scoped block near the end of `public/styles.css`. Whatever you hand the browser gets cropped to 9:16 and centred.
 
-The legacy files (`Clip-7` through `Clip-12`, plus `Brian-Before-After` and `Steve-Before-After`) are **720x406 landscape with the real 9:16 composition pillarboxed in the middle**, so the CSS crops the black bars back off and only about 228x406 of each file is ever visible. They also carry a roughly 96 kbps AAC track that can never be heard: the markup hard-codes `muted` and `SiteBehaviors.js` only ever toggles play/pause, it never unmutes. Two thirds of the frame and the whole audio track are wasted.
+The legacy files (`Clip-8`, `Clip-9`, `Clip-11`, `Clip-12`, plus `Brian-Before-After` and `Steve-Before-After`) are **720x406 landscape with the real 9:16 composition pillarboxed in the middle**, so the CSS crops the black bars back off and only about 228x406 of each file is ever visible. They also carry a roughly 96 kbps AAC track that can never be heard: the markup hard-codes `muted` and `SiteBehaviors.js` only ever toggles play/pause, it never unmutes. Two thirds of the frame and the whole audio track are wasted.
 
-`Clip-1` through `Clip-6` were re-encoded natively on 2026-08-04 and are the pattern to follow: **540x960 (native 9:16), H.264 High, 30fps, no audio track, faststart**. At 540 wide they serve a 2x display for the ~267px card the grid gives them. The recipe:
+`Clip-1` through `Clip-7` and `Clip-10` are native and are the pattern to follow: **540x960 (native 9:16), H.264 High, level 4.0, no audio track, faststart**. `Clip-1` through `Clip-6` were re-encoded on 2026-08-04; `Clip-7` (Global Dispatch) and `Clip-10` (Sunflower Podcast) on 2026-08-06. At 540 wide they serve a 2x display for the ~267px card the grid gives them. The recipe:
 
 ```
 ffmpeg -i <source>.mp4 -vf "scale=540:960:flags=lanczos" \
@@ -249,7 +249,9 @@ ffmpeg -ss <seconds> -i public/portfolio/Clip-<n>.mp4 -frames:v 1 -q:v 4 \
   public/portfolio/thumbnails/Clip-<n>.jpg
 ```
 
-CRF 32 was chosen by comparing frames: it keeps the fine detail in these compositions (the editing-timeline strip and the logo strapline) legible while holding a 40 to 50 second clip near 1.5 MB. Source masters for these are 1080x1920. If you raise the resolution or lower the CRF, remember `/portfolio` autoplays twelve of these at once and the home page pulls three of them.
+CRF 32 was chosen by comparing frames: it keeps the fine detail in these compositions (the editing-timeline strip and the logo strapline) legible while holding a 40 to 50 second clip near 1.5 MB. A 60 to 70 second clip lands near 2.1 to 2.6 MB. Source masters are 1080x1920 or larger (the Sunflower Podcast master was 2160x3840, and the single lanczos downscale to 540 wide handled it fine). If you raise the resolution or lower the CRF, remember `/portfolio` autoplays twelve of these at once and the home page pulls three of them.
+
+Note that the recipe carries no `-r` flag, so the **source frame rate passes straight through**. Most masters are 30fps, which is where the "30fps" in the profile above comes from, but `Clip-7` is 23.976fps because its master was. That is intentional: forcing 23.976 up to 30 duplicates every fifth frame unevenly and adds judder for no benefit on a silent looping clip. Do not add `-r 30` to "fix" a clip that probes below 30fps. The `-g 60` keyframe interval simply becomes a 2.5 second GOP instead of 2 seconds, which is immaterial here.
 
 ### Generated atmosphere art and screenshot tooling
 
@@ -320,7 +322,7 @@ If you are asked to touch this copy again, keep the filter and keep it on that a
 - The `/resources/*` and `/toolkits/*` pages are standalone legacy HTML, outside the design system. Do not expect shared styles to reach them.
 - Open bug on `/testimonials`: the `.t-feature` blocks do not collapse to one column on phones. `styles.css` stacks them under `@media (max-width:880px)`, but a later unscoped `.t-feature{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}` in the same file overrides it at equal specificity (a media query adds none), so each block renders as two roughly 139px columns at 390px wide. Only the vertical block opts out, through `.t-feature.t-feature-vertical` in `premium.css`, because a 9:16 reel is unreadable at that size. The other six are knowingly left as they are. To fix them all, drop `.t-feature-vertical` from that rule.
 - Fixed 2026-08-03: the "Skip to content" link was inert on all seven pages that carry it. Two causes, one symptom. The global anchor handler in `SiteBehaviors.js` intercepts every `a[href^="#"]` click and calls `preventDefault()`, which suppresses the browser's native behavior of moving focus to the target; and `<main id="main">` sits at absolute offset 0 (the navbar is out of flow), so the handler's `target.top - 80` scroll resolved to a negative number, clamped to 0, which is where the reader already was. Nothing moved and nothing focused. The handler now applies `tabindex="-1"` to the target and focuses it, with `[tabindex="-1"]:focus { outline: none }` in `premium.css` to suppress the ring on the container. If you ever add a new page, the skip link works automatically; do not reintroduce a per-page workaround.
-- The portfolio grid is mixed quality as of 2026-08-04. `Clip-1` through `Clip-6` are native 9:16 at 540x960; `Clip-7` through `Clip-12` are still the legacy 720x406 pillarboxed files, whose visible area is only about 228x406 and therefore renders visibly soft next to the new ones. This is cosmetic, not broken, and it clears itself as the rest are replaced. See section 8 for the convention.
+- The portfolio grid is mixed quality as of 2026-08-06. `Clip-1` through `Clip-7` and `Clip-10` are native 9:16 at 540x960; `Clip-8`, `Clip-9`, `Clip-11` and `Clip-12` are still the legacy 720x406 pillarboxed files, whose visible area is only about 228x406 and therefore renders visibly soft next to the new ones. This is cosmetic, not broken, and it clears itself as the rest are replaced. See section 8 for the convention.
 - No TypeScript, no test suite. Verification is visual (build + screenshots + console-error check).
 - Secrets live only in `.env.local` (git-ignored). Never commit a key, never log it, never put it in client code.
 
@@ -336,4 +338,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-08-04.
+Last verified against the codebase: 2026-08-06.
