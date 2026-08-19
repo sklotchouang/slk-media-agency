@@ -50,24 +50,6 @@ export default function TestimonialsPage() {
           <span className="tpage-badge"><i className="fas fa-star" aria-hidden="true"></i> TESTIMONIALS</span>
           <h1>What Our <span className="highlight">Happy Clients</span> Said</h1>
           <p className="subheadline">Unscripted, on camera, in their own words: podcasters and brands on what changed after handing their content to SLK Media.</p>
-          <div className="stats-band">
-            <div className="stat-card">
-              <div className="stat-number">12.4M</div>
-              <div className="stat-label">Views Generated</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">10k+</div>
-              <div className="stat-label">Clips Created</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">12k+</div>
-              <div className="stat-label">Hours Saved for Clients</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">87%</div>
-              <div className="stat-label">Retention After 6 Months</div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -93,29 +75,6 @@ export default function TestimonialsPage() {
                 <div className="meta">
                   <div className="name">Shatavia Green</div>
                   <div className="role">Conjure Queen Podcast</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="t-feature">
-            <div className="t-feature-media video-wrapper ar-45">
-              <video poster="/video-testimonials/poster-david.webp" preload="none" playsInline controls>
-                <source src="/video-testimonials/testimonial-david.mp4" type="video/mp4" />
-              </video>
-              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play David Hetling's video testimonial">
-                <div className="play-icon" aria-hidden="true">▶</div>
-              </div>
-            </div>
-            <div className="t-feature-quote">
-              <span className="t-result-chip"><i className="fas fa-chart-line" aria-hidden="true"></i> Audience growth ahead of expectations</span>
-              <h2 className="t-headline">I count SLK Media among our most valued agency partners</h2>
-              <blockquote>I've been really amazed at the quality of the content that they produce, and that's often quite specific and complicated. Since launch we've consistently grown our audience ahead of expectations and we're driving really good metrics in terms of reactions and engagement.</blockquote>
-              <div className="person">
-                <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">DH</span></div>
-                <div className="meta">
-                  <div className="name">David Hetling</div>
-                  <div className="role">Marketing Director, RWS Group</div>
                 </div>
               </div>
             </div>
@@ -167,6 +126,51 @@ export default function TestimonialsPage() {
             </div>
           </div>
 
+          <div className="t-feature t-feature-vertical">
+            <div className="t-feature-media video-wrapper ar-916">
+              <video poster="/video-testimonials/poster-preston.webp" preload="none" playsInline controls>
+                <source src="/video-testimonials/testimonial-preston.mp4" type="video/mp4" />
+              </video>
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play Preston Hurd's video testimonial">
+                <div className="play-icon" aria-hidden="true">▶</div>
+              </div>
+            </div>
+            <div className="t-feature-quote">
+              <span className="t-result-chip"><i className="fas fa-bolt" aria-hidden="true"></i> Fast turnaround on every edit</span>
+              <h2 className="t-headline">What you do is so professional</h2>
+              <blockquote>I showed him your intro video, which I think is fantastic. It's not done, but it's fantastic. I love it. I don't like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast. I don't know how you make any money with all the time these edits take. I don't know how you charge so cheap for what you do.</blockquote>
+              <div className="person">
+                <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">PH</span></div>
+                <div className="meta">
+                  <div className="name">Preston Hurd</div>
+                  <div className="role">The Filtered Brew Podcast</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="t-feature">
+            <div className="t-feature-media video-wrapper ar-45">
+              <video poster="/video-testimonials/poster-david.webp" preload="none" playsInline controls>
+                <source src="/video-testimonials/testimonial-david.mp4" type="video/mp4" />
+              </video>
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play David Hetling's video testimonial">
+                <div className="play-icon" aria-hidden="true">▶</div>
+              </div>
+            </div>
+            <div className="t-feature-quote">
+              <span className="t-result-chip"><i className="fas fa-chart-line" aria-hidden="true"></i> Audience growth ahead of expectations</span>
+              <h2 className="t-headline">I count SLK Media among our most valued agency partners</h2>
+              <blockquote>I've been really amazed at the quality of the content that they produce, and that's often quite specific and complicated. Since launch we've consistently grown our audience ahead of expectations and we're driving really good metrics in terms of reactions and engagement.</blockquote>
+              <div className="person">
+                <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">DH</span></div>
+                <div className="meta">
+                  <div className="name">David Hetling</div>
+                  <div className="role">Marketing Director, RWS Group</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="t-feature">
             <div className="t-feature-media video-wrapper ar-45">
               <video poster="/video-testimonials/poster-kelly.webp" preload="none" playsInline controls>
@@ -213,28 +217,6 @@ export default function TestimonialsPage() {
             </div>
           </div>
 
-          <div className="t-feature t-feature-vertical">
-            <div className="t-feature-media video-wrapper ar-916">
-              <video poster="/video-testimonials/poster-preston.webp" preload="none" playsInline controls>
-                <source src="/video-testimonials/testimonial-preston.mp4" type="video/mp4" />
-              </video>
-              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play Preston Hurd's video testimonial">
-                <div className="play-icon" aria-hidden="true">▶</div>
-              </div>
-            </div>
-            <div className="t-feature-quote">
-              <span className="t-result-chip"><i className="fas fa-bolt" aria-hidden="true"></i> Fast turnaround on every edit</span>
-              <h2 className="t-headline">What you do is so professional</h2>
-              <blockquote>I showed him your intro video, which I think is fantastic. It's not done, but it's fantastic. I love it. I don't like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast. I don't know how you make any money with all the time these edits take. I don't know how you charge so cheap for what you do.</blockquote>
-              <div className="person">
-                <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">PH</span></div>
-                <div className="meta">
-                  <div className="name">Preston Hurd</div>
-                  <div className="role">The Filtered Brew Podcast</div>
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
       </section>

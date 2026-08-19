@@ -165,28 +165,6 @@ export default function PodcastMultiplierPage() {
           <h2 className="section-title">💰 Real Clients, Real Results</h2>
           <p className="section-subtitle results-subtitle">Before SLK Media Agency vs After, real shifts from real client shows.</p>
 
-          <div className="results-stats">
-            <h3>Average Client Results (90-Day Benchmark)</h3>
-            <div className="stats-band">
-              <div className="stat-card">
-                <div className="stat-number">2.3X</div>
-                <div className="stat-label">More Sponsor Inquiries</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-number">$4.2-8.5K</div>
-                <div className="stat-label">Monthly Sponsorship Revenue</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-number">40-60%</div>
-                <div className="stat-label">Less Time on Production</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-number">180-320%</div>
-                <div className="stat-label">More Social Reach</div>
-              </div>
-            </div>
-          </div>
-
           <div className="ba-grid">
 
             <article className="ba-card">
@@ -624,7 +602,7 @@ export default function PodcastMultiplierPage() {
                 <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), revenue-first approach (every clip filtered through "does this attract sponsors?"), full autonomy (we run on autopilot after Week 1).</p>
                 <p><strong>The math:</strong> Freelancer approach: $200/month + 4 hours/week managing them (16 hrs/month) = $200 + $1,600 opportunity cost = $1,800 total cost. Output: 5-8 mediocre clips per episode, no strategy, you're still the bottleneck.</p>
                 <p><strong>The Podcast Multiplier™:</strong> $1,597/month + 1 hour/week (4 hrs/month) = $1,597 + $400 opportunity cost = $1,997 total cost. Output: 10-20 sponsor-optimized clips per episode, full strategy, zero management.</p>
-                <p><strong>Net difference:</strong> $197/month MORE for 3X the output and zero headaches. Plus: Our average client generates $4,200/month in new sponsor revenue. Freelancers don't deliver that.</p>
+                <p><strong>Net difference:</strong> $197/month MORE for 3X the output and zero headaches. Freelancers don't deliver that.</p>
               </div>
             </div>
 
@@ -637,8 +615,7 @@ export default function PodcastMultiplierPage() {
                 <p><strong>No, and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and distribution. We don't control: Your recording quality, guest selection, or topic relevance; How aggressively you pursue sponsor outreach (we give you ammunition; you pull the trigger); Market conditions in your niche; Your existing audience quality and engagement rates.</p>
                 <p><strong>What we DO guarantee:</strong> professionally edited, sponsor-ready clips per episode (delivered on time, every time), Multi-platform distribution on schedule (we never miss a publish date), Weekly performance reports (you'll know exactly what's working).</p>
-                <p><strong>What our average client sees:</strong> 2.3X increase in sponsor inquiries within 90 days, $4,200-$8,500/month in new sponsorship revenue, 40-60% reduction in time spent on content production.</p>
-                <p>But that requires YOU to actively pursue sponsors, negotiate deals, and record compelling episodes. We create the visibility. You close the partnerships.</p>
+                <p>Sponsor revenue also requires YOU to actively pursue sponsors, negotiate deals, and record compelling episodes. We create the visibility. You close the partnerships.</p>
               </div>
             </div>
 
@@ -698,7 +675,7 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Unlimited revisions until you're satisfied.</strong></p>
-                <p>Our quality process: Day 5-8: We produce a test batch and iterate based on your feedback (usually 2-3 rounds). Then lock in your style guide and brand voice guidelines. Day 9+: 95% of clips are approved on first submission (because we've nailed your voice).</p>
+                <p>Our quality process: Day 5-8: We produce a test batch and iterate based on your feedback (usually 2-3 rounds). Then lock in your style guide and brand voice guidelines. Day 9+: most clips are approved on first submission (because we've nailed your voice).</p>
                 <p><strong>If you're consistently unhappy after Week 2:</strong> We'll either assign a different team who better matches your style, OR offer a full refund if we can't meet your standards. We want raving fans, not hostages.</p>
               </div>
             </div>
@@ -733,8 +710,8 @@ export default function PodcastMultiplierPage() {
               <div className="accordion-content">
                 <p><strong>Depends on what "results" means to you:</strong></p>
                 <p><strong>If "results" = high-quality clips delivered consistently:</strong> Week 1. You'll have 5-10 clips ready to publish within 3-4 business days.</p>
-                <p><strong>If "results" = increased social media engagement and visibility:</strong> 30-45 days. Platforms need time to recognize your consistent posting and boost distribution. Week 1-2: Baseline engagement. Week 3-4: 20-40% increase. Week 5-8: 2-3X increase.</p>
-                <p><strong>If "results" = sponsor inquiries and revenue opportunities:</strong> 60-90 days. Sponsors need to see you multiple times across platforms before reaching out. Our average client sees 2-3X increase in sponsor inquiries by month 3.</p>
+                <p><strong>If "results" = increased social media engagement and visibility:</strong> 30-45 days. Platforms need time to recognize your consistent posting and boost distribution.</p>
+                <p><strong>If "results" = sponsor inquiries and revenue opportunities:</strong> 60-90 days. Sponsors need to see you multiple times across platforms before reaching out.</p>
                 <p><strong>The compounding effect:</strong> Month 1 lays the foundation. Month 3 is when you start seeing revenue impact. Month 6 is when clients say "I can't believe I didn't do this sooner."</p>
               </div>
             </div>

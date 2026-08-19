@@ -140,24 +140,6 @@ export default function CaseStudiesPage() {
           <span className="tpage-badge"><i className="fas fa-trophy" aria-hidden="true"></i> CLIENT SUCCESS STORIES</span>
           <h1>Real Creators. <span className="highlight">Real Results.</span></h1>
           <p className="subheadline">See how we help content creators multiply their reach and turn content into revenue generating machines.</p>
-          <div className="stats-band">
-            <div className="stat-card">
-              <div className="stat-number">12.4M</div>
-              <div className="stat-label">Views Generated</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">5-20+</div>
-              <div className="stat-label">Clips Per Episode</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">1k+</div>
-              <div className="stat-label">Clips Created</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">12k+</div>
-              <div className="stat-label">Hours Saved</div>
-            </div>
-          </div>
         </div>
       </section>
 

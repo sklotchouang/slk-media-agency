@@ -50,7 +50,7 @@ function annotateReveals(root) {
 }
 
 function parseStat(text) {
-  // Animates the first numeric token of a stat ("12.4M", "$4.2-8.5K", "87%")
+  // Animates the first numeric token of a stat ("100K+", "1.82K", "8-12")
   // and always restores the exact original string at the end.
   const match = text.match(/\d+(?:[.,]\d+)?/);
   if (!match) return null;

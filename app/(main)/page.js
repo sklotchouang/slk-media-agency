@@ -142,30 +142,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Results Stats Band */}
-      <section className="results-band" aria-label="Results at a glance">
-        <div className="container">
-          <div className="stats-band">
-            <div className="stat-card">
-              <div className="stat-number">12.4M</div>
-              <div className="stat-label">Views Generated</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">10k+</div>
-              <div className="stat-label">Clips Created</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">12k+</div>
-              <div className="stat-label">Hours Saved for Clients</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">100K+</div>
-              <div className="stat-label">Subscriber Milestone Hit</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Problem Section */}
       <section className="problem" id="services">
         <div className="container">
@@ -617,7 +593,7 @@ export default function HomePage() {
                 <p>Because <strong>you're not buying editing hours - you're buying a revenue outcome.</strong></p>
                 <p><strong>The math:</strong> Freelancer approach: $200/month + 4 hours/week managing them (16 hrs/month) = $200 + $1,600 opportunity cost = $1,800 total cost. Output: 5-8 mediocre clips per episode, no strategy.</p>
                 <p><strong>The Podcast Multiplier™:</strong> $1,597/month + 1 hour/week (4 hrs/month) = $1,597 + $400 opportunity cost = $1,997 total cost. Output: 10-20 sponsor-optimized clips per episode, full strategy, zero management.</p>
-                <p><strong>Net difference:</strong> $197/month MORE for 3X the output and zero headaches. Plus: Our average client generates $4,200/month in new sponsor revenue. Freelancers don't deliver that.</p>
+                <p><strong>Net difference:</strong> $197/month MORE for 3X the output and zero headaches. Freelancers don't deliver that.</p>
               </div>
             </div>
 
@@ -630,7 +606,6 @@ export default function HomePage() {
                 <p><strong>No - and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and distribution. We don't control: Your recording quality, guest selection, or topic relevance; How aggressively you pursue sponsor outreach; Market conditions in your niche.</p>
                 <p><strong>What we DO guarantee:</strong> 10-20 professionally edited, sponsor-ready clips per episode (delivered on time, every time), Multi-platform distribution on schedule, Weekly performance reports (you'll know exactly what's working), 14-day money-back guarantee (unsatisfied? Full refund).</p>
-                <p><strong>What our average client sees:</strong> 2.3X increase in sponsor inquiries within 90 days, $4,200-$8,500/month in new sponsorship revenue, 40-60% reduction in time spent on content production.</p>
               </div>
             </div>
 
@@ -663,7 +638,7 @@ export default function HomePage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Month-to-month. Cancel anytime before your next billing cycle. Zero penalties.</strong></p>
-                <p>We don't trap clients in contracts because we don't need to. Our retention rate is 87% after 6 months - people stay because the ROI is undeniable.</p>
+                <p>We don't trap clients in contracts because we don't need to. Clients stay because the work keeps earning its place, not because a contract says they have to.</p>
                 <p><strong>Can I pause instead of canceling?</strong> Yes. Pause for up to 60 days. No questions asked.</p>
                 <p><strong>Notice period:</strong> Give us 14 days' notice so we can finish any in-progress work.</p>
               </div>
@@ -725,7 +700,7 @@ export default function HomePage() {
               <div className="accordion-content">
                 <p><strong>If "results" = high-quality clips delivered:</strong> Week 1. You'll have 10-15 clips ready within 3-4 business days.</p>
                 <p><strong>If "results" = increased social media engagement:</strong> 30-45 days. Platforms need time to recognize your consistent posting and boost distribution.</p>
-                <p><strong>If "results" = sponsor inquiries and revenue:</strong> 60-90 days. Sponsors need to see you multiple times across platforms before reaching out. Our average client sees 2-3X increase in sponsor inquiries by month 3.</p>
+                <p><strong>If "results" = sponsor inquiries and revenue:</strong> 60-90 days. Sponsors need to see you multiple times across platforms before reaching out.</p>
                 <p><strong>The compounding effect:</strong> Month 1 lays the foundation. Month 3 is when you start seeing revenue impact. Month 6 is when clients say "I can't believe I didn't do this sooner."</p>
               </div>
             </div>
