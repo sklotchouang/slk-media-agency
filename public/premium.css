@@ -1582,3 +1582,297 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     grid-template-columns: 1fr;
   }
 }
+
+/* --------------------------------------------------------------------------
+   16. /pre-call: the booked-call instructions page.
+
+   This page kept its original 2024 utility styling through the re-skin (see
+   DESIGN.md section 5, which scoped it to "typography/spacing/nav/footer
+   only"), so it still hardcoded #3ba7e7 and a 24px h1 and never inherited the
+   premium palette. It is the page every booked prospect is sent to before a
+   call, so it now uses the same vocabulary as the rest of the site: hero
+   display type, accent kicker pills, a threaded step rhythm, a framed video,
+   and CTA cards that lift.
+
+   Every override here is scoped under .pre-call-page so the legacy selectors
+   (.main-heading, .sub-heading, .instruction-step, .video-wrapper,
+   .pre-call-button, .button-main-text, .button-sub-text) are outranked on
+   specificity rather than edited in the minified legacy stylesheet.
+   -------------------------------------------------------------------------- */
+
+/* ----- Hero ----- */
+.pc-hero {
+  padding-top: clamp(132px, 17vh, 190px);
+  padding-bottom: clamp(40px, 6vh, 68px);
+  text-align: center;
+}
+
+.pc-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.pre-call-page .main-heading {
+  font-size: clamp(2.3rem, 4.9vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 22px;
+}
+
+.pre-call-page .sub-heading {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 60ch;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+/* ----- Step rhythm ----- */
+.pc-steps {
+  padding-top: 0;
+  padding-bottom: clamp(92px, 12vh, 148px);
+}
+
+/* .steps-timeline is shared: /podcast-multiplier uses the same class for its
+   own left-rail timeline, and premium.css is loaded by that route group too,
+   so this rule MUST stay scoped to .pre-call-page. The class is reused here
+   only because MotionLayer already lists it in STAGGER_CONTAINERS, which is
+   what gives these steps their staggered reveal with no JS change. */
+.pre-call-page .steps-timeline {
+  --pc-gap: clamp(62px, 8.5vh, 100px);
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pc-gap);
+}
+
+.pc-step {
+  position: relative;
+}
+
+/* A soft accent thread runs through the gap between steps: the process-rail
+   motif from the home page, but routed around the content instead of through
+   it, since this page's steps are centred and full width. */
+.pc-step + .pc-step::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(-1 * var(--pc-gap));
+  width: 1px;
+  height: var(--pc-gap);
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, transparent, rgba(76, 178, 240, 0.42), transparent);
+  pointer-events: none;
+}
+
+/* ----- Step heading: accent kicker pill over a section-scale title ----- */
+.pre-call-page .instruction-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 clamp(26px, 3.6vh, 38px);
+  font-style: normal;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.pc-step-kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 15px;
+  border: 1px solid rgba(76, 178, 240, 0.28);
+  border-radius: var(--radius-pill);
+  background: rgba(76, 178, 240, 0.07);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 620;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pc-step-title {
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+/* ----- Step 1: the framed video ----- */
+.pre-call-page .pc-video {
+  max-width: 940px;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 0 90px -22px rgba(76, 178, 240, 0.34),
+    0 44px 90px -42px rgba(0, 0, 0, 0.92);
+  transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+.pre-call-page .pc-video:hover {
+  border-color: rgba(76, 178, 240, 0.34);
+  box-shadow:
+    0 0 110px -20px rgba(76, 178, 240, 0.44),
+    0 48px 100px -44px rgba(0, 0, 0, 0.94);
+}
+
+.pre-call-page .pc-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* The MP4 is exactly 16:9, so cover crops nothing off the video itself.
+     The poster is a 1280x648 (2:1) crop of a frame, and cover fills the frame
+     with it instead of letterboxing black bars above and below it. */
+  object-fit: cover;
+  background: #000;
+  border-radius: inherit;
+}
+
+/* ----- Steps 2 and 3: CTA cards ----- */
+.pre-call-page .pre-call-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 22px 26px;
+  text-align: left;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    var(--bg-raised);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.34s var(--ease-spring),
+    border-color 0.34s var(--ease-out),
+    box-shadow 0.34s var(--ease-out),
+    background 0.34s var(--ease-out);
+  will-change: transform;
+}
+
+.pre-call-page .pre-call-button:hover {
+  background:
+    linear-gradient(180deg, rgba(76, 178, 240, 0.09), rgba(76, 178, 240, 0.02)),
+    var(--bg-raised);
+  border-color: rgba(76, 178, 240, 0.46);
+  transform: translateY(-3px);
+  box-shadow:
+    0 26px 60px -30px rgba(0, 0, 0, 0.85),
+    0 20px 52px -28px rgba(76, 178, 240, 0.5);
+}
+
+.pre-call-page .pre-call-button:active {
+  transform: translateY(-1px) scale(0.994);
+}
+
+.pc-cta-icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(76, 178, 240, 0.1);
+  border: 1px solid rgba(76, 178, 240, 0.28);
+  color: var(--accent);
+  font-size: 1.1rem;
+  transition: background 0.34s var(--ease-out), border-color 0.34s var(--ease-out);
+}
+
+.pre-call-button:hover .pc-cta-icon {
+  background: rgba(76, 178, 240, 0.17);
+  border-color: rgba(76, 178, 240, 0.5);
+}
+
+.pc-cta-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pre-call-page .button-main-text {
+  font-size: 1.14rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.pre-call-page .button-sub-text {
+  margin-top: 0;
+  font-size: 0.855rem;
+  font-weight: 450;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.pc-cta-arrow {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.95rem;
+  transition: transform 0.34s var(--ease-spring);
+}
+
+.pre-call-button:hover .pc-cta-arrow {
+  transform: translateX(5px);
+}
+
+/* ----- Narrow screens ----- */
+@media (max-width: 640px) {
+  .pre-call-page .pre-call-button {
+    gap: 15px;
+    padding: 17px 18px;
+  }
+
+  .pc-cta-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 0.98rem;
+  }
+
+  .pre-call-page .button-main-text {
+    font-size: 1.04rem;
+  }
+
+  .pre-call-page .button-sub-text {
+    font-size: 0.8rem;
+  }
+
+  .pre-call-page .pc-video {
+    border-radius: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pre-call-page .pre-call-button,
+  .pre-call-page .pc-video,
+  .pc-cta-icon,
+  .pc-cta-arrow {
+    transition: none;
+  }
+
+  .pre-call-page .pre-call-button:hover {
+    transform: none;
+  }
+
+  .pre-call-button:hover .pc-cta-arrow {
+    transform: none;
+  }
+}

@@ -154,6 +154,12 @@ Because `.pricing-tier` is a column flex container with `.pricing-content { flex
 
 Mind the cascade when you edit that block. `premium.css` loads after `podcast-multiplier-styles.css`, so at equal specificity anything declared in the `PRICING` block wins on `/podcast-multiplier` too, and it is easy to change that page by accident. The trap that already bit once: `.pricing-tier.featured` (the accent glow) and `.pricing-tier:hover` have the same specificity, so declaring `box-shadow` on the hover rule silently erases the featured glow. That is why the hover rule sets only `transform`, and the shadow lives on `.pricing-tier:not(.featured):hover`.
 
+`premium.css` also carries the `/pre-call` re-skin, in the section 16 block at the end of the file. That page is the one every booked prospect is sent to before a call, but the original premium pass deliberately scoped it to "typography, spacing, nav and footer only" (`DESIGN.md` section 5), so its own classes in `styles.css` still hardcoded `#3ba7e7` and a 24px `h1` and never inherited the refined palette. It was brought up to the rest of the site on 2026-08-19: hero display type, accent kicker pills on each step, a thread connecting the steps, a framed 16:9 video, and the two links rendered as CTA cards that lift on hover.
+
+Two things to know before editing that block. First, every rule is scoped under `.pre-call-page` purely to outrank the legacy selectors on specificity (`.main-heading`, `.sub-heading`, `.instruction-step`, `.video-wrapper`, `.pre-call-button`, `.button-main-text`, `.button-sub-text` are all single-class rules in the minified `styles.css`), so dropping that scope silently hands the page back to the 2024 styling. Second, the step headings are split into a `.pc-step-kicker` span and a `.pc-step-title` span so "Step 1:" can be styled as a pill without changing a text node; the concatenated string is still exactly the frozen copy, and the uppercase is `text-transform`, not different text.
+
+The video frame is `aspect-ratio: 16 / 9` with `object-fit: cover`. The MP4 is exactly 16:9 so nothing is cropped off it, but the poster (`thumbnail.webp`) is 1280x648, a 2:1 crop of a frame, and `cover` fills the frame with it instead of letterboxing it. If the poster is ever regenerated at a true 16:9, `cover` and `contain` become interchangeable there.
+
 One page also has a page-scoped stylesheet imported directly in its component: `app/(multiplier)/podcast-toolkits/podcast-toolkits.css`.
 
 Fonts: the whole site runs on Inter, self-hosted through `next/font` (`components/fonts.js`). The font CSS variable is applied via a class on `<html>` in each layout. There is no render-blocking Google Fonts request.
@@ -178,7 +184,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/success/rws-group` | `app/(main)/success/rws-group/page.js` | Case study | strmeet |
 | `/success/sales-fix` | `app/(main)/success/sales-fix/page.js` | Case study | strmeet |
 | `/success/alpine-institute` | `app/(main)/success/alpine-institute/page.js` | Case study | strmeet |
-| `/pre-call` | `app/(main)/pre-call/page.js` | Instructions before a booked call | mailto |
+| `/pre-call` | `app/(main)/pre-call/page.js` | Instructions before a booked call (video + portfolio + testimonials) | mailto |
 | `/privacy-policy` | `app/(main)/privacy-policy/page.js` | Legal | none |
 | `/terms-and-conditions` | `app/(main)/terms-and-conditions/page.js` | Legal | none |
 | 404 | `app/(main)/not-found.js` (+ `[...rest]/page.js` catch-all) | Not-found | internal links |

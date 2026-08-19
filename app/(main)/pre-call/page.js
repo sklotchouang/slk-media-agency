@@ -28,29 +28,73 @@ export default function PreCallPage() {
         </div>
       </nav>
 
-      <main id="main" className="pre-call-container">
-        <h1 className="main-heading">Thanks For Booking Your Call</h1>
-        <p className="sub-heading">Now just before we meet, please follow the instructions below 👇</p>
+      <main id="main" className="pre-call-page">
+        {/* Hero */}
+        <section className="pc-hero hero-section">
+          <div className="container">
+            <div className="grid-pattern" aria-hidden="true"></div>
+            <h1 className="main-heading headline"><span className="highlight">Thanks For Booking Your Call</span></h1>
+            <p className="sub-heading subheadline">Now just before we meet, please follow the instructions below 👇</p>
+          </div>
+        </section>
 
-        <h2 className="instruction-step">Step 1: Watch this video first</h2>
-        <div className="video-wrapper">
-          <video controls poster="/pre-call-instructions-video/thumbnail.webp" playsInline preload="none">
-            <source src="/pre-call-instructions-video/precall-instructions-podcasters.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        {/* Instructions */}
+        <section className="pc-steps">
+          <div className="container">
+            <div className="steps-timeline">
 
-        <h2 className="instruction-step">Step 2: Take a look at some of the clips we've created</h2>
-        <Link href="/portfolio" className="pre-call-button" target="_blank" rel="noopener">
-          <span className="button-main-text">Content Portfolio</span>
-          <span className="button-sub-text">The Content That Keeps Our Clients Coming Back</span>
-        </Link>
+              <div className="pc-step">
+                <h2 className="instruction-step">
+                  <span className="pc-step-kicker">Step 1:</span>
+                  <span className="pc-step-title">Watch this video first</span>
+                </h2>
+                <div className="pc-step-body">
+                  <div className="video-wrapper pc-video">
+                    <video controls poster="/pre-call-instructions-video/thumbnail.webp" playsInline preload="none">
+                      <source src="/pre-call-instructions-video/precall-instructions-podcasters.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
 
-        <h2 className="instruction-step">Step 3: Below are some client testimonials for your review</h2>
-        <Link href="/testimonials" className="pre-call-button" target="_blank" rel="noopener">
-          <span className="button-main-text">Client Testimonials</span>
-          <span className="button-sub-text">See What Our Happy Clients Had To Say About Working With Us</span>
-        </Link>
+              <div className="pc-step">
+                <h2 className="instruction-step">
+                  <span className="pc-step-kicker">Step 2:</span>
+                  <span className="pc-step-title">Take a look at some of the clips we've created</span>
+                </h2>
+                <div className="pc-step-body">
+                  <Link href="/portfolio" className="pre-call-button" target="_blank" rel="noopener">
+                    <span className="pc-cta-icon" aria-hidden="true"><i className="fas fa-film"></i></span>
+                    <span className="pc-cta-text">
+                      <span className="button-main-text">Content Portfolio</span>
+                      <span className="button-sub-text">The Content That Keeps Our Clients Coming Back</span>
+                    </span>
+                    <span className="pc-cta-arrow" aria-hidden="true"><i className="fas fa-arrow-right"></i></span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="pc-step">
+                <h2 className="instruction-step">
+                  <span className="pc-step-kicker">Step 3:</span>
+                  <span className="pc-step-title">Below are some client testimonials for your review</span>
+                </h2>
+                <div className="pc-step-body">
+                  <Link href="/testimonials" className="pre-call-button" target="_blank" rel="noopener">
+                    <span className="pc-cta-icon" aria-hidden="true"><i className="fas fa-quote-right"></i></span>
+                    <span className="pc-cta-text">
+                      <span className="button-main-text">Client Testimonials</span>
+                      <span className="button-sub-text">See What Our Happy Clients Had To Say About Working With Us</span>
+                    </span>
+                    <span className="pc-cta-arrow" aria-hidden="true"><i className="fas fa-arrow-right"></i></span>
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
