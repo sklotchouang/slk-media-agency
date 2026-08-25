@@ -206,6 +206,8 @@ They are not a shared component: the markup is inlined per page, so any change t
 
 There is no single shared Nav or Footer component. Each top-level page inlines its own `<nav>` and `<footer>` markup (they are visually identical because they share CSS classes). The six case studies get their nav and footer from the `CaseStudy` template. Practical implication: a change to the global navbar or footer that is not driven purely by CSS means editing the markup in each page file plus `CaseStudy.js`. Grep for `<nav` and `<footer>` to find them all.
 
+The nav items differ per page and are not meant to be identical. The home page nav is Portfolio, Process, Results, Pricing, FAQ, Book Strategy Call: the four middle items are in-page anchors (`#process`, `#case-studies`, `#pricing`, `#faq`) ordered to match the order those sections appear on the page. Pricing was added on 2026-08-25. Sub-pages (portfolio, testimonials, case studies) instead link Home, Portfolio, Case Studies, Testimonials and `/#faq`, because the anchor targets only exist on the home page.
+
 ### 7.3 Static HTML served from `public/` (not app pages)
 
 These clean URLs are served from raw HTML files in `public/` via rewrites in `next.config.mjs`, not by React pages:

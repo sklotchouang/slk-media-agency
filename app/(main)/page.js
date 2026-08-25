@@ -63,6 +63,7 @@ export default function HomePage() {
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#case-studies">Results</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
