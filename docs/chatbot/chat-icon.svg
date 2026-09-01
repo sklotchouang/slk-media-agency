@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Launcher icon for the re:tune chat widget.
+       IMPORTANT: when a custom Chat icon is uploaded, re:tune sets the launcher
+       background to transparent and renders this image as the ENTIRE button.
+       The Theme colour no longer fills the circle. So this file must draw its own
+       blue circle, not just a glyph. Brand blue is #4cb2f0 (the site accent token).
+       The three dots are punched through with evenodd so the blue shows behind. -->
+  <circle cx="128" cy="128" r="128" fill="#4cb2f0"/>
+  <g transform="translate(48.6,51.7) scale(0.62)">
+    <path fill="#ffffff" fill-rule="evenodd" d="
+      M52 40 H204 A28 28 0 0 1 232 68 V140 A28 28 0 0 1 204 168 H116 L76 206 A6 6 0 0 1 66 201 V168 H52 A28 28 0 0 1 24 140 V68 A28 28 0 0 1 52 40 Z
+      M75 104 a13 13 0 1 0 26 0 a13 13 0 1 0 -26 0 Z
+      M115 104 a13 13 0 1 0 26 0 a13 13 0 1 0 -26 0 Z
+      M155 104 a13 13 0 1 0 26 0 a13 13 0 1 0 -26 0 Z
+    "/>
+  </g>
+</svg>

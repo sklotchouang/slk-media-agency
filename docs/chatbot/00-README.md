@@ -31,6 +31,22 @@ cd "D:/CLAUDE CODE/slk-media-website/docs/chatbot" && cat _persona.md kb-01-offe
 
 Then paste the result into re:tune. Nothing syncs automatically.
 
+### The launcher icon, and a trap in how re:tune renders it
+
+The bot is **Iris**, with a photo avatar, and the launcher uses `chat-icon.png` in this folder (source: `chat-icon.svg`, rendered with sharp).
+
+**The trap:** while the Chat icon field is empty, re:tune draws its own default logo on a circle filled with the Theme colour. The moment you upload a custom icon, re:tune sets the launcher background to **transparent** and renders your image as the entire button. The Theme colour stops filling the circle.
+
+So the uploaded icon must **draw its own background circle**, not just a glyph. The first version I uploaded was a white bubble on transparent, designed to sit on blue, and it rendered as a bare white shape floating on the dark page. `chat-icon.svg` now draws the `#4cb2f0` circle itself.
+
+The Theme colour (also `#4cb2f0`, the site accent token) still controls the chat window header bar, so it is worth keeping the two in sync. To regenerate the icon after editing the SVG:
+
+```bash
+cd "D:/CLAUDE CODE/slk-media-website" && node -e "require('sharp')('docs/chatbot/chat-icon.svg',{density:600}).resize(256,256,{fit:'contain',background:{r:0,g:0,b:0,alpha:0}}).png().toFile('docs/chatbot/chat-icon.png').then(i=>console.log(i.width+'x'+i.height))"
+```
+
+Note that XML comments cannot contain a double hyphen, so do not write `--accent` inside a comment in that SVG or sharp will refuse to parse it.
+
 ### Editing the prompt fields in re:tune: read this or you will lose work
 
 Three separate traps, all confirmed on 2026-09-01.
