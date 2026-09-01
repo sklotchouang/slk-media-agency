@@ -35,7 +35,6 @@ export default function PodcastMultiplierPage() {
           <ul className="nav-menu" id="nav-menu">
             <li><Link href="/">Home</Link></li>
             <li><a href="#results">Results</a></li>
-            <li><a href="#pricing">Pricing</a></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><a href="#next-steps">Get Started</a></li>
           </ul>
@@ -64,7 +63,6 @@ export default function PodcastMultiplierPage() {
             <span className="hsnap-arrow" aria-hidden="true"><i className="fas fa-arrow-right"></i></span>
             <div className="hsnap-step"><span className="hsnap-num">3</span><span>You show up everywhere</span></div>
           </div>
-          <p className="hero-pricing-peek">Done-for-you content from <strong>$997/mo</strong>, or try us first for <strong>$597</strong>. <a href="#pricing">See what is included</a></p>
         </div>
       </section>
 
@@ -419,90 +417,6 @@ export default function PodcastMultiplierPage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="pricing-section" id="pricing">
-        <div className="grid-pattern-overlay"></div>
-        <div className="container">
-          <h2 className="section-title">Simple, Transparent Investment</h2>
-          <div className="pricing-grid">
-            <div className="pricing-tier compact">
-              <div className="pricing-header">
-                <h3>10-Day Trial</h3>
-                <p className="pricing-period">(One-time)</p>
-                <div className="pricing-price">$597</div>
-                <p className="pricing-cost-anchor">
-                  <strong>See it first:</strong> a one-time project so you can judge our work on <span className="pricing-cost-anchor-figure">your own episodes</span>, not on somebody else's portfolio. No subscription, no commitment, nothing to cancel.
-                </p>
-              </div>
-              <div className="pricing-content">
-                <ul>
-                  <li>5 clips produced from your episodes</li>
-                  <li>Delivered within 10 days</li>
-                  <li>One-time payment, no subscription</li>
-                </ul>
-              </div>
-              <p className="pricing-outcome">You send your episodes. We deliver <strong>5 finished clips</strong> within 10 days, so you see the quality before you commit.</p>
-              <div className="pricing-footer">
-                <a href="https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
-              </div>
-              <p className="pricing-fee-note">Price excludes the Stripe processing fee. The fee is added at checkout, bringing the total to $617.</p>
-            </div>
-            <div className="pricing-tier compact">
-              <div className="pricing-header">
-                <h3>Content Engine Lite</h3>
-                <p className="pricing-period">(DFY)</p>
-                <div className="pricing-price">$997/month</div>
-                <p className="pricing-cost-anchor">
-                  <strong>The math:</strong> The same system as the Content Engine at <span className="pricing-cost-anchor-figure">half the monthly clip volume</span>. Built for shows that publish less often, or that want to start smaller without giving up strategy, copywriting and scheduling.
-                </p>
-              </div>
-              <div className="pricing-content">
-                <ul>
-                  <li>Complete Social Media Strategy Document</li>
-                  <li>Target Audience Research, Competitor Analysis</li>
-                  <li>10 clips/month with custom thumbnails</li>
-                  <li>Copywriting (captions, hashtags, CTAs)</li>
-                  <li>Full scheduling across all platforms</li>
-                  <li>Dedicated Project Manager</li>
-                  <li>Weekly Consultation Calls</li>
-                  <li>Weekly Reporting</li>
-                </ul>
-              </div>
-              <p className="pricing-outcome">You record once. We turn it into <strong>10 platform-ready clips</strong>, posted consistently across every platform, every month.</p>
-              <div className="pricing-footer">
-                <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a>
-              </div>
-            </div>
-            <div className="pricing-tier featured compact">
-              <div className="pricing-header">
-                <h3>Content Engine</h3>
-                <p className="pricing-period">(DFY)</p>
-                <div className="pricing-price">$1,597/month</div>
-                <p className="pricing-cost-anchor">
-                  <strong>The math:</strong> A full-time in-house video editor in the US runs <span className="pricing-cost-anchor-figure">$50,000 to $80,000</span> a year, before software, equipment, and management time. SLK Media Agency delivers done-for-you repurposing across LinkedIn, YouTube, Instagram, Facebook and TikTok for a fraction of that. No one to hire. No one to manage.
-                </p>
-              </div>
-              <div className="pricing-content">
-                <ul>
-                  <li>Complete Social Media Strategy Document</li>
-                  <li>Target Audience Research, Competitor Analysis</li>
-                  <li>20 clips/month with custom thumbnails</li>
-                  <li>Copywriting (captions, hashtags, CTAs)</li>
-                  <li>Full scheduling across all platforms</li>
-                  <li>Dedicated Project Manager</li>
-                  <li>Weekly Consultation Calls</li>
-                  <li>Weekly Reporting</li>
-                </ul>
-              </div>
-              <p className="pricing-outcome">You record once. We turn it into <strong>20 platform-ready clips</strong>, posted consistently across every platform, every month.</p>
-              <div className="pricing-footer">
-                <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Section: Our Guarantee */}
       <section className="guarantee-section">
         <div className="container">
@@ -600,9 +514,7 @@ export default function PodcastMultiplierPage() {
                 <p>Because <strong>you're not buying editing hours. You're buying a revenue outcome.</strong></p>
                 <p><strong>Freelancers on Fiverr give you:</strong> Task-based labor (you tell them what to do), inconsistent quality (depends on their mood, workload, skill level), zero strategy (they don't understand sponsor psychology), management burden (you're revising, giving feedback, chasing deadlines).</p>
                 <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), revenue-first approach (every clip filtered through "does this attract sponsors?"), full autonomy (we run on autopilot after Week 1).</p>
-                <p><strong>The math:</strong> Freelancer approach: $200/month + 4 hours/week managing them (16 hrs/month) = $200 + $1,600 opportunity cost = $1,800 total cost. Output: 5-8 mediocre clips per episode, no strategy, you're still the bottleneck.</p>
-                <p><strong>The Podcast Multiplier™:</strong> $1,597/month + 1 hour/week (4 hrs/month) = $1,597 + $400 opportunity cost = $1,997 total cost. Output: 10-20 sponsor-optimized clips per episode, full strategy, zero management.</p>
-                <p><strong>Net difference:</strong> $197/month MORE for 3X the output and zero headaches. Freelancers don't deliver that.</p>
+                <p><strong>The real difference:</strong> a freelancer costs you management time on top of their fee, and still leaves you as the bottleneck. We take the whole job off your desk.</p>
               </div>
             </div>
 
@@ -766,7 +678,6 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="footer-cta-heading">The only risk is waiting while your competitors scale their sponsor pipelines.</h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Book Your Strategy Call - Qualified Shows Only</a>
-          <p style={{ marginTop: '20px', fontSize: '14px', color: '#fcf4f4' }}>📍 <strong>Note on Pricing Transparency:</strong> Our monthly plans start at $997/month, and the 10-Day Trial is $597 one-time. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
         </div>
       </section>
 
