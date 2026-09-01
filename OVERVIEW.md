@@ -61,7 +61,7 @@ npm run start
 
 `npm run build` must pass before anything ships. All routes prerender at build time.
 
-There is a preview launch config at `.claude/launch.json` named `slk-website` (runs `npm run dev` on port 3000) for the in-editor preview tools.
+There is a preview launch config at `.claude/launch.json` named `slk-website` (runs `npm run dev` on port 3000) for the in-editor preview tools. It sets `"autoPort": true` as of 2026-09-01, so if port 3000 is already taken the preview starts on a free port instead of failing. Nothing on this site depends on port 3000 specifically (no OAuth callbacks, no webhooks, no CORS allowlist), and `next dev` reads the assigned port from the `PORT` environment variable, so there is no hard-coded port flag to keep in sync.
 
 ---
 
@@ -94,6 +94,7 @@ slk-media-agency/
       [...rest]/page.js    Catch-all that triggers the 404 for any unknown path
       portfolio/           /portfolio (clip grid)
       testimonials/        /testimonials
+      pricing/             /pricing (standalone pricing page, the link the SDR sends; not in any nav)
       pre-call/            /pre-call (instructions for a booked call)
       privacy-policy/      /privacy-policy (legal)
       terms-and-conditions/  /terms-and-conditions (legal)
@@ -112,7 +113,7 @@ slk-media-agency/
     podcast-multiplier-styles.css  Legacy global stylesheet for the (multiplier) group
     premium.css            The premium re-skin layer, loaded on top of both (the file you edit for most visual changes)
     script.js, podcast-multiplier-script.js  LEGACY. Not loaded by the app. Kept for the static HTML pages only.
-    robots.txt, sitemap.xml, og-image.jpg
+    robots.txt, sitemap.xml, og-image.jpg  sitemap.xml is hand-maintained: add a <url> block when you add a route
   scripts/
     generate-assets.mjs    One-time generator for the atmosphere art via KIE.ai (needs KIE_API_KEY)
   tools/
@@ -160,6 +161,16 @@ Two things to know before editing that block. First, every rule is scoped under 
 
 The video frame is `aspect-ratio: 16 / 9` with `object-fit: cover`. The MP4 is exactly 16:9 so nothing is cropped off it, but the poster (`thumbnail.webp`) is 1280x648, a 2:1 crop of a frame, and `cover` fills the frame with it instead of letterboxing it. If the poster is ever regenerated at a true 16:9, `cover` and `contain` become interchangeable there.
 
+`premium.css` also carries the `/pricing` re-skin, in the section 17 block at the very end of the file. Like the `/pre-call` block, every rule is scoped under a page class (`.pricing-page`, set on `<main id="main">`), and that scope is load-bearing rather than tidy: `premium.css` loads after `podcast-multiplier-styles.css`, so an unscoped `.pricing-*` or bare `table` rule declared there would win at equal specificity on `/podcast-multiplier` and on `/` and silently restyle two live sales pages. The block styles only page-specific chrome (`.pp-hero`, `.pp-custom`, `.pp-table`, `.pp-objection`, `.pp-next`, `.pp-final-cta`); the three tier cards inherit the shared PRICING block above it and get nothing new.
+
+### `.btn-primary` does not work in the `(main)` group outside `.pricing-footer`
+
+Found on 2026-09-01 while building `/pricing`, and worth knowing before you put a button anywhere on a `(main)` page. `.btn-primary` has **no complete base rule** in `public/styles.css`, the base stylesheet the `(main)` group loads. All `styles.css` carries is a responsive fragment, `.btn-primary{padding:10px 20px;font-size:.9rem;width:90%;text-align:center}`, with no `display` and no baseline padding. The real base (`display:inline-block`, background, radius, border, shadow) lives only in `public/podcast-multiplier-styles.css`, which the `(main)` group never loads. `premium.css` then adds colour and radius but no `display`.
+
+The net effect: a `.btn-primary` on a `(main)` page renders as an inline element with a stray `width:90%`, which reads as a thin misshapen pill with a grey bar beside it. It looks correct inside a pricing card purely because `premium.css` sets `display:flex` on `.pricing-footer .btn-primary` explicitly.
+
+So on `(main)` pages use **`.primary-cta`**, which does have a full base rule in `styles.css` (this is what `/portfolio` and every other sub-page CTA uses). Reserve `.btn-primary` for inside `.pricing-footer`, where the copy-pasted tier markup requires it. This is the same class of latent trap as the pricing-grid one above: markup that works on `/podcast-multiplier` is not guaranteed to work on `/`.
+
 One page also has a page-scoped stylesheet imported directly in its component: `app/(multiplier)/podcast-toolkits/podcast-toolkits.css`.
 
 Fonts: the whole site runs on Inter, self-hosted through `next/font` (`components/fonts.js`). The font CSS variable is applied via a class on `<html>` in each layout. There is no render-blocking Google Fonts request.
@@ -177,6 +188,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/` | `app/(main)/page.js` | Home, long-form sales | Book Strategy Call (strmeet) + 10-Day Trial checkout (Myfundbox) in the pricing section |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
+| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
 | `/success/conjure-queen` | `app/(main)/success/conjure-queen/page.js` | Case study | strmeet |
 | `/success/brian-burton` | `app/(main)/success/brian-burton/page.js` | Case study | strmeet |
@@ -194,19 +206,21 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
 
-Three pages show a price. `/` and `/podcast-multiplier` each have a `pricing-section` (id `pricing`) carrying the same three tiers, and `/podcast-toolkits` has one for the $100 strategy report. The three tiers, in the order they render (ascending, with the anchor tier last):
+Four pages show a price. `/`, `/podcast-multiplier` and `/pricing` each have a `pricing-section` (id `pricing`) carrying the same three tiers, and `/podcast-toolkits` has one for the $100 strategy report. The three tiers, in the order they render (ascending, with the anchor tier last):
 
 1. **10-Day Trial**, $597 one-time, 5 clips delivered within 10 days. Its CTA is the Myfundbox checkout, not the booking link.
 2. **Content Engine Lite**, $997/month, 10 clips/month. Identical deliverables to the Content Engine apart from clip volume.
 3. **Content Engine**, $1,597/month, 20 clips/month. Carries `.featured` (the accent border and glow) and is the anchor tier.
 
-They are not a shared component: the markup is inlined per page, so any change to a tier means editing both `app/(main)/page.js` and `app/(multiplier)/podcast-multiplier/page.js`. The two files must stay identical in this section. The `/podcast-toolkits` section is a different product (a one-time report, Stripe checkout, its own fee disclosure) and is deliberately not kept in sync with the other two. See the pricing rules in section 9.
+They are not a shared component: the markup is inlined per page, so any change to a tier means editing **three** files, `app/(main)/page.js`, `app/(multiplier)/podcast-multiplier/page.js` and `app/(main)/pricing/page.js`. All three must stay identical in this section. Samuel chose the copy-paste over extracting a shared `PricingTiers` component on 2026-09-01, so do not refactor it into one without asking. The tier grids were verified byte-identical (73 lines each, ignoring indentation) when `/pricing` was added; if you change a tier, re-verify all three rather than trusting that they still match. Note that the surrounding `pricing-section` is *not* identical across the three: `/podcast-multiplier` carries an extra `<div className="grid-pattern-overlay">`, and `/pricing` adds a custom-order band after the grid. Only the `pricing-grid` block itself is the synced unit. The `/podcast-toolkits` section is a different product (a one-time report, Stripe checkout, its own fee disclosure) and is deliberately not kept in sync with the others. See the pricing rules in section 9.
 
 ### 7.2 Nav and footer
 
 There is no single shared Nav or Footer component. Each top-level page inlines its own `<nav>` and `<footer>` markup (they are visually identical because they share CSS classes). The six case studies get their nav and footer from the `CaseStudy` template. Practical implication: a change to the global navbar or footer that is not driven purely by CSS means editing the markup in each page file plus `CaseStudy.js`. Grep for `<nav` and `<footer>` to find them all.
 
-The nav items differ per page and are not meant to be identical. The home page nav is Portfolio, Process, Results, Pricing, FAQ, Book Strategy Call: the four middle items are in-page anchors (`#process`, `#case-studies`, `#pricing`, `#faq`) ordered to match the order those sections appear on the page. Pricing was added on 2026-08-25. Sub-pages (portfolio, testimonials, case studies) instead link Home, Portfolio, Case Studies, Testimonials and `/#faq`, because the anchor targets only exist on the home page.
+The nav items differ per page and are not meant to be identical. The home page nav is Portfolio, Process, Results, Pricing, FAQ, Book Strategy Call: the four middle items are in-page anchors (`#process`, `#case-studies`, `#pricing`, `#faq`) ordered to match the order those sections appear on the page. Pricing was added on 2026-08-25, and it still points at the home page's own `#pricing` anchor, not at the `/pricing` route. Sub-pages (portfolio, testimonials, case studies) instead link Home, Portfolio, Case Studies, Testimonials and `/#faq`, because the anchor targets only exist on the home page.
+
+`/pricing` uses the sub-page nav but swaps the FAQ item to its own `#pricing-faq` anchor, since that page carries a pricing-specific FAQ. **No nav anywhere links to `/pricing`, and that is deliberate** (Samuel's call, 2026-09-01): the page is public and indexed so it can rank and be shared, but the site's own funnel is unchanged, and the URL exists mainly so the SDR can paste one clean link when a prospect asks about price. If you are ever asked to "add pricing to the nav", check which of the two is meant, the home page anchor or this route.
 
 ### 7.3 Static HTML served from `public/` (not app pages)
 
@@ -286,6 +300,7 @@ node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--redu
 - Pricing is never presented as a bare number. Every tier in the two pricing sections (`/` and `/podcast-multiplier`, both `<section className="pricing-section" id="pricing">`) pairs its price with two required elements: a `.pricing-cost-anchor` block and a single `.pricing-outcome` line tying the spend to what actually ships. The Content Engine's anchor (the $50,000 to $80,000 a year in-house editor comparison) and its outcome line are the originals and are frozen.
 - The pricing sections now carry two CTA destinations, not one: the booking link (`strmeet`) on both monthly tiers, and the Myfundbox checkout on the 10-Day Trial, which is a direct purchase. This replaces the former "exactly one CTA per pricing section" rule, which was correct only while the section held a single tier.
 - No free-work language anywhere in a pricing section: no free trial, free audit, free sample, demo, money-back, or guarantee wording. SLK Media Agency does not offer free work. (The separate `guarantee-section` on `/podcast-multiplier` is pre-existing and untouched; do not extend that language into pricing.) The 10-Day Trial is not an exception: it is a paid $597 product, and the word "trial" must never appear without its price beside it.
+  - Note the exact scope of that rule, because `/pricing` sits on the boundary. It bans the language inside a `pricing-section`, not on any page that discusses price. The live FAQs on `/` and `/podcast-multiplier` do mention a 14-day money-back guarantee, and those are pre-existing and valid because an FAQ is a separate section. On `/pricing`, whose whole subject is price, money-back and guarantee wording was left off the page **entirely** rather than reasoning about which section it sat in. The lock-in objection there is answered with the cancellation policy instead (month to month, pause up to 60 days, 14 days notice, you keep the content), which contains no free-work language at all. Keep it that way unless Samuel says otherwise.
 
 ### Size-gating copy, revised 2026-08-03
 
@@ -323,6 +338,8 @@ What was deliberately **kept**, because it is real and verifiable rather than an
 - Change wording on a page: edit that page's `page.js` under `app/`. For a case study, edit the data object in the specific `success/<name>/page.js`. For copy shared by all case studies, edit `components/CaseStudy.js`.
 - Restyle something site-wide: edit `public/premium.css` (the re-skin layer). Change a token value there or, if it is a legacy token, in the base stylesheet it remaps. Re-skin details and tokens are in `DESIGN.md`.
 - Add a new case study: create `app/(main)/success/<slug>/page.js` that renders `CaseStudy` with a data object (copy an existing one), add the page to the index at `success/case-studies/page.js`, and add a 301 redirect for the old `.html` form in `next.config.mjs` if one existed.
+- Add a new page: create `app/(group)/<slug>/page.js`, inline the nav and footer from an existing page in the same group (they are not shared components), wrap the body in `<main id="main" className="<slug>-page">` so the skip link works and so any page-specific CSS has a scope hook, add a `<url>` block to `public/sitemap.xml`, and put page-specific styles in a scoped block at the end of `public/premium.css`. On a `(main)` page use `.primary-cta` for buttons, not `.btn-primary`, for the reason in section 6.
+- Change a pricing tier: edit all **three** copies (`app/(main)/page.js`, `app/(multiplier)/podcast-multiplier/page.js`, `app/(main)/pricing/page.js`) and then diff the `pricing-grid` blocks against each other to confirm they still match. See section 7.1.
 - Add a redirect or serve a new static HTML page at a clean URL: edit `next.config.mjs` (`redirects()` for old-to-new, `rewrites()` for clean-URL-to-file).
 - Change page metadata, favicon, theme color, or the CSS/font wiring: edit the relevant `app/(group)/layout.js`. Remember there are two layouts, one per route group, and they should usually stay in sync.
 - Add a video testimonial: encode to the folder convention (720px wide, 30fps, H.264 High profile, AAC around 96kbps, `+faststart`) and export a matching `poster-<name>.webp` at the same pixel dimensions, then put both in `public/video-testimonials/` as `testimonial-<name>.mp4` and `poster-<name>.webp`. The testimonial then has to be added in three places, because they do not share a component: the feature block in `app/(main)/testimonials/page.js`, the row in `app/(main)/page.js`, and the `testimonials` array in `app/(multiplier)/podcast-toolkits/page.js`. Pick the aspect-ratio class that matches the source (`.ar-169`, `.ar-45`, `.ar-11`, `.ar-916`) rather than cropping the video into a shape the layout already has.
@@ -358,4 +375,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-08-06.
+Last verified against the codebase: 2026-09-01.
