@@ -51,11 +51,28 @@ Editing note: re:tune autosaves the prompt fields on a debounce, and it only fir
 
 **Cost.** Every message carries the full prompt, so worst case per message is 12,000 x $1/1M plus 400 x $5/1M, which is $0.014. At 250 conversations x 8 messages that is a **$28 a month absolute ceiling**. Realistic is $8 to $12, because most conversations run three or four short messages. To pull the ceiling under $20, drop conversations from 250 to 170.
 
-## The one remaining blocker
+## The remaining blocker: re:tune requires OpenAI and it cannot be turned off
 
-**No Anthropic key is set** in the re:tune workspace settings (https://retune.so/settings). Claude Haiku 4.5 is selected but cannot run without it. That is the only thing standing between here and a working bot.
+The Anthropic key **is** set and every setting is live. The bot still returns an **empty reply**, because re:tune sends an embedding request to **OpenAI on every incoming message**, even with zero documents stored, and that account has no credit.
 
-Use a **separate** key from the one running the SDR agents, in its own Anthropic workspace with a spend limit set in the console. That way the website can never eat the SDR budget.
+Verified 2026-09-01, every escape route checked:
+
+- Train tab knowledge base dropdown: only Connected / Available to connect / Create new. **No None or Disconnect.** Clicking the connected entry does not detach it.
+- `/embeddings` and `/embedding/{id}/data`: a data browser only. **No provider or model selection.**
+- Workspace Settings holds OpenAI, Anthropic, Gemini and Pinecone keys, but nothing chooses which does the embedding.
+
+Chat completions run on Claude Haiku 4.5. The per-message embedding runs on OpenAI. That split is not configurable.
+
+**Fix, pick one:**
+
+1. **Put ~$5 on OpenAI.** A 20 token question on the small embedding model costs about $0.0000004, so $5 covers millions of messages. Effectively a one-time unlock. Risk: if the balance ever hits zero the bot answers nothing and the visitor sees silence.
+2. **Leave re:tune** and serve the bot from this repo: one API route calling Anthropic directly. Genuinely one vendor, no third-party script. Costs the widget UI, conversation inbox, lead capture, rate limiting and domain lock that re:tune gives free.
+
+## The settings page will lie to you about saved keys
+
+re:tune renders a saved key as `sk-xxxxxxxxxxxxxxx`, identical to the placeholder for an empty field. Saved and unsaved look the same. Check whether the input has a `value` rather than only a `placeholder`.
+
+Because the field literally holds that mask text, pressing **Save** on the External API Keys block again without re-pasting real keys risks storing the mask as the key and breaking both entries. Do not re-save that block casually.
 
 ## Known cosmetic issue
 

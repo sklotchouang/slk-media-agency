@@ -395,9 +395,19 @@ A public chatbot for this site was built on 2026-09-01. **It is not embedded on 
 
 A second, older chatbot called **"Trish"** (`11eeb87c-6f82-7460-843b-f3d951e44453`) also exists in that workspace. It was trained in August 2025 on the pre-Next.js `.html` version of this site and its pricing is stale. It was deliberately left untouched as a rollback. Do not use it and do not embed it.
 
-**Anthropic only, and no retrieval.** There is deliberately **no knowledge base and no vector search**. Every fact the bot knows sits directly in its Base Prompt, all 26,994 characters of it.
+**No retrieval, and re:tune requires an OpenAI key anyway. Read this before assuming otherwise.**
 
-That was forced by one constraint and then turned out to be the better design anyway. re:tune's knowledge base builds retrieval embeddings, and it builds them through **OpenAI whatever chat model you select**, because Anthropic has no embeddings endpoint. Using it would have meant paying and maintaining a second vendor forever purely to index 6,700 tokens. Claude Haiku 4.5 has a 200,000 token context window, so the entire corpus fits about thirty times over. Retrieval buys nothing here, and stuffing the prompt is strictly more accurate: the model sees every fact on every message, so there is no chance of the right fact failing to be retrieved.
+The bot uses **no knowledge base and no vector search**. Every fact it knows sits directly in its Base Prompt, all 26,994 characters of it. Claude Haiku 4.5 has a 200,000 token context window and the whole corpus is about 6,700 tokens, so it fits roughly thirty times over. Retrieval buys nothing at this size, and stuffing the prompt is strictly more accurate: the model sees every fact on every message, so the right fact can never fail to be retrieved.
+
+**But this does NOT make the setup Anthropic-only, and it was wrong to think it would.** Verified by testing on 2026-09-01: re:tune sends an embedding request to **OpenAI on every incoming visitor message**, to search the knowledge base and maintain conversation memory. That call fires even when the knowledge base holds zero documents. With no OpenAI credit the bot returns an **empty reply** and surfaces `[OpenAI] You have no credits remaining` in the dashboard. The visitor just sees silence.
+
+Every escape route was checked and none exists:
+
+- The Train tab's knowledge base dropdown offers only Connected, Available to connect, and Create new. There is **no None or Disconnect option**, and clicking the already-connected entry does not detach it. Every chatbot must have exactly one embedding store bound to it.
+- The workspace-level Embedding section (`/embeddings`, `/embedding/{id}/data`) is a data browser only. **No provider selection, no model selection, no settings tab.**
+- Workspace Settings holds keys for OpenAI, Anthropic, Gemini and Pinecone, but nothing selects which one does the embedding.
+
+So OpenAI is hard-wired into re:tune. **The chat completions run on Claude Haiku 4.5 via the Anthropic key; the per-message embedding runs on OpenAI and cannot be turned off.** The embedding itself is trivially cheap (a ~20 token question on OpenAI's small embedding model is about $0.0000004), so a one-time $5 top-up covers millions of messages. The operational hazard is not the cost, it is the failure mode: if that balance ever reaches zero, the bot silently answers nothing.
 
 **How the content is built.** Everything comes from `docs/chatbot/`, which is the editable source. The site is deliberately **not** scraped. The home page and `/podcast-multiplier` still carry stale claims that contradict `/pricing` (a 14-day money-back guarantee, a 10 percent prepayment discount, "Standard"/"Pro" package names, per-episode clip counts), so scraping them would feed the bot facts the site itself no longer stands behind.
 
@@ -428,9 +438,16 @@ One editing gotcha: re:tune autosaves the prompt fields on a debounce that only 
 
 Because the full prompt rides on every message, worst case per message is $0.014, which puts a **hard ceiling of $28 a month** on those caps. Realistic is $8 to $12. Dropping conversations from 250 to 170 pulls the ceiling under $20.
 
-**One thing blocks it going live: no Anthropic key is set** in the re:tune workspace settings, so the selected Claude Haiku 4.5 model cannot run. Use a key separate from the one running the SDR agents, in its own Anthropic workspace with a console spend limit, so the website can never eat the SDR budget.
+**Status as of 2026-09-01: the Anthropic key IS set** in re:tune workspace settings, and every prompt and setting is live and verified. The bot is **not** on the website and **does not yet work**, because of the OpenAI dependency above.
 
-One cosmetic leftover: a dead document called `05 Next steps, links and contact.txt` is stuck in the Train tab showing an old OpenAI credit error. It is inert (no embeddings, and nothing reads the knowledge base any more) and re:tune will not delete it.
+A trap worth knowing about that settings page: re:tune renders a saved key as `sk-xxxxxxxxxxxxxxx`, which is character-for-character identical to the placeholder shown for an empty field. Saved and unsaved look the same. The only reliable check is whether the input carries a `value` or merely a `placeholder`. A second consequence: because the field literally contains that mask string, pressing Save on the External API Keys block again without re-pasting real keys risks writing the mask in as the key and breaking both entries.
+
+**To make it work, one of these two:**
+
+1. Put a small credit on the OpenAI account (their minimum is around $5). Chat stays on Claude Haiku 4.5; OpenAI only does the per-message embedding. Effectively a one-time unlock, with the silent-failure risk noted above.
+2. Drop re:tune and serve the bot from this repo instead: one API route calling Anthropic directly, no third-party script, genuinely one vendor. That means rebuilding the widget UI, the conversation inbox, lead capture, rate limiting and the domain lock that re:tune currently provides for free.
+
+One cosmetic leftover: a dead document called `05 Next steps, links and contact.txt` is stuck in the Train tab showing the OpenAI credit error. It is inert (no embeddings, and nothing reads the knowledge base) and re:tune will not delete it.
 
 **To publish it once both are fixed**, add this one tag to the `<body>` of both layouts (`app/(main)/layout.js` and `app/(multiplier)/layout.js`) and update this section to say it is live:
 
