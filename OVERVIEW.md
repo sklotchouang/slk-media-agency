@@ -395,27 +395,42 @@ A public chatbot for this site was built on 2026-09-01. **It is not embedded on 
 
 A second, older chatbot called **"Trish"** (`11eeb87c-6f82-7460-843b-f3d951e44453`) also exists in that workspace. It was trained in August 2025 on the pre-Next.js `.html` version of this site and its pricing is stale. It was deliberately left untouched as a rollback. Do not use it and do not embed it.
 
-**How the content is built.** Everything the bot may say comes from `docs/chatbot/`, which is the editable source. The site is deliberately **not** scraped. The home page and `/podcast-multiplier` still carry stale claims that contradict `/pricing` (a 14-day money-back guarantee, a 10 percent prepayment discount, "Standard"/"Pro" package names, per-episode clip counts), so scraping them would put wrong facts inside the bot's retrieval context where the prompt rules cannot reliably suppress them. Curated text is pasted in instead.
+**Anthropic only, and no retrieval.** There is deliberately **no knowledge base and no vector search**. Every fact the bot knows sits directly in its Base Prompt, all 26,994 characters of it.
+
+That was forced by one constraint and then turned out to be the better design anyway. re:tune's knowledge base builds retrieval embeddings, and it builds them through **OpenAI whatever chat model you select**, because Anthropic has no embeddings endpoint. Using it would have meant paying and maintaining a second vendor forever purely to index 6,700 tokens. Claude Haiku 4.5 has a 200,000 token context window, so the entire corpus fits about thirty times over. Retrieval buys nothing here, and stuffing the prompt is strictly more accurate: the model sees every fact on every message, so there is no chance of the right fact failing to be retrieved.
+
+**How the content is built.** Everything comes from `docs/chatbot/`, which is the editable source. The site is deliberately **not** scraped. The home page and `/podcast-multiplier` still carry stale claims that contradict `/pricing` (a 14-day money-back guarantee, a 10 percent prepayment discount, "Standard"/"Pro" package names, per-episode clip counts), so scraping them would feed the bot facts the site itself no longer stands behind.
 
 ```
 docs/chatbot/
-  01-base-prompt.md              Identity, voice, length rules, the trial scope trap  -> re:tune "Base Prompt" field
-  02-restrictions.md             Price allow-list, prohibitions, DO NOT ANSWER list   -> re:tune "Restrictions" field
+  00-README.md                   Build state, config table, rebuild command, test list. Start here.
+  _persona.md                    Identity, voice, length rules, the trial scope trap
   kb-01-offers-and-pricing.md    The four things you can buy, billing and cancellation
   kb-02-delivery.md              Process, onboarding, platforms, niches, ownership
   kb-03-proof.md                 The six case studies, seven testimonials, quotable figures
   kb-04-common-questions.md      Objections and FAQs in approved wording
   kb-05-next-steps-and-contact.md  Every link, contact routes, company identifiers
+  01-base-prompt.md              GENERATED: _persona.md + the five kb files -> re:tune "Base Prompt"
+  02-restrictions.md             Price allow-list, prohibitions, DO NOT ANSWER list -> re:tune "Restrictions"
 ```
 
-If you change a price, a link, or a claim on this site, **update the matching file here and re-paste it into re:tune**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
+`01-base-prompt.md` is generated, never hand-edited. Edit a `kb-*.md` file, then rebuild:
 
-**Configuration as set.** Model Claude Haiku 4.5, temperature 0.3, input cap 6000 tokens, output cap 400 tokens, 250 conversations per 30 days, 10 messages per conversation per day, embedding restricted to `slkmediaagency.com, *.slkmediaagency.com`, human handoff to `https://link.slkmediaagency.com/strmeet`, re:tune branding off, URL-hallucination guard on, response rating on. Those caps put a hard ceiling of roughly $20 a month on the worst case, with $5 to $8 realistic.
+```bash
+cd "D:/CLAUDE CODE/slk-media-website/docs/chatbot" && cat _persona.md kb-01-offers-and-pricing.md kb-02-delivery.md kb-03-proof.md kb-04-common-questions.md kb-05-next-steps-and-contact.md > 01-base-prompt.md
+```
 
-**Two things block it going live.**
+Then paste the result into re:tune by hand. If you change a price, a link, or a claim on this site, **update the matching `kb-*.md`, rebuild, and re-paste**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
 
-1. **The knowledge base is empty.** All five documents failed with `[OpenAI] You have no credits remaining`. re:tune generates its retrieval embeddings through OpenAI regardless of which chat model is selected, because Anthropic has no embeddings endpoint. The OpenAI account behind the workspace key has a zero balance. Until credits are added and the documents are re-added, the bot has no facts and will correctly answer "I do not know" to everything.
-2. **No Anthropic key is set** in the re:tune workspace settings, so the selected Claude Haiku 4.5 model cannot run.
+One editing gotcha: re:tune autosaves the prompt fields on a debounce that only fires on a real keystroke. After pasting, click into the field, press End, type a character, delete it, click outside, then reload the page and confirm it stuck.
+
+**Configuration as set, all verified after reload.** Model Claude Haiku 4.5, temperature 0.3, input cap 12000 tokens (the prompt alone is about 8000, so this leaves room for history), output cap 400 tokens, 250 conversations per 30 days, 8 messages per conversation per day, embedding restricted to `slkmediaagency.com, *.slkmediaagency.com`, human handoff to `https://link.slkmediaagency.com/strmeet`, re:tune branding off, URL-hallucination guard on, response rating on.
+
+Because the full prompt rides on every message, worst case per message is $0.014, which puts a **hard ceiling of $28 a month** on those caps. Realistic is $8 to $12. Dropping conversations from 250 to 170 pulls the ceiling under $20.
+
+**One thing blocks it going live: no Anthropic key is set** in the re:tune workspace settings, so the selected Claude Haiku 4.5 model cannot run. Use a key separate from the one running the SDR agents, in its own Anthropic workspace with a console spend limit, so the website can never eat the SDR budget.
+
+One cosmetic leftover: a dead document called `05 Next steps, links and contact.txt` is stuck in the Train tab showing an old OpenAI credit error. It is inert (no embeddings, and nothing reads the knowledge base any more) and re:tune will not delete it.
 
 **To publish it once both are fixed**, add this one tag to the `<body>` of both layouts (`app/(main)/layout.js` and `app/(multiplier)/layout.js`) and update this section to say it is live:
 
