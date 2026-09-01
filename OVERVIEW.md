@@ -121,6 +121,8 @@ slk-media-agency/
     pack-screens.mjs       One-off: compresses before/after screenshots into docs/screens
   docs/
     screens/               Before/after WebP screenshots referenced by DESIGN.md
+    chatbot/               Source of truth for the re:tune website chatbot (see section 12). Not shipped to the browser.
+  slkwebsitechatbotknowledge.md  The verified fact-gather the chatbot content was built from (see section 12)
   next.config.mjs          301 redirects from old .html URLs + rewrites that serve the static HTML pages at clean URLs
   README.md                Short quick-start
   DESIGN.md                The premium redesign spec (design tokens, motion, per-route change log)
@@ -385,7 +387,47 @@ What was deliberately **kept**, because it is real and verifiable rather than an
 
 ---
 
-## 12. Maintaining this document (standing rule)
+## 12. The website chatbot (built in re:tune, NOT live on the site)
+
+A public chatbot for this site was built on 2026-09-01. **It is not embedded on the website and nothing in `app/` references it.** No route, no component, no CSS, no script tag. If you are reading the codebase looking for it, that is why you cannot find it: it lives entirely in a third-party dashboard.
+
+**Where it lives.** re:tune (https://retune.so), SLK Media Agency workspace, chatbot **"SLK Media Agency Assistant"**, chat id `11f1a60b-aefa-d040-a8a7-3b547bcdc15e`. The account is on the AppSumo Tier 4 lifetime plan, which covers unlimited published chatbots, unlimited messages, branding removal and a custom domain. The plan does **not** cover model tokens: re:tune is bring-your-own-key and bills nothing itself.
+
+A second, older chatbot called **"Trish"** (`11eeb87c-6f82-7460-843b-f3d951e44453`) also exists in that workspace. It was trained in August 2025 on the pre-Next.js `.html` version of this site and its pricing is stale. It was deliberately left untouched as a rollback. Do not use it and do not embed it.
+
+**How the content is built.** Everything the bot may say comes from `docs/chatbot/`, which is the editable source. The site is deliberately **not** scraped. The home page and `/podcast-multiplier` still carry stale claims that contradict `/pricing` (a 14-day money-back guarantee, a 10 percent prepayment discount, "Standard"/"Pro" package names, per-episode clip counts), so scraping them would put wrong facts inside the bot's retrieval context where the prompt rules cannot reliably suppress them. Curated text is pasted in instead.
+
+```
+docs/chatbot/
+  01-base-prompt.md              Identity, voice, length rules, the trial scope trap  -> re:tune "Base Prompt" field
+  02-restrictions.md             Price allow-list, prohibitions, DO NOT ANSWER list   -> re:tune "Restrictions" field
+  kb-01-offers-and-pricing.md    The four things you can buy, billing and cancellation
+  kb-02-delivery.md              Process, onboarding, platforms, niches, ownership
+  kb-03-proof.md                 The six case studies, seven testimonials, quotable figures
+  kb-04-common-questions.md      Objections and FAQs in approved wording
+  kb-05-next-steps-and-contact.md  Every link, contact routes, company identifiers
+```
+
+If you change a price, a link, or a claim on this site, **update the matching file here and re-paste it into re:tune**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
+
+**Configuration as set.** Model Claude Haiku 4.5, temperature 0.3, input cap 6000 tokens, output cap 400 tokens, 250 conversations per 30 days, 10 messages per conversation per day, embedding restricted to `slkmediaagency.com, *.slkmediaagency.com`, human handoff to `https://link.slkmediaagency.com/strmeet`, re:tune branding off, URL-hallucination guard on, response rating on. Those caps put a hard ceiling of roughly $20 a month on the worst case, with $5 to $8 realistic.
+
+**Two things block it going live.**
+
+1. **The knowledge base is empty.** All five documents failed with `[OpenAI] You have no credits remaining`. re:tune generates its retrieval embeddings through OpenAI regardless of which chat model is selected, because Anthropic has no embeddings endpoint. The OpenAI account behind the workspace key has a zero balance. Until credits are added and the documents are re-added, the bot has no facts and will correctly answer "I do not know" to everything.
+2. **No Anthropic key is set** in the re:tune workspace settings, so the selected Claude Haiku 4.5 model cannot run.
+
+**To publish it once both are fixed**, add this one tag to the `<body>` of both layouts (`app/(main)/layout.js` and `app/(multiplier)/layout.js`) and update this section to say it is live:
+
+```html
+<script src="https://retune.so/api/script/chat.js?id=11f1a60b-aefa-d040-a8a7-3b547bcdc15e" defer></script>
+```
+
+The tag is `defer`, so it cannot block render, and removing it is a one-line revert. Note that this would be the first third-party script on the site beyond the Font Awesome CDN, so it is a real new dependency: if re:tune is down, the widget does not load.
+
+---
+
+## 13. Maintaining this document (standing rule)
 
 This file is the handoff contract. It must stay accurate so a junior developer can pick up the project without asking questions.
 
