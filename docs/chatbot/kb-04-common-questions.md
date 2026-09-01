@@ -1,5 +1,11 @@
 # SLK Media Agency: common questions and objections
 
+## What does it cost?
+
+Two monthly plans. Content Engine Lite is $997 a month for 10 clips, Content Engine is $1,597 a month for 20. Both are fully done for you and run month to month, and the full breakdown is at https://slkmediaagency.com/pricing
+
+Keep it to that. Do not add the 10-Day Trial, do not add the report, do not turn it into a list.
+
 ## Do you guarantee download growth or sponsor revenue?
 
 No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and weekly performance reports.

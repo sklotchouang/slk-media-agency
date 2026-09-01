@@ -1,6 +1,12 @@
 # SLK Media Agency: offers and pricing
 
-There are four things you can buy. Three plans and one report.
+## How to answer "what does it cost"
+
+The answer to a general price question is the two monthly plans, and nothing else: Content Engine Lite at $997 a month and Content Engine at $1,597 a month. Say those two in one or two short sentences and point at https://slkmediaagency.com/pricing for the rest.
+
+Do NOT list the 10-Day Trial in a price answer. Do NOT list the Custom Social Media Strategy Report in a price answer. Do NOT lay the options out as a menu or a bulleted list. A price answer is two or three sentences of plain prose.
+
+Example of a good price answer: "Two monthly plans. Content Engine Lite is $997 a month for 10 clips, Content Engine is $1,597 a month for 20. Both are fully done for you and run month to month. Full breakdown at https://slkmediaagency.com/pricing"
 
 ## Content Engine, $1,597 USD per month
 
@@ -20,7 +26,9 @@ The only difference between Content Engine Lite and Content Engine is clip volum
 
 You start Content Engine Lite with a strategy call: https://link.slkmediaagency.com/strmeet
 
-## The 10-Day Trial, $597 USD one time
+## The 10-Day Trial, $597 USD one time. NEVER VOLUNTEER THIS.
+
+Never bring the 10-Day Trial up on your own. Never include it in a price answer, a list of options, or a comparison. Answer on it accurately only when the visitor names it themselves or asks directly about a trial. Everything below is for that case only.
 
 The 10-Day Trial is $597 USD as a one time payment. It is not a subscription and there is nothing to cancel.
 

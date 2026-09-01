@@ -31,7 +31,15 @@ cd "D:/CLAUDE CODE/slk-media-website/docs/chatbot" && cat _persona.md kb-01-offe
 
 Then paste the result into re:tune. Nothing syncs automatically.
 
-Editing note: re:tune autosaves the prompt fields on a debounce, and it only fires on a real keystroke. Setting the field value programmatically is not enough. After pasting, click into the field, press End, type a character, delete it, then click outside and reload the page to confirm it stuck.
+### Editing the prompt fields in re:tune: read this or you will lose work
+
+Three separate traps, all confirmed on 2026-09-01.
+
+1. **Autosave is debounced and only fires on a real keystroke.** Setting the value programmatically is not enough. After pasting, click into the field, press End, type a character, delete it, then click outside.
+2. **Autosave dies after you navigate around the app.** Once you have clicked between tabs a few times, the field accepts edits visually but **no save request is ever sent**, and the change silently vanishes on reload. Confirmed with an empty network log. The fix is to **open the chatbot in a brand new browser tab** and edit immediately, before navigating anywhere else.
+3. **Always verify by reloading** and re-reading the field. Never trust that an edit stuck.
+
+If a change will not save, do not keep retrying in the same tab. Close it, open a fresh one, go straight to the prompt page, edit, verify.
 
 ## Configuration, all verified after reload
 
