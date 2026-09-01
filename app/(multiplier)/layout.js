@@ -47,6 +47,14 @@ export default function MultiplierLayout({ children }) {
         {children}
         <SiteBehaviors />
         <MotionLayer />
+        {/* re:tune chat widget. See OVERVIEW.md section 12 before changing this line.
+            Plain deferred tag on purpose, not next/script: re:tune reads its own chat id
+            from document.currentScript.src, which is null when a script is injected
+            dynamically. Remove this line to take the chatbot off the site. */}
+        <script
+          src="https://retune.so/api/script/chat.js?id=11f1a60b-aefa-d040-a8a7-3b547bcdc15e"
+          defer
+        />
       </body>
     </html>
   );

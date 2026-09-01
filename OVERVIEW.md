@@ -387,9 +387,25 @@ What was deliberately **kept**, because it is real and verifiable rather than an
 
 ---
 
-## 12. The website chatbot (built in re:tune, NOT live on the site)
+## 12. The website chatbot (LIVE)
 
-A public chatbot for this site was built on 2026-09-01. **It is not embedded on the website and nothing in `app/` references it.** No route, no component, no CSS, no script tag. If you are reading the codebase looking for it, that is why you cannot find it: it lives entirely in a third-party dashboard.
+A public chatbot was built and published on 2026-09-01. The only thing in this repo is **one script tag in each of the two root layouts** (`app/(main)/layout.js` and `app/(multiplier)/layout.js`). Everything else, the prompt, the knowledge, the settings, lives in a third-party dashboard (re:tune), so there is no component, route or CSS to find here.
+
+```html
+<script src="https://retune.so/api/script/chat.js?id=11f1a60b-aefa-d040-a8a7-3b547bcdc15e" defer></script>
+```
+
+It is a plain deferred tag **on purpose, not `next/script`**: re:tune reads its own chat id from `document.currentScript.src`, which is `null` when a script is injected dynamically, so `next/script` with `afterInteractive` would break it. Deleting those two lines removes the chatbot from the site completely.
+
+**It does not work on localhost, and that is correct.** re:tune enforces the domain allowlist with a `frame-ancestors` Content Security Policy header on the chat iframe. The launcher button mounts anywhere, but the chat panel only loads on an allowed origin, and the browser blocks the rest. On `localhost:3000` you get the button and a blank white panel plus this console error, which is expected, not a bug:
+
+```
+Framing 'https://retune.so/' violates the following Content Security Policy directive:
+"frame-ancestors 'self' http://localhost:3005 retune.so https://slkmediaagency.com
+ https://www.slkmediaagency.com https://*.slkmediaagency.com"
+```
+
+That is worth understanding: the allowlist is enforced by the browser, not by re:tune's server trusting a referrer, so copying this script tag onto another domain cannot work. Verify chatbot changes on the live site, not locally.
 
 **Where it lives.** re:tune (https://retune.so), SLK Media Agency workspace, chatbot **"SLK Media Agency Assistant"**, chat id `11f1a60b-aefa-d040-a8a7-3b547bcdc15e`. The account is on the AppSumo Tier 4 lifetime plan, which covers unlimited published chatbots, unlimited messages, branding removal and a custom domain. The plan does **not** cover model tokens: re:tune is bring-your-own-key and bills nothing itself.
 
@@ -449,13 +465,9 @@ A trap worth knowing about that settings page: re:tune renders a saved key as `s
 
 One cosmetic leftover: a dead document called `05 Next steps, links and contact.txt` is stuck in the Train tab showing the OpenAI credit error. It is inert (no embeddings, and nothing reads the knowledge base) and re:tune will not delete it.
 
-**To publish it once both are fixed**, add this one tag to the `<body>` of both layouts (`app/(main)/layout.js` and `app/(multiplier)/layout.js`) and update this section to say it is live:
+**Dependency note.** This is the first third-party script on the site beyond the Font Awesome CDN. If re:tune is down the widget does not load. The tag is `defer`, so it can never block rendering, and removing the two lines is a complete revert.
 
-```html
-<script src="https://retune.so/api/script/chat.js?id=11f1a60b-aefa-d040-a8a7-3b547bcdc15e" defer></script>
-```
-
-The tag is `defer`, so it cannot block render, and removing it is a one-line revert. Note that this would be the first third-party script on the site beyond the Font Awesome CDN, so it is a real new dependency: if re:tune is down, the widget does not load.
+**Verified behaviour on 2026-09-01**, ten test questions run against the live bot: correct prices, correct refusals on all eight DO NOT ANSWER topics, correct trial scope, admits to being a bot, and resists a prompt-extraction attempt. One failure was found and fixed: asked what it costs, it originally returned a bulleted menu of all four products including the trial. The cause was `kb-01` opening with "There are four things you can buy", which the model copied as a template. The fix is the FORMAT OVERRIDE block at the top of `02-restrictions.md`, which states that the knowledge base is reference material whose formatting must never be mirrored back.
 
 ---
 
