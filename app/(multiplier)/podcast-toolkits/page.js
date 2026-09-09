@@ -126,6 +126,18 @@ const testimonials = [
     role: 'The Filtered Brew Podcast',
     initials: 'PH',
   },
+  {
+    video: 'ad-edwards',
+    ar: '16 / 9',
+    chipIcon: 'fas fa-clock',
+    chip: 'Not one late delivery',
+    headline: 'They’re very on time, punctual, and quick',
+    quote:
+      'I would describe the content team as very intuitive. You have meetings with them, they listen to what your objective is. They’re very consistent and they’re very responsive. Anytime I wanted something, if something changed or adjusted, you all did it, and I haven’t had anything come out late yet. They’re very on time, punctual, and quick.',
+    name: 'A.D. Edwards',
+    role: 'Ingleside Reviews Podcast',
+    initials: 'AE',
+  },
 ];
 
 export default function PodcastToolkitsPage() {

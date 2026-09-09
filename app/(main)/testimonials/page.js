@@ -149,6 +149,28 @@ export default function TestimonialsPage() {
             </div>
           </div>
           <div className="t-feature">
+            <div className="t-feature-media video-wrapper ar-169">
+              <video poster="/video-testimonials/poster-ad-edwards.webp" preload="none" playsInline controls>
+                <source src="/video-testimonials/testimonial-ad-edwards.mp4" type="video/mp4" />
+              </video>
+              <div className="video-overlay" role="button" tabIndex={0} aria-label="Play A.D. Edwards' video testimonial">
+                <div className="play-icon" aria-hidden="true">▶</div>
+              </div>
+            </div>
+            <div className="t-feature-quote">
+              <span className="t-result-chip"><i className="fas fa-clock" aria-hidden="true"></i> Not one late delivery</span>
+              <h2 className="t-headline">They're very on time, punctual, and quick</h2>
+              <blockquote>I would describe the content team as very intuitive. You have meetings with them, they listen to what your objective is. They're very consistent and they're very responsive. Anytime I wanted something, if something changed or adjusted, you all did it, and I haven't had anything come out late yet. They're very on time, punctual, and quick.</blockquote>
+              <div className="person">
+                <div className="avatar-ring"><span className="avatar-mono" aria-hidden="true">AE</span></div>
+                <div className="meta">
+                  <div className="name">A.D. Edwards</div>
+                  <div className="role">Ingleside Reviews Podcast</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="t-feature">
             <div className="t-feature-media video-wrapper ar-45">
               <video poster="/video-testimonials/poster-david.webp" preload="none" playsInline controls>
                 <source src="/video-testimonials/testimonial-david.mp4" type="video/mp4" />

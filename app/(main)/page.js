@@ -342,24 +342,24 @@ export default function HomePage() {
                 }}
               />
               <div
-                className="client-video ar-45"
+                className="client-video ar-169"
                 dangerouslySetInnerHTML={{
                   __html:
-                    '<video poster="/video-testimonials/poster-david.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-david.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">David Hetling</p><p class="video-description">RWS Group</p></div>',
+                    '<video poster="/video-testimonials/poster-brian.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-brian.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Brian Burton</p><p class="video-description">Waste No Day Podcast</p></div>',
                 }}
               />
               <div
-                className="client-video ar-45"
+                className="client-video ar-169"
                 dangerouslySetInnerHTML={{
                   __html:
-                    '<video poster="/video-testimonials/poster-julien.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-julien.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Julien Recoussine</p><p class="video-description">Sales Fix</p></div>',
+                    '<video poster="/video-testimonials/poster-steve.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-steve.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Steve Garrett</p><p class="video-description">Corvette Today Podcast</p></div>',
                 }}
               />
               <div
-                className="client-video ar-45"
+                className="client-video ar-169"
                 dangerouslySetInnerHTML={{
                   __html:
-                    '<video poster="/video-testimonials/poster-kelly.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-kelly.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Kelly Bellaria</p><p class="video-description">Alpine Institute</p></div>',
+                    '<video poster="/video-testimonials/poster-ad-edwards.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-ad-edwards.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">A.D. Edwards</p><p class="video-description">Ingleside Reviews Podcast</p></div>',
                 }}
               />
               <div

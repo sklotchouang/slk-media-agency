@@ -1556,6 +1556,32 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   flex: 0 1 190px;
 }
 
+/* The row used to hold three 4:5 testimonials between a 1:1 and a 9:16, close
+   enough in height to read as one row. Swapping the three non-podcast clients
+   out for Brian Burton, Steve Garrett and A.D. Edwards put three 16:9 sources
+   in those slots, and at a 190px basis a 16:9 card is 105px tall against a
+   187px square and a 333px reel. Equal widths cannot fix that, because the
+   sources are landscape and the survivors are not.
+
+   So the row gets one frame height and letterboxes each video inside it.
+   Cropping to a portrait shape was the other option and is rejected: A.D.
+   Edwards' testimonial is a two-person split screen, so a 4:5 crop removes a
+   speaker. aspect-ratio needs !important to beat the .ar-* classes, which set
+   theirs the same way, and object-fit flips from cover to contain so the bars
+   are frame rather than crop. Desktop only: below 768px the cards go full
+   width one per row, where their own aspect ratio is the right one. */
+@media (min-width: 769px) {
+  .video-testimonials .client-video {
+    aspect-ratio: auto !important;
+    height: 220px;
+  }
+
+  .video-testimonials .client-video video {
+    object-fit: contain;
+    background: #000;
+  }
+}
+
 /* grid-template-columns:1fr stops applying once the row is flex, so the legacy
    single-column mobile layout has to be restated here. */
 @media (max-width: 768px) {
