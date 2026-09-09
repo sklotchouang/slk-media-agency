@@ -190,7 +190,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/` | `app/(main)/page.js` | Home, long-form sales. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book Strategy Call (strmeet) only |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
-| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA |
+| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA, plus one quiet internal link to `/podcast-toolkits` in the downsell band |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
 | `/success/conjure-queen` | `app/(main)/success/conjure-queen/page.js` | Case study | strmeet |
 | `/success/brian-burton` | `app/(main)/success/brian-burton/page.js` | Case study | strmeet |
@@ -208,7 +208,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
 
-Two pages show a price: `/pricing` has a `pricing-section` (id `pricing`) carrying the three tiers, and `/podcast-toolkits` has one for the $100 strategy report.
+Two pages show a price: `/pricing` has a `pricing-section` (id `pricing`) carrying the three tiers, and `/podcast-toolkits` has one for the $100 strategy report. Since 2026-09-09 `/pricing` also restates the $100 figure once, in the downsell band described below.
 
 This changed on 2026-09-01. `/` and `/podcast-multiplier` used to carry the same three tiers, and **every price was stripped from both of them** at Samuel's request once `/pricing` existed, so the site now states a price in exactly one place per product. What that removal covered is documented in section 9. The three tiers, in the order they render (ascending, with the anchor tier last):
 
@@ -217,6 +217,18 @@ This changed on 2026-09-01. `/` and `/podcast-multiplier` used to carry the same
 3. **Content Engine**, $1,597/month, 20 clips/month. Carries `.featured` (the accent border and glow) and is the anchor tier.
 
 The tier markup lives in exactly one file now, `app/(main)/pricing/page.js`, so a tier change is a single edit with nothing to keep in sync. That is new as of 2026-09-01. For a few hours that day the same markup existed in three files (Samuel chose copy-paste over a shared `PricingTiers` component), and then the two sales pages lost their pricing sections entirely, which retired the duplication problem rather than solving it. If pricing is ever put back on another page, the old hazard returns: the markup is not a component, so re-verify the copies against each other with a diff instead of trusting they still match. The `/podcast-toolkits` section is a different product (a one-time report, Stripe checkout, its own fee disclosure) and has never been kept in sync with these. See the pricing rules in section 9.
+
+### The downsell band on `/pricing`, added 2026-09-09
+
+Samuel's request: route visitors who cannot afford the monthly plans to the $100 Custom Social Media Strategy Report on `/podcast-toolkits`, "subtly". The result is one section, `<section className="pp-downsell">`, in `app/(main)/pricing/page.js`, with its styles in premium.css section 17.
+
+**It sits between the pricing FAQ and the final CTA, and the position is the whole mechanism.** A downsell placed near the tier grid gets taken by people who could have paid full price. Placed last, the only readers who reach it have already scrolled past three tiers, the comparison table, the objection block and seven FAQ items, the last of which is "What if none of these fit my budget right now?". A negative top margin (`calc(var(--space-section) * -0.45)`) eats part of the FAQ's bottom padding so the band reads as attached to that answer rather than as a section of its own.
+
+**Everything about it is pitched below the rest of the page on purpose.** No background fill (hairline border only, where `.pp-custom` uses `--surface-1`), a 980px measure against `.pp-custom`'s 1200px, `--text-muted-2` body copy, an 18px `<h2>` against the 40px `.section-title`s, and a pill text link rather than `.primary-cta`. The `<h2>` is semantically a real h2 (the outline runs h1 then eight h2s with nothing skipped) and only visually small. If you make this louder you have built a fourth offer, not a downsell.
+
+It uses `.pp-downsell-link`, a new class, rather than `.btn-primary` (broken in this group, see section 6) or `.primary-cta` (too loud). The link is a `next/link` `Link` to `/podcast-toolkits`, which crosses from the `(main)` root layout into the `(multiplier)` one, so Next.js does a full page load rather than a client transition. That is expected and already how `/podcast-multiplier` links back to `/portfolio`. Verified working: the click lands on the toolkits page with its `$100 today` anchor intact, zero console errors.
+
+**The one maintenance hazard it introduces.** The `$100` figure and the `$103.55` Stripe-fee total now appear on two pages, `/podcast-toolkits` and this band. Nothing keeps them in sync. If the report's price ever changes, grep for `103.55` and fix both. This is the first deliberate exception to the "one place per product" state that section 9 describes, and it was taken because a downsell that hides its price does not work as a downsell.
 
 ### 7.2 Nav and footer
 
@@ -301,6 +313,7 @@ node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--redu
 
 - Copy, CTAs, links, prices, disclosures, and legal identifiers (KVK/BTW) are frozen. This project has been a visual and motion upgrade, not a content rewrite. Do not change any text node or `href` unless Samuel asks for that specific change.
 - The paid product on `/podcast-toolkits` shows a price anchor ($500 struck through to $100) and a processing-fee disclosure. Leave the Stripe link, the survey link, and the fee text exactly as they are.
+- The `$100` strategy report price is deliberately duplicated on `/pricing` (the `.pp-downsell` band) and `/podcast-toolkits`, along with the `$103.55` fee total. Grep both if it changes. See section 7.1.
 - Pricing is never presented as a bare number. Every tier in the pricing section on `/pricing` (`<section className="pricing-section" id="pricing">`) pairs its price with two required elements: a `.pricing-cost-anchor` block and a single `.pricing-outcome` line tying the spend to what actually ships. The Content Engine's anchor (the $50,000 to $80,000 a year in-house editor comparison) and its outcome line are the originals and are frozen.
 - The pricing section carries two CTA destinations, not one: the booking link (`strmeet`) on both monthly tiers, and the Myfundbox checkout on the 10-Day Trial, which is a direct purchase. This replaces the former "exactly one CTA per pricing section" rule, which was correct only while the section held a single tier. `/pricing` adds a third destination below the grid, the custom-order band, which also points at `strmeet`.
 - No free-work language anywhere in a pricing section: no free trial, free audit, free sample, demo, money-back, or guarantee wording. SLK Media Agency does not offer free work. (The separate `guarantee-section` on `/podcast-multiplier` is pre-existing and untouched; do not extend that language into pricing.) The 10-Day Trial is not an exception: it is a paid $597 product, and the word "trial" must never appear without its price beside it.

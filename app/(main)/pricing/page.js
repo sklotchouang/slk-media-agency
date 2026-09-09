@@ -484,6 +484,30 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Softer option, sits after the budget FAQ on purpose. See OVERVIEW.md
+            section 7.1: this is the only route from /pricing to /podcast-toolkits,
+            and it is deliberately the last thing before the final CTA so a
+            budget-capable reader meets the three tiers first. */}
+        <section className="pp-downsell">
+          <div className="container">
+            <div className="pp-downsell-inner">
+              <div className="pp-downsell-copy">
+                <p className="pp-downsell-kicker">Not ready for a monthly plan</p>
+                <h2>You can buy the strategy on its own</h2>
+                <p>
+                  If a monthly budget is not realistic for your show yet, the strategy is still worth having. The Custom Social Media Strategy Report gives you a full audit of your show, audience and competitor analysis, content pillars, an SEO keyword and hashtag list, and a step-by-step implementation guide. The report is the plan, the plans above are the execution. Run it yourself, hand it to a freelancer, or come back for done-for-you work when the timing is right.
+                </p>
+              </div>
+              <div className="pp-downsell-action">
+                <Link href="/podcast-toolkits" className="pp-downsell-link">
+                  See the strategy report <i className="fas fa-arrow-right" aria-hidden="true"></i>
+                </Link>
+                <p className="pp-downsell-note">$100 one time, no subscription, delivered in 1 to 2 days. The Stripe processing fee is added at checkout, bringing the total to $103.55.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="pp-final-cta">
           <div className="container">

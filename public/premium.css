@@ -2343,6 +2343,111 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   background: var(--surface-2);
 }
 
+/* ---- Downsell band, between the pricing FAQ and the final CTA ----
+
+   The quiet route to /podcast-toolkits (the $100 strategy report) for a reader
+   whose budget rules the three tiers out. Everything here is deliberately
+   pitched BELOW the rest of the page so it never competes with the tiers:
+   no fill, hairline border only, a narrower measure than .pp-custom (980 vs
+   1200), muted body text, a small h2 rather than .section-title, and a text
+   link instead of .primary-cta. If you make this louder you turn a downsell
+   into a fourth offer, and budget-capable readers will take it.
+
+   The negative top margin eats part of the FAQ section's bottom padding so the
+   band reads as attached to the "none of these fit my budget" answer above it,
+   rather than as a section of its own. ---- */
+.pricing-page .pp-downsell {
+  padding: 0;
+  margin-top: calc(var(--space-section) * -0.45);
+}
+
+.pricing-page .pp-downsell-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 26px 32px;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+}
+
+.pricing-page .pp-downsell-copy {
+  flex: 1 1 400px;
+}
+
+.pricing-page .pp-downsell-kicker {
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted-2);
+  margin-bottom: 8px;
+}
+
+.pricing-page .pp-downsell-copy h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.pricing-page .pp-downsell-copy p {
+  font-size: 0.93rem;
+  line-height: 1.62;
+  color: var(--text-muted-2);
+  margin: 0;
+  max-width: 64ch;
+}
+
+.pricing-page .pp-downsell-action {
+  flex: 0 1 240px;
+  text-align: center;
+}
+
+.pricing-page .pp-downsell-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 20px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: border-color var(--dur-quick) var(--ease-out),
+    background var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page .pp-downsell-link i {
+  color: var(--accent);
+  font-size: 0.8rem;
+  transition: transform var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page .pp-downsell-link:hover,
+.pricing-page .pp-downsell-link:focus-visible {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+.pricing-page .pp-downsell-link:hover i,
+.pricing-page .pp-downsell-link:focus-visible i {
+  transform: translateX(3px);
+}
+
+.pricing-page .pp-downsell-note {
+  margin: 12px 0 0;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--text-muted-2);
+}
+
 /* ---- Final CTA ---- */
 .pricing-page .pp-final-cta {
   padding: var(--space-section) 0 calc(var(--space-section) * 0.8);
@@ -2406,6 +2511,19 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     flex: 1 1 100%;
   }
 
+  .pricing-page .pp-downsell-inner {
+    padding: 24px 22px;
+    text-align: center;
+  }
+
+  .pricing-page .pp-downsell-copy p {
+    margin-inline: auto;
+  }
+
+  .pricing-page .pp-downsell-action {
+    flex: 1 1 100%;
+  }
+
   .pricing-page .pp-objection,
   .pricing-page .pp-next-step {
     padding: 26px 22px;
@@ -2441,8 +2559,15 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 @media (prefers-reduced-motion: reduce) {
   .pricing-page .pp-objection,
   .pricing-page .pp-proof-link,
-  .pricing-page .pp-jump-link {
+  .pricing-page .pp-jump-link,
+  .pricing-page .pp-downsell-link,
+  .pricing-page .pp-downsell-link i {
     transition: none;
+  }
+
+  .pricing-page .pp-downsell-link:hover i,
+  .pricing-page .pp-downsell-link:focus-visible i {
+    transform: none;
   }
 
   .pricing-page .pp-objection:hover,
