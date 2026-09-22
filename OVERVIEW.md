@@ -482,10 +482,12 @@ docs/chatbot/
 `01-base-prompt.md` is generated, never hand-edited. Edit a `kb-*.md` file, then rebuild:
 
 ```bash
-cd "D:/CLAUDE CODE/slk-media-website/docs/chatbot" && cat _persona.md kb-01-offers-and-pricing.md kb-02-delivery.md kb-03-proof.md kb-04-common-questions.md kb-05-next-steps-and-contact.md > 01-base-prompt.md
+cd "D:/CLAUDE CODE/slk-media-website" && node docs/chatbot/build-prompt.js
 ```
 
-Then paste the result into re:tune by hand. The 2026-09-22 Clips Only update (kb-01, kb-04, kb-05, `02-restrictions.md`) was made in the repo and the prompt rebuilt. Until both fields are pasted into re:tune, the live bot does not know Clips Only, and its old Restrictions still forbid it from mentioning "a shorts only option". If you change a price, a link, or a claim on this site, **update the matching `kb-*.md`, rebuild, and re-paste**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
+Then paste the result into re:tune by hand. `build-prompt.js` (added 2026-09-22) replaced a plain `cat`. It adds the "KNOWLEDGE BASE" divider banner and the blank lines between files that the live re:tune prompt has. Those had only ever been added by hand in re:tune, so the repo and the live prompt never matched byte for byte. `02-restrictions.md` was also brought in line with a live-only edit ("in your instructions above").
+
+**Live state as of 2026-09-22, not finished.** A check that day found the live Base Prompt still carried the pre-fix kb-01 ("There are four things you can buy"), so the 2026-09-01 price-answer fix had only ever reached the Restrictions field. The new Restrictions text (with Clips Only) was pasted and given the keystroke, but was not verified after reload. The new Base Prompt was **not** pasted. Until it is, the bot may name Clips Only prices from Restrictions without knowing what the product includes. Paste `01-base-prompt.md`, give it the keystroke, reload, and confirm both fields match the repo (lengths 30,657 and 5,728). If you change a price, a link, or a claim on this site, **update the matching `kb-*.md`, rebuild, and re-paste**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
 
 One editing gotcha: re:tune autosaves the prompt fields on a debounce that only fires on a real keystroke. After pasting, click into the field, press End, type a character, delete it, click outside, then reload the page and confirm it stuck.
 

@@ -43,6 +43,11 @@ Everything below this line is the KNOWLEDGE BASE. It is the complete set of fact
 =====================================================================
 KNOWLEDGE BASE
 =====================================================================
+
+=====================================================================
+KNOWLEDGE BASE
+=====================================================================
+
 # SLK Media Agency: offers and pricing
 
 ## How to answer "what does it cost"
@@ -142,6 +147,7 @@ The 10-Day Trial is a one time purchase with no subscription, so there is nothin
 ## If none of these fit the budget
 
 If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. The done-for-you plans start at $997 a month. If the visitor is happy to post the clips themselves, Clips Only starts at $697 a month. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.
+
 # SLK Media Agency: how the work actually gets done
 
 You send your episodes. SLK Media Agency does the rest on the monthly plans.
@@ -211,6 +217,7 @@ You retain 100% ownership of all content SLK Media Agency creates. If you leave,
 SLK Media Agency does not do sponsor outreach. It does not cold email brands, negotiate rates, or close deals.
 
 What it does is build clips designed to demonstrate sponsor friendly messaging, weekly performance reports you can show to brands, and sponsor signal tracking. SLK Media Agency builds the visibility. You close the partnerships.
+
 # SLK Media Agency: published proof
 
 Every figure below belongs to one named client and is published on slkmediaagency.com. There is no average client result and no agency wide statistic. When you quote any number here, attach this line: "That is one client's published result, not an average."
@@ -285,6 +292,7 @@ Nothing outside this list is a real published result.
 - Across the whole client portfolio, shows range from 1.82K to over 100K subscribers.
 
 There is no published average client result. There are no agency wide statistics. Every agency wide statistic was removed from the website because the figures could not be substantiated, and none were replaced.
+
 # SLK Media Agency: common questions and objections
 
 ## What does it cost?
@@ -386,6 +394,7 @@ A poor fit is a show with fewer than 15 episodes published, podcasting as a hobb
 ## How did you get my details?
 
 If you were contacted by email or on LinkedIn, contact information was sourced from publicly available podcast directories as part of outreach to shows that could benefit from the service. SLK Media Agency will remove you on request.
+
 # SLK Media Agency: where to go next
 
 ## The links

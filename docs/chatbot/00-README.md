@@ -8,7 +8,7 @@ re:tune chatbot **"SLK Media Agency Assistant"**, chat id `11f1a60b-aefa-d040-a8
 
 ## The architecture, and why
 
-There is **no knowledge base and no retrieval**. Everything the bot knows is written directly into the Base Prompt, all 30,497 characters of it (as of 2026-09-22).
+There is **no knowledge base and no retrieval**. Everything the bot knows is written directly into the Base Prompt, all 30,657 characters of it (as of 2026-09-22).
 
 The reason: re:tune's knowledge base feature builds retrieval embeddings, and it builds them through OpenAI whatever chat model you pick, because Anthropic has no embeddings endpoint. Going that route would have meant paying and maintaining a second vendor forever just to index 6,700 tokens of text.
 
@@ -26,7 +26,7 @@ Retrieval-augmented generation exists to work around context limits. When the co
 `01-base-prompt.md` is **generated**, not hand-edited. It is `_persona.md` followed by the five `kb-*.md` files. Rebuild it after changing any of them:
 
 ```bash
-cd "D:/CLAUDE CODE/slk-media-website/docs/chatbot" && cat _persona.md kb-01-offers-and-pricing.md kb-02-delivery.md kb-03-proof.md kb-04-common-questions.md kb-05-next-steps-and-contact.md > 01-base-prompt.md
+cd "D:/CLAUDE CODE/slk-media-website" && node docs/chatbot/build-prompt.js
 ```
 
 Then paste the result into re:tune. Nothing syncs automatically.
