@@ -490,6 +490,25 @@ export default function PricingPage() {
             budget-capable reader meets the three tiers first. */}
         <section className="pp-downsell">
           <div className="container">
+            {/* Clips Only entry, added 2026-09-22. Same band, same quiet
+                treatment as the strategy report entry below it. See OVERVIEW.md
+                section 7.1 before making either entry louder. */}
+            <div className="pp-downsell-inner">
+              <div className="pp-downsell-copy">
+                <p className="pp-downsell-kicker">Want to post it yourself</p>
+                <h2>You can buy just the clips</h2>
+                <p>
+                  If you already have a way to post, or want to do it yourself, Clips Only is the clip production on its own. We cut the clips from your episodes and a dedicated project manager handles delivery and quality. No strategy document, no copywriting, no custom thumbnails, no scheduling.
+                </p>
+              </div>
+              <div className="pp-downsell-action">
+                <Link href="/pricing/clips-only" className="pp-downsell-link">
+                  See Clips Only pricing <i className="fas fa-arrow-right" aria-hidden="true"></i>
+                </Link>
+                <p className="pp-downsell-note">$697/month for 10 clips, or $1,097/month for 20.</p>
+              </div>
+            </div>
+
             <div className="pp-downsell-inner">
               <div className="pp-downsell-copy">
                 <p className="pp-downsell-kicker">Not ready for a monthly plan</p>

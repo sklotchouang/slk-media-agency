@@ -2400,6 +2400,13 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   border-radius: 16px;
 }
 
+/* Two entries share the band since 2026-09-22 (Clips Only, then the
+   strategy report). Stacked, not side by side, so each keeps the same
+   measure and quiet treatment it would have alone. */
+.pricing-page .pp-downsell-inner + .pp-downsell-inner {
+  margin-top: 14px;
+}
+
 .pricing-page .pp-downsell-copy {
   flex: 1 1 400px;
 }
@@ -2516,6 +2523,15 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 .pricing-page .pp-final-secondary:hover,
 .pricing-page .pp-final-secondary:focus-visible {
   color: var(--text-primary);
+}
+
+/* ---- /pricing/clips-only ----
+   That page sets both .pricing-page and .clips-only-page on <main>, so it
+   inherits everything above unchanged. The only difference: it has two tiers,
+   not three, and the auto-fit grid would stretch them to about 585px each.
+   Capping the grid keeps each card close to the width of a /pricing card. */
+.clips-only-page .pricing-grid {
+  max-width: 800px;
 }
 
 /* ---- Responsive ---- */

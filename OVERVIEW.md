@@ -95,6 +95,7 @@ slk-media-agency/
       portfolio/           /portfolio (clip grid)
       testimonials/        /testimonials
       pricing/             /pricing (standalone pricing page, the link the SDR sends; not in any nav)
+        clips-only/        /pricing/clips-only (Clips Only, the done-with-you line; not in any nav)
       pre-call/            /pre-call (instructions for a booked call)
       privacy-policy/      /privacy-policy (legal)
       terms-and-conditions/  /terms-and-conditions (legal)
@@ -190,7 +191,8 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/` | `app/(main)/page.js` | Home, long-form sales. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book Strategy Call (strmeet) only |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
-| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA, plus one quiet internal link to `/podcast-toolkits` in the downsell band |
+| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA, plus two quiet internal links in the downsell band, to `/pricing/clips-only` and to `/podcast-toolkits` |
+| `/pricing/clips-only` | `app/(main)/pricing/clips-only/page.js` | Clips Only, the done-with-you product line (added 2026-09-22). Two tiers, reached only from the `/pricing` downsell band. Not in any nav. | strmeet on both tiers and the final CTA, plus internal links back to `/pricing` |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
 | `/success/conjure-queen` | `app/(main)/success/conjure-queen/page.js` | Case study | strmeet |
 | `/success/brian-burton` | `app/(main)/success/brian-burton/page.js` | Case study | strmeet |
@@ -208,7 +210,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
 
-Two pages show a price: `/pricing` has a `pricing-section` (id `pricing`) carrying the three tiers, and `/podcast-toolkits` has one for the $100 strategy report. Since 2026-09-09 `/pricing` also restates the $100 figure once, in the downsell band described below.
+Three pages show a price: `/pricing` has a `pricing-section` (id `pricing`) carrying the three tiers, `/pricing/clips-only` has one carrying the two Clips Only tiers, and `/podcast-toolkits` has one for the $100 strategy report. `/pricing` also restates the $100 figure (since 2026-09-09) and the two Clips Only prices (since 2026-09-22) once each, in the downsell band described below.
 
 This changed on 2026-09-01. `/` and `/podcast-multiplier` used to carry the same three tiers, and **every price was stripped from both of them** at Samuel's request once `/pricing` existed, so the site now states a price in exactly one place per product. What that removal covered is documented in section 9. The three tiers, in the order they render (ascending, with the anchor tier last):
 
@@ -229,6 +231,21 @@ Samuel's request: route visitors who cannot afford the monthly plans to the $100
 It uses `.pp-downsell-link`, a new class, rather than `.btn-primary` (broken in this group, see section 6) or `.primary-cta` (too loud). The link is a `next/link` `Link` to `/podcast-toolkits`, which crosses from the `(main)` root layout into the `(multiplier)` one, so Next.js does a full page load rather than a client transition. That is expected and already how `/podcast-multiplier` links back to `/portfolio`. Verified working: the click lands on the toolkits page with its `$100 today` anchor intact, zero console errors.
 
 **The one maintenance hazard it introduces.** The `$100` figure and the `$103.55` Stripe-fee total now appear on two pages, `/podcast-toolkits` and this band. Nothing keeps them in sync. If the report's price ever changes, grep for `103.55` and fix both. This is the first deliberate exception to the "one place per product" state that section 9 describes, and it was taken because a downsell that hides its price does not work as a downsell.
+
+**Second entry, added 2026-09-22: Clips Only.** The band now holds two `.pp-downsell-inner` blocks, stacked, Clips Only first ("Want to post it yourself", linking to `/pricing/clips-only`), then the strategy report. Clips Only comes first because it is the nearer step down from $997. The second block is spaced by one rule, `.pp-downsell-inner + .pp-downsell-inner { margin-top: 14px }`. Otherwise both blocks use the existing classes unchanged, so the same "keep it quiet" rules apply to both. The Clips Only note restates `$697` and `$1,097`, which creates a second sync hazard: if either price changes, grep for `1,097` and fix both `/pricing` and `/pricing/clips-only`.
+
+### `/pricing/clips-only`, added 2026-09-22
+
+The done-with-you product line: we cut the clips, the client posts them. Hero ("Just the clips."), two tier cards, a one-item FAQ, the final CTA. The tiers:
+
+1. **Clips Only 10**, $697/month, 10 clips/month.
+2. **Clips Only 20**, $1,097/month, 20 clips/month.
+
+Both include a dedicated Project Manager. Neither includes the strategy document, copywriting, custom thumbnails or scheduling. The optional add-on (we schedule and post the clips) is +$100/month. Neither card carries `.featured`. The card copy does not state whether weekly calls, weekly reporting or month-to-month billing apply, because none of that was specified. Ask Samuel before adding any of it.
+
+How it is built: `<main className="pricing-page clips-only-page">`. The `.pricing-page` class pulls in the whole `/pricing` re-skin from premium.css section 17 unchanged, and the tier cards reuse the shared `.pricing-*` markup, so the page adds no new visual style. The one page-only rule is `.clips-only-page .pricing-grid { max-width: 800px }`. Without it, the `auto-fit` grid would stretch two cards to about 585px each. Metadata and JSON-LD follow the `/pricing` pattern (a `Product` with one `Offer` per tier, each carrying the $100 scheduling add-on as an `addOn` Offer). The page is in `public/sitemap.xml`.
+
+Both CTAs are the booking link (`strmeet`), the same one Lite and Content Engine use. There is no self-serve checkout for this product yet. When one exists it can replace the booking link, the way the 10-Day Trial uses Myfundbox. Do not invent one before then.
 
 ### 7.2 Nav and footer
 
@@ -314,6 +331,7 @@ node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--redu
 - Copy, CTAs, links, prices, disclosures, and legal identifiers (KVK/BTW) are frozen. This project has been a visual and motion upgrade, not a content rewrite. Do not change any text node or `href` unless Samuel asks for that specific change.
 - The paid product on `/podcast-toolkits` shows a price anchor ($500 struck through to $100) and a processing-fee disclosure. Leave the Stripe link, the survey link, and the fee text exactly as they are.
 - The `$100` strategy report price is deliberately duplicated on `/pricing` (the `.pp-downsell` band) and `/podcast-toolkits`, along with the `$103.55` fee total. Grep both if it changes. See section 7.1.
+- The Clips Only prices (`$697`, `$1,097`) are deliberately duplicated the same way, on `/pricing/clips-only` and in the `/pricing` downsell band. The same "every tier has a `.pricing-cost-anchor` and a `.pricing-outcome`" rule applies to its two cards. Their anchors use only figures the site already states (the $300 and $500 gaps to Lite and Content Engine). Keep it that way, and never invent a statistic.
 - Pricing is never presented as a bare number. Every tier in the pricing section on `/pricing` (`<section className="pricing-section" id="pricing">`) pairs its price with two required elements: a `.pricing-cost-anchor` block and a single `.pricing-outcome` line tying the spend to what actually ships. The Content Engine's anchor (the $50,000 to $80,000 a year in-house editor comparison) and its outcome line are the originals and are frozen.
 - The pricing section carries two CTA destinations, not one: the booking link (`strmeet`) on both monthly tiers, and the Myfundbox checkout on the 10-Day Trial, which is a direct purchase. This replaces the former "exactly one CTA per pricing section" rule, which was correct only while the section held a single tier. `/pricing` adds a third destination below the grid, the custom-order band, which also points at `strmeet`.
 - No free-work language anywhere in a pricing section: no free trial, free audit, free sample, demo, money-back, or guarantee wording. SLK Media Agency does not offer free work. (The separate `guarantee-section` on `/podcast-multiplier` is pre-existing and untouched; do not extend that language into pricing.) The 10-Day Trial is not an exception: it is a paid $597 product, and the word "trial" must never appear without its price beside it.
@@ -494,4 +512,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-09-01.
+Last verified against the codebase: 2026-09-22.
