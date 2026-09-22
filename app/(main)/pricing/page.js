@@ -199,6 +199,22 @@ export default function PricingPage() {
               </div>
             </div>
 
+            {/* Clips Only, the done-with-you line. Sits directly under the tier
+                cards and reuses the custom-order band's markup, so it reads as a
+                real option, not a downsell. See OVERVIEW.md section 7.1. */}
+            <div className="pp-custom">
+              <div className="pp-custom-copy">
+                <h3>Want to post it yourself?</h3>
+                <p>
+                  Clips Only is the clip production on its own. We cut the clips from your episodes, a dedicated project manager handles delivery and quality, and you post them yourself. No strategy document, no copywriting, no custom thumbnails and no scheduling, unless you add scheduling for +$100/month.
+                </p>
+              </div>
+              <div className="pp-custom-action">
+                <Link href="/pricing/clips-only" className="primary-cta">See Clips Only pricing</Link>
+                <p className="pp-custom-note">$697/month for 10 clips, or $1,097/month for 20.</p>
+              </div>
+            </div>
+
             {/* Custom order */}
             <div className="pp-custom">
               <div className="pp-custom-copy">
@@ -430,7 +446,7 @@ export default function PricingPage() {
                   <span className="accordion-icon"><i className="fas fa-plus"></i></span>
                 </div>
                 <div className="accordion-content">
-                  <p>Yes. Both monthly plans run month to month, so moving from Lite to Content Engine, or back down, takes effect from your next billing cycle. Raise it with your Project Manager on a weekly call and it is handled.</p>
+                  <p>Yes. All the monthly plans run month to month, so moving between Clips Only, Lite and Content Engine, up or down, takes effect from your next billing cycle. Raise it with your Project Manager on a weekly call and it is handled.</p>
                   <p><strong>Your pricing locks in when you join.</strong> We have never raised rates on existing clients mid-contract.</p>
                 </div>
               </div>
@@ -477,7 +493,7 @@ export default function PricingPage() {
                 </div>
                 <div className="accordion-content">
                   <p>Then this is not the right time, and we will say so rather than sell you something that will not work.</p>
-                  <p>Our monthly plans start at $997/month, and the 10-Day Trial is $597 one-time. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
+                  <p>Our done-for-you plans start at $997/month, and the 10-Day Trial is $597 one-time. If you are happy to post the clips yourself, <Link href="/pricing/clips-only">Clips Only</Link> starts at $697/month. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
                 </div>
               </div>
             </div>
@@ -490,25 +506,6 @@ export default function PricingPage() {
             budget-capable reader meets the three tiers first. */}
         <section className="pp-downsell">
           <div className="container">
-            {/* Clips Only entry, added 2026-09-22. Same band, same quiet
-                treatment as the strategy report entry below it. See OVERVIEW.md
-                section 7.1 before making either entry louder. */}
-            <div className="pp-downsell-inner">
-              <div className="pp-downsell-copy">
-                <p className="pp-downsell-kicker">Want to post it yourself</p>
-                <h2>You can buy just the clips</h2>
-                <p>
-                  If you already have a way to post, or want to do it yourself, Clips Only is the clip production on its own. We cut the clips from your episodes and a dedicated project manager handles delivery and quality. No strategy document, no copywriting, no custom thumbnails, no scheduling.
-                </p>
-              </div>
-              <div className="pp-downsell-action">
-                <Link href="/pricing/clips-only" className="pp-downsell-link">
-                  See Clips Only pricing <i className="fas fa-arrow-right" aria-hidden="true"></i>
-                </Link>
-                <p className="pp-downsell-note">$697/month for 10 clips, or $1,097/month for 20.</p>
-              </div>
-            </div>
-
             <div className="pp-downsell-inner">
               <div className="pp-downsell-copy">
                 <p className="pp-downsell-kicker">Not ready for a monthly plan</p>

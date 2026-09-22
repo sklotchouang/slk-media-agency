@@ -6,6 +6,8 @@ Book a strategy call, the main next step for anyone ready to start or wanting a 
 
 See all the pricing: https://slkmediaagency.com/pricing
 
+See the Clips Only plans, for people who post the clips themselves: https://slkmediaagency.com/pricing/clips-only
+
 See the work: https://slkmediaagency.com/portfolio
 
 See audio to video examples: https://link.slkmediaagency.com/kfjvmbndh

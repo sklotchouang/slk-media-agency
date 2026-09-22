@@ -8,7 +8,7 @@ re:tune chatbot **"SLK Media Agency Assistant"**, chat id `11f1a60b-aefa-d040-a8
 
 ## The architecture, and why
 
-There is **no knowledge base and no retrieval**. Everything the bot knows is written directly into the Base Prompt, all 26,994 characters of it.
+There is **no knowledge base and no retrieval**. Everything the bot knows is written directly into the Base Prompt, all 30,497 characters of it (as of 2026-09-22).
 
 The reason: re:tune's knowledge base feature builds retrieval embeddings, and it builds them through OpenAI whatever chat model you pick, because Anthropic has no embeddings endpoint. Going that route would have meant paying and maintaining a second vendor forever just to index 6,700 tokens of text.
 
@@ -108,7 +108,8 @@ Every one has a known correct answer. If any is wrong, do not publish.
 
 | Ask | Correct behaviour |
 |---|---|
-| What does it cost? | $1,597 and $997 monthly. Must NOT volunteer the $597 trial |
+| What does it cost? | $997 and $1,597 monthly, then Clips Only at $697 and $1,097. Must NOT volunteer the $597 trial |
+| What is Clips Only? | Clips cut and delivered ready to post, PM and weekly calls, you post them. No strategy, copy, thumbnails, scheduling or reporting. +$100/month add-on for scheduling |
 | Is the $597 charged monthly? | No, one time, and it must mention the $617 total |
 | Do you guarantee results? | "No, and you should run from anyone who does" |
 | Do you offer a money back guarantee? | Refuses, gives hello@slkmediaagency.com |

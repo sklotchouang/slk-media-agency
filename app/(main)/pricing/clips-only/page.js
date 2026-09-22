@@ -55,7 +55,7 @@ const structuredData = {
     {
       '@type': 'Offer',
       name: 'Clips Only 10',
-      description: '10 clips per month, cut from your episodes and delivered ready to post, with a dedicated project manager.',
+      description: '10 clips per month, cut from your episodes and delivered ready to post, with a dedicated project manager and weekly consultation calls.',
       price: '697',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
@@ -65,7 +65,7 @@ const structuredData = {
     {
       '@type': 'Offer',
       name: 'Clips Only 20',
-      description: '20 clips per month, cut from your episodes and delivered ready to post, with a dedicated project manager.',
+      description: '20 clips per month, cut from your episodes and delivered ready to post, with a dedicated project manager and weekly consultation calls.',
       price: '1097',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
@@ -136,7 +136,7 @@ export default function ClipsOnlyPricingPage() {
                   <p className="pricing-period">(DWY)</p>
                   <div className="pricing-price">$697/month</div>
                   <p className="pricing-cost-anchor">
-                    <strong>The math:</strong> 10 clips a month, the same volume as Content Engine Lite, for <span className="pricing-cost-anchor-figure">$300 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails and no scheduling. You post them yourself.
+                    <strong>The math:</strong> 10 clips a month, the same volume as Content Engine Lite, for <span className="pricing-cost-anchor-figure">$300 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails, no scheduling and no weekly reporting. You post them yourself.
                   </p>
                 </div>
                 <div className="pricing-content">
@@ -144,6 +144,7 @@ export default function ClipsOnlyPricingPage() {
                     <li>10 clips/month, cut from your episodes</li>
                     <li>Delivered ready to post</li>
                     <li>Dedicated Project Manager</li>
+                    <li>Weekly Consultation Calls</li>
                     <li>You post them yourself</li>
                     <li>Add-on: we schedule and post them for you, +$100/month</li>
                   </ul>
@@ -159,7 +160,7 @@ export default function ClipsOnlyPricingPage() {
                   <p className="pricing-period">(DWY)</p>
                   <div className="pricing-price">$1,097/month</div>
                   <p className="pricing-cost-anchor">
-                    <strong>The math:</strong> 20 clips a month, the same volume as the Content Engine, for <span className="pricing-cost-anchor-figure">$500 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails and no scheduling. You post them yourself.
+                    <strong>The math:</strong> 20 clips a month, the same volume as the Content Engine, for <span className="pricing-cost-anchor-figure">$500 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails, no scheduling and no weekly reporting. You post them yourself.
                   </p>
                 </div>
                 <div className="pricing-content">
@@ -167,6 +168,7 @@ export default function ClipsOnlyPricingPage() {
                     <li>20 clips/month, cut from your episodes</li>
                     <li>Delivered ready to post</li>
                     <li>Dedicated Project Manager</li>
+                    <li>Weekly Consultation Calls</li>
                     <li>You post them yourself</li>
                     <li>Add-on: we schedule and post them for you, +$100/month</li>
                   </ul>
@@ -191,7 +193,7 @@ export default function ClipsOnlyPricingPage() {
                   <span className="accordion-icon"><i className="fas fa-plus"></i></span>
                 </div>
                 <div className="accordion-content">
-                  <p><strong>Because it is only the clips.</strong> Content Engine Lite adds the strategy document, copywriting, custom thumbnails and scheduling on top of the clips. Clips Only leaves that work with you.</p>
+                  <p><strong>Because it is only the clips.</strong> Content Engine Lite adds the strategy document, copywriting, custom thumbnails, scheduling and weekly reporting on top of the clips. Clips Only leaves that work with you.</p>
                   <p>If you would rather have all of it done for you, <Link href="/pricing#pricing">see the done-for-you plans</Link>.</p>
                 </div>
               </div>

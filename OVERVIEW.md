@@ -191,8 +191,8 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/` | `app/(main)/page.js` | Home, long-form sales. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book Strategy Call (strmeet) only |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
-| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA, plus two quiet internal links in the downsell band, to `/pricing/clips-only` and to `/podcast-toolkits` |
-| `/pricing/clips-only` | `app/(main)/pricing/clips-only/page.js` | Clips Only, the done-with-you product line (added 2026-09-22). Two tiers, reached only from the `/pricing` downsell band. Not in any nav. | strmeet on both tiers and the final CTA, plus internal links back to `/pricing` |
+| `/pricing` | `app/(main)/pricing/page.js` | Standalone pricing page the SDR sends when a prospect asks for numbers. Public and indexed, deliberately **not** in any nav. | Myfundbox checkout on the trial tier, strmeet on both monthly tiers, the custom-order band and the final CTA, plus a visible Clips Only band under the tier cards linking to `/pricing/clips-only`, and one quiet internal link to `/podcast-toolkits` in the downsell band |
+| `/pricing/clips-only` | `app/(main)/pricing/clips-only/page.js` | Clips Only, the done-with-you product line (added 2026-09-22). Two tiers, reached from the Clips Only band under the `/pricing` tier cards and from the budget FAQ answer. Not in any nav. | strmeet on both tiers and the final CTA, plus internal links back to `/pricing` |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
 | `/success/conjure-queen` | `app/(main)/success/conjure-queen/page.js` | Case study | strmeet |
 | `/success/brian-burton` | `app/(main)/success/brian-burton/page.js` | Case study | strmeet |
@@ -210,7 +210,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
 
-Three pages show a price: `/pricing` has a `pricing-section` (id `pricing`) carrying the three tiers, `/pricing/clips-only` has one carrying the two Clips Only tiers, and `/podcast-toolkits` has one for the $100 strategy report. `/pricing` also restates the $100 figure (since 2026-09-09) and the two Clips Only prices (since 2026-09-22) once each, in the downsell band described below.
+Three pages show a price: `/pricing` has a `pricing-section` (id `pricing`) carrying the three tiers, `/pricing/clips-only` has one carrying the two Clips Only tiers, and `/podcast-toolkits` has one for the $100 strategy report. `/pricing` also restates the $100 figure once, in the downsell band described below (since 2026-09-09), and the two Clips Only prices once, in the Clips Only band under the tier cards (since 2026-09-22).
 
 This changed on 2026-09-01. `/` and `/podcast-multiplier` used to carry the same three tiers, and **every price was stripped from both of them** at Samuel's request once `/pricing` existed, so the site now states a price in exactly one place per product. What that removal covered is documented in section 9. The three tiers, in the order they render (ascending, with the anchor tier last):
 
@@ -232,7 +232,15 @@ It uses `.pp-downsell-link`, a new class, rather than `.btn-primary` (broken in 
 
 **The one maintenance hazard it introduces.** The `$100` figure and the `$103.55` Stripe-fee total now appear on two pages, `/podcast-toolkits` and this band. Nothing keeps them in sync. If the report's price ever changes, grep for `103.55` and fix both. This is the first deliberate exception to the "one place per product" state that section 9 describes, and it was taken because a downsell that hides its price does not work as a downsell.
 
-**Second entry, added 2026-09-22: Clips Only.** The band now holds two `.pp-downsell-inner` blocks, stacked, Clips Only first ("Want to post it yourself", linking to `/pricing/clips-only`), then the strategy report. Clips Only comes first because it is the nearer step down from $997. The second block is spaced by one rule, `.pp-downsell-inner + .pp-downsell-inner { margin-top: 14px }`. Otherwise both blocks use the existing classes unchanged, so the same "keep it quiet" rules apply to both. The Clips Only note restates `$697` and `$1,097`, which creates a second sync hazard: if either price changes, grep for `1,097` and fix both `/pricing` and `/pricing/clips-only`.
+### The Clips Only band on `/pricing`, added 2026-09-22
+
+Directly under the three tier cards, above "Need a different volume?", sits a second `.pp-custom` band: "Want to post it yourself?", a `.primary-cta` "See Clips Only pricing" link to `/pricing/clips-only`, and a note restating `$697` and `$1,097`. It reuses the custom-order band's markup and classes unchanged. The only new CSS is `.pricing-page .pp-custom + .pp-custom { margin-top: 20px }`, so the two bands read as a pair.
+
+**The placement is Samuel's explicit call and the opposite of the downsell logic above.** The first version put Clips Only in the quiet downsell band at the bottom. Samuel corrected that the same day: Clips Only is a real product line, not a last resort, so it sits right under the plans at full visibility. The $100 report entry stayed at the bottom, on purpose. Do not move either one without asking.
+
+It also created a second price-sync hazard. If a Clips Only price changes, grep for `1,097` and fix `/pricing`, `/pricing/clips-only` and `docs/chatbot/`.
+
+Two `/pricing` FAQ answers were changed on 2026-09-22 at Samuel's request so they stay true now that Clips Only exists. "Can I move between plans?" now names Clips Only, Lite and Content Engine. "What if none of these fit my budget right now?" now says the done-for-you plans start at $997 and Clips Only at $697, and links to `/pricing/clips-only`.
 
 ### `/pricing/clips-only`, added 2026-09-22
 
@@ -241,7 +249,7 @@ The done-with-you product line: we cut the clips, the client posts them. Hero ("
 1. **Clips Only 10**, $697/month, 10 clips/month.
 2. **Clips Only 20**, $1,097/month, 20 clips/month.
 
-Both include a dedicated Project Manager. Neither includes the strategy document, copywriting, custom thumbnails or scheduling. The optional add-on (we schedule and post the clips) is +$100/month. Neither card carries `.featured`. The card copy does not state whether weekly calls, weekly reporting or month-to-month billing apply, because none of that was specified. Ask Samuel before adding any of it.
+Both include a dedicated Project Manager and weekly consultation calls. Neither includes the strategy document, copywriting, custom thumbnails, scheduling or weekly reporting. The optional add-on (we schedule and post the clips) is +$100/month. Billing is month to month on the same terms as the other monthly plans, and clients can move between Clips Only, Lite and Content Engine from the next billing cycle. Samuel confirmed these facts on 2026-09-22. Neither card carries `.featured`.
 
 How it is built: `<main className="pricing-page clips-only-page">`. The `.pricing-page` class pulls in the whole `/pricing` re-skin from premium.css section 17 unchanged, and the tier cards reuse the shared `.pricing-*` markup, so the page adds no new visual style. The one page-only rule is `.clips-only-page .pricing-grid { max-width: 800px }`. Without it, the `auto-fit` grid would stretch two cards to about 585px each. Metadata and JSON-LD follow the `/pricing` pattern (a `Product` with one `Offer` per tier, each carrying the $100 scheduling add-on as an `addOn` Offer). The page is in `public/sitemap.xml`.
 
@@ -477,7 +485,7 @@ docs/chatbot/
 cd "D:/CLAUDE CODE/slk-media-website/docs/chatbot" && cat _persona.md kb-01-offers-and-pricing.md kb-02-delivery.md kb-03-proof.md kb-04-common-questions.md kb-05-next-steps-and-contact.md > 01-base-prompt.md
 ```
 
-Then paste the result into re:tune by hand. If you change a price, a link, or a claim on this site, **update the matching `kb-*.md`, rebuild, and re-paste**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
+Then paste the result into re:tune by hand. The 2026-09-22 Clips Only update (kb-01, kb-04, kb-05, `02-restrictions.md`) was made in the repo and the prompt rebuilt. Until both fields are pasted into re:tune, the live bot does not know Clips Only, and its old Restrictions still forbid it from mentioning "a shorts only option". If you change a price, a link, or a claim on this site, **update the matching `kb-*.md`, rebuild, and re-paste**, or the bot and the site will disagree. This is the same drift risk as section 9 and it is not automated.
 
 One editing gotcha: re:tune autosaves the prompt fields on a debounce that only fires on a real keystroke. After pasting, click into the field, press End, type a character, delete it, click outside, then reload the page and confirm it stuck.
 

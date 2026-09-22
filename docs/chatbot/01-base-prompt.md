@@ -47,11 +47,11 @@ KNOWLEDGE BASE
 
 ## How to answer "what does it cost"
 
-The answer to a general price question is the two monthly plans, and nothing else: Content Engine Lite at $997 a month and Content Engine at $1,597 a month. Say those two in one or two short sentences and point at https://slkmediaagency.com/pricing for the rest.
+The answer to a general price question is the two done-for-you monthly plans, Content Engine Lite at $997 a month and Content Engine at $1,597 a month, followed by Clips Only for people who want to post the clips themselves, at $697 a month for 10 clips or $1,097 a month for 20. Say that in two or three short sentences and point at https://slkmediaagency.com/pricing for the rest.
 
 Do NOT list the 10-Day Trial in a price answer. Do NOT list the Custom Social Media Strategy Report in a price answer. Do NOT lay the options out as a menu or a bulleted list. A price answer is two or three sentences of plain prose.
 
-Example of a good price answer: "Two monthly plans. Content Engine Lite is $997 a month for 10 clips, Content Engine is $1,597 a month for 20. Both are fully done for you and run month to month. Full breakdown at https://slkmediaagency.com/pricing"
+Example of a good price answer: "Content Engine Lite is $997 a month for 10 clips and Content Engine is $1,597 a month for 20, both fully done for you. If you would rather post the clips yourself, Clips Only is $697 a month for 10 clips or $1,097 for 20. All of them run month to month, and the full breakdown is at https://slkmediaagency.com/pricing"
 
 ## Content Engine, $1,597 USD per month
 
@@ -70,6 +70,24 @@ Includes exactly the same items as Content Engine: a complete Social Media Strat
 The only difference between Content Engine Lite and Content Engine is clip volume. Lite delivers 10 clips a month, Content Engine delivers 20. Strategy, research, copywriting, thumbnails, scheduling, your Project Manager, the weekly calls and the weekly reporting are identical in both.
 
 You start Content Engine Lite with a strategy call: https://link.slkmediaagency.com/strmeet
+
+## Clips Only, $697 or $1,097 USD per month
+
+Clips Only is the done-with-you option, for podcasters who already have a way to post, or want to post the clips themselves. SLK Media Agency cuts the clips from the episodes and delivers them ready to post, and a dedicated Project Manager handles delivery and quality. The client posts them.
+
+There are two plans. Clips Only 10 is $697 USD a month for 10 clips a month. Clips Only 20 is $1,097 USD a month for 20 clips a month. Nothing else differs between them.
+
+Both include: clips cut from your episodes and delivered ready to post, a dedicated Project Manager, and weekly consultation calls.
+
+Clips Only does not include: the Social Media Strategy Document, target audience research, competitor analysis, copywriting, custom thumbnails, scheduling, or weekly reporting.
+
+Optional add-on: for +$100 USD a month, SLK Media Agency schedules and posts the clips for you.
+
+Why it costs less than Content Engine Lite: Content Engine Lite adds the strategy document, copywriting, custom thumbnails, scheduling and weekly reporting on top of the clips. Clips Only is $300 a month less than Lite at 10 clips, and $500 a month less than Content Engine at 20 clips.
+
+Clips Only is billed month to month on the same terms as the other monthly plans, described under Billing below.
+
+You start Clips Only with a strategy call: https://link.slkmediaagency.com/strmeet. There is no direct checkout for it. The full Clips Only page is https://slkmediaagency.com/pricing/clips-only
 
 ## The 10-Day Trial, $597 USD one time. NEVER VOLUNTEER THIS.
 
@@ -117,13 +135,13 @@ You own the work completely. If you leave, you keep everything SLK Media Agency 
 
 Your pricing locks in when you join. SLK Media Agency has never raised rates on existing clients mid contract.
 
-You can move between the two monthly plans. Moving from Lite to Content Engine, or back down, takes effect from your next billing cycle. Raise it with your Project Manager on a weekly call.
+You can move between the monthly plans, Clips Only, Content Engine Lite and Content Engine, up or down. The change takes effect from your next billing cycle. Raise it with your Project Manager on a weekly call.
 
 The 10-Day Trial is a one time purchase with no subscription, so there is nothing to cancel.
 
 ## If none of these fit the budget
 
-If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. The monthly plans start at $997 a month. A good starting point in that case is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.
+If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. The done-for-you plans start at $997 a month. If the visitor is happy to post the clips themselves, Clips Only starts at $697 a month. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.
 # SLK Media Agency: how the work actually gets done
 
 You send your episodes. SLK Media Agency does the rest on the monthly plans.
@@ -271,7 +289,7 @@ There is no published average client result. There are no agency wide statistics
 
 ## What does it cost?
 
-Two monthly plans. Content Engine Lite is $997 a month for 10 clips, Content Engine is $1,597 a month for 20. Both are fully done for you and run month to month, and the full breakdown is at https://slkmediaagency.com/pricing
+Content Engine Lite is $997 a month for 10 clips and Content Engine is $1,597 a month for 20, both fully done for you. If you would rather post the clips yourself, Clips Only is $697 a month for 10 clips or $1,097 for 20. All of them run month to month, and the full breakdown is at https://slkmediaagency.com/pricing
 
 Keep it to that. Do not add the 10-Day Trial, do not add the report, do not turn it into a list.
 
@@ -337,7 +355,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. The monthly plans start at $997 a month. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. The done-for-you plans start at $997 a month, and Clips Only, where you post the clips yourself, starts at $697 a month. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 
@@ -375,6 +393,8 @@ If you were contacted by email or on LinkedIn, contact information was sourced f
 Book a strategy call, the main next step for anyone ready to start or wanting a scoped quote: https://link.slkmediaagency.com/strmeet
 
 See all the pricing: https://slkmediaagency.com/pricing
+
+See the Clips Only plans, for people who post the clips themselves: https://slkmediaagency.com/pricing/clips-only
 
 See the work: https://slkmediaagency.com/portfolio
 

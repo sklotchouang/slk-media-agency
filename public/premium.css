@@ -2040,6 +2040,12 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   color: var(--text-muted-2);
 }
 
+/* Two bands stack under the grid since 2026-09-22 (Clips Only, then the
+   custom order). The second one sits closer so they read as a pair. */
+.pricing-page .pp-custom + .pp-custom {
+  margin-top: 20px;
+}
+
 /* ---- Comparison table ---- */
 .pricing-page .pp-compare {
   padding: var(--space-section) 0;
@@ -2398,13 +2404,6 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   padding: 26px 32px;
   border: 1px solid var(--hairline);
   border-radius: 16px;
-}
-
-/* Two entries share the band since 2026-09-22 (Clips Only, then the
-   strategy report). Stacked, not side by side, so each keeps the same
-   measure and quiet treatment it would have alone. */
-.pricing-page .pp-downsell-inner + .pp-downsell-inner {
-  margin-top: 14px;
 }
 
 .pricing-page .pp-downsell-copy {
