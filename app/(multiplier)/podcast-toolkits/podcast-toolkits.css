@@ -702,3 +702,548 @@
     height: 42px;
   }
 }
+
+/* ===========================================================================
+   Shop layer (added 2026-10-03): hero links, featured report card, the
+   do-it-yourself guide grid with filters and the See inside lightbox, the
+   bundle banner, the outreach-code banner and the agency pointer.
+   Selectors use the .tk- prefix. Components live in components/ToolkitShop.js.
+   =========================================================================== */
+
+.tk-hero .hero-wrapper {
+  margin-bottom: 26px;
+}
+.tk-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.tk-hero-link {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(59, 167, 231, 0.5);
+  border-radius: 999px;
+  padding: 10px 22px;
+  color: var(--pt-blue-light);
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+.tk-hero-link:hover {
+  background: var(--pt-blue);
+  border-color: var(--pt-blue);
+  color: #04121d;
+}
+
+/* ----- Outreach code banner ----- */
+.tk-code-banner {
+  max-width: 560px;
+  margin: 0 auto 26px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(46, 204, 113, 0.45);
+  background: rgba(46, 204, 113, 0.1);
+  color: #d9f7e5;
+  text-align: center;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+.tk-code-banner i {
+  color: #2ecc71;
+  margin-right: 6px;
+}
+.tk-code-banner strong {
+  color: #ffffff;
+}
+
+/* ----- Featured report card ----- */
+.tk-featured-section {
+  padding: 30px 0 70px;
+}
+.tk-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(20, 22, 32, 0.92) 0%, rgba(14, 16, 24, 0.92) 100%);
+  border: 1px solid rgba(59, 167, 231, 0.35);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+.tk-featured-media {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--pt-border);
+  background: #000;
+}
+.tk-featured-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.tk-featured-body {
+  text-align: left;
+}
+.tk-featured-body h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+.tk-featured-copy {
+  font-size: 1.02rem;
+  margin-bottom: 18px;
+}
+.tk-featured-body .pt-fee-note {
+  margin-left: 0;
+}
+.tk-featured-body .tagline {
+  max-width: none;
+  margin: 14px 0 0 !important;
+  padding: 0;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* ----- Guide grid ----- */
+.tk-guides-section {
+  padding: 70px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+.tk-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 26px auto 30px;
+  max-width: 900px;
+}
+.tk-chip {
+  background: transparent;
+  color: var(--pt-muted);
+  border: 1px solid var(--pt-border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.tk-chip:hover {
+  color: #ffffff;
+  border-color: rgba(59, 167, 231, 0.6);
+}
+.tk-chip.is-active {
+  background: var(--pt-blue);
+  border-color: var(--pt-blue);
+  color: #04121d;
+}
+.tk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.tk-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--pt-card);
+  border: 1px solid var(--pt-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.tk-card:hover {
+  border-color: rgba(59, 167, 231, 0.5);
+  transform: translateY(-2px);
+}
+.tk-cover {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background: #0d0f15;
+  aspect-ratio: 900 / 1273;
+  overflow: hidden;
+}
+.tk-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.tk-cover:hover img,
+.tk-cover:focus-visible img {
+  transform: scale(1.02);
+}
+.tk-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 20px 22px;
+  text-align: left;
+}
+.tk-tag {
+  align-self: flex-start;
+  display: inline-block;
+  background: rgba(59, 167, 231, 0.12);
+  border: 1px solid rgba(59, 167, 231, 0.4);
+  color: var(--pt-blue-light);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.tk-card h3 {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+.tk-summary {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 16px;
+}
+.tk-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: auto 0 14px;
+  font-size: 0.9rem;
+}
+.tk-price {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.tk-pages {
+  color: var(--pt-muted);
+}
+.tk-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.tk-buy,
+.tk-see {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.tk-buy {
+  background: var(--pt-blue);
+  border: 1px solid var(--pt-blue);
+  color: #04121d;
+}
+.tk-buy:hover {
+  background: var(--pt-blue-light);
+  color: #04121d;
+}
+.tk-see {
+  background: transparent;
+  border: 1px solid var(--pt-border);
+  color: #ffffff;
+}
+.tk-see:hover {
+  border-color: var(--pt-blue);
+}
+.tk-buy-lg {
+  min-height: 50px;
+  padding: 0 28px;
+  font-size: 1.05rem;
+}
+.tk-gumroad-note {
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 26px 0 0;
+}
+
+/* ----- See inside lightbox ----- */
+/* Above the fixed navbar (1000), the sticky CTA (999) and the scroll progress
+   bar (4000), and far below Gumroad's own checkout overlay, so a Buy click from
+   inside the lightbox opens the checkout on top of it. */
+.tk-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(5, 6, 8, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.tk-lb-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1040px;
+  max-height: calc(100vh - 48px);
+  background: #10121a;
+  border: 1px solid var(--pt-border);
+  border-radius: 16px;
+  padding: 28px;
+  overflow-y: auto;
+}
+.tk-lb-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(16, 18, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.tk-lb-close:hover {
+  background: var(--pt-blue);
+}
+.tk-lb-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.tk-lb-page {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 220px);
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+}
+.tk-lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(18, 20, 30, 0.9);
+  border: 1px solid var(--pt-border);
+  color: #ffffff;
+  cursor: pointer;
+}
+.tk-lb-nav:hover {
+  background: var(--pt-blue);
+}
+.tk-lb-prev {
+  left: 4px;
+}
+.tk-lb-next {
+  right: 4px;
+}
+.tk-lb-thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+.tk-lb-thumb {
+  width: 56px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  opacity: 0.6;
+}
+.tk-lb-thumb.is-active {
+  border-color: var(--pt-blue);
+  opacity: 1;
+}
+.tk-lb-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.tk-lb-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 18px;
+}
+.tk-lb-info h3 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+.tk-lb-inside-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 4px 0 10px;
+}
+.tk-inside {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: grid;
+  gap: 10px;
+}
+.tk-inside li {
+  display: flex;
+  gap: 10px;
+  color: #e8edf2;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.tk-inside i {
+  color: #2ecc71;
+  margin-top: 5px;
+}
+.tk-lb-info .tk-meta {
+  margin-top: 0;
+}
+
+/* ----- Bundle banner (renders only once the bundle link exists) ----- */
+.tk-bundle-section {
+  padding: 50px 0;
+}
+.tk-bundle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 167, 231, 0.4);
+  background: rgba(59, 167, 231, 0.07);
+}
+.tk-bundle-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.tk-bundle-body {
+  text-align: left;
+}
+.tk-bundle-body h2 {
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin: 0 0 20px;
+}
+
+/* ----- Agency pointer ----- */
+.tk-agency {
+  padding: 30px 0;
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+}
+.tk-agency p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.tk-agency a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .tk-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .tk-featured {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Extra bottom padding keeps the Buy button clear of the chat widget bubble. */
+  .tk-lb-panel {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px 16px 96px;
+    max-height: none;
+  }
+  .tk-lightbox {
+    align-items: flex-start;
+    padding: 12px;
+  }
+  .tk-lb-page {
+    max-height: 62vh;
+  }
+  .tk-bundle {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tk-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  /* One card per row, laid out side by side so a portrait cover does not fill
+     the whole phone screen. */
+  .tk-card {
+    display: grid;
+    grid-template-columns: 38% minmax(0, 1fr);
+  }
+  .tk-cover {
+    align-self: start;
+  }
+  .tk-card-body {
+    padding: 14px 14px 16px;
+  }
+  .tk-tag {
+    font-size: 0.68rem;
+    margin-bottom: 8px;
+  }
+  .tk-card h3 {
+    font-size: 1rem;
+  }
+  .tk-summary {
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+  .tk-price {
+    font-size: 1.25rem;
+  }
+  .tk-actions {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .tk-featured {
+    padding: 18px;
+  }
+  .tk-featured-body h2 {
+    font-size: 1.55rem;
+  }
+}
