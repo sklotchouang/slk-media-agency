@@ -6,7 +6,9 @@ import { OfferCodeBanner, ToolkitGrid, BundleBanner } from '../../../components/
 import toolkits from './toolkits.json';
 import './podcast-toolkits.css';
 
-// Live Stripe Payment Link for the Custom Social Media Strategy Report ($100).
+// Live Stripe Payment Link for the Custom Social Media Strategy Report ($103.55).
+// Stripe checkout shows $103.55 as the single price (checked 2026-10-03), so the page
+// shows $103.55 everywhere with no separate processing-fee note.
 // Settles on the SLK Media Stripe account and is tagged type=strategy_report so the
 // n8n bridge can fire the GoHighLevel optin automation without marking buyers new clients.
 const CHECKOUT_URL = 'https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08';
@@ -26,7 +28,7 @@ const lowestGuidePrice = Math.min(...guides.map((g) => g.price_usd));
 export const metadata = {
   title: 'Podcast Toolkits: Guides, Workbooks and a Custom Strategy Report | SLK Media Agency',
   description:
-    'Tools to grow your podcast, from a $12 do-it-yourself PDF guide to a $100 custom social media strategy report built for your show.',
+    'Tools to grow your podcast, from a $12 do-it-yourself PDF guide to a $103.55 custom social media strategy report built for your show.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/podcast-toolkits' },
   openGraph: {
@@ -34,7 +36,7 @@ export const metadata = {
     siteName: 'SLK Media Agency',
     title: 'Podcast Toolkits | SLK Media Agency',
     description:
-      'Tools to grow your podcast, from a $12 do-it-yourself PDF guide to a $100 custom social media strategy report built for your show.',
+      'Tools to grow your podcast, from a $12 do-it-yourself PDF guide to a $103.55 custom social media strategy report built for your show.',
     url: '/podcast-toolkits',
     images: [{ url: '/og-image.jpg' }],
   },
@@ -89,7 +91,7 @@ const faqs = [
   ],
   [
     'Is this a subscription?',
-    'No. It is a one-time $100 payment. Nothing recurring.',
+    'No. It is a one-time $103.55 payment. Nothing recurring.',
   ],
 ];
 
@@ -189,8 +191,8 @@ export default function PodcastToolkitsPage() {
           <OfferCodeBanner />
           <div className="hero-wrapper">
             <p className="sub-headline-blue">Podcast Toolkits</p>
-            <h1 className="headline">Grow Your Podcast: ${lowestGuidePrice} Guides or a $100 Custom Strategy</h1>
-            <p className="subheadline">Work through a ready-made PDF guide yourself, or get a social media strategy report built for your show from a real audit, $100 instead of $500.</p>
+            <h1 className="headline">Grow Your Podcast: ${lowestGuidePrice} Guides or a $103.55 Custom Strategy</h1>
+            <p className="subheadline">Work through a ready-made PDF guide yourself, or get a social media strategy report built for your show from a real audit, $103.55 instead of $500.</p>
           </div>
           <div className="tk-hero-links">
             <a href="#report" className="tk-hero-link">The custom report</a>
@@ -215,10 +217,9 @@ export default function PodcastToolkitsPage() {
               <p className="sub-headline-blue">Have a Podcast? You Need a Plan.</p>
               <h2>Custom Podcast Social Media Strategy Report</h2>
               <p className="tk-featured-copy">Stop posting blind. Get a done-for-you strategy report built for your show, so every post actually serves your audience and pulls its weight. Delivered in 1 to 2 days.</p>
-              <p className="pt-anchor"><span className="pt-old-price">$500</span> <span className="pt-new-price">$100 today</span></p>
+              <p className="pt-anchor"><span className="pt-old-price">$500</span> <span className="pt-new-price">$103.55 today</span></p>
               <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
-              <p className="pt-cta-note">One-time $100. No subscription. Delivered in 1 to 2 days.</p>
-              <p className="pt-fee-note">Price excludes the Stripe processing fee. The fee is added at checkout, bringing the total to $103.55.</p>
+              <p className="pt-cta-note">One-time $103.55. No subscription. Delivered in 1 to 2 days.</p>
               <p className="pt-intake-link"><a href={SURVEY_URL} target="_blank" rel="noopener">See exactly what we ask before you buy →</a></p>
               <p className="tagline">⚡ This price is temporary and will increase soon.</p>
             </div>
@@ -387,7 +388,7 @@ export default function PodcastToolkitsPage() {
             <div className="pt-step">
               <div className="pt-step-number">1</div>
               <h3>Buy the report</h3>
-              <p>Secure checkout. One-time $100, no subscription.</p>
+              <p>Secure checkout. One-time $103.55, no subscription.</p>
             </div>
             <div className="pt-step">
               <div className="pt-step-number">2</div>
@@ -412,7 +413,7 @@ export default function PodcastToolkitsPage() {
           <div className="pt-pricing-card">
             <div className="pt-price-row">
               <span className="pt-price-old">$500</span>
-              <span className="pt-price-now">$100</span>
+              <span className="pt-price-now">$103.55</span>
             </div>
             <p className="pt-price-label">One-time payment. No subscription.</p>
             <ul className="pt-price-list">
@@ -423,8 +424,7 @@ export default function PodcastToolkitsPage() {
             <div className="pt-delivery-badge"><i className="fas fa-bolt" aria-hidden="true"></i> Delivered within 1 to 2 days</div>
             <div className="pt-urgency"><i className="fas fa-exclamation-triangle" aria-hidden="true"></i> This price is temporary and will increase soon.</div>
             <a href={CHECKOUT_URL} className="btn-primary pt-buy" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
-            <p className="pt-cta-note">One-time $100 · No subscription · Delivered in 1 to 2 days</p>
-            <p className="pt-fee-note">Price excludes the Stripe processing fee. The fee is added at checkout, bringing the total to $103.55.</p>
+            <p className="pt-cta-note">One-time $103.55 · No subscription · Delivered in 1 to 2 days</p>
           </div>
         </div>
       </section>
@@ -471,8 +471,7 @@ export default function PodcastToolkitsPage() {
           <h2 className="footer-cta-heading">Make the Smart Call</h2>
           <p className="final-cta-text">You do not need us to do everything for you. You just need to know what actually works.</p>
           <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
-          <p className="pt-cta-note">One-time $100 · No subscription · Delivered in 1 to 2 days</p>
-          <p className="pt-fee-note">Price excludes the Stripe processing fee. The fee is added at checkout, bringing the total to $103.55.</p>
+          <p className="pt-cta-note">One-time $103.55 · No subscription · Delivered in 1 to 2 days</p>
         </div>
       </section>
 
@@ -523,7 +522,7 @@ export default function PodcastToolkitsPage() {
       {/* Sticky CTA */}
       <div className="sticky-cta">
         <div className="container">
-          <p className="sticky-cta-text">Custom strategy report · <strong>$100</strong> one-time · delivered in 1 to 2 days</p>
+          <p className="sticky-cta-text">Custom strategy report · <strong>$103.55</strong> one-time · delivered in 1 to 2 days</p>
           <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
         </div>
       </div>

@@ -62,11 +62,9 @@ The 10-Day Trial does not include custom thumbnails, the Social Media Strategy D
 
 You own the content from the 10-Day Trial, the same as on any plan.
 
-## The Custom Social Media Strategy Report, $100 USD one time
+## The Custom Social Media Strategy Report, $103.55 USD one time
 
-The report is $100 USD as a one time payment. It is not a subscription. The report page shows $500 struck through and $100 as the price today.
-
-The $100 excludes the Stripe processing fee. The fee is added at checkout and brings the total to $103.55 USD.
+The report is $103.55 USD as a one time payment, the full price with nothing added at checkout. It is not a subscription. The report page shows $500 struck through and $103.55 as the price today.
 
 You buy it here: https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08
 

@@ -518,7 +518,7 @@ export default function PricingPage() {
                 <Link href="/podcast-toolkits" className="pp-downsell-link">
                   See the strategy report <i className="fas fa-arrow-right" aria-hidden="true"></i>
                 </Link>
-                <p className="pp-downsell-note">$100 one time, no subscription, delivered in 1 to 2 days. The Stripe processing fee is added at checkout, bringing the total to $103.55.</p>
+                <p className="pp-downsell-note">$103.55 one time, no subscription, delivered in 1 to 2 days.</p>
               </div>
             </div>
           </div>
