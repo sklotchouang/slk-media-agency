@@ -189,8 +189,8 @@ export default function PodcastToolkitsPage() {
           <OfferCodeBanner />
           <div className="hero-wrapper">
             <p className="sub-headline-blue">Podcast Toolkits</p>
-            <h1 className="headline">Tools to Grow Your Show</h1>
-            <p className="subheadline">From a ${lowestGuidePrice} guide you work through yourself to a custom plan built for your podcast.</p>
+            <h1 className="headline">Grow Your Podcast: ${lowestGuidePrice} Guides or a $100 Custom Strategy</h1>
+            <p className="subheadline">Work through a ready-made PDF guide yourself, or get a social media strategy report built for your show from a real audit, $100 instead of $500.</p>
           </div>
           <div className="tk-hero-links">
             <a href="#report" className="tk-hero-link">The custom report</a>
@@ -230,7 +230,7 @@ export default function PodcastToolkitsPage() {
       <section className="tk-guides-section" id="guides">
         <div className="grid-pattern-overlay"></div>
         <div className="container">
-          <h2 className="section-title">Do It Yourself</h2>
+          <h2 className="section-title">Do-It-Yourself Podcast Guides and Workbooks</h2>
           <p className="section-subtitle">Ready-made PDF guides and workbooks you work through on your own.</p>
           <ToolkitGrid products={guides} />
           <p className="tk-gumroad-note">Guides are sold and delivered through Gumroad.</p>

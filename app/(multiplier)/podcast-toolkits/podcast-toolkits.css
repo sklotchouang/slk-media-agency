@@ -849,6 +849,14 @@
   max-width: 1120px;
   margin: 0 auto;
 }
+/* 10 cards in 3 columns leave one card alone on the last row. Centre it so the
+   grid ends on a clean shape instead of a stray card against the left edge.
+   Also covers any filter result that leaves a single card on its last row. */
+@media (min-width: 1025px) {
+  .tk-grid > .tk-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
 .tk-card {
   display: flex;
   flex-direction: column;
