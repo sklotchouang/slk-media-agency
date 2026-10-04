@@ -28,6 +28,12 @@ export function withOfferCode(url, code) {
   return `${url.replace(/\/+$/, '')}/${encodeURIComponent(code)}`;
 }
 
+// A guide whose data says outreach_code_applies: false (the 6 guides added 2026-10-03)
+// keeps its plain link even when ?code= is set. Products without the field get the code.
+function buyUrl(product, code) {
+  return withOfferCode(product.gumroad_url, product.outreach_code_applies === false ? '' : code);
+}
+
 export function OfferCodeBanner() {
   const code = useOfferCode();
   if (!code) return null;
@@ -158,7 +164,7 @@ export function ToolkitGrid({ products }) {
                 <span className="tk-pages">{p.pages} pages</span>
               </p>
               <div className="tk-actions">
-                <a className="tk-buy" href={withOfferCode(p.gumroad_url, code)} aria-label={`Buy ${p.title}`}>
+                <a className="tk-buy" href={buyUrl(p, code)} aria-label={`Buy ${p.title}`}>
                   Buy
                 </a>
                 <button type="button" className="tk-see" onClick={(event) => openViewer(p.id, event)}>
@@ -233,7 +239,7 @@ export function ToolkitGrid({ products }) {
                 <span className="tk-price">${open.price_usd}</span>
                 <span className="tk-pages">{open.pages} pages</span>
               </p>
-              <a className="tk-buy tk-buy-lg" href={withOfferCode(open.gumroad_url, code)} aria-label={`Buy ${open.title}`}>
+              <a className="tk-buy tk-buy-lg" href={buyUrl(open, code)} aria-label={`Buy ${open.title}`}>
                 Buy
               </a>
             </div>

@@ -24,6 +24,9 @@ const STRATEGY_CALL_URL = 'https://link.slkmediaagency.com/strmeet';
 // the product-forge handoff folder; do not edit it by hand.
 const guides = toolkits.products;
 const lowestGuidePrice = Math.min(...guides.map((g) => g.price_usd));
+// The bundle holds only the guides without in_bundle: false (the first 10), so its banner
+// count comes from that subset, not from every guide on the page.
+const bundledGuideCount = guides.filter((g) => g.in_bundle !== false).length;
 
 export const metadata = {
   title: 'Podcast Toolkits: Guides, Workbooks and a Custom Strategy Report | SLK Media Agency',
@@ -238,7 +241,7 @@ export default function PodcastToolkitsPage() {
         </div>
       </section>
 
-      <BundleBanner bundle={toolkits.bundle} total={toolkits.total_if_bought_separately_usd} count={guides.length} />
+      <BundleBanner bundle={toolkits.bundle} total={toolkits.total_if_bought_separately_usd} count={bundledGuideCount} />
 
       {/* Honest Truth */}
       <section className="growth-limbo-section">

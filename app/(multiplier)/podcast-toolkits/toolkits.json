@@ -397,6 +397,258 @@
           "thumb": "/podcast-toolkits/guides/sponsor-media-kit-guide/preview-4-160.webp"
         }
       ]
+    },
+    {
+      "id": "clip-formula",
+      "title": "The AI Clip Fix",
+      "format": "Kit",
+      "category": "Clips",
+      "price_usd": 17,
+      "pages": 39,
+      "summary": "Keep, fix or bin every clip your AI clipping tool hands you, with the fix in each tool.",
+      "inside": [
+        "2 gates and 6 fault points on one page",
+        "6 fix cards with steps for OpusClip, Descript, Riverside and Vizard",
+        "3 cuts from a public episode, worked through",
+        "3 printable worksheets, 39 pages"
+      ],
+      "gumroad_url": "https://samuellk.gumroad.com/l/wcobla",
+      "etsy_url": "https://www.etsy.com/listing/4415612314",
+      "in_bundle": false,
+      "outreach_code_applies": false,
+      "added": "2026-10-03",
+      "cover": {
+        "small": "/podcast-toolkits/guides/clip-formula/cover-400.webp",
+        "large": "/podcast-toolkits/guides/clip-formula/cover-720.webp"
+      },
+      "previews": [
+        {
+          "full": "/podcast-toolkits/guides/clip-formula/preview-1-900.webp",
+          "thumb": "/podcast-toolkits/guides/clip-formula/preview-1-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/clip-formula/preview-2-900.webp",
+          "thumb": "/podcast-toolkits/guides/clip-formula/preview-2-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/clip-formula/preview-3-900.webp",
+          "thumb": "/podcast-toolkits/guides/clip-formula/preview-3-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/clip-formula/preview-4-900.webp",
+          "thumb": "/podcast-toolkits/guides/clip-formula/preview-4-160.webp"
+        }
+      ]
+    },
+    {
+      "id": "anti-burnout-calendar",
+      "title": "The Anti-Burnout Content Calendar",
+      "format": "Printable planner",
+      "category": "Growth",
+      "price_usd": 19,
+      "pages": 48,
+      "summary": "Plan your podcast content by the hours you have, with four week types and a drop order decided in advance.",
+      "inside": [
+        "A task menu priced in minutes and four week cards (Normal, Busy, Minimum, Break)",
+        "A drop order, a weekly rhythm page and a 13-week quarter planner",
+        "13 weekly logs, a quarter review and a handoff sheet for one helper",
+        "48 pages, 36 numbered references"
+      ],
+      "gumroad_url": "https://samuellk.gumroad.com/l/dgwxk",
+      "etsy_url": "https://www.etsy.com/listing/4415618097",
+      "in_bundle": false,
+      "outreach_code_applies": false,
+      "added": "2026-10-03",
+      "cover": {
+        "small": "/podcast-toolkits/guides/anti-burnout-calendar/cover-400.webp",
+        "large": "/podcast-toolkits/guides/anti-burnout-calendar/cover-720.webp"
+      },
+      "previews": [
+        {
+          "full": "/podcast-toolkits/guides/anti-burnout-calendar/preview-1-900.webp",
+          "thumb": "/podcast-toolkits/guides/anti-burnout-calendar/preview-1-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/anti-burnout-calendar/preview-2-900.webp",
+          "thumb": "/podcast-toolkits/guides/anti-burnout-calendar/preview-2-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/anti-burnout-calendar/preview-3-900.webp",
+          "thumb": "/podcast-toolkits/guides/anti-burnout-calendar/preview-3-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/anti-burnout-calendar/preview-4-900.webp",
+          "thumb": "/podcast-toolkits/guides/anti-burnout-calendar/preview-4-160.webp"
+        }
+      ]
+    },
+    {
+      "id": "background-music-guide",
+      "title": "Music for Video Podcasts: Licences, Levels and a Licence Log",
+      "format": "Guide and templates",
+      "category": "Audio",
+      "price_usd": 12,
+      "pages": 41,
+      "summary": "Choose, license, mix and log the music in your video podcast, with five sources compared side by side.",
+      "inside": [
+        "5 music sources compared from their own licence pages, including what happens if you stop paying",
+        "Loudness targets from each platform's own pages, and how to measure yours for free",
+        "The claim route for each source, from claim notice to dispute",
+        "5 templates, each filled in once for a fictional show, then blank"
+      ],
+      "gumroad_url": "https://samuellk.gumroad.com/l/zcqazh",
+      "etsy_url": "https://www.etsy.com/listing/4376537232",
+      "in_bundle": false,
+      "outreach_code_applies": false,
+      "added": "2026-10-03",
+      "cover": {
+        "small": "/podcast-toolkits/guides/background-music-guide/cover-400.webp",
+        "large": "/podcast-toolkits/guides/background-music-guide/cover-720.webp"
+      },
+      "previews": [
+        {
+          "full": "/podcast-toolkits/guides/background-music-guide/preview-1-900.webp",
+          "thumb": "/podcast-toolkits/guides/background-music-guide/preview-1-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/background-music-guide/preview-2-900.webp",
+          "thumb": "/podcast-toolkits/guides/background-music-guide/preview-2-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/background-music-guide/preview-3-900.webp",
+          "thumb": "/podcast-toolkits/guides/background-music-guide/preview-3-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/background-music-guide/preview-4-900.webp",
+          "thumb": "/podcast-toolkits/guides/background-music-guide/preview-4-160.webp"
+        }
+      ]
+    },
+    {
+      "id": "content-goldmine-toolkit",
+      "title": "The Podcast Content Goldmine Toolkit",
+      "format": "Template kit",
+      "category": "Content",
+      "price_usd": 27,
+      "pages": 42,
+      "summary": "Turn one podcast episode into written posts, carousels, a newsletter and an article, with a filled example each.",
+      "inside": [
+        "10 templates, each filled in from one real public episode",
+        "An idea ledger, a format map and a run sheet with a 10-point pre-publish check",
+        "8 write-in pages for your own episodes",
+        "42 pages, 34 numbered references"
+      ],
+      "gumroad_url": "https://samuellk.gumroad.com/l/tpcgt",
+      "etsy_url": "https://www.etsy.com/listing/4376533050",
+      "in_bundle": false,
+      "outreach_code_applies": false,
+      "added": "2026-10-03",
+      "cover": {
+        "small": "/podcast-toolkits/guides/content-goldmine-toolkit/cover-400.webp",
+        "large": "/podcast-toolkits/guides/content-goldmine-toolkit/cover-720.webp"
+      },
+      "previews": [
+        {
+          "full": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-1-900.webp",
+          "thumb": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-1-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-2-900.webp",
+          "thumb": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-2-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-3-900.webp",
+          "thumb": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-3-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-4-900.webp",
+          "thumb": "/podcast-toolkits/guides/content-goldmine-toolkit/preview-4-160.webp"
+        }
+      ]
+    },
+    {
+      "id": "monetization-blueprint",
+      "title": "The Podcast Monetization Blueprint",
+      "format": "Workbook",
+      "category": "Growth",
+      "price_usd": 27,
+      "pages": 54,
+      "summary": "Pick one or two ways to earn from your show beyond sponsors, with every platform fee read and dated.",
+      "inside": [
+        "13 client route templates: episode mentions, guest asks, listener replies, call emails",
+        "Fees and thresholds of 5 paid feed platforms, read on 3 October 2026",
+        "8 one-page worksheets, from the stream picker to the 30-day review",
+        "54 page PDF, prints on A4 and US Letter"
+      ],
+      "gumroad_url": "https://samuellk.gumroad.com/l/tpmb",
+      "etsy_url": "https://www.etsy.com/listing/4376524645",
+      "in_bundle": false,
+      "outreach_code_applies": false,
+      "added": "2026-10-03",
+      "cover": {
+        "small": "/podcast-toolkits/guides/monetization-blueprint/cover-400.webp",
+        "large": "/podcast-toolkits/guides/monetization-blueprint/cover-720.webp"
+      },
+      "previews": [
+        {
+          "full": "/podcast-toolkits/guides/monetization-blueprint/preview-1-900.webp",
+          "thumb": "/podcast-toolkits/guides/monetization-blueprint/preview-1-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/monetization-blueprint/preview-2-900.webp",
+          "thumb": "/podcast-toolkits/guides/monetization-blueprint/preview-2-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/monetization-blueprint/preview-3-900.webp",
+          "thumb": "/podcast-toolkits/guides/monetization-blueprint/preview-3-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/monetization-blueprint/preview-4-900.webp",
+          "thumb": "/podcast-toolkits/guides/monetization-blueprint/preview-4-160.webp"
+        }
+      ]
+    },
+    {
+      "id": "sponsorship-readiness-audit",
+      "title": "The Sponsorship Readiness Audit",
+      "format": "Audit workbook",
+      "category": "Sponsors",
+      "price_usd": 27,
+      "pages": 41,
+      "summary": "Score your podcast against 4 gates and 6 dimensions, match it to a sponsor route, and fix 3 things.",
+      "inside": [
+        "4 pass-or-fail gates and 6 dimensions scored 0 to 3",
+        "7 sponsor routes with minimums read from each route's own page",
+        "A fix-first plan and 7 printable sheets",
+        "One fictional show worked start to finish, 41 pages"
+      ],
+      "gumroad_url": "https://samuellk.gumroad.com/l/pzqavy",
+      "etsy_url": "https://www.etsy.com/listing/4415620531",
+      "in_bundle": false,
+      "outreach_code_applies": false,
+      "added": "2026-10-03",
+      "cover": {
+        "small": "/podcast-toolkits/guides/sponsorship-readiness-audit/cover-400.webp",
+        "large": "/podcast-toolkits/guides/sponsorship-readiness-audit/cover-720.webp"
+      },
+      "previews": [
+        {
+          "full": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-1-900.webp",
+          "thumb": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-1-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-2-900.webp",
+          "thumb": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-2-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-3-900.webp",
+          "thumb": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-3-160.webp"
+        },
+        {
+          "full": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-4-900.webp",
+          "thumb": "/podcast-toolkits/guides/sponsorship-readiness-audit/preview-4-160.webp"
+        }
+      ]
     }
   ]
 }
