@@ -194,16 +194,31 @@ export default function PodcastToolkitsPage() {
           <OfferCodeBanner />
           <div className="hero-wrapper">
             <p className="sub-headline-blue">Podcast Toolkits</p>
-            <h1 className="headline">Grow Your Podcast: ${lowestGuidePrice} Guides or a $103.55 Custom Strategy</h1>
+            <h1 className="headline">The strategies and tools your podcast is missing</h1>
             <p className="subheadline">Work through a ready-made PDF guide yourself, or get a social media strategy report built for your show from a real audit, $103.55 instead of $500.</p>
           </div>
-          <div className="tk-hero-links">
-            <a href="#report" className="tk-hero-link">The custom report</a>
-            <a href="#guides" className="tk-hero-link">Do-it-yourself guides</a>
+          <div className="tk-hero-buttons">
+            <a href="#strategy" className="tk-hero-btn tk-hero-btn-strategy">Custom Social Media Strategy</a>
+            <a href="#guides" className="tk-hero-btn tk-hero-btn-guides">Do-It-Yourself Guides</a>
           </div>
         </div>
       </section>
 
+      {/* Do it yourself: the PDF guides (sold through Gumroad's overlay checkout) */}
+      <section className="tk-guides-section" id="guides">
+        <div className="grid-pattern-overlay"></div>
+        <div className="container">
+          <h2 className="section-title">Do-It-Yourself Podcast Guides and Workbooks</h2>
+          <p className="section-subtitle">Ready-made PDF guides and workbooks you work through on your own.</p>
+          <ToolkitGrid products={guides} />
+          <p className="tk-gumroad-note">Guides are sold and delivered through Gumroad.</p>
+        </div>
+      </section>
+
+      <BundleBanner bundle={toolkits.bundle} total={toolkits.total_if_bought_separately_usd} count={bundledGuideCount} />
+
+      {/* Social media strategy: one unbroken block, starts at the featured report box */}
+      <div className="tk-strategy" id="strategy">
       {/* Featured: the custom strategy report */}
       <section className="tk-featured-section" id="report">
         <div className="container">
@@ -229,19 +244,6 @@ export default function PodcastToolkitsPage() {
           </div>
         </div>
       </section>
-
-      {/* Do it yourself: the PDF guides (sold through Gumroad's overlay checkout) */}
-      <section className="tk-guides-section" id="guides">
-        <div className="grid-pattern-overlay"></div>
-        <div className="container">
-          <h2 className="section-title">Do-It-Yourself Podcast Guides and Workbooks</h2>
-          <p className="section-subtitle">Ready-made PDF guides and workbooks you work through on your own.</p>
-          <ToolkitGrid products={guides} />
-          <p className="tk-gumroad-note">Guides are sold and delivered through Gumroad.</p>
-        </div>
-      </section>
-
-      <BundleBanner bundle={toolkits.bundle} total={toolkits.total_if_bought_separately_usd} count={bundledGuideCount} />
 
       {/* Honest Truth */}
       <section className="growth-limbo-section">
@@ -477,6 +479,7 @@ export default function PodcastToolkitsPage() {
           <p className="pt-cta-note">One-time $103.55 · No subscription · Delivered in 1 to 2 days</p>
         </div>
       </section>
+      </div>
 
       {/* Pointer to the agency for people who want everything done for them */}
       <section className="tk-agency">
