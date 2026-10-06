@@ -20,7 +20,7 @@ Understand how it all works: https://link.slkmediaagency.com/tpmwsl
 
 Buy the Custom Social Media Strategy Report: https://slkmediaagency.com/podcast-toolkits, and the checkout is https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08
 
-Buy the 10-Day Trial: https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954
+Buy the 10-Day Trial: https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g
 
 Already booked a call and want to prepare: https://slkmediaagency.com/pre-call
 

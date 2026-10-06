@@ -25,11 +25,9 @@ Everything below may be said to a visitor. Each statement is written to be read 
 
 ### The 10-Day Trial
 
-The 10-Day Trial is $597 USD as a one-time payment. It is not a subscription and there is nothing to cancel. `[/pricing]`
+The 10-Day Trial is $497 USD as a one-time payment, with the processing fee included. It is not a subscription and there is nothing to cancel. `[/pricing]`
 
-The $597 excludes the processing fee. The fee is added at checkout and brings the total to $617 USD. `[/pricing]`
-
-You buy the 10-Day Trial here: https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954 `[/pricing]`
+You buy the 10-Day Trial here: https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g `[/pricing]`
 
 The 10-Day Trial includes 5 clips produced from your episodes, delivered within 10 days. `[/pricing]`
 
@@ -104,6 +102,8 @@ The 10-Day Trial is a one-time purchase with no subscription, so there is nothin
 ### Price effective dates
 
 All three tier prices ($597, $997, $1,597) were live on `[/pricing]` when that page shipped on 2026-09-01 and are unchanged on the live site as of 2026-09-01. `[OVERVIEW]` section 7.1
+
+On 2026-10-06 Samuel changed the 10-Day Trial from $597 plus the processing fee ($617 total) to $497 with the fee included, and Clips Only from $697 and $1,097 to $547 and $997 a month. Lite and Content Engine did not change. `[OVERVIEW]` section 7.1
 
 The $100 report price and the $103.55 total are unchanged in the current repo. Effective date UNKNOWN. See PART C item 9.
 
@@ -227,8 +227,8 @@ No, and you should run from anyone who does. SLK Media Agency controls content p
 **What is the difference between the two monthly plans?**
 Clip volume, and nothing else. Lite delivers 10 clips a month, Content Engine delivers 20. Everything else is identical. `[/pricing]`
 
-**Is the $597 trial charged again?**
-No. It is a single payment. One-time, no subscription, nothing to cancel. Note that the $597 excludes the processing fee, which is added at checkout and brings the total to $617. `[/pricing]`
+**Is the $497 trial charged again?**
+No. It is a single payment. One-time, no subscription, nothing to cancel. `[/pricing]`
 
 **Am I locked into a contract?**
 No. The monthly plans are month to month. Cancel any time before your next billing cycle, with zero penalties. You can pause for up to 60 days instead. The notice period is 14 days. You own everything SLK Media Agency ever made for you. `[/pricing]`
@@ -283,7 +283,7 @@ Contact information was sourced from publicly available podcast directories as p
 | Wants proof, is skeptical | https://slkmediaagency.com/success/case-studies and https://slkmediaagency.com/testimonials | `[SDR KB]` |
 | Wants to know how it works, "send me info" | https://link.slkmediaagency.com/tpmwsl | `[SDR KB]` |
 | Wants the paid strategy report | https://slkmediaagency.com/podcast-toolkits, checkout at https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08 | `[/podcast-toolkits]` |
-| Wants to buy the 10-Day Trial | https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954 | `[/pricing]` |
+| Wants to buy the 10-Day Trial | https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g | `[/pricing]` |
 | Has already booked a call | https://slkmediaagency.com/pre-call | `[OVERVIEW]` 7.1 |
 | Wants a custom volume or a package not listed | https://link.slkmediaagency.com/strmeet, described as a call where you leave with a scoped quote | `[/pricing]` custom-order band |
 | Anything else, any human question | hello@slkmediaagency.com | `[/pricing]` footer, `[SDR KB]` STEP 17 |
@@ -319,11 +319,11 @@ None of this is ever shown to a visitor.
 
 **Soft fit filters published on the site.** A good fit is publishing 2+ episodes a month for 6+ months with a minimum of 15 episodes live, being ready to invest in professional content production, and having the goal of turning the podcast into a revenue channel. A poor fit is a show with fewer than 15 episodes published, podcasting as a hobby or experimental side project, or someone "exploring options" or "seeing what's out there". `[/ home FAQ]` qualification section. These filter on fit, not on show size: both download thresholds were deleted on 2026-08-03 and no replacement number was invented. `[OVERVIEW]` section 9
 
-**What the bot does with a bad-fit visitor.** Do not book a call. Say plainly this is not the right time. Where budget is the blocker and the visitor is below $597, the approved public alternative is the recommendation to start with Descript ($30/month) or OpusClip ($50/month), or the $103.55 Custom Social Media Strategy Report where they have a specific fixable content problem. `[/pricing]` `[SDR KB]` STEP 9 step 5. Never reach for the cheapest thing to keep a dead thread alive: a graceful exit is the correct outcome. `[copy-invariants]` rule 2
+**What the bot does with a bad-fit visitor.** Do not book a call. Say plainly this is not the right time. Where budget is the blocker and the visitor is below $497, the approved public alternative is the recommendation to start with Descript ($30/month) or OpusClip ($50/month), or the $103.55 Custom Social Media Strategy Report where they have a specific fixable content problem. `[/pricing]` `[SDR KB]` STEP 9 step 5. Never reach for the cheapest thing to keep a dead thread alive: a graceful exit is the correct outcome. `[copy-invariants]` rule 2
 
 ## B2. Hard prohibitions
 
-**Never state a price that is not on the approved list.** The only figures that exist are: $1,597/month, $997/month, $597 one-time (total $617), $100 report (total $103.55), $75 per extra short clip, $150 per long-form video. Never invent or quote any other figure, range, tier, custom price, discount or bundle. Never negotiate below the $597 floor. `[SDR KB]` PRICING CONSTRAINTS, `[copy-invariants]` rule 2
+**Never state a price that is not on the approved list.** The only figures that exist are: $1,597/month (Content Engine), $997/month (Content Engine Lite, 10 clips), $547/month (Clips Only 10), $997/month (Clips Only 20, the client posts), $100/month (Clips Only scheduling add-on), $497 one-time (10-Day Trial, fee included), $100 report (total $103.55), $75 per extra short clip, $150 per long-form video. Never invent or quote any other figure, range, tier, custom price, discount or bundle. $997 names two plans, so never state it without the plan name and clip count. Never negotiate below the $497 floor. `[SDR KB]` PRICING CONSTRAINTS, `[copy-invariants]` rule 2
 
 **Never offer or mention any of the following internal commercial items.** They exist, they are real, and they are call-only, negotiated by Samuel: the $500 setup fee and its waiver, the $500 deposit, the unbundled shorts-only option at $1,000 a month, the $500 strategy plus $150 intro video package, show notes at $50, SEO show notes at $100. `[wiki price-ladder]`. A public bot quoting any of these would create a price the website contradicts.
 
@@ -425,7 +425,7 @@ SLK Media Agency is NOT: an AI clip tool, a freelancer marketplace, a general so
 
 ## B7. The scope trap, read before writing any answer about the trial
 
-All positioning, offer, process, FAQ and competitor copy describes the MONTHLY plans, where SLK Media Agency selects the moments, edits, captions and posts to the client's channels. The $597 10-Day Trial is deliberately narrower: edit-only, 5 clips, no copywriting, no posting, the client posts the clips themselves.
+All positioning, offer, process, FAQ and competitor copy describes the MONTHLY plans, where SLK Media Agency selects the moments, edits, captions and posts to the client's channels. The $497 10-Day Trial is deliberately narrower: edit-only, 5 clips, no copywriting, no posting, the client posts the clips themselves.
 
 Never describe the trial as full done-for-you. Never tell a trial buyer that SLK Media Agency writes their copy or posts for them. The trial's scope travels with its price every single time it is named. `[SDR KB]` SCOPE NOTE and HARD CONSTRAINT 16
 
@@ -513,7 +513,7 @@ Only the Podcast Multiplier page addresses it: "Unlimited revisions until you're
 Both are approved figures the SDR agents quote to prospects daily, and both are in `[copy-invariants]`. Neither appears on slkmediaagency.com. Resolved by: Samuel confirming the bot may state them.
 
 **9. Effective dates and price history. UNKNOWN.**
-I found no record of the effective date of any current price, and no record of a previous price for any of them within the last six months, other than: all prices were removed from the home page and the Podcast Multiplier page on 2026-09-01 when the pricing page shipped `[OVERVIEW]` section 9; and the $500 to $100 anchor on the report page, whose effective date is not recorded. `[wiki price-ladder]` records a $597 trial in January and February 2026 that reappeared on 6 July 2026 as "10 clips for $599", which does not match either the current $597 or the current 5 clips. Resolved by: Samuel, or the Stripe and Myfundbox dashboards, which hold the actual product creation and edit dates.
+I found no record of the effective date of any current price, and no record of a previous price for any of them within the last six months, other than: all prices were removed from the home page and the Podcast Multiplier page on 2026-09-01 when the pricing page shipped `[OVERVIEW]` section 9; and the $500 to $100 anchor on the report page, whose effective date is not recorded. `[wiki price-ladder]` records a $597 trial in January and February 2026 that reappeared on 6 July 2026 as "10 clips for $599", which matched neither the $597 that was current until 2026-10-06 nor the current 5 clips. Resolved by: Samuel, or the Stripe and Myfundbox dashboards, which hold the actual product creation and edit dates.
 
 **10. Rush delivery. UNKNOWN price.**
 The home page FAQ still offers "24-hour rush delivery as a per-episode add-on", but the $297 fee was deleted on 2026-09-01 `[OVERVIEW]` section 9. So an offer is live with no price attached. Resolved by: Samuel deciding whether rush delivery still exists.

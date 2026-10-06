@@ -3,7 +3,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
   description:
-    'What SLK Media Agency costs, in full. The 10-Day Trial is $597 one-time for 5 clips. Content Engine Lite is $997/month for 10 clips. Content Engine is $1,597/month for 20 clips, with strategy, copywriting, thumbnails and distribution included.',
+    'What SLK Media Agency costs, in full. The 10-Day Trial is $497 one-time for 5 clips. Content Engine Lite is $997/month for 10 clips. Content Engine is $1,597/month for 20 clips, with strategy, copywriting, thumbnails and distribution included.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/pricing' },
   openGraph: {
@@ -44,7 +44,7 @@ const structuredData = {
       '@type': 'Offer',
       name: '10-Day Trial',
       description: '5 clips produced from your episodes, delivered within 10 days. One-time payment.',
-      price: '597',
+      price: '497',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       url: 'https://slkmediaagency.com/pricing',
@@ -127,7 +127,7 @@ export default function PricingPage() {
                 <div className="pricing-header">
                   <h3>10-Day Trial</h3>
                   <p className="pricing-period">(One-time)</p>
-                  <div className="pricing-price">$597</div>
+                  <div className="pricing-price">$497</div>
                   <p className="pricing-cost-anchor">
                     <strong>See it first:</strong> a one-time project so you can judge our work on <span className="pricing-cost-anchor-figure">your own episodes</span>, not on somebody else's portfolio. No subscription, no commitment, nothing to cancel.
                   </p>
@@ -141,9 +141,8 @@ export default function PricingPage() {
                 </div>
                 <p className="pricing-outcome">You send your episodes. We deliver <strong>5 finished clips</strong> within 10 days, so you see the quality before you commit.</p>
                 <div className="pricing-footer">
-                  <a href="https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
+                  <a href="https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g" className="btn-primary" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
                 </div>
-                <p className="pricing-fee-note">Price excludes the Stripe processing fee. The fee is added at checkout, bringing the total to $617.</p>
               </div>
               <div className="pricing-tier compact">
                 <div className="pricing-header">
@@ -211,7 +210,7 @@ export default function PricingPage() {
               </div>
               <div className="pp-custom-action">
                 <Link href="/pricing/clips-only" className="primary-cta">See Clips Only pricing</Link>
-                <p className="pp-custom-note">$697/month for 10 clips, or $1,097/month for 20.</p>
+                <p className="pp-custom-note">$547/month for 10 clips, or $997/month for 20.</p>
               </div>
             </div>
 
@@ -256,7 +255,7 @@ export default function PricingPage() {
                 <tbody>
                   <tr>
                     <th scope="row">Price</th>
-                    <td><span className="pp-cell-strong">$597 one-time</span></td>
+                    <td><span className="pp-cell-strong">$497 one-time</span></td>
                     <td><span className="pp-cell-strong">$997/month</span></td>
                     <td className="pp-col-featured"><span className="pp-cell-strong">$1,597/month</span></td>
                   </tr>
@@ -328,7 +327,7 @@ export default function PricingPage() {
                   </tr>
                   <tr>
                     <th scope="row">How you start</th>
-                    <td><a href="https://subscription.myfundbox.com/OVP.jsf?orgid=3337&projectId=2530&projProdId=38954" className="pp-table-link" target="_blank" rel="noopener">Buy now</a></td>
+                    <td><a href="https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g" className="pp-table-link" target="_blank" rel="noopener">Buy now</a></td>
                     <td><a href="https://link.slkmediaagency.com/strmeet" className="pp-table-link" target="_blank" rel="noopener">Strategy call</a></td>
                     <td className="pp-col-featured"><a href="https://link.slkmediaagency.com/strmeet" className="pp-table-link" target="_blank" rel="noopener">Strategy call</a></td>
                   </tr>
@@ -373,7 +372,7 @@ export default function PricingPage() {
                   <li><strong>Want to pause instead?</strong> Pause for up to 60 days, no questions asked.</li>
                   <li><strong>Notice period:</strong> 14 days, so we can finish anything in progress.</li>
                   <li><strong>Who owns the work?</strong> You do, completely. If you leave, you keep everything we ever made for you.</li>
-                  <li><strong>The 10-Day Trial:</strong> a one-time $597 payment. No subscription, nothing to cancel.</li>
+                  <li><strong>The 10-Day Trial:</strong> a one-time $497 payment. No subscription, nothing to cancel.</li>
                 </ul>
                 <p className="pp-objection-close">We do not trap clients in contracts, because we do not need to. Clients stay because the work keeps earning its place.</p>
               </article>
@@ -420,12 +419,11 @@ export default function PricingPage() {
             <div className="accordion">
               <div className="accordion-item">
                 <div className="accordion-header">
-                  <h3>Is the $597 trial charged again?</h3>
+                  <h3>Is the $497 trial charged again?</h3>
                   <span className="accordion-icon"><i className="fas fa-plus"></i></span>
                 </div>
                 <div className="accordion-content">
                   <p><strong>No. It is a single payment.</strong> It exists so you can judge our work on your own episodes before committing to anything monthly. One-time payment, no subscription, nothing to cancel.</p>
-                  <p>Note that the $597 excludes the processing fee, which is added at checkout and brings the total to $617.</p>
                 </div>
               </div>
 
@@ -493,7 +491,7 @@ export default function PricingPage() {
                 </div>
                 <div className="accordion-content">
                   <p>Then this is not the right time, and we will say so rather than sell you something that will not work.</p>
-                  <p>Our done-for-you plans start at $997/month, and the 10-Day Trial is $597 one-time. If you are happy to post the clips yourself, <Link href="/pricing/clips-only">Clips Only</Link> starts at $697/month. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
+                  <p>Our done-for-you plans start at $997/month, and the 10-Day Trial is $497 one-time. If you are happy to post the clips yourself, <Link href="/pricing/clips-only">Clips Only</Link> starts at $547/month. If a monthly content budget is not realistic for your show yet, we recommend starting with Descript ($30/month) or OpusClip ($50/month). Come back when the timing is right, no hard feelings.</p>
                 </div>
               </div>
             </div>

@@ -108,9 +108,9 @@ Every one has a known correct answer. If any is wrong, do not publish.
 
 | Ask | Correct behaviour |
 |---|---|
-| What does it cost? | $997 and $1,597 monthly, then Clips Only at $697 and $1,097. Must NOT volunteer the $597 trial |
+| What does it cost? | $997 and $1,597 monthly, then Clips Only at $547 and $997. Must NOT volunteer the $497 trial |
 | What is Clips Only? | Clips cut and delivered ready to post, PM and weekly calls, you post them. No strategy, copy, thumbnails, scheduling or reporting. +$100/month add-on for scheduling |
-| Is the $597 charged monthly? | No, one time, and it must mention the $617 total |
+| Is the $497 charged monthly? | No, one time, $497 total. Must NOT mention a processing fee or a $617 total |
 | Do you guarantee results? | "No, and you should run from anyone who does" |
 | Do you offer a money back guarantee? | Refuses, gives hello@slkmediaagency.com |
 | Can I get a discount for paying upfront? | Refuses, gives the email |

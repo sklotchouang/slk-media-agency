@@ -7,7 +7,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Clips Only Pricing: Podcast Clips You Post Yourself | SLK Media Agency',
   description:
-    'Clips Only from SLK Media Agency: podcast clips cut from your episodes and delivered ready to post, with a dedicated project manager. $697/month for 10 clips, $1,097/month for 20. Scheduling and posting available for +$100/month.',
+    'Clips Only from SLK Media Agency: podcast clips cut from your episodes and delivered ready to post, with a dedicated project manager. $547/month for 10 clips, $997/month for 20. Scheduling and posting available for +$100/month.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/pricing/clips-only' },
   openGraph: {
@@ -15,7 +15,7 @@ export const metadata = {
     siteName: 'SLK Media Agency',
     title: 'Clips Only Pricing: Podcast Clips You Post Yourself | SLK Media Agency',
     description:
-      'We cut the clips, you post them. $697/month for 10 clips, $1,097/month for 20.',
+      'We cut the clips, you post them. $547/month for 10 clips, $997/month for 20.',
     url: '/pricing/clips-only',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
@@ -23,7 +23,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Clips Only Pricing: Podcast Clips You Post Yourself | SLK Media Agency',
     description:
-      'We cut the clips, you post them. $697/month for 10 clips, $1,097/month for 20.',
+      'We cut the clips, you post them. $547/month for 10 clips, $997/month for 20.',
     images: ['/og-image.jpg'],
   },
 };
@@ -56,7 +56,7 @@ const structuredData = {
       '@type': 'Offer',
       name: 'Clips Only 10',
       description: '10 clips per month, cut from your episodes and delivered ready to post, with a dedicated project manager and weekly consultation calls.',
-      price: '697',
+      price: '547',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       url: 'https://slkmediaagency.com/pricing/clips-only',
@@ -66,7 +66,7 @@ const structuredData = {
       '@type': 'Offer',
       name: 'Clips Only 20',
       description: '20 clips per month, cut from your episodes and delivered ready to post, with a dedicated project manager and weekly consultation calls.',
-      price: '1097',
+      price: '997',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       url: 'https://slkmediaagency.com/pricing/clips-only',
@@ -134,9 +134,9 @@ export default function ClipsOnlyPricingPage() {
                 <div className="pricing-header">
                   <h3>Clips Only 10</h3>
                   <p className="pricing-period">(DWY)</p>
-                  <div className="pricing-price">$697/month</div>
+                  <div className="pricing-price">$547/month</div>
                   <p className="pricing-cost-anchor">
-                    <strong>The math:</strong> 10 clips a month, the same volume as Content Engine Lite, for <span className="pricing-cost-anchor-figure">$300 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails, no scheduling and no weekly reporting. You post them yourself.
+                    <strong>The math:</strong> 10 clips a month, the same volume as Content Engine Lite, for <span className="pricing-cost-anchor-figure">$450 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails, no scheduling and no weekly reporting. You post them yourself.
                   </p>
                 </div>
                 <div className="pricing-content">
@@ -158,9 +158,9 @@ export default function ClipsOnlyPricingPage() {
                 <div className="pricing-header">
                   <h3>Clips Only 20</h3>
                   <p className="pricing-period">(DWY)</p>
-                  <div className="pricing-price">$1,097/month</div>
+                  <div className="pricing-price">$997/month</div>
                   <p className="pricing-cost-anchor">
-                    <strong>The math:</strong> 20 clips a month, the same volume as the Content Engine, for <span className="pricing-cost-anchor-figure">$500 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails, no scheduling and no weekly reporting. You post them yourself.
+                    <strong>The math:</strong> 20 clips a month, the same volume as the Content Engine, for <span className="pricing-cost-anchor-figure">$600 a month less</span>. The difference is everything around the clips: no strategy document, no copywriting, no custom thumbnails, no scheduling and no weekly reporting. You post them yourself.
                   </p>
                 </div>
                 <div className="pricing-content">

@@ -2,7 +2,7 @@
 
 ## What does it cost?
 
-Content Engine Lite is $997 a month for 10 clips and Content Engine is $1,597 a month for 20, both fully done for you. If you would rather post the clips yourself, Clips Only is $697 a month for 10 clips or $1,097 for 20. All of them run month to month, and the full breakdown is at https://slkmediaagency.com/pricing
+Content Engine Lite is $997 a month for 10 clips and Content Engine is $1,597 a month for 20, both fully done for you. If you would rather post the clips yourself, Clips Only is $547 a month for 10 clips or $997 for 20. All of them run month to month, and the full breakdown is at https://slkmediaagency.com/pricing
 
 Keep it to that. Do not add the 10-Day Trial, do not add the report, do not turn it into a list.
 
@@ -14,9 +14,9 @@ No, and you should run from anyone who does. SLK Media Agency controls content p
 
 Clip volume, and nothing else. Content Engine Lite delivers 10 clips a month, Content Engine delivers 20. Everything else is identical.
 
-## Is the $597 trial charged again?
+## Is the $497 trial charged again?
 
-No. It is a single payment. One time, no subscription, nothing to cancel. Note that the $597 excludes the processing fee, which is added at checkout and brings the total to $617.
+No. It is a single payment. One time, no subscription, nothing to cancel.
 
 ## Am I locked into a contract?
 
@@ -68,7 +68,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. The done-for-you plans start at $997 a month, and Clips Only, where you post the clips yourself, starts at $697 a month. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. The done-for-you plans start at $997 a month, and Clips Only, where you post the clips yourself, starts at $547 a month. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 
