@@ -4,7 +4,7 @@ import HeroAtmosphere from '../../components/HeroAtmosphere';
 export const metadata = {
   title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns every episode into 10-20 sponsor-ready clips and distributes them across LinkedIn, YouTube, TikTok and more, done-for-you content for podcasters who publish consistently and are ready to invest in growth.',
+    'The Podcast Multiplier™ turns your episodes into 12 or 20 finished clips a month and posts them on LinkedIn, YouTube, TikTok and more. Done-for-you content for podcasters who publish consistently and want their time back.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
   openGraph: {
@@ -12,7 +12,7 @@ export const metadata = {
     siteName: 'SLK Media Agency',
     title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
     description:
-      'Done-for-you clip production and distribution. We turn every episode into sponsor-magnet assets while you focus on creating great content.',
+      'Done-for-you clip production and posting. We turn your episodes into clips that help new listeners find your show while you focus on creating great content.',
     url: '/',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
@@ -20,7 +20,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
     description:
-      'We turn every podcast episode into 10-20 sponsor-ready clips and distribute them everywhere your sponsors look.',
+      'We turn your podcast episodes into 12 or 20 clips a month and post them everywhere your audience scrolls.',
     images: ['/og-image.jpg'],
   },
 };
@@ -76,19 +76,19 @@ export default function HomePage() {
         <div className="container">
           <div className="grid-pattern"></div>
           <h1 className="headline"><span className="highlight">The Content Engine for Podcasters Ready to Scale</span></h1>
-          <p className="subheadline">Your show deserves more than 200-view clips. Let us convert every episode into high-impact, sponsor-magnet assets while you stay focused on creating great content.<br /><br /><strong>The Podcast Multiplier™: Done-for-you clip production and distribution for shows that are serious about growing.</strong></p>
+          <p className="subheadline">Your show deserves more than 200-view clips. We turn your episodes into short clips that help new listeners find your show and show future clients what you know. You record once. We handle everything after.<br /><br /><strong>The Podcast Multiplier™: Done-for-you clip production and distribution for shows that are serious about growing.</strong></p>
           <div className="cta-group">
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
             <a href="#process" className="secondary-cta">See our process</a>
           </div>
-          <p className="tagline">⚡ LIMITED CAPACITY: Only 3 spots available per quarter</p>
+          <p className="tagline">Month to month. No contract.</p>
 
           <div className="floating-cards">
             <div className="card card-1">
               <div className="card-content">
                 <div className="mockup-container">
                   <img src="/generated/card-clip.webp" alt="Podcast clip playing on a phone" className="card-art" width={640} height={960} loading="lazy" />
-                  <div className="mockup-title">Sponsor-Ready Content</div>
+                  <div className="mockup-title">Ready-to-Post Clips</div>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function HomePage() {
               <div className="card-content">
                 <div className="mockup-container">
                   <img src="/generated/card-studio.webp" alt="Podcast studio microphone and headphones" className="card-art" width={640} height={960} loading="lazy" />
-                  <div className="mockup-title">Revenue-First Strategy</div>
+                  <div className="mockup-title">A Plan for Every Clip</div>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function HomePage() {
               <div className="card-content">
                 <div className="mockup-container">
                   <img src="/generated/card-distribution.webp" alt="One podcast distributed to many platforms" className="card-art" width={640} height={960} loading="lazy" />
-                  <div className="mockup-title">Sponsor-Focused Distribution</div>
+                  <div className="mockup-title">Posted on Every Platform</div>
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-1.jpg" data-autoplay aria-label="Client success clip, sponsor-ready content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Sponsor-Ready Content</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-1.jpg" data-autoplay aria-label="Client success clip, ready-to-post content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Ready-to-Post Clips</p></div>',
               }}
             />
             <div
@@ -135,7 +135,7 @@ export default function HomePage() {
               className="client-video"
               dangerouslySetInnerHTML={{
                 __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-3.jpg" data-autoplay aria-label="Client success clip, revenue-driving clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Revenue-Driving Clips</p></div>',
+                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-3.jpg" data-autoplay aria-label="Client success clip, short-form clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Short-Form Clips</p></div>',
               }}
             />
           </div>
@@ -154,14 +154,14 @@ export default function HomePage() {
             </div>
             <div className="problem-point">
               <div className="icon"><i className="fas fa-chart-line"></i></div>
-              <p>Your clips get 300-800 views because you're rushing them between episodes - sponsors want consistent visibility</p>
+              <p>Your clips get 300-800 views because you're rushing them between episodes, so new listeners rarely come across your show</p>
             </div>
             <div className="problem-point">
               <div className="icon"><i className="fas fa-search-dollar"></i></div>
-              <p>You know you should be on LinkedIn, TikTok, and YouTube Shorts to attract sponsors... but who has time?</p>
+              <p>You know you should be on LinkedIn, TikTok, and YouTube Shorts to reach new listeners and future clients... but who has time?</p>
             </div>
           </div>
-          <p style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px', color: '#ffffff' }}><strong>The brutal math:</strong> 40 hours/month spent on content production = time you could spend closing sponsor deals worth $5K-$10K/month.</p>
+          <p style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px', color: '#ffffff' }}><strong>The brutal math:</strong> 40 hours/month spent on content production = time you could spend on your clients, your business, or your next episode.</p>
         </div>
       </section>
 
@@ -174,29 +174,29 @@ export default function HomePage() {
               <div className="feature-icon">
                 <i className="fas fa-bullseye"></i>
               </div>
-              <h3>Sponsor Psychology Strategy</h3>
-              <p>We don't just "chop clips" - we identify "sponsor moments" that demonstrate authority, audience trust, and commercial alignment.</p>
+              <h3>Clips Picked With a Purpose</h3>
+              <p>We don't just "chop clips". We pick the moments that show what you know and give a new viewer a reason to hear the full episode.</p>
             </div>
             <div className="feature">
               <div className="feature-icon">
                 <i className="fas fa-chart-line"></i>
               </div>
-              <h3>Revenue-First Approach</h3>
-              <p>Every clip is filtered through: "Does this help us close the next sponsor?" Not just engagement - actual revenue attribution.</p>
+              <h3>Built Around Your Goals</h3>
+              <p>Every clip is picked with your goal in mind: new listeners for the show, or future clients for your business.</p>
             </div>
             <div className="feature">
               <div className="feature-icon">
                 <i className="fas fa-rocket"></i>
               </div>
               <h3>Omnichannel Distribution</h3>
-              <p>We publish across LinkedIn, YouTube, Instagram, TikTok, Facebook - wherever your sponsors look for podcasts.</p>
+              <p>We publish across LinkedIn, YouTube, Instagram, TikTok and Facebook, wherever your future listeners and clients spend their time.</p>
             </div>
             <div className="feature">
               <div className="feature-icon">
                 <i className="fas fa-hand-holding-usd"></i>
               </div>
-              <h3>Full Revenue Attribution</h3>
-              <p>Weekly reports showing which clips drove sponsor inquiries, which platforms generated leads, and what content converts.</p>
+              <h3>Weekly Reports</h3>
+              <p>Every week you see which clips got the most views and engagement, which platforms performed best, and what we plan to post next.</p>
             </div>
           </div>
             <div className="testimonial-mini">
@@ -209,15 +209,15 @@ export default function HomePage() {
       {/* How It Works Section */}
       <section className="how-it-works" id="process">
         <div className="container">
-          <h2 className="section-title">How The Podcast Multiplier™ Turns Episodes Into Revenue</h2>
+          <h2 className="section-title">How The Podcast Multiplier™ Works</h2>
           <div className="process-steps">
             <div className="step">
               <div className="step-content">
                 <div className="step-icon">
                   <i className="fas fa-chess"></i>
                 </div>
-                <h3>Sponsor Psychology Strategy</h3>
-                <p>We study your niche's top sponsored podcasts, analyze competitor content strategies, and map a 90-day revenue-first content calendar aligned with your sponsor outreach timeline.<br /><br /><strong>Deliverable:</strong> Full strategy report giving you clarity on what to expect in the coming weeks/months</p>
+                <h3>Strategy First</h3>
+                <p>We study your niche, look at what similar shows post, and map a 90-day content calendar: which clips to make, where to post them, and when.<br /><br /><strong>Deliverable:</strong> Full strategy report giving you clarity on what to expect in the coming weeks/months</p>
               </div>
               <div className="step-number">1</div>
             </div>
@@ -227,7 +227,7 @@ export default function HomePage() {
                   <i className="fas fa-magic"></i>
                 </div>
                 <h3>Content Multiplication</h3>
-                <p>Our team transforms each episode into 10-20+ sponsor-attracting assets. We don't edit chronologically - we hunt for "sponsor moments" that prove authority, audience engagement, and commercial alignment.<br /><br /><strong>Output:</strong> We don't just edit. We turn your podcast into an omnipresent content machine.
+                <p>Our team cuts your episodes into 12 or 20 finished clips a month, depending on your plan. We don't edit in order. We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode.<br /><br /><strong>Output:</strong> We don't just edit. We turn your podcast into an omnipresent content machine.
                 </p>
               </div>
               <div className="step-number">2</div>
@@ -237,8 +237,8 @@ export default function HomePage() {
                 <div className="step-icon">
                   <i className="fas fa-hand-holding-usd"></i>
                 </div>
-                <h3>Omnichannel Distribution & Revenue Tracking</h3>
-                <p>We publish strategically across your entire ecosystem, monitor sponsor engagement signals, and deliver weekly performance reports showing which clips drove sponsor inquiries.<br /><br /><strong>Result:</strong> By the time a brand Googles you, they've seen you 8 times across multiple platforms</p>
+                <h3>Posting & Weekly Reports</h3>
+                <p>We write the captions, add a custom thumbnail, post every clip on your platforms on the schedule we agree with you, and send a weekly report on how each clip performed.<br /><br /><strong>Result:</strong> You show up on every platform, every week, without opening an editor or a scheduler</p>
               </div>
               <div className="step-number">3</div>
             </div>
@@ -396,13 +396,13 @@ export default function HomePage() {
                   <td data-label="Feature">Strategy</td>
                   <td data-label="AI Tools"><span className="indicator negative">❌ No strategy</span></td>
                   <td data-label="Freelancers"><span className="indicator warning">⚠️ Task-based only</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Revenue-first strategy</span></td>
+                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ A strategy for your show</span></td>
                 </tr>
                 <tr>
                   <td data-label="Feature">Quality</td>
                   <td data-label="AI Tools"><span className="indicator negative">❌ Robotic, contextless</span></td>
                   <td data-label="Freelancers"><span className="indicator warning">⚠️ Variable quality</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Brand-obsessed, sponsor-ready</span></td>
+                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ On-brand, ready to post</span></td>
                 </tr>
                 <tr>
                   <td data-label="Feature">Time Investment</td>
@@ -411,13 +411,13 @@ export default function HomePage() {
                   <td data-label="Podcast Multiplier"><span className="indicator positive">✅ 1 hr/week strategy calls</span></td>
                 </tr>
                 <tr>
-                  <td data-label="Feature">ROI Tracking</td>
+                  <td data-label="Feature">Reporting</td>
                   <td data-label="AI Tools"><span className="indicator negative">❌ Basic analytics</span></td>
-                  <td data-label="Freelancers"><span className="indicator negative">❌ No sponsor attribution</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Full revenue attribution</span></td>
+                  <td data-label="Freelancers"><span className="indicator negative">❌ No reporting</span></td>
+                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Weekly performance reports</span></td>
                 </tr>
                 <tr>
-                  <td data-label="Feature">Sponsor Positioning</td>
+                  <td data-label="Feature">Built Around Your Goals</td>
                   <td data-label="AI Tools"><span className="indicator negative">❌ Algorithm-driven</span></td>
                   <td data-label="Freelancers"><span className="indicator negative">❌ Not their focus</span></td>
                   <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Every clip decision</span></td>
@@ -425,7 +425,7 @@ export default function HomePage() {
               </tbody>
             </table>
           </div>
-          <p style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px' }}><strong>The difference:</strong> We're not a "service provider" - we're an extension of your revenue team. Every clip decision is filtered through: <em>"Does this help us close the next sponsor?"</em></p>
+          <p style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px' }}><strong>The difference:</strong> We work like part of your team, not a vendor you have to manage. Every clip decision is filtered through: <em>"Will this help the right people find the show?"</em></p>
         </div>
       </section>
 
@@ -477,9 +477,9 @@ export default function HomePage() {
       <section className="mid-cta">
         <div className="container">
           <h2>Ready to Scale Your Podcast?</h2>
-          <p style={{ margin: '20px 0', fontSize: '18px' }}>You'll speak directly with our founder, Samuel LK. We'll discuss your content, your goals, and whether we're the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we can deliver 3X ROI on our fee, we'll tell you to wait.</p>
+          <p style={{ margin: '20px 0', fontSize: '18px' }}>You'll speak directly with our founder, Samuel LK. We'll discuss your content, your goals, and whether we're the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we're the right fit for your show, we'll tell you.</p>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
-          <p className="guarantee">🚨 LIMITED CAPACITY: Only 3 spots available per quarter</p>
+          <p className="guarantee">Month to month. No contract.</p>
         </div>
       </section>
 
@@ -494,10 +494,10 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Short answer:</strong> AI tools are for podcasters testing the waters with content repurposing. The Podcast Multiplier™ is for podcasters who are serious about scaling revenue.</p>
+                <p><strong>Short answer:</strong> AI tools are for podcasters testing the waters with content repurposing. The Podcast Multiplier™ is for podcasters who are serious about growing their show or their business.</p>
                 <p><strong>Long answer:</strong> AI tools optimize for engagement metrics (watch time, likes, shares). They clip moments that the algorithm THINKS are interesting - usually loud moments, laughter, or high-energy segments.</p>
-                <p><strong>The Podcast Multiplier™ optimizes for sponsor appeal.</strong> We clip moments that demonstrate: Authority (you're an expert, not just entertaining), Audience trust (engaged listeners, not passive consumers), Commercial alignment (your content attracts brands naturally).</p>
-                <p><strong>Bottom line:</strong> AI tools save you time. We make you money.</p>
+                <p><strong>The Podcast Multiplier™ picks clips for the people you want to reach.</strong> We clip moments that show: Authority (you're an expert, not just entertaining), A complete idea (a viewer gets something useful in under a minute), A reason to go further (hear the full episode, or get in touch with you).</p>
+                <p><strong>Bottom line:</strong> AI tools still leave the picking, fixing and posting to you. We do all of it, so you get your time back.</p>
               </div>
             </div>
 
@@ -507,22 +507,22 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>Because <strong>you're not buying editing hours - you're buying a revenue outcome.</strong></p>
-                <p><strong>Freelancers on Fiverr give you:</strong> Task-based labor (you tell them what to do), inconsistent quality (depends on their mood, workload, skill level), zero strategy (they don't understand sponsor psychology), management burden (you're revising, giving feedback, chasing deadlines).</p>
-                <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), revenue-first approach (every clip filtered through "does this attract sponsors?"), full autonomy (we run on autopilot after Week 1).</p>
+                <p>Because <strong>you're not buying editing hours. You're buying the whole job, done.</strong></p>
+                <p><strong>Freelancers on Fiverr give you:</strong> Task-based labor (you tell them what to do), inconsistent quality (depends on their mood, workload, skill level), zero strategy (they edit what you send, with no plan behind it), management burden (you're revising, giving feedback, chasing deadlines).</p>
+                <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), a plan behind every clip (each one picked for the people you want to reach), full autonomy (we run on autopilot after Week 1).</p>
                 <p><strong>The real difference:</strong> a freelancer costs you management time on top of their fee, and still leaves you as the bottleneck. We take the whole job off your desk.</p>
               </div>
             </div>
 
             <div className="accordion-item">
               <div className="accordion-header">
-                <h3>Do you guarantee specific download growth or sponsor revenue?</h3>
+                <h3>Do you guarantee downloads, views or sponsors?</h3>
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>No - and you should run from anyone who does.</strong></p>
-                <p>Here's why: We control content production and distribution. We don't control: Your recording quality, guest selection, or topic relevance; How aggressively you pursue sponsor outreach; Market conditions in your niche.</p>
-                <p><strong>What we DO guarantee:</strong> 10-20 professionally edited, sponsor-ready clips per episode (delivered on time, every time), Multi-platform distribution on schedule, Weekly performance reports (you'll know exactly what's working), 14-day money-back guarantee (unsatisfied? Full refund).</p>
+                <p><strong>No, and you should run from anyone who does.</strong></p>
+                <p>Here's why: We control content production and posting. We don't control: Your recording quality, guest selection, or topic relevance; How each platform chooses to show your clips; Market conditions in your niche.</p>
+                <p><strong>What we DO commit to:</strong> 12 or 20 professionally edited clips a month, depending on your plan, delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did. We never promise downloads, views or sponsors.</p>
               </div>
             </div>
 
@@ -568,7 +568,7 @@ export default function HomePage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Honest answer:</strong> We work best with shows publishing <strong>2-4 episodes/month.</strong></p>
-                <p>Here's why: Content volume drives sponsor visibility. 1 episode/month = 10-15 clips = ~2 weeks of posting. That leaves 2 weeks of silence. Sponsors see inconsistent engagement.</p>
+                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 12 or 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
                 <p>We're happy to strategize on increasing output sustainably - many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
               </div>
             </div>
@@ -591,9 +591,8 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>We don't do outreach for you (cold emailing brands, negotiating rates, closing deals). That's your zone of genius.</p>
-                <p><strong>But we set you up for success:</strong> Clips designed to demonstrate sponsor-friendly messaging, Weekly performance reports you can show to brands, Sponsor signal tracking (we flag when brands engage with your content).</p>
-                <p><strong>Think of it this way:</strong> We build the ammunition. You pull the trigger.</p>
+                <p>We don't do outreach for you (cold emailing brands, negotiating rates, closing deals). We make the content and post it.</p>
+                <p><strong>What you do get:</strong> Clips that show your expertise, posted every week, and a weekly report with real view and engagement numbers you can share with anyone you work with.</p>
               </div>
             </div>
 
@@ -603,10 +602,8 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>If "results" = high-quality clips delivered:</strong> Week 1. You'll have 10-15 clips ready within 3-4 business days.</p>
-                <p><strong>If "results" = increased social media engagement:</strong> 30-45 days. Platforms need time to recognize your consistent posting and boost distribution.</p>
-                <p><strong>If "results" = sponsor inquiries and revenue:</strong> 60-90 days. Sponsors need to see you multiple times across platforms before reaching out.</p>
-                <p><strong>The compounding effect:</strong> Month 1 lays the foundation. Month 3 is when you start seeing revenue impact. Month 6 is when clients say "I can't believe I didn't do this sooner."</p>
+                <p><strong>If "results" = finished clips:</strong> that part is in our hands. Your plan sets the number (12 or 20 a month, or the custom number you chose) and we deliver it on the schedule agreed at onboarding.</p>
+                <p><strong>If "results" = more listeners, more views or new clients:</strong> we can't promise a number or a date, and nobody honestly can. What we do promise is the work: the clips, posted on schedule, with a weekly report so you can see exactly what is happening.</p>
               </div>
             </div>
 
@@ -616,18 +613,18 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Wherever your sponsors look for podcasts:</strong> LinkedIn, YouTube (Shorts & full), Instagram (feed, reels, stories), TikTok, Facebook, X (Twitter), and more.</p>
-                <p>Don't know which platforms to focus on? We'll recommend based on your niche and sponsor targets.</p>
+                <p><strong>Wherever your audience spends time:</strong> LinkedIn, YouTube (Shorts & full), Instagram (feed, reels, stories), TikTok, Facebook, X (Twitter), and more.</p>
+                <p>Don't know which platforms to focus on? We'll recommend based on your niche and who you want to reach.</p>
               </div>
             </div>
 
             <div className="accordion-item">
               <div className="accordion-header">
-                <h3>How many clips do I get per episode?</h3>
+                <h3>How many clips do I get?</h3>
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>Standard package: 10-15 clips per episode. Pro package: 20-25 clips per episode. If there's more "sponsor gold" in your episode, we'll pull extra clips at no additional cost.</p>
+                <p>We count clips per month, not per episode. Plans come with 12 or 20 clips a month, or a custom number if you build your own plan. We pick the strongest moments from all the episodes you send that month.</p>
               </div>
             </div>
 
@@ -667,7 +664,7 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>Yes. We track and report weekly on: Which clips got the most views and engagement, Which clips drove sponsor-adjacent traffic, Platform performance comparison, Sponsor signals (brands that engaged with your content), Recommendations for next week.</p>
+                <p>Yes. We track and report weekly on: Which clips got the most views and engagement, Platform performance comparison, Recommendations for next week.</p>
               </div>
             </div>
 
@@ -687,7 +684,7 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><a href="https://link.slkmediaagency.com/strmeet" target="_blank" rel="noopener">Book a strategy call</a> and ask us directly. If we can't answer it on the call, your next month's on us.</p>
+                <p><a href="https://link.slkmediaagency.com/strmeet" target="_blank" rel="noopener">Book a strategy call</a> and ask us directly.</p>
               </div>
             </div>
           </div>
@@ -697,7 +694,7 @@ export default function HomePage() {
       {/* Footer CTA */}
       <section className="footer-cta" id="contact">
         <div className="container">
-          <h2>The only risk is waiting while your competitors scale their sponsor pipelines.</h2>
+          <h2>You record once. We handle everything after.</h2>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
         </div>
       </section>
@@ -740,7 +737,7 @@ export default function HomePage() {
       {/* Sticky CTA */}
       <div className="sticky-cta">
         <div className="container">
-          <p>Only 2 spots remaining this quarter - Don't wait until it's too late</p>
+          <p>Month to month, no contract. See if your show is a fit.</p>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Check Availability & Book Now</a>
         </div>
       </div>
