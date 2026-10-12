@@ -1904,13 +1904,15 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 /* --------------------------------------------------------------------------
-   17. /pricing page
+   17. /pricing page (unified, 2026-10-12)
 
    The standalone pricing page the SDR sends when a prospect asks for numbers.
-   The three tier cards reuse the shared .pricing-* markup and inherit the
-   PRICING block above, so nothing here touches them. Everything below is
-   page-only chrome (hero, custom-order band, comparison table, objections,
-   next steps, final CTA).
+   Since 2026-10-12 it is one page: a 12 / 20 switch, two plan cards with a
+   chip between them, the "what the difference replaces" table, the
+   build-your-own-plan calculator and the 10-Day Trial strip. The markup lives
+   in app/(main)/pricing/page.js, components/PricingPlans.js and
+   components/PricingCalculator.js. Nothing here uses the shared .pricing-*
+   tier classes any more.
 
    Every rule is scoped under .pricing-page. That is load-bearing, not tidy:
    premium.css loads AFTER podcast-multiplier-styles.css, so an unscoped
@@ -1919,700 +1921,624 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
    live sales pages. Do not drop the scope.
    -------------------------------------------------------------------------- */
 
+/* ---- Shared bits ---- */
+.pricing-page .pp-eyebrow {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted-2);
+  margin: 0 0 10px;
+}
+
+.pricing-page h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pricing-page .pp-lead {
+  max-width: 62ch;
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* .primary-cta carries the real button base in styles.css (display, padding,
+   radius). These only make it fill its card and centre the label. */
+.pricing-page .pp-cta {
+  display: block;
+  text-align: center;
+  margin-top: auto;
+}
+
+.pricing-page .pp-cta-quiet {
+  background: transparent;
+  border: 1px solid var(--hairline-strong);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+.pricing-page .pp-cta-quiet:hover,
+.pricing-page .pp-cta-quiet:focus-visible {
+  background: var(--surface-2);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
 /* ---- Hero ---- */
 .pricing-page .pp-hero {
-  padding: 132px 0 40px;
-  text-align: center;
+  padding: 132px 0 28px;
   position: relative;
 }
 
+.pricing-page .pp-hero .container {
+  display: grid;
+  gap: 14px;
+}
+
 .pricing-page .pp-kicker {
-  display: inline-block;
   font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(76, 178, 240, 0.1);
-  border: 1px solid rgba(76, 178, 240, 0.28);
-  border-radius: var(--radius-pill);
-  padding: 6px 16px;
-  margin-bottom: 22px;
+  color: var(--text-muted-2);
+  margin: 0;
 }
 
 .pricing-page .pp-hero h1 {
-  font-size: clamp(2.3rem, 5vw, 3.7rem);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
   line-height: 1.08;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 20px;
+  margin: 0;
+  max-width: 720px;
+  text-wrap: balance;
+}
+
+.pricing-page .pp-hl {
+  color: var(--accent);
 }
 
 .pricing-page .pp-hero-sub {
   max-width: 720px;
-  margin: 0 auto;
-  font-size: clamp(1rem, 1.5vw, 1.14rem);
-  line-height: 1.65;
-  color: var(--text-secondary);
-}
-
-.pricing-page .pp-hero-jump {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.pricing-page .pp-jump-link {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-decoration: none;
-  padding: 9px 18px;
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius-pill);
-  background: var(--surface-1);
-  transition: color var(--dur-quick) var(--ease-out),
-    border-color var(--dur-quick) var(--ease-out),
-    background var(--dur-quick) var(--ease-out);
-}
-
-.pricing-page .pp-jump-link:hover,
-.pricing-page .pp-jump-link:focus-visible {
-  color: var(--text-primary);
-  border-color: var(--hairline-strong);
-  background: var(--surface-2);
-}
-
-.pricing-page .pp-section-sub {
-  text-align: center;
-  max-width: 640px;
-  margin: -18px auto 44px;
-  color: var(--text-muted-2);
-  font-size: 0.97rem;
+  margin: 0;
+  font-size: 1.125rem;
   line-height: 1.6;
+  color: var(--text-secondary);
 }
 
-/* ---- Custom order band, sits under the tier grid ---- */
-.pricing-page .pp-custom {
+/* ---- Plans section: switch, pair, table ---- */
+.pricing-page .pp-plans {
+  padding: 0;
+  overflow: visible;
+}
+
+.pricing-page .pp-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin: 4px 0 28px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+}
+
+.pricing-page .pp-switch button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background var(--dur-quick) var(--ease-out),
+    color var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page .pp-switch button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg-base);
+}
+
+.pricing-page .pp-switch button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pricing-page .pp-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1.15fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.pricing-page .pp-card {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  max-width: 1200px;
-  margin: 56px auto 0;
-  padding: 34px 38px;
-  background: var(--surface-1);
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+  padding: 28px;
+  background: var(--bg-raised);
   border: 1px solid var(--hairline);
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
-.pricing-page .pp-custom-copy {
-  flex: 1 1 380px;
+.pricing-page .pp-card-dfy {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(76, 178, 240, 0.1), var(--bg-raised) 45%);
+  box-shadow: 0 20px 60px -30px rgba(76, 178, 240, 0.45);
 }
 
-.pricing-page .pp-custom-copy h3 {
-  font-size: 1.28rem;
+.pricing-page .pp-tag {
+  align-self: flex-start;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--hairline-strong);
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-card-dfy .pp-tag {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.pricing-page .pp-name {
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin: 0 0 4px;
 }
 
-.pricing-page .pp-custom-copy p {
-  color: var(--text-secondary);
-  line-height: 1.62;
+.pricing-page .pp-who {
   margin: 0;
-  max-width: 62ch;
+  color: var(--text-secondary);
 }
 
-.pricing-page .pp-custom-action {
-  flex: 0 1 300px;
-  text-align: center;
+.pricing-page .pp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
 }
 
-.pricing-page .pp-custom-note {
-  margin: 12px 0 0;
-  font-size: 0.8rem;
-  line-height: 1.5;
+.pricing-page .pp-price b {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.pricing-page .pp-price span {
   color: var(--text-muted-2);
 }
 
-/* Two bands stack under the grid since 2026-09-22 (Clips Only, then the
-   custom order). The second one sits closer so they read as a pair. */
-.pricing-page .pp-custom + .pp-custom {
-  margin-top: 20px;
+.pricing-page .pp-feat {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
 }
 
-/* ---- Comparison table ---- */
-.pricing-page .pp-compare {
-  padding: var(--space-section) 0;
+.pricing-page .pp-feat li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
-.pricing-page .pp-table-scroll {
+.pricing-page .pp-feat .pp-no {
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-ic {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.pricing-page .pp-yes .pp-ic {
+  background: rgba(76, 178, 240, 0.1);
+  color: var(--accent);
+}
+
+.pricing-page .pp-no .pp-ic {
+  border: 1px solid var(--hairline-strong);
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-gap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.pricing-page .pp-gap-line {
+  flex: 1;
+  width: 1px;
+  background: var(--hairline-strong);
+}
+
+.pricing-page .pp-chip {
+  background: var(--bg-overlay);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.pricing-page .pp-chip b {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-chip small {
+  display: block;
+  max-width: 8.5em;
+  color: var(--text-muted-2);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* ---- What the difference replaces ---- */
+.pricing-page .pp-replaces {
+  padding: 72px 0 0;
+  overflow: visible;
+}
+
+.pricing-page .pp-tablebox {
   overflow-x: auto;
+  margin-top: 24px;
   border: 1px solid var(--hairline);
-  border-radius: 16px;
-  background: var(--surface-1);
+  border-radius: 14px;
   -webkit-overflow-scrolling: touch;
 }
 
 .pricing-page .pp-table {
-  width: 100%;
-  min-width: 720px;
   border-collapse: collapse;
-  font-size: 0.93rem;
+  width: 100%;
+  min-width: 600px;
+  font-variant-numeric: tabular-nums;
 }
 
-.pricing-page .pp-table-caption {
-  caption-side: bottom;
-  padding: 16px 22px 18px;
+.pricing-page .pp-table th,
+.pricing-page .pp-table td {
+  padding: 14px 18px;
+  text-align: right;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-table th:first-child,
+.pricing-page .pp-table td:first-child {
   text-align: left;
-  font-size: 0.8rem;
-  color: var(--text-muted-2);
-  line-height: 1.5;
 }
 
 .pricing-page .pp-table thead th {
-  padding: 20px 18px;
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 700;
   color: var(--text-primary);
-  border-bottom: 1px solid var(--hairline-strong);
-  white-space: nowrap;
+  font-weight: 700;
+  background: var(--bg-raised);
 }
 
-.pricing-page .pp-table thead th:first-child {
-  text-align: left;
+.pricing-page .pp-table td small {
+  display: block;
   color: var(--text-muted-2);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  line-height: 1.45;
 }
 
-.pricing-page .pp-table tbody th {
-  padding: 15px 18px;
-  text-align: left;
-  font-weight: 500;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--hairline);
-  min-width: 260px;
+.pricing-page .pp-table .pp-us {
+  background: rgba(76, 178, 240, 0.1);
+  color: var(--text-primary);
 }
 
-.pricing-page .pp-table tbody td {
-  padding: 15px 18px;
-  text-align: center;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--hairline);
-}
-
-.pricing-page .pp-table tbody tr:last-child th,
-.pricing-page .pp-table tbody tr:last-child td {
+.pricing-page .pp-table .pp-tot td {
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.1rem;
   border-bottom: 0;
 }
 
-.pricing-page .pp-table tbody tr:hover th,
-.pricing-page .pp-table tbody tr:hover td {
-  background: rgba(255, 255, 255, 0.022);
-}
-
-/* The anchor tier column is tinted so it reads as the recommended one,
-   matching .pricing-tier.featured in the cards above. */
-.pricing-page .pp-table .pp-col-featured {
-  background: rgba(76, 178, 240, 0.055);
-}
-
-.pricing-page .pp-table thead th.pp-col-featured {
-  color: var(--accent-strong);
-}
-
-.pricing-page .pp-cell-strong {
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-/* Status markers are drawn in CSS, not typed as characters: the project
-   forbids en dashes in copy, and an empty span carrying role="img" plus
-   aria-label announces correctly while leaving no text node behind. */
-.pricing-page .pp-yes {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(76, 178, 240, 0.16);
-  border: 1px solid rgba(76, 178, 240, 0.45);
-  position: relative;
-  vertical-align: middle;
-}
-
-.pricing-page .pp-yes::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 3px;
-  width: 5px;
-  height: 9px;
-  border-right: 2px solid var(--accent-strong);
-  border-bottom: 2px solid var(--accent-strong);
-  transform: rotate(42deg);
-}
-
-.pricing-page .pp-no {
-  display: inline-block;
-  width: 14px;
-  height: 2px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.22);
-  vertical-align: middle;
-}
-
-.pricing-page .pp-table-link {
+.pricing-page .pp-table .pp-tot td.pp-us {
   color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(76, 178, 240, 0.35);
-  padding-bottom: 1px;
-  transition: color var(--dur-quick) var(--ease-out),
-    border-color var(--dur-quick) var(--ease-out);
 }
 
-.pricing-page .pp-table-link:hover,
-.pricing-page .pp-table-link:focus-visible {
-  color: var(--accent-strong);
-  border-color: var(--accent-strong);
-}
-
-/* ---- Objection blocks ---- */
-.pricing-page .pp-objections {
-  padding: var(--space-section) 0;
-}
-
-.pricing-page .pp-objection-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 26px;
-  margin-top: 48px;
-}
-
-.pricing-page .pp-objection {
-  display: flex;
-  flex-direction: column;
-  padding: 32px 30px;
-  background: var(--surface-1);
-  border: 1px solid var(--hairline);
-  border-radius: 16px;
-  transition: transform var(--dur-quick) var(--ease-out),
-    border-color var(--dur-quick) var(--ease-out);
-}
-
-.pricing-page .pp-objection:hover {
-  transform: translateY(-4px);
-  border-color: var(--hairline-strong);
-}
-
-.pricing-page .pp-objection-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: rgba(76, 178, 240, 0.1);
-  border: 1px solid rgba(76, 178, 240, 0.26);
-  color: var(--accent);
-  font-size: 1.05rem;
-  margin-bottom: 20px;
-}
-
-.pricing-page .pp-objection h3 {
-  font-size: 1.16rem;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--text-primary);
-  margin-bottom: 14px;
-}
-
-.pricing-page .pp-objection p {
-  color: var(--text-secondary);
-  line-height: 1.66;
-  margin-bottom: 14px;
-}
-
-.pricing-page .pp-objection-list {
-  list-style: none;
-  margin: 0 0 14px;
-  padding: 0;
-}
-
-.pricing-page .pp-objection-list li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  font-size: 0.94rem;
-}
-
-.pricing-page .pp-objection-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: 0.75;
-}
-
-.pricing-page .pp-objection-list strong,
-.pricing-page .pp-objection p strong {
-  color: var(--text-primary);
-}
-
-.pricing-page .pp-objection-close {
-  margin-top: auto;
-  margin-bottom: 0;
-  padding-top: 18px;
-  border-top: 1px solid var(--hairline);
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-/* ---- What happens next ---- */
-.pricing-page .pp-next {
-  padding: var(--space-section) 0;
-}
-
-.pricing-page .pp-next-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 26px;
-  margin-top: 48px;
-}
-
-.pricing-page .pp-next-step {
-  padding: 30px 28px;
-  background: var(--surface-1);
-  border: 1px solid var(--hairline);
-  border-radius: 16px;
-}
-
-.pricing-page .pp-next-num {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--accent-grad);
-  color: var(--accent-ink);
-  font-weight: 800;
-  font-size: 1rem;
-  margin-bottom: 18px;
-}
-
-.pricing-page .pp-next-step h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.pricing-page .pp-next-step p {
-  color: var(--text-secondary);
-  line-height: 1.65;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-/* ---- Proof links ---- */
-.pricing-page .pp-proof {
-  margin-top: 52px;
-  text-align: center;
-}
-
-.pricing-page .pp-proof > p {
+.pricing-page .pp-src {
+  font-size: 0.76rem;
+  line-height: 1.55;
   color: var(--text-muted-2);
-  margin-bottom: 20px;
+  margin: 12px 0 0;
+  max-width: 80ch;
 }
 
-.pricing-page .pp-proof-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
+/* ---- Build your own plan ---- */
+.pricing-page .pp-build {
+  padding: 72px 0 0;
+  overflow: visible;
 }
 
-.pricing-page .pp-proof-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 12px 22px;
+.pricing-page .pp-calc {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.pricing-page .pp-panel {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+  min-width: 0;
+  padding: 28px;
+  background: var(--bg-raised);
   border: 1px solid var(--hairline);
-  border-radius: var(--radius-pill);
-  background: var(--surface-1);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-field label {
+  display: block;
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: transform var(--dur-quick) var(--ease-out),
-    border-color var(--dur-quick) var(--ease-out),
-    background var(--dur-quick) var(--ease-out);
-}
-
-.pricing-page .pp-proof-link i {
-  color: var(--accent);
-  font-size: 0.86rem;
-}
-
-.pricing-page .pp-proof-link:hover,
-.pricing-page .pp-proof-link:focus-visible {
-  transform: translateY(-2px);
-  border-color: var(--hairline-strong);
-  background: var(--surface-2);
-}
-
-/* ---- Downsell band, between the pricing FAQ and the final CTA ----
-
-   The quiet route to /podcast-toolkits (the $100 strategy report) for a reader
-   whose budget rules the three tiers out. Everything here is deliberately
-   pitched BELOW the rest of the page so it never competes with the tiers:
-   no fill, hairline border only, a narrower measure than .pp-custom (980 vs
-   1200), muted body text, a small h2 rather than .section-title, and a text
-   link instead of .primary-cta. If you make this louder you turn a downsell
-   into a fourth offer, and budget-capable readers will take it.
-
-   The negative top margin eats part of the FAQ section's bottom padding so the
-   band reads as attached to the "none of these fit my budget" answer above it,
-   rather than as a section of its own. ---- */
-.pricing-page .pp-downsell {
-  padding: 0;
-  margin-top: calc(var(--space-section) * -0.45);
-}
-
-.pricing-page .pp-downsell-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 26px 32px;
-  border: 1px solid var(--hairline);
-  border-radius: 16px;
-}
-
-.pricing-page .pp-downsell-copy {
-  flex: 1 1 400px;
-}
-
-.pricing-page .pp-downsell-kicker {
-  font-size: 0.71rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted-2);
   margin-bottom: 8px;
 }
 
-.pricing-page .pp-downsell-copy h2 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-}
-
-.pricing-page .pp-downsell-copy p {
-  font-size: 0.93rem;
-  line-height: 1.62;
-  color: var(--text-muted-2);
-  margin: 0;
-  max-width: 64ch;
-}
-
-.pricing-page .pp-downsell-action {
-  flex: 0 1 240px;
-  text-align: center;
-}
-
-.pricing-page .pp-downsell-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 11px 20px;
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-pill);
-  background: var(--surface-1);
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.88rem;
-  text-decoration: none;
-  transition: border-color var(--dur-quick) var(--ease-out),
-    background var(--dur-quick) var(--ease-out);
-}
-
-.pricing-page .pp-downsell-link i {
-  color: var(--accent);
-  font-size: 0.8rem;
-  transition: transform var(--dur-quick) var(--ease-out);
-}
-
-.pricing-page .pp-downsell-link:hover,
-.pricing-page .pp-downsell-link:focus-visible {
-  border-color: var(--accent);
-  background: var(--surface-2);
-}
-
-.pricing-page .pp-downsell-link:hover i,
-.pricing-page .pp-downsell-link:focus-visible i {
-  transform: translateX(3px);
-}
-
-.pricing-page .pp-downsell-note {
-  margin: 12px 0 0;
-  font-size: 0.76rem;
-  line-height: 1.5;
-  color: var(--text-muted-2);
-}
-
-/* ---- Final CTA ---- */
-.pricing-page .pp-final-cta {
-  padding: var(--space-section) 0 calc(var(--space-section) * 0.8);
-  text-align: center;
-}
-
-.pricing-page .pp-final-cta h2 {
-  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
-  font-weight: 800;
-  line-height: 1.16;
-  color: var(--text-primary);
-  margin-bottom: 18px;
-}
-
-.pricing-page .pp-final-cta > .container > p {
-  max-width: 640px;
-  margin: 0 auto 34px;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.pricing-page .pp-final-actions {
+.pricing-page .pp-slider {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  gap: 16px;
 }
 
-.pricing-page .pp-final-secondary {
-  color: var(--text-muted-2);
-  font-weight: 600;
-  font-size: 0.92rem;
-  text-decoration: none;
-  border-bottom: 1px solid var(--hairline-strong);
-  padding-bottom: 2px;
-  transition: color var(--dur-quick) var(--ease-out);
+.pricing-page .pp-slider input[type="range"] {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--accent);
 }
 
-.pricing-page .pp-final-secondary:hover,
-.pricing-page .pp-final-secondary:focus-visible {
+.pricing-page .pp-slider input[type="range"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pricing-page .pp-count {
+  min-width: 3ch;
+  text-align: right;
   color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---- /pricing/clips-only ----
-   That page sets both .pricing-page and .clips-only-page on <main>, so it
-   inherits everything above unchanged. The only difference: it has two tiers,
-   not three, and the auto-fit grid would stretch them to about 585px each.
-   Capping the grid keeps each card close to the width of a /pricing card. */
-.clips-only-page .pricing-grid {
-  max-width: 800px;
+.pricing-page .pp-opt {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 0;
+  border-top: 1px solid var(--hairline);
+  cursor: pointer;
+}
+
+.pricing-page .pp-opt input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--accent);
+}
+
+.pricing-page .pp-opt input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pricing-page .pp-opt span {
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.pricing-page .pp-opt small {
+  display: block;
+  color: var(--text-muted-2);
+  font-size: 0.8rem;
+}
+
+.pricing-page .pp-result {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(76, 178, 240, 0.1), var(--bg-raised) 60%);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-result p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-big {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-big span {
+  font-size: 1rem;
+  color: var(--text-muted-2);
+  font-weight: 500;
+}
+
+.pricing-page .pp-hint {
+  border: 1px solid var(--hairline-strong);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.pricing-page .pp-hint strong {
+  color: #5fd39a;
+}
+
+/* ---- 10-Day Trial strip ---- */
+.pricing-page .pp-trial {
+  padding: 56px 0 72px;
+  overflow: visible;
+}
+
+.pricing-page .pp-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 22px 28px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-strip-copy {
+  flex: 1 1 360px;
+}
+
+.pricing-page .pp-strip h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.pricing-page .pp-strip p {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-strip-action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pricing-page .pp-strip-price {
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-strip .pp-cta {
+  display: inline-block;
+  margin-top: 0;
+  white-space: nowrap;
 }
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
   .pricing-page .pp-hero {
-    padding: 112px 0 28px;
+    padding: 112px 0 24px;
+  }
+}
+
+@media (max-width: 860px) {
+  .pricing-page .pp-pair,
+  .pricing-page .pp-calc {
+    grid-template-columns: 1fr;
   }
 
-  .pricing-page .pp-custom {
-    padding: 28px 24px;
-    text-align: center;
+  .pricing-page .pp-gap {
+    flex-direction: row;
+    min-width: 0;
   }
 
-  .pricing-page .pp-custom-copy p {
-    margin-inline: auto;
+  .pricing-page .pp-gap-line {
+    height: 1px;
+    width: auto;
   }
 
-  .pricing-page .pp-custom-action {
-    flex: 1 1 100%;
-  }
-
-  .pricing-page .pp-downsell-inner {
-    padding: 24px 22px;
-    text-align: center;
-  }
-
-  .pricing-page .pp-downsell-copy p {
-    margin-inline: auto;
-  }
-
-  .pricing-page .pp-downsell-action {
-    flex: 1 1 100%;
-  }
-
-  .pricing-page .pp-objection,
-  .pricing-page .pp-next-step {
-    padding: 26px 22px;
+  .pricing-page .pp-chip small {
+    max-width: none;
   }
 }
 
 @media (max-width: 600px) {
-  .pricing-page .pp-hero-jump {
-    gap: 9px;
+  .pricing-page .pp-switch {
+    display: flex;
   }
 
-  .pricing-page .pp-jump-link {
-    font-size: 0.82rem;
-    padding: 8px 14px;
+  .pricing-page .pp-switch button {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 14px;
   }
 
-  .pricing-page .pp-table {
-    min-width: 620px;
-    font-size: 0.86rem;
+  .pricing-page .pp-card,
+  .pricing-page .pp-panel,
+  .pricing-page .pp-result {
+    padding: 22px 20px;
   }
 
-  .pricing-page .pp-table tbody th {
-    min-width: 210px;
+  .pricing-page .pp-price b,
+  .pricing-page .pp-big {
+    font-size: 2.5rem;
   }
 
-  .pricing-page .pp-table thead th,
-  .pricing-page .pp-table tbody th,
-  .pricing-page .pp-table tbody td {
-    padding: 13px 14px;
+  .pricing-page .pp-table th,
+  .pricing-page .pp-table td {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .pricing-page .pp-strip {
+    padding: 20px;
+  }
+
+  .pricing-page .pp-strip-action {
+    width: 100%;
+  }
+
+  .pricing-page .pp-strip .pp-cta {
+    flex: 1;
+    text-align: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pricing-page .pp-objection,
-  .pricing-page .pp-proof-link,
-  .pricing-page .pp-jump-link,
-  .pricing-page .pp-downsell-link,
-  .pricing-page .pp-downsell-link i {
+  .pricing-page .pp-switch button,
+  .pricing-page .pp-cta-quiet {
     transition: none;
-  }
-
-  .pricing-page .pp-downsell-link:hover i,
-  .pricing-page .pp-downsell-link:focus-visible i {
-    transform: none;
-  }
-
-  .pricing-page .pp-objection:hover,
-  .pricing-page .pp-proof-link:hover {
-    transform: none;
   }
 }

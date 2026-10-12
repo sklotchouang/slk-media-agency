@@ -59,6 +59,10 @@ const nextConfig = {
 
       // Toolkit page
       { source: '/toolkits/podcast-strategy-report.html', destination: '/toolkits/podcast-strategy-report', statusCode: 301 },
+
+      // Clips Only folded into the unified /pricing page on 2026-10-12. The SDR
+      // and old emails still send this URL, so it keeps working (308).
+      { source: '/pricing/clips-only', destination: '/pricing', permanent: true },
     ];
   },
 
