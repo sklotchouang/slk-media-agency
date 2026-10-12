@@ -3,7 +3,7 @@ import Link from 'next/link';
 export const metadata = {
   title: "Portfolio: Podcast Clips We've Produced | SLK Media Agency",
   description:
-    'See how SLK Media Agency transforms podcast episodes into scroll-stopping, sponsor-ready clips across LinkedIn, YouTube Shorts, TikTok and Instagram.',
+    'See how SLK Media Agency transforms podcast episodes into scroll-stopping, ready-to-post clips across LinkedIn, YouTube Shorts, TikTok and Instagram.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/portfolio' },
   openGraph: {
