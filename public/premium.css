@@ -1904,15 +1904,15 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 /* --------------------------------------------------------------------------
-   17. /pricing page (unified, 2026-10-12)
+   17. /pricing page (two packages, 2026-10-16)
 
    The standalone pricing page the SDR sends when a prospect asks for numbers.
-   Since 2026-10-12 it is one page: a 12 / 20 switch, two plan cards with a
-   chip between them, the "what the difference replaces" table, the
-   build-your-own-plan calculator and the 10-Day Trial strip. The markup lives
-   in app/(main)/pricing/page.js, components/PricingPlans.js and
+   Since 2026-10-16: hero, the two package cards (Done For You, the flagship,
+   and Done With You), the comparison table, Optional Add-ons, the Build your
+   plan calculator and a closing band. The markup lives in
+   app/(main)/pricing/page.js, components/PricingPlans.js and
    components/PricingCalculator.js. Nothing here uses the shared .pricing-*
-   tier classes any more.
+   tier classes.
 
    Every rule is scoped under .pricing-page. That is load-bearing, not tidy:
    premium.css loads AFTER podcast-multiplier-styles.css, so an unscoped
@@ -1948,6 +1948,20 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   line-height: 1.6;
 }
 
+/* Screen-reader-only text: the Included / Not included words behind the
+   table icons, and the calculator's add-on legend. */
+.pricing-page .pp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* .primary-cta carries the real button base in styles.css (display, padding,
    radius). These only make it fill its card and centre the label. */
 .pricing-page .pp-cta {
@@ -1973,13 +1987,14 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 
 /* ---- Hero ---- */
 .pricing-page .pp-hero {
-  padding: 132px 0 28px;
+  padding: 132px 0 40px;
   position: relative;
 }
 
 .pricing-page .pp-hero .container {
   display: grid;
-  gap: 14px;
+  gap: 16px;
+  justify-items: start;
 }
 
 .pricing-page .pp-kicker {
@@ -2002,62 +2017,28 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   text-wrap: balance;
 }
 
-.pricing-page .pp-hl {
-  color: var(--accent);
-}
-
 .pricing-page .pp-hero-sub {
-  max-width: 720px;
+  max-width: 620px;
   margin: 0;
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--text-secondary);
 }
 
-/* ---- Plans section: switch, pair, table ---- */
+.pricing-page .pp-hero-cta {
+  margin-top: 8px;
+}
+
+/* ---- The two packages ---- */
 .pricing-page .pp-plans {
   padding: 0;
   overflow: visible;
 }
 
-.pricing-page .pp-switch {
-  display: inline-flex;
-  gap: 4px;
-  padding: 4px;
-  margin: 4px 0 28px;
-  background: var(--bg-raised);
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-pill);
-}
-
-.pricing-page .pp-switch button {
-  font: inherit;
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 0;
-  border-radius: var(--radius-pill);
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background var(--dur-quick) var(--ease-out),
-    color var(--dur-quick) var(--ease-out);
-}
-
-.pricing-page .pp-switch button[aria-pressed="true"] {
-  background: var(--text-primary);
-  color: var(--bg-base);
-}
-
-.pricing-page .pp-switch button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
 .pricing-page .pp-pair {
   display: grid;
-  grid-template-columns: 1fr auto 1.15fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -2066,12 +2047,13 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   flex-direction: column;
   gap: 18px;
   min-width: 0;
-  padding: 28px;
+  padding: 32px;
   background: var(--bg-raised);
   border: 1px solid var(--hairline);
   border-radius: 14px;
 }
 
+/* The flagship gets the subtle glow; Done With You stays plain. */
 .pricing-page .pp-card-dfy {
   border-color: var(--accent);
   background: linear-gradient(180deg, rgba(76, 178, 240, 0.1), var(--bg-raised) 45%);
@@ -2086,26 +2068,36 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--hairline-strong);
-  color: var(--text-muted-2);
-}
-
-.pricing-page .pp-card-dfy .pp-tag {
   background: var(--accent);
-  border-color: var(--accent);
+  border: 1px solid var(--accent);
   color: var(--accent-ink);
 }
 
+/* Keeps the Done With You name level with the flagship name on desktop. */
+.pricing-page .pp-tag-ghost {
+  visibility: hidden;
+}
+
 .pricing-page .pp-name {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0 0 4px;
+  margin: 0;
+}
+
+.pricing-page .pp-sub {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted-2);
 }
 
 .pricing-page .pp-who {
   margin: 0;
   color: var(--text-secondary);
+  line-height: 1.55;
 }
 
 .pricing-page .pp-price {
@@ -2130,10 +2122,11 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 
 .pricing-page .pp-feat {
   list-style: none;
-  padding: 0;
+  padding: 18px 0 0;
   margin: 0;
   display: grid;
   gap: 10px;
+  border-top: 1px solid var(--hairline);
 }
 
 .pricing-page .pp-feat li {
@@ -2171,51 +2164,18 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   color: var(--text-muted-2);
 }
 
-.pricing-page .pp-gap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-align: center;
-  min-width: 120px;
-}
-
-.pricing-page .pp-gap-line {
-  flex: 1;
-  width: 1px;
-  background: var(--hairline-strong);
-}
-
-.pricing-page .pp-chip {
-  background: var(--bg-overlay);
-  border: 1px solid var(--hairline-strong);
-  border-radius: 12px;
-  padding: 12px 14px;
-}
-
-.pricing-page .pp-chip b {
-  display: block;
-  color: var(--text-primary);
-  font-size: 1.4rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.pricing-page .pp-chip small {
-  display: block;
-  max-width: 8.5em;
-  color: var(--text-muted-2);
-  font-size: 0.75rem;
-  line-height: 1.4;
-}
-
-/* ---- What the difference replaces ---- */
-.pricing-page .pp-replaces {
+/* ---- Comparison table ---- */
+.pricing-page .pp-compare {
   padding: 72px 0 0;
   overflow: visible;
 }
 
+/* position: relative makes the box the containing block for the absolutely
+   positioned .pp-sr labels in the cells. Without it they escape the scroll
+   box and push the page 100px sideways at 375px (seen with reduced motion,
+   where no reveal transform contains them). */
 .pricing-page .pp-tablebox {
+  position: relative;
   overflow-x: auto;
   margin-top: 24px;
   border: 1px solid var(--hairline);
@@ -2223,25 +2183,30 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   -webkit-overflow-scrolling: touch;
 }
 
+.pricing-page .pp-tablebox:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .pricing-page .pp-table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 600px;
+  min-width: 520px;
   font-variant-numeric: tabular-nums;
 }
 
 .pricing-page .pp-table th,
 .pricing-page .pp-table td {
   padding: 14px 18px;
-  text-align: right;
+  text-align: center;
   border-bottom: 1px solid var(--hairline);
-  vertical-align: top;
+  vertical-align: middle;
   color: var(--text-secondary);
 }
 
-.pricing-page .pp-table th:first-child,
-.pricing-page .pp-table td:first-child {
+.pricing-page .pp-table th:first-child {
   text-align: left;
+  font-weight: 500;
 }
 
 .pricing-page .pp-table thead th {
@@ -2250,18 +2215,21 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   background: var(--bg-raised);
 }
 
-.pricing-page .pp-table td small {
-  display: block;
-  color: var(--text-muted-2);
-  font-size: 0.8rem;
-  line-height: 1.45;
-}
-
 .pricing-page .pp-table .pp-us {
-  background: rgba(76, 178, 240, 0.1);
+  background: rgba(76, 178, 240, 0.08);
   color: var(--text-primary);
 }
 
+.pricing-page .pp-cell {
+  display: inline-grid;
+  place-items: center;
+}
+
+.pricing-page .pp-cell .pp-ic {
+  margin-top: 0;
+}
+
+.pricing-page .pp-table .pp-tot th,
 .pricing-page .pp-table .pp-tot td {
   color: var(--text-primary);
   font-weight: 800;
@@ -2273,15 +2241,96 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   color: var(--accent);
 }
 
-.pricing-page .pp-src {
-  font-size: 0.76rem;
-  line-height: 1.55;
-  color: var(--text-muted-2);
-  margin: 12px 0 0;
-  max-width: 80ch;
+/* ---- Optional Add-ons ---- */
+.pricing-page .pp-addons {
+  padding: 72px 0 0;
+  overflow: visible;
 }
 
-/* ---- Build your own plan ---- */
+.pricing-page .pp-addon-grid {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pricing-page .pp-addon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 24px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-addon h3 {
+  margin: 6px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-addon-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+.pricing-page .pp-tone-a {
+  background: rgba(76, 178, 240, 0.14);
+  color: #4cb2f0;
+}
+
+.pricing-page .pp-tone-b {
+  background: rgba(124, 198, 245, 0.12);
+  color: #a8d9f9;
+}
+
+.pricing-page .pp-tone-c {
+  background: rgba(95, 211, 154, 0.12);
+  color: #5fd39a;
+}
+
+.pricing-page .pp-tone-d {
+  background: rgba(47, 157, 224, 0.16);
+  color: #7cc6f5;
+}
+
+.pricing-page .pp-addon-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-addon-price b {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.pricing-page .pp-addon-price span {
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-addon-note {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted-2);
+}
+
+/* ---- Build your plan ---- */
 .pricing-page .pp-build {
   padding: 72px 0 0;
   overflow: visible;
@@ -2292,11 +2341,12 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   grid-template-columns: 1.2fr 1fr;
   gap: 24px;
   margin-top: 24px;
+  align-items: start;
 }
 
 .pricing-page .pp-panel {
   display: grid;
-  gap: 22px;
+  gap: 26px;
   align-content: start;
   min-width: 0;
   padding: 28px;
@@ -2305,17 +2355,30 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   border-radius: 14px;
 }
 
-.pricing-page .pp-field label {
+.pricing-page .pp-field label,
+.pricing-page .pp-group legend {
   display: block;
   color: var(--text-primary);
   font-weight: 600;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.pricing-page .pp-group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.pricing-page .pp-group .pp-field {
   margin-bottom: 8px;
 }
 
 .pricing-page .pp-slider {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .pricing-page .pp-slider input[type="range"] {
@@ -2324,13 +2387,38 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   accent-color: var(--accent);
 }
 
-.pricing-page .pp-slider input[type="range"]:focus-visible {
+.pricing-page .pp-slider input[type="range"]:focus-visible,
+.pricing-page .pp-step:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
+.pricing-page .pp-step {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: var(--text-primary);
+  background: var(--surface-1);
+  border: 1px solid var(--hairline-strong);
+  cursor: pointer;
+  transition: background var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page .pp-step:hover {
+  background: var(--surface-2);
+}
+
+.pricing-page .pp-step:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 .pricing-page .pp-count {
-  min-width: 3ch;
+  min-width: 2.5ch;
   text-align: right;
   color: var(--text-primary);
   font-weight: 800;
@@ -2365,12 +2453,6 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   line-height: 1.5;
 }
 
-.pricing-page .pp-opt small {
-  display: block;
-  color: var(--text-muted-2);
-  font-size: 0.8rem;
-}
-
 .pricing-page .pp-result {
   display: flex;
   flex-direction: column;
@@ -2380,6 +2462,8 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   background: linear-gradient(180deg, rgba(76, 178, 240, 0.1), var(--bg-raised) 60%);
   border: 1px solid var(--accent);
   border-radius: 14px;
+  position: sticky;
+  top: 96px;
 }
 
 .pricing-page .pp-result p {
@@ -2387,12 +2471,22 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   color: var(--text-secondary);
 }
 
+.pricing-page .pp-result .pp-plan {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
 .pricing-page .pp-big {
   font-size: 3rem;
   font-weight: 800;
-  color: var(--text-primary);
   line-height: 1;
   font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-result .pp-big {
+  color: var(--text-primary);
 }
 
 .pricing-page .pp-big span {
@@ -2401,21 +2495,36 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   font-weight: 500;
 }
 
+.pricing-page .pp-breakdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--hairline);
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-breakdown .pp-breakdown-tot {
+  color: var(--text-primary);
+  font-weight: 700;
+  border-top-color: var(--hairline-strong);
+}
+
 .pricing-page .pp-hint {
-  border: 1px solid var(--hairline-strong);
-  border-radius: 10px;
-  padding: 12px 14px;
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
-.pricing-page .pp-hint strong {
-  color: #5fd39a;
-}
-
-/* ---- 10-Day Trial strip ---- */
-.pricing-page .pp-trial {
-  padding: 56px 0 72px;
+/* ---- Closing band ---- */
+.pricing-page .pp-close {
+  padding: 72px 0 88px;
   overflow: visible;
 }
 
@@ -2425,39 +2534,18 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  padding: 22px 28px;
+  padding: 28px 32px;
   background: var(--bg-raised);
   border: 1px solid var(--hairline);
   border-radius: 14px;
 }
 
-.pricing-page .pp-strip-copy {
-  flex: 1 1 360px;
-}
-
 .pricing-page .pp-strip h2 {
-  font-size: 1.1rem;
+  flex: 1 1 360px;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0;
-}
-
-.pricing-page .pp-strip p {
-  margin: 4px 0 0;
-  color: var(--text-secondary);
-}
-
-.pricing-page .pp-strip-action {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.pricing-page .pp-strip-price {
-  color: var(--text-primary);
-  font-weight: 800;
-  font-size: 1.4rem;
-  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
 }
 
 .pricing-page .pp-strip .pp-cta {
@@ -2467,9 +2555,15 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .pricing-page .pp-addon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .pricing-page .pp-hero {
-    padding: 112px 0 24px;
+    padding: 112px 0 32px;
   }
 }
 
@@ -2479,35 +2573,24 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     grid-template-columns: 1fr;
   }
 
-  .pricing-page .pp-gap {
-    flex-direction: row;
-    min-width: 0;
+  .pricing-page .pp-tag-ghost {
+    display: none;
   }
 
-  .pricing-page .pp-gap-line {
-    height: 1px;
-    width: auto;
-  }
-
-  .pricing-page .pp-chip small {
-    max-width: none;
+  .pricing-page .pp-result {
+    position: static;
   }
 }
 
 @media (max-width: 600px) {
-  .pricing-page .pp-switch {
-    display: flex;
-  }
-
-  .pricing-page .pp-switch button {
-    flex: 1;
-    padding: 10px 12px;
-    font-size: 14px;
+  .pricing-page .pp-addon-grid {
+    grid-template-columns: 1fr;
   }
 
   .pricing-page .pp-card,
   .pricing-page .pp-panel,
-  .pricing-page .pp-result {
+  .pricing-page .pp-result,
+  .pricing-page .pp-addon {
     padding: 22px 20px;
   }
 
@@ -2523,11 +2606,11 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   }
 
   .pricing-page .pp-strip {
-    padding: 20px;
+    padding: 22px 20px;
   }
 
-  .pricing-page .pp-strip-action {
-    width: 100%;
+  .pricing-page .pp-strip h2 {
+    flex-basis: 100%;
   }
 
   .pricing-page .pp-strip .pp-cta {
@@ -2537,8 +2620,8 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pricing-page .pp-switch button,
-  .pricing-page .pp-cta-quiet {
+  .pricing-page .pp-cta-quiet,
+  .pricing-page .pp-step {
     transition: none;
   }
 }

@@ -2,16 +2,22 @@
 // plus console errors and document height.
 //
 // Usage:
-//   node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom] [--reduced-motion]
+//   node tools/shot.js <url> <out.png> [WxH] [settleMs] [scrollY|mid|bottom|full] [--reduced-motion] [--scheme=light|dark]
 //   node tools/shot.js http://localhost:3000/podcast-toolkits out.png 1440x900 4000
 //   node tools/shot.js http://localhost:3000/ out.png 390x844 4000 mid --reduced-motion
+//   node tools/shot.js http://localhost:3000/pricing out.png 375x812 3000 full --scheme=light
+//
+// full captures the whole page. --scheme emulates prefers-color-scheme (the
+// site has one dark theme, so light and dark should render the same).
 //
 // Prints one JSON line: {"out":"out.png","docHeight":<n>,"scrollY":<n>,"errors":[...]}
 
 const puppeteer = require('puppeteer');
 
 async function main() {
-  const args = process.argv.slice(2).filter((a) => a !== '--reduced-motion');
+  const args = process.argv.slice(2).filter((a) => a !== '--reduced-motion' && !a.startsWith('--scheme='));
+  const schemeArg = process.argv.find((a) => a.startsWith('--scheme='));
+  const scheme = schemeArg ? schemeArg.split('=')[1] : null;
   const reducedMotion = process.argv.includes('--reduced-motion');
   const [url, out = 'out.png', size = '1440x900', settleRaw = '3000', scrollRaw = '0'] = args;
   if (!url) {
@@ -60,10 +66,11 @@ async function main() {
   }
   await new Promise((r) => setTimeout(r, settle));
 
-  await page.screenshot({ path: out });
+  const overflowX = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+  await page.screenshot({ path: out, fullPage: scrollRaw === 'full' });
   await browser.close();
 
-  console.log(JSON.stringify({ out, docHeight, scrollY, errors }));
+  console.log(JSON.stringify({ out, docHeight, scrollY, overflowX, scheme, errors }));
 }
 
 main().catch((err) => {

@@ -1,36 +1,57 @@
-'use client';
-
-import { useState } from 'react';
-
-// The 12 / 20 switch on /pricing and everything it drives: the two plan cards,
-// the chip between them, and the "what the difference replaces" table.
-// Prices and plan names approved by Samuel on 12 October 2026. The server
-// renders the 12-clip view, so the page is complete without JavaScript.
+// The two packages on /pricing and everything that describes them: the two
+// cards, the full comparison table and the Optional Add-ons. Samuel approved
+// every price and line here on 16 October 2026. Both cards carry the same 20
+// clips, so the only difference is who does the rest.
+//
+// No state, so this is a server component and the page is complete without
+// JavaScript. The calculator under it is components/PricingCalculator.js.
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
-const PLANS = {
-  12: {
-    clips: 12,
-    coName: 'Clips Only 12',
-    coPrice: '$597',
-    dfyName: 'Content Engine Lite',
-    dfyPrice: '$997',
-    gap: '$400',
-    thumbs: '$360/mo',
-    hireTotal: '$1,060/mo',
+// One row per deliverable. dfy / dwy: true = included, false = not included,
+// a string = shown as text.
+const ROWS = [
+  { label: 'Clips per month', dfy: '20', dwy: '20' },
+  { label: 'A custom thumbnail for every clip', dfy: true, dwy: false },
+  { label: 'Captions, hashtags and calls to action', dfy: true, dwy: false },
+  { label: 'Posting on every platform', dfy: true, dwy: false },
+  { label: 'A dedicated project manager', dfy: true, dwy: false },
+  { label: 'A weekly call', dfy: true, dwy: false },
+  { label: 'Weekly reporting', dfy: true, dwy: false },
+  { label: 'A strategy document before the first clip', dfy: true, dwy: false },
+];
+
+const ADDONS = [
+  {
+    name: 'Extra Clips',
+    icon: 'fa-clapperboard',
+    tone: 'pp-tone-a',
+    price: '$75',
+    unit: 'per clip',
+    note: 'On Done For You. $50 per clip on Done With You.',
   },
-  20: {
-    clips: 20,
-    coName: 'Clips Only 20',
-    coPrice: '$997',
-    dfyName: 'Content Engine',
-    dfyPrice: '$1,597',
-    gap: '$600',
-    thumbs: '$600/mo',
-    hireTotal: '$1,300/mo',
+  {
+    name: 'Long-form Episode Edit',
+    icon: 'fa-film',
+    tone: 'pp-tone-b',
+    price: '$150',
+    unit: 'per episode',
   },
-};
+  {
+    name: 'Show Notes',
+    icon: 'fa-file-lines',
+    tone: 'pp-tone-c',
+    price: '$50',
+    unit: 'per episode',
+  },
+  {
+    name: 'SEO Show Notes',
+    icon: 'fa-magnifying-glass',
+    tone: 'pp-tone-d',
+    price: '$100',
+    unit: 'per episode',
+  },
+];
 
 function Yes({ children }) {
   return (
@@ -50,130 +71,119 @@ function No({ children }) {
   );
 }
 
-export default function PricingPlans() {
-  const [volume, setVolume] = useState(12);
-  const plan = PLANS[volume];
+function Cell({ value, us }) {
+  const cls = us ? 'pp-us' : undefined;
+  if (typeof value === 'string') return <td className={cls}>{value}</td>;
+  return (
+    <td className={cls}>
+      <span className={value ? 'pp-cell pp-yes' : 'pp-cell pp-no'}>
+        <span className="pp-ic" aria-hidden="true">{value ? '✓' : '✕'}</span>
+        <span className="pp-sr">{value ? 'Included' : 'Not included'}</span>
+      </span>
+    </td>
+  );
+}
 
+export default function PricingPlans() {
   return (
     <>
-      <div className="pp-switch" role="group" aria-label="Clips per month">
-        <button
-          type="button"
-          aria-pressed={volume === 12}
-          onClick={() => setVolume(12)}
-        >
-          12 clips a month
-        </button>
-        <button
-          type="button"
-          aria-pressed={volume === 20}
-          onClick={() => setVolume(20)}
-        >
-          20 clips a month
-        </button>
-      </div>
-
       <div className="pp-pair">
-        <article className="pp-card">
-          <span className="pp-tag">You do the rest</span>
+        <article className="pp-card pp-card-dfy" aria-labelledby="pp-dfy-name">
+          <span className="pp-tag">Flagship</span>
           <div>
-            <h2 className="pp-name">{plan.coName}</h2>
-            <p className="pp-who">The clips, ready for you to post.</p>
+            <h2 className="pp-name" id="pp-dfy-name">Done For You</h2>
+            <p className="pp-sub">Content Engine</p>
           </div>
           <p className="pp-price">
-            <b>{plan.coPrice}</b>
+            <b>$1,597</b>
             <span>/month</span>
           </p>
+          <p className="pp-who">We make the clips and run your short-form content for you.</p>
           <ul className="pp-feat">
-            <Yes>{plan.clips} clips a month, cut from your episodes</Yes>
-            <No>No thumbnails</No>
-            <No>No captions, hashtags or posting</No>
-            <No>No project manager or weekly calls</No>
-            <No>No strategy or reporting</No>
+            <Yes>20 short clips a month, edited and ready to post</Yes>
+            <Yes>A custom thumbnail for every clip</Yes>
+            <Yes>Captions, hashtags and calls to action written for every clip</Yes>
+            <Yes>Every clip posted for you on every platform</Yes>
+            <Yes>A dedicated project manager</Yes>
+            <Yes>A weekly call</Yes>
+            <Yes>Weekly reporting</Yes>
+            <Yes>A strategy document before the first clip</Yes>
           </ul>
-          <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book Your Strategy Call</a>
+          <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
         </article>
 
-        <div className="pp-gap">
-          <span className="pp-gap-line" aria-hidden="true"></span>
-          <div className="pp-chip">
-            <b>+{plan.gap}</b>
-            <small>a month, and we do all of it</small>
-          </div>
-          <span className="pp-gap-line" aria-hidden="true"></span>
-        </div>
-
-        <article className="pp-card pp-card-dfy">
-          <span className="pp-tag">We do the rest</span>
+        <article className="pp-card" aria-labelledby="pp-dwy-name">
+          <span className="pp-tag pp-tag-ghost" aria-hidden="true">&nbsp;</span>
           <div>
-            <h2 className="pp-name">{plan.dfyName}</h2>
-            <p className="pp-who">You record once. We handle everything after.</p>
+            <h2 className="pp-name" id="pp-dwy-name">Done With You</h2>
+            <p className="pp-sub">Clips Only</p>
           </div>
           <p className="pp-price">
-            <b>{plan.dfyPrice}</b>
+            <b>$997</b>
             <span>/month</span>
           </p>
+          <p className="pp-who">We make the clips. You post them.</p>
           <ul className="pp-feat">
-            <Yes>{plan.clips} clips a month, cut from your episodes</Yes>
-            <Yes>A custom thumbnail for every clip</Yes>
-            <Yes>Captions, hashtags and CTAs written, then posted on every platform</Yes>
-            <Yes>A dedicated project manager and a weekly call</Yes>
-            <Yes>Weekly reporting</Yes>
-            <Yes>A strategy document when you start</Yes>
+            <Yes>20 short clips a month, edited and ready to post</Yes>
+            <No>Thumbnails</No>
+            <No>Captions, hashtags and calls to action</No>
+            <No>Posting</No>
+            <No>Project manager and weekly call</No>
+            <No>Weekly reporting</No>
+            <No>Strategy document</No>
           </ul>
-          <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book Your Strategy Call</a>
+          <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book a Strategy Call</a>
         </article>
       </div>
 
-      <section className="pp-replaces" aria-labelledby="pp-replaces-title">
-        <div className="container">
-          <p className="pp-eyebrow">What the difference covers</p>
-          <h2 id="pp-replaces-title">What {plan.gap} a month replaces</h2>
-          <p className="pp-lead">
-            This is the work that still has to happen after the clips are cut. Here is what it costs to hire it out, at the low end of what people charge.
-          </p>
-          <div className="pp-tablebox">
-            <table className="pp-table">
-              <thead>
-                <tr>
-                  <th scope="col">The work</th>
-                  <th scope="col">Hire it out</th>
-                  <th scope="col" className="pp-us">{plan.dfyName}</th>
+      <section className="pp-compare" aria-labelledby="pp-compare-title">
+        <p className="pp-eyebrow">Side by side</p>
+        <h2 id="pp-compare-title">Everything in each package</h2>
+        <div className="pp-tablebox" role="region" aria-labelledby="pp-compare-title" tabIndex={0}>
+          <table className="pp-table">
+            <thead>
+              <tr>
+                <th scope="col">What you get</th>
+                <th scope="col" className="pp-us">Done For You</th>
+                <th scope="col">Done With You</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ROWS.map((row) => (
+                <tr key={row.label}>
+                  <th scope="row">{row.label}</th>
+                  <Cell value={row.dfy} us />
+                  <Cell value={row.dwy} />
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Captions, hashtags, CTAs, posting and reporting<small>A freelance social media manager</small></td>
-                  <td>from $500/mo</td>
-                  <td className="pp-us">Included</td>
-                </tr>
-                <tr>
-                  <td>A custom thumbnail for every clip<small>{plan.clips} thumbnails at $30 each</small></td>
-                  <td>{plan.thumbs}</td>
-                  <td className="pp-us">Included</td>
-                </tr>
-                <tr>
-                  <td>A dedicated project manager<small>One 1 hour call a week, 4 hours a month at $50 an hour</small></td>
-                  <td>$200/mo</td>
-                  <td className="pp-us">Included</td>
-                </tr>
-                <tr>
-                  <td>Strategy document and audience research<small>Done once, when you start</small></td>
-                  <td>about $350 once</td>
-                  <td className="pp-us">Included</td>
-                </tr>
-                <tr className="pp-tot">
-                  <td>Each month</td>
-                  <td>{plan.hireTotal}</td>
-                  <td className="pp-us">+{plan.gap}/mo</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="pp-src">
-            Low-end market rates checked 12 October 2026: freelance social media managers $300 to $1,500 a month (Ad Snipper, SocialBu guides); custom thumbnails $30 to $50 mid-tier, $100 to $300 premium (Ad Snipper, Vidpros via ManyPixels); freelance project managers $50 to $120 an hour (Jobbers 2026 rate guide, Upwork rate guide), counted at our real 4 hours a month; a podcast strategy package listed at $350 (Payhip).
-          </p>
+              ))}
+              <tr className="pp-tot">
+                <th scope="row">Monthly price</th>
+                <td className="pp-us">$1,597</td>
+                <td>$997</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </section>
+
+      <section className="pp-addons" id="add-ons" aria-labelledby="pp-addons-title">
+        <h2 id="pp-addons-title">Optional Add-ons</h2>
+        <p className="pp-lead">Add-ons work with either package.</p>
+        <ul className="pp-addon-grid">
+          {ADDONS.map((a) => (
+            <li className="pp-addon" key={a.name}>
+              <span className={`pp-addon-ic ${a.tone}`} aria-hidden="true">
+                <i className={`fas ${a.icon}`}></i>
+              </span>
+              <h3>{a.name}</h3>
+              <p className="pp-addon-price">
+                <b>{a.price}</b>
+                <span>{a.unit}</span>
+              </p>
+              {a.note ? <p className="pp-addon-note">{a.note}</p> : null}
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );
