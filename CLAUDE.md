@@ -18,3 +18,8 @@ Whenever you change the website, update `OVERVIEW.md` in the same change so the 
 - A Stop hook (`.claude/hooks/auto-commit-push.ps1`) auto-commits and pushes every session, which redeploys the live site. Treat edits as going to production.
 - Most visual changes go in `public/premium.css` (the re-skin layer loaded on top of the legacy stylesheets), not the large legacy CSS files.
 - After a visual change, verify with `npm run build` and `tools/shot.js`, and confirm zero console errors.
+
+<!-- claude-reflect: learned rules (saved from the band; edit freely) -->
+## Learned rules
+- When asked to make a change, carry it through to the live site by merging and pushing without asking for confirmation first.
+<!-- end claude-reflect -->
