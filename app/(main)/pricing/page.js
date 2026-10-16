@@ -133,7 +133,6 @@ export default function PricingPage() {
           <div className="container">
             <p className="pp-kicker">Pricing</p>
             <h1>Choose your clips. <span className="pp-hl">Choose who does the rest.</span></h1>
-            <p className="pp-hero-sub">Every price on this page is the real price, month to month. No contract.</p>
           </div>
         </section>
 

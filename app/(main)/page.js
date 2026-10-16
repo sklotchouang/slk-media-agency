@@ -81,7 +81,6 @@ export default function HomePage() {
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
             <a href="#process" className="secondary-cta">See our process</a>
           </div>
-          <p className="tagline">Month to month. No contract.</p>
 
           <div className="floating-cards">
             <div className="card card-1">
@@ -479,7 +478,6 @@ export default function HomePage() {
           <h2>Ready to Scale Your Podcast?</h2>
           <p style={{ margin: '20px 0', fontSize: '18px' }}>You'll speak directly with our founder, Samuel LK. We'll discuss your content, your goals, and whether we're the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we're the right fit for your show, we'll tell you.</p>
           <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
-          <p className="guarantee">Month to month. No contract.</p>
         </div>
       </section>
 

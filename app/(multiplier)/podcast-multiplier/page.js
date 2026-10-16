@@ -54,7 +54,6 @@ export default function PodcastMultiplierPage() {
           <div className="cta-center">
             <a href="https://link.slkmediaagency.com/strmeet" className="btn-primary" target="_blank" rel="noopener">Let's Chat - Qualified Shows Only</a>
           </div>
-          <p className="tagline">Month to month. No contract.</p>
 
           <div className="hero-snapshot" aria-label="How it works in three steps">
             <div className="hsnap-step"><span className="hsnap-num">1</span><span>You record your episode</span></div>
@@ -423,7 +422,6 @@ export default function PodcastMultiplierPage() {
           <h2 className="section-title">What We Commit To</h2>
           <div className="guarantee-content">
             <p>Every month you get the clips your plan includes (12 or 20, or the custom number you chose), posted on the schedule we agree with you, and a weekly report on how they performed. We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
-            <p><strong>Month to month. No contract.</strong></p>
           </div>
         </div>
       </section>
