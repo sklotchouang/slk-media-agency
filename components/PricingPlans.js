@@ -89,7 +89,7 @@ export default function PricingPlans() {
     <>
       <div className="pp-pair">
         <article className="pp-card pp-card-dfy" aria-labelledby="pp-dfy-name">
-          <span className="pp-tag">Flagship</span>
+          <span className="pp-tag">Most Popular</span>
           <div>
             <h2 className="pp-name" id="pp-dfy-name">Done For You</h2>
             <p className="pp-sub">Content Engine</p>

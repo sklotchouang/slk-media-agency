@@ -220,7 +220,7 @@ Samuel approved every price and rule on 16 October 2026. Why: from 1 September t
 
 | Package | Price | Included |
 |---|---|---|
-| Done For You (small line "Content Engine", "Flagship" tag) | $1,597/month | 20 short clips a month edited and ready to post, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. |
+| Done For You (small line "Content Engine", "Most Popular" tag, was "Flagship" until 16 Oct 2026) | $1,597/month | 20 short clips a month edited and ready to post, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. |
 | Done With You (small line "Clips Only") | $997/month | 20 short clips a month edited and ready to post. The card shows openly what is NOT included: thumbnails; captions, hashtags and calls to action; posting; project manager and weekly call; weekly reporting; strategy document. |
 
 Optional Add-ons (work with either package): Extra Clips $75 per clip on Done For You, $50 per clip on Done With You; Long-form Episode Edit $150 per episode; Show Notes $50 per episode; SEO Show Notes $100 per episode.
