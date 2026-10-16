@@ -235,12 +235,11 @@ export default function PodcastToolkitsPage() {
               <p className="sub-headline-blue">Have a Podcast? You Need a Plan.</p>
               <h2>Custom Podcast Social Media Strategy Report</h2>
               <p className="tk-featured-copy">Stop posting blind. Get a done-for-you strategy report built for your show, so every post actually serves your audience and pulls its weight. Delivered in 1 to 2 days.</p>
-              <p className="pt-anchor"><span className="pt-old-price">$500</span> <span className="pt-new-price">$103.55 today</span></p>
+              <p className="pt-anchor pt-anchor-big"><span className="pt-old-price">$500</span> <span className="pt-new-price">$103.55</span></p>
+              <p className="pt-price-return"><i className="fas fa-triangle-exclamation" aria-hidden="true"></i> Price returns to $500 soon</p>
               <a href={CHECKOUT_URL} className="btn-primary" target="_blank" rel="noopener">Get My Custom Growth Plan</a>
               <p className="pt-cta-note">One-time $103.55. No subscription. Delivered in 1 to 2 days.</p>
-              <p className="pt-intake-link"><a href={SURVEY_URL} target="_blank" rel="noopener">See exactly what we ask before you buy →</a></p>
-              <p className="tagline">⚡ This price is temporary and will increase soon.</p>
-            </div>
+              <p className="pt-intake-link"><a href={SURVEY_URL} target="_blank" rel="noopener">See exactly what we ask before you buy →</a></p>            </div>
           </div>
         </div>
       </section>
