@@ -4,9 +4,7 @@
 
 Book a strategy call, the main next step for anyone ready to start or wanting a scoped quote: https://link.slkmediaagency.com/strmeet
 
-See all the pricing: https://slkmediaagency.com/pricing
-
-See the Clips Only plans, for people who post the clips themselves: https://slkmediaagency.com/pricing/clips-only
+See both packages, the add-ons and the plan calculator: https://slkmediaagency.com/pricing
 
 See the work: https://slkmediaagency.com/portfolio
 
@@ -19,8 +17,6 @@ See the video testimonials: https://slkmediaagency.com/testimonials
 Understand how it all works: https://link.slkmediaagency.com/tpmwsl
 
 Buy the Custom Social Media Strategy Report: https://slkmediaagency.com/podcast-toolkits, and the checkout is https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08
-
-Buy the 10-Day Trial: https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g
 
 Already booked a call and want to prepare: https://slkmediaagency.com/pre-call
 

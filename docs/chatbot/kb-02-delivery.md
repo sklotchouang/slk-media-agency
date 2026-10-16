@@ -1,12 +1,12 @@
 # SLK Media Agency: how the work actually gets done
 
-You send your episodes. SLK Media Agency does the rest on the monthly plans.
+You send your episodes. On Done For You, SLK Media Agency does the rest.
 
 ## The process
 
-The monthly process runs in eight steps: you submit raw episodes and brand assets, then onboarding and strategy, then human editorial review to find the high retention moments, then production (short form edit, captions, pacing, hooks), then platform adaptation, then quality control, then scheduling and distribution, then an ongoing optimization loop.
+The Done For You process runs in eight steps: you submit raw episodes and brand assets, then onboarding and strategy, then human editorial review to find the high retention moments, then production (short form edit, captions, pacing, hooks), then platform adaptation, then quality control, then scheduling and distribution, then an ongoing optimization loop.
 
-On the 10-Day Trial the process stops after quality control. SLK Media Agency edits the 5 clips and hands them over, and you do the scheduling and posting yourself.
+On Done With You the process stops after quality control. SLK Media Agency edits the clips and hands them over, and you do the posting yourself.
 
 Your first clips arrive within 3 to 5 business days after onboarding.
 

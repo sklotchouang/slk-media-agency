@@ -2,30 +2,34 @@ import Link from 'next/link';
 import PricingPlans from '../../../components/PricingPlans';
 import PricingCalculator from '../../../components/PricingCalculator';
 
-// The unified pricing page. Replaced the old /pricing and /pricing/clips-only
-// on 12 October 2026 (Samuel approved every price and the layout that day).
-// /pricing/clips-only now redirects here, see next.config.mjs.
+// The /pricing page: two packages, the add-ons and the plan calculator.
+// Rebuilt 16 October 2026 (Samuel approved every price and rule that day).
+// Replaced the 12 October page; the retired plans are listed in OVERVIEW.md
+// section 7.1. /pricing/clips-only still redirects here, see next.config.mjs.
+
+const DESCRIPTION =
+  'SLK Media Agency pricing: Done For You at $1,597 a month (20 clips, thumbnails, captions, posting, a project manager, weekly calls and reporting) or Done With You at $997 a month (20 clips, you post). Add-ons and a plan calculator.';
+
+const SHARE_DESCRIPTION =
+  'Two ways to work with us. Same clips, same quality. Pick how much of the rest you want us to handle.';
 
 export const metadata = {
   title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
-  description:
-    'What SLK Media Agency costs, in full. Clips Only is $597/month for 12 clips or $997/month for 20. Content Engine Lite is $997/month and Content Engine is $1,597/month, with thumbnails, captions, posting, a project manager and reporting included. The 10-Day Trial is $497 one time.',
+  description: DESCRIPTION,
   robots: { index: true, follow: true },
   alternates: { canonical: '/pricing' },
   openGraph: {
     type: 'website',
     siteName: 'SLK Media Agency',
     title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
-    description:
-      'Choose your clips. Choose who does the rest. Every price, month to month, no contract.',
+    description: SHARE_DESCRIPTION,
     url: '/pricing',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
-    description:
-      'Choose your clips. Choose who does the rest. Every price, month to month, no contract.',
+    description: SHARE_DESCRIPTION,
     images: ['/og-image.jpg'],
   },
 };
@@ -36,7 +40,25 @@ export const viewport = {
   themeColor: '#0a0a0b',
 };
 
-const TRIAL_URL = 'https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g';
+const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
+
+function monthlyOffer(name, description, price) {
+  return {
+    '@type': 'Offer',
+    name,
+    description,
+    price,
+    priceCurrency: 'USD',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price,
+      priceCurrency: 'USD',
+      unitText: 'MONTH',
+    },
+    availability: 'https://schema.org/InStock',
+    url: 'https://slkmediaagency.com/pricing',
+  };
+}
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -48,51 +70,16 @@ const structuredData = {
   url: 'https://slkmediaagency.com/pricing',
   image: 'https://slkmediaagency.com/og-image.jpg',
   offers: [
-    {
-      '@type': 'Offer',
-      name: '10-Day Trial',
-      description: '5 finished clips within 10 days. One payment, no subscription.',
-      price: '497',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      url: 'https://slkmediaagency.com/pricing',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Clips Only 12',
-      description: '12 clips a month, cut from your episodes and ready for you to post.',
-      price: '597',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      url: 'https://slkmediaagency.com/pricing',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Content Engine Lite',
-      description: '12 clips a month with custom thumbnails, captions, hashtags and CTAs posted on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document.',
-      price: '997',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      url: 'https://slkmediaagency.com/pricing',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Clips Only 20',
-      description: '20 clips a month, cut from your episodes and ready for you to post.',
-      price: '997',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      url: 'https://slkmediaagency.com/pricing',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Content Engine',
-      description: '20 clips a month with custom thumbnails, captions, hashtags and CTAs posted on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document.',
-      price: '1597',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      url: 'https://slkmediaagency.com/pricing',
-    },
+    monthlyOffer(
+      'Done For You',
+      '20 short clips a month with a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip.',
+      '1597'
+    ),
+    monthlyOffer(
+      'Done With You',
+      '20 short clips a month, edited and ready for you to post.',
+      '997'
+    ),
   ],
 };
 
@@ -132,39 +119,34 @@ export default function PricingPage() {
         <section className="pp-hero">
           <div className="container">
             <p className="pp-kicker">Pricing</p>
-            <h1>Choose your clips. <span className="pp-hl">Choose who does the rest.</span></h1>
+            <h1>Two ways to work with us.</h1>
+            <p className="pp-hero-sub">Same clips, same quality. Pick how much of the rest you want us to handle.</p>
+            <a href={BOOK_URL} className="primary-cta pp-hero-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
           </div>
         </section>
 
-        {/* Switch, the two plan cards, and the "what the difference replaces" table */}
+        {/* The two packages, the comparison table and the add-ons */}
         <section className="pp-plans" id="pricing">
           <div className="container">
             <PricingPlans />
           </div>
         </section>
 
-        {/* Build your own plan */}
+        {/* Build your plan */}
         <section className="pp-build" id="build" aria-labelledby="pp-build-title">
           <div className="container">
-            <p className="pp-eyebrow">Something else in mind?</p>
-            <h2 id="pp-build-title">Build your own plan</h2>
+            <h2 id="pp-build-title">Build your plan</h2>
             <p className="pp-lead">Pick what you want each month. The price updates as you go.</p>
             <PricingCalculator />
           </div>
         </section>
 
-        {/* 10-Day Trial */}
-        <section className="pp-trial" id="trial">
+        {/* Closing band */}
+        <section className="pp-close">
           <div className="container">
             <div className="pp-strip">
-              <div className="pp-strip-copy">
-                <h2>Want to see it on your own episodes first?</h2>
-                <p>10-Day Trial: 5 finished clips within 10 days. One payment, no subscription.</p>
-              </div>
-              <div className="pp-strip-action">
-                <span className="pp-strip-price">$497</span>
-                <a href={TRIAL_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Get Your 10-Day Trial</a>
-              </div>
+              <h2>Not sure which one fits? We&apos;ll work it out with you on a 30-minute call.</h2>
+              <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
             </div>
           </div>
         </section>

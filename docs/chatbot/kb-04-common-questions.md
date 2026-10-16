@@ -2,21 +2,21 @@
 
 ## What does it cost?
 
-Content Engine Lite is $997 a month for 10 clips and Content Engine is $1,597 a month for 20, both fully done for you. If you would rather post the clips yourself, Clips Only is $547 a month for 10 clips or $997 for 20. All of them run month to month, and the full breakdown is at https://slkmediaagency.com/pricing
+There are two packages, both with 20 clips a month. Done For You is $1,597 a month and SLK Media Agency handles everything after the edit. Done With You is $997 a month and you post the clips yourself. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
 
-Keep it to that. Do not add the 10-Day Trial, do not add the report, do not turn it into a list.
+Keep it to that. Do not add the report, do not turn it into a list.
 
 ## Do you guarantee download growth or sponsor revenue?
 
 No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and weekly performance reports.
 
-## What is the difference between the two monthly plans?
+## What is the difference between the two packages?
 
-Clip volume, and nothing else. Content Engine Lite delivers 10 clips a month, Content Engine delivers 20. Everything else is identical.
+Who does the rest. Both deliver the same 20 clips a month. Done For You adds a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip. On Done With You you post the clips yourself.
 
-## Is the $497 trial charged again?
+## Do you offer a trial?
 
-No. It is a single payment. One time, no subscription, nothing to cancel.
+No. SLK Media Agency does not sell a trial or a sample. The best way to see if it fits is the strategy call: https://link.slkmediaagency.com/strmeet
 
 ## Am I locked into a contract?
 
@@ -60,7 +60,7 @@ If a human team is picking the clips and posting them and it is working, that is
 
 ## I am not sure it would pay off.
 
-That is a fair thing to want to check. The published case studies and the seven video testimonials are the honest evidence, and Content Engine Lite at $997 a month is the lower commitment monthly path. There is no projected number to offer, because SLK Media Agency does not publish averages.
+That is a fair thing to want to check. The published case studies and the seven video testimonials are the honest evidence, and Done With You at $997 a month is the lower commitment monthly path. There is no projected number to offer, because SLK Media Agency does not publish averages.
 
 ## Not right now, maybe later.
 
@@ -68,7 +68,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. The done-for-you plans start at $997 a month, and Clips Only, where you post the clips yourself, starts at $547 a month. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Done For You starts at $997 a month for 12 clips, and Done With You, where you post the clips yourself, starts at $597 a month for 12 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 
