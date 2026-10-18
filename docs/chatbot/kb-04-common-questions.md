@@ -68,7 +68,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Done For You starts at $997 a month for 12 clips, and Done With You, where you post the clips yourself, starts at $597 a month for 12 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Done For You is $1,597 a month for 20 clips, and Done With You, where you post the clips yourself, is $997 a month for 20 clips. There is no smaller plan. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 

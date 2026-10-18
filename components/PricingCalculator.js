@@ -7,15 +7,16 @@ import { useState } from 'react';
 // the defaults (20 clips, nothing ticked, 4 episodes), so the page is complete
 // without JavaScript.
 
-// Prices approved 16 Oct 2026 by Samuel. Change nothing here without his yes,
-// and re-run the reference values in OVERVIEW.md section 7.1 after any change.
+// Prices approved 16 Oct 2026 by Samuel; minimum raised to 20 clips on 18 Oct
+// 2026 (no plan below $997 a month, $597 retired). Change nothing here without
+// his yes, and re-run the reference values in OVERVIEW.md section 7.1 after any change.
 const PRICE = {
-  minClips: 12,
+  minClips: 20,
   maxClips: 40,
-  dwyBase: 597, // Done With You at 12 clips
-  dwyPerClip: 50, // each clip above 12 on Done With You
-  dfyBase: 997, // Done For You at 12 clips
-  dfyPerClip: 75, // each clip above 12 on Done For You
+  dwyBase: 997, // Done With You at 20 clips
+  dwyPerClip: 50, // each clip above 20 on Done With You
+  dfyBase: 1597, // Done For You at 20 clips
+  dfyPerClip: 75, // each clip above 20 on Done For You
   longForm: 150, // per episode
   showNotes: 50, // per episode
   seoShowNotes: 100, // per episode
