@@ -4,7 +4,7 @@ import HeroAtmosphere from '../../components/HeroAtmosphere';
 export const metadata = {
   title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns your episodes into 12 or 20 finished clips a month and posts them on LinkedIn, YouTube, TikTok and more. Done-for-you content for podcasters who publish consistently and want their time back.',
+    'The Podcast Multiplier™ turns your episodes into 20 finished clips a month and posts them on LinkedIn, YouTube, TikTok and more. Done-for-you content for podcasters who publish consistently and want their time back.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
   openGraph: {
@@ -20,7 +20,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
     description:
-      'We turn your podcast episodes into 12 or 20 clips a month and post them everywhere your audience scrolls.',
+      'We turn your podcast episodes into 20 clips a month and post them everywhere your audience scrolls.',
     images: ['/og-image.jpg'],
   },
 };
@@ -226,7 +226,7 @@ export default function HomePage() {
                   <i className="fas fa-magic"></i>
                 </div>
                 <h3>Content Multiplication</h3>
-                <p>Our team cuts your episodes into 12 or 20 finished clips a month, depending on your plan. We don't edit in order. We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode.<br /><br /><strong>Output:</strong> We don't just edit. We turn your podcast into an omnipresent content machine.
+                <p>Our team cuts your episodes into 20 finished clips a month, or more if you add extra clips. We don't edit in order. We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode.<br /><br /><strong>Output:</strong> We don't just edit. We turn your podcast into an omnipresent content machine.
                 </p>
               </div>
               <div className="step-number">2</div>
@@ -520,7 +520,7 @@ export default function HomePage() {
               <div className="accordion-content">
                 <p><strong>No, and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and posting. We don't control: Your recording quality, guest selection, or topic relevance; How each platform chooses to show your clips; Market conditions in your niche.</p>
-                <p><strong>What we DO commit to:</strong> 12 or 20 professionally edited clips a month, depending on your plan, delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did. We never promise downloads, views or sponsors.</p>
+                <p><strong>What we DO commit to:</strong> 20 professionally edited clips a month (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did. We never promise downloads, views or sponsors.</p>
               </div>
             </div>
 
@@ -566,7 +566,7 @@ export default function HomePage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Honest answer:</strong> We work best with shows publishing <strong>2-4 episodes/month.</strong></p>
-                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 12 or 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
+                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
                 <p>We're happy to strategize on increasing output sustainably - many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
               </div>
             </div>
@@ -600,7 +600,7 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>If "results" = finished clips:</strong> that part is in our hands. Your plan sets the number (12 or 20 a month, or the custom number you chose) and we deliver it on the schedule agreed at onboarding.</p>
+                <p><strong>If "results" = finished clips:</strong> that part is in our hands. Every package includes 20 clips a month (more if you add extra clips) and we deliver it on the schedule agreed at onboarding.</p>
                 <p><strong>If "results" = more listeners, more views or new clients:</strong> we can't promise a number or a date, and nobody honestly can. What we do promise is the work: the clips, posted on schedule, with a weekly report so you can see exactly what is happening.</p>
               </div>
             </div>
@@ -622,7 +622,7 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>We count clips per month, not per episode. Plans come with 12 or 20 clips a month, or a custom number if you build your own plan. We pick the strongest moments from all the episodes you send that month.</p>
+                <p>We count clips per month, not per episode. Every package comes with 20 clips a month, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.</p>
               </div>
             </div>
 
@@ -632,7 +632,7 @@ export default function HomePage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>Standard: 3-4 business days per episode. Pro: 48-hour turnaround. Need it faster? We offer 24-hour rush delivery as a per-episode add-on.</p>
+                <p>Your first clips arrive within 3 to 5 business days after onboarding. After that we deliver on the schedule we agree with you at onboarding.</p>
               </div>
             </div>
 

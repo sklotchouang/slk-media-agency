@@ -4,7 +4,7 @@ import HeroAtmosphere from '../../../components/HeroAtmosphere';
 export const metadata = {
   title: 'The Podcast Multiplier™: Done-For-You Clips for Podcasters | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns your episodes into 12 or 20 clips a month and posts them on every platform. Done-for-you content production for podcasters who publish consistently.',
+    'The Podcast Multiplier™ turns your episodes into 20 clips a month and posts them on every platform. Done-for-you content production for podcasters who publish consistently.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/podcast-multiplier' },
   openGraph: {
@@ -87,7 +87,7 @@ export default function PodcastMultiplierPage() {
                 <p><strong>Meanwhile, your best episodes die after publication because you're too exhausted to promote them.</strong></p>
               </div>
             </div>
-            <p><strong>Here's what you actually need:</strong> A dedicated content team that turns your episodes into 12 or 20 finished clips a month and posts them for you, while you focus on recording and running your business.</p>
+            <p><strong>Here's what you actually need:</strong> A dedicated content team that turns your episodes into 20 finished clips a month and posts them for you, while you focus on recording and running your business.</p>
           </div>
         </div>
       </section>
@@ -290,7 +290,7 @@ export default function PodcastMultiplierPage() {
               <div className="step-item-number">2</div>
               <div className="step-item-content">
                 <h3>Content Multiplication (Ongoing, Every Episode)</h3>
-                <p>Our team turns your episodes into <strong>12 or 20 finished clips a month</strong>, depending on your plan.</p>
+                <p>Our team turns your episodes into <strong>20 finished clips a month</strong>, or more if you add extra clips.</p>
                 <p><strong>But here's what makes us different: We don't edit chronologically. We edit strategically.</strong></p>
                 <p>
                   ✅ <strong>Strategic Clip Selection:</strong> We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode<br /><br />
@@ -421,7 +421,7 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="section-title">What We Commit To</h2>
           <div className="guarantee-content">
-            <p>Every month you get the clips your plan includes (12 or 20, or the custom number you chose), posted on the schedule we agree with you, and a weekly report on how they performed. We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
+            <p>Every month you get the clips your package includes (20, or more if you add extra clips), posted on the schedule we agree with you, and a weekly report on how they performed. We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
           </div>
         </div>
       </section>
@@ -462,7 +462,7 @@ export default function PodcastMultiplierPage() {
               </li>
               <li>
                 <h3>Step 3: We Handle Everything (While You Focus on Your Show)</h3>
-                <p>Send us your episodes. We deliver the 12 or 20 clips a month your plan includes, post them across your social platforms, and send you a weekly performance report.</p>
+                <p>Send us your episodes. We deliver the 20 clips a month your package includes, post them across your social platforms, and send you a weekly performance report.</p>
               </li>
             </ul>
             <div className="limited-spots">
@@ -522,7 +522,7 @@ export default function PodcastMultiplierPage() {
               <div className="accordion-content">
                 <p><strong>No, and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and posting. We don't control: Your recording quality, guest selection, or topic relevance; How each platform chooses to show your clips; Market conditions in your niche; Your existing audience quality and engagement rates.</p>
-                <p><strong>What we DO commit to:</strong> 12 or 20 professionally edited clips a month, depending on your plan, delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did.</p>
+                <p><strong>What we DO commit to:</strong> 20 professionally edited clips a month (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did.</p>
                 <p>We never promise downloads, views or sponsors. We do the work and show you the numbers every week.</p>
               </div>
             </div>
@@ -558,7 +558,7 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Honest answer:</strong> We work best with shows publishing <strong>2-4 episodes/month.</strong></p>
-                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 12 or 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
+                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
                 <p><strong>If you're publishing 1 episode/month:</strong> Option 1: Batch-record 3-4 episodes per quarter and release them consistently (2/month). Option 2: Start with our service once you increase production cadence. Option 3: We can still work together, but set expectations: Growth will be slower due to content gaps.</p>
                 <p>We're happy to strategize on increasing output sustainably. Many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
               </div>
@@ -617,7 +617,7 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Depends on what "results" means to you:</strong></p>
-                <p><strong>If "results" = finished clips delivered consistently:</strong> that part is in our hands. Your plan sets the number (12 or 20 a month, or the custom number you chose) and we deliver it on the schedule agreed at onboarding.</p>
+                <p><strong>If "results" = finished clips delivered consistently:</strong> that part is in our hands. Every package includes 20 clips a month (more if you add extra clips) and we deliver it on the schedule agreed at onboarding.</p>
                 <p><strong>If "results" = more listeners, more views or new clients:</strong> we can't promise a number or a date, and nobody honestly can. What we do promise is the work: the clips, posted on schedule, with a weekly report so you can see exactly what is happening.</p>
               </div>
             </div>
