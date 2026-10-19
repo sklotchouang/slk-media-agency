@@ -2080,39 +2080,62 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   font-size: 0.95rem;
 }
 
-/* ---- Comparison line above the cards ---- */
+/* ---- Comparison above the cards: two large figures (19 Oct 2026) ---- */
 .pricing-page .pp-anchor {
-  padding: 0 0 32px;
+  padding: 0 0 40px;
   overflow: visible;
 }
 
 .pricing-page .pp-anchor-box {
-  max-width: 880px;
-  padding: 20px 24px;
-  background: var(--bg-raised);
-  border: 1px solid var(--hairline);
-  border-radius: 14px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(76, 178, 240, 0.12), var(--bg-raised) 60%);
+  border: 1px solid rgba(76, 178, 240, 0.35);
+  border-radius: 18px;
 }
 
-.pricing-page .pp-anchor-box p {
+.pricing-page .pp-anchor-kicker {
+  margin: 0 0 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pricing-page .pp-anchor-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.pricing-page .pp-anchor-stat + .pp-anchor-stat {
+  padding-left: 32px;
+  border-left: 1px solid var(--hairline-strong);
+}
+
+.pricing-page .pp-anchor-num {
   margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.pricing-page .pp-anchor-box strong {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
 }
 
-.pricing-page .pp-anchor-box .pp-anchor-src {
-  margin-top: 8px;
-  font-size: 0.78rem;
-  color: var(--text-muted-2);
+.pricing-page .pp-anchor-num span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--text-secondary);
 }
 
-.pricing-page .pp-anchor-src a {
-  color: var(--text-muted-2);
-  text-decoration: underline;
+.pricing-page .pp-anchor-label {
+  margin: 10px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 34ch;
 }
 
 /* ---- Proof: client clips and quotes ---- */
@@ -2157,7 +2180,10 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 .pricing-page .pp-clip video {
   width: 100%;
   height: 100%;
+  /* cover: Clip-8.mp4 is a 9:16 clip inside a 16:9 frame with black bars,
+     and cover crops exactly to the clip. The others are 9:16 already. */
   object-fit: cover;
+  background: #000;
   display: block;
 }
 
@@ -2165,34 +2191,107 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   margin-top: 56px;
 }
 
-.pricing-page .pp-quotes {
+/* Video testimonials (19 Oct 2026): one large row per client, video left,
+   quote right. A 9:16 video gets a narrow column so nothing is cropped. */
+.pricing-page .pp-tlist {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 24px;
+  gap: 24px;
+  margin-top: 28px;
 }
 
-.pricing-page .pp-quote {
+.pricing-page .pp-tcard {
   margin: 0;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 36px;
+  align-items: center;
+  padding: 28px;
   background: var(--bg-raised);
   border: 1px solid var(--hairline);
+  border-radius: 18px;
+}
+
+.pricing-page .pp-tcard-vertical {
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+}
+
+.pricing-page .pp-tvideo {
+  aspect-ratio: 16 / 9;
   border-radius: 14px;
+  overflow: hidden;
+  background: #000;
 }
 
-.pricing-page .pp-quote blockquote {
+.pricing-page .pp-tcard-vertical .pp-tvideo {
+  aspect-ratio: 9 / 16;
+}
+
+.pricing-page .pp-tvideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pricing-page .pp-tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.pricing-page .pp-tchip {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(76, 178, 240, 0.12);
+  border: 1px solid rgba(76, 178, 240, 0.35);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pricing-page .pp-tquote {
   margin: 0;
-  color: var(--text-primary);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
   line-height: 1.6;
+  font-weight: 500;
+  color: var(--text-primary);
 }
 
-.pricing-page .pp-quote figcaption {
-  margin-top: auto;
-  font-size: 0.875rem;
-  color: var(--text-muted-2);
+.pricing-page .pp-tperson {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pricing-page .pp-tavatar {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.pricing-page .pp-tname {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-tshow {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
 .pricing-page .pp-proof-more {
@@ -2741,8 +2840,16 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .pricing-page .pp-quotes {
+  .pricing-page .pp-tcard,
+  .pricing-page .pp-tcard-vertical {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-page .pp-tcard-vertical .pp-tvideo {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 }
 
@@ -2769,6 +2876,23 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 @media (max-width: 600px) {
   .pricing-page .pp-addon-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pricing-page .pp-anchor-box,
+  .pricing-page .pp-tcard {
+    padding: 22px 20px;
+  }
+
+  .pricing-page .pp-anchor-stats {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .pricing-page .pp-anchor-stat + .pp-anchor-stat {
+    padding-left: 0;
+    padding-top: 22px;
+    border-left: 0;
+    border-top: 1px solid var(--hairline-strong);
   }
 
   .pricing-page .pp-card,

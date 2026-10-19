@@ -44,22 +44,44 @@ export const viewport = {
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
-// Four client clips from /portfolio (the files in public/portfolio).
-const CLIPS = [1, 2, 3, 4];
+// Four client clips from /portfolio (the files in public/portfolio), picked by
+// Samuel on 19 Oct 2026.
+const CLIPS = [4, 6, 7, 8];
+// Clip-8.jpg is a 16:9 frame with the clip in the middle; this poster is the
+// 9:16 centre of a frame of Clip-8.mp4, so the card shows the clip, not bars.
+const POSTER = { 8: '/portfolio/thumbnails/Clip-8-vertical.jpg' };
 
-// Client quotes, verbatim from the home page testimonial carousel.
-const QUOTES = [
+// Video testimonials picked by Samuel on 19 Oct 2026. Quotes, result chips and
+// files are verbatim from /testimonials. `vertical` gives Preston's 9:16 split
+// screen a narrow frame so neither speaker is cropped.
+const TESTIMONIALS = [
   {
-    text: "“I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams I want to do business with for a long time. The quality of the short reels has been surprising, and the communication, support, and professionalism.”",
-    who: 'Brian Burton, Waste No Day Podcast',
+    name: 'Brian Burton',
+    show: 'Waste No Day Podcast',
+    initials: 'BB',
+    chip: '8-12 clips per episode, every episode',
+    icon: 'fas fa-video',
+    video: 'brian',
+    quote: 'I have several teams across three different businesses and I consider you one of the "A-Players" on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and also the communication, the support, and the professionalism.',
   },
   {
-    text: "“I've been really amazed at the quality of the content they produce. Since launch we've consistently grown our audience ahead of expectations, and we're driving really good metrics in reactions and engagement. I count SLK among our most valued agency partners.”",
-    who: 'David Hetling, Marketing Director, RWS Group',
+    name: 'Steve Garrett',
+    show: 'Corvette Today Podcast',
+    initials: 'SG',
+    chip: '11.9K subscribers, 599+ episodes',
+    icon: 'fab fa-youtube',
+    video: 'steve',
+    quote: "Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we've gained across multiple platforms is incredible.",
   },
   {
-    text: "“I'm highly impressed with the level of communication and transparency when you're working with SLK Media. What really impressed me was the expertise they bring. We saw significant growth in all the social media and online accounts we used them for.”",
-    who: 'Julien Recoussine, SalesFix',
+    name: 'Preston Hurd',
+    show: 'The Filtered Brew Podcast',
+    initials: 'PH',
+    chip: 'Fast turnaround on every edit',
+    icon: 'fas fa-bolt',
+    video: 'preston',
+    vertical: true,
+    quote: "I showed him your intro video, which I think is fantastic. It's not done, but it's fantastic. I love it. I don't like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast. I don't know how you make any money with all the time these edits take. I don't know how you charge so cheap for what you do.",
   },
 ];
 
@@ -236,12 +258,23 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Comparison line: figures checked 19 Oct 2026, sources under it */}
-        <section className="pp-anchor" aria-label="Price comparison">
+        {/* Comparison: figures checked 19 Oct 2026 (BLS median for film and
+            video editors, May 2025; Caspian Studios published plans). The
+            source line was removed from the page at Samuel's request. */}
+        <section className="pp-anchor" aria-labelledby="pp-anchor-title">
           <div className="container">
             <div className="pp-anchor-box">
-              <p>For comparison: a full-time US video editor earns a median <strong>$75,420 a year</strong> before benefits, and full-service podcast agencies publish prices starting at <strong>$2,500 per episode</strong>.</p>
-              <p className="pp-anchor-src">Sources: <a href="https://www.bls.gov/ooh/media-and-communication/film-and-video-editors-and-camera-operators.htm" target="_blank" rel="noopener">US Bureau of Labor Statistics, Film and Video Editors, May 2025</a>. <a href="https://www.caspianstudios.com/plans" target="_blank" rel="noopener">Caspian Studios published plans, October 2026</a>.</p>
+              <p className="pp-anchor-kicker" id="pp-anchor-title">For comparison</p>
+              <div className="pp-anchor-stats">
+                <div className="pp-anchor-stat">
+                  <p className="pp-anchor-num">$75,420<span> a year</span></p>
+                  <p className="pp-anchor-label">The median salary of one full-time US video editor, before benefits.</p>
+                </div>
+                <div className="pp-anchor-stat">
+                  <p className="pp-anchor-num">$2,500<span> per episode</span></p>
+                  <p className="pp-anchor-label">Where full-service podcast agencies start their published prices.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -266,18 +299,33 @@ export default function PricingPage() {
                   key={n}
                   className="pp-clip"
                   dangerouslySetInnerHTML={{
-                    __html: `<video controls muted playsinline preload="none" poster="/portfolio/thumbnails/Clip-${n}.jpg" aria-label="Client clip ${n}"><source src="/portfolio/Clip-${n}.mp4" type="video/mp4"></video>`,
+                    __html: `<video controls muted playsinline preload="none" poster="${POSTER[n] || `/portfolio/thumbnails/Clip-${n}.jpg`}" aria-label="Client clip ${n}"><source src="/portfolio/Clip-${n}.mp4" type="video/mp4"></video>`,
                   }}
                 />
               ))}
             </div>
 
             <h2 className="pp-quotes-title">What clients say</h2>
-            <div className="pp-quotes">
-              {QUOTES.map((q) => (
-                <figure className="pp-quote" key={q.who}>
-                  <blockquote>{q.text}</blockquote>
-                  <figcaption>{q.who}</figcaption>
+            <div className="pp-tlist">
+              {TESTIMONIALS.map((t) => (
+                <figure className={t.vertical ? 'pp-tcard pp-tcard-vertical' : 'pp-tcard'} key={t.name}>
+                  <div
+                    className="pp-tvideo"
+                    dangerouslySetInnerHTML={{
+                      __html: `<video controls playsinline preload="none" poster="/video-testimonials/poster-${t.video}.webp" aria-label="${t.name}'s video testimonial"><source src="/video-testimonials/testimonial-${t.video}.mp4" type="video/mp4"></video>`,
+                    }}
+                  />
+                  <div className="pp-tbody">
+                    <span className="pp-tchip"><i className={t.icon} aria-hidden="true"></i> {t.chip}</span>
+                    <blockquote className="pp-tquote">&ldquo;{t.quote}&rdquo;</blockquote>
+                    <figcaption className="pp-tperson">
+                      <span className="pp-tavatar" aria-hidden="true">{t.initials}</span>
+                      <span>
+                        <span className="pp-tname">{t.name}</span>
+                        <span className="pp-tshow">{t.show}</span>
+                      </span>
+                    </figcaption>
+                  </div>
                 </figure>
               ))}
             </div>
