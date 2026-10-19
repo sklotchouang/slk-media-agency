@@ -2080,62 +2080,36 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   font-size: 0.95rem;
 }
 
-/* ---- Comparison above the cards: two large figures (19 Oct 2026) ---- */
+/* ---- Comparison above the cards: a subtle one-line note (19 Oct 2026,
+   Samuel: big figures read like prices) ---- */
 .pricing-page .pp-anchor {
-  padding: 0 0 40px;
+  padding: 0 0 28px;
   overflow: visible;
 }
 
-.pricing-page .pp-anchor-box {
-  padding: 28px 32px;
-  background: linear-gradient(135deg, rgba(76, 178, 240, 0.12), var(--bg-raised) 60%);
-  border: 1px solid rgba(76, 178, 240, 0.35);
-  border-radius: 18px;
-}
-
-.pricing-page .pp-anchor-kicker {
-  margin: 0 0 18px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.pricing-page .pp-anchor-stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-}
-
-.pricing-page .pp-anchor-stat + .pp-anchor-stat {
-  padding-left: 32px;
-  border-left: 1px solid var(--hairline-strong);
-}
-
-.pricing-page .pp-anchor-num {
+.pricing-page .pp-anchor-note {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  max-width: 100%;
   margin: 0;
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted-2);
 }
 
-.pricing-page .pp-anchor-num span {
-  font-size: 1.1rem;
+.pricing-page .pp-anchor-note i {
+  flex: none;
+  font-size: 0.85rem;
+}
+
+.pricing-page .pp-anchor-note strong {
   font-weight: 600;
-  letter-spacing: 0;
   color: var(--text-secondary);
-}
-
-.pricing-page .pp-anchor-label {
-  margin: 10px 0 0;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  max-width: 34ch;
 }
 
 /* ---- Proof: client clips and quotes ---- */
@@ -2878,21 +2852,8 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     grid-template-columns: 1fr;
   }
 
-  .pricing-page .pp-anchor-box,
   .pricing-page .pp-tcard {
     padding: 22px 20px;
-  }
-
-  .pricing-page .pp-anchor-stats {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .pricing-page .pp-anchor-stat + .pp-anchor-stat {
-    padding-left: 0;
-    padding-top: 22px;
-    border-left: 0;
-    border-top: 1px solid var(--hairline-strong);
   }
 
   .pricing-page .pp-card,

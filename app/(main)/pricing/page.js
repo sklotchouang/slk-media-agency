@@ -261,21 +261,12 @@ export default function PricingPage() {
         {/* Comparison: figures checked 19 Oct 2026 (BLS median for film and
             video editors, May 2025; Caspian Studios published plans). The
             source line was removed from the page at Samuel's request. */}
-        <section className="pp-anchor" aria-labelledby="pp-anchor-title">
+        <section className="pp-anchor" aria-label="Price comparison">
           <div className="container">
-            <div className="pp-anchor-box">
-              <p className="pp-anchor-kicker" id="pp-anchor-title">For comparison</p>
-              <div className="pp-anchor-stats">
-                <div className="pp-anchor-stat">
-                  <p className="pp-anchor-num">$75,420<span> a year</span></p>
-                  <p className="pp-anchor-label">The median salary of one full-time US video editor, before benefits.</p>
-                </div>
-                <div className="pp-anchor-stat">
-                  <p className="pp-anchor-num">$2,500<span> per episode</span></p>
-                  <p className="pp-anchor-label">Where full-service podcast agencies start their published prices.</p>
-                </div>
-              </div>
-            </div>
+            <p className="pp-anchor-note">
+              <i className="fas fa-circle-info" aria-hidden="true"></i>
+              <span>For comparison: a full-time US video editor earns a median salary of <strong>$75,420 a year</strong>, and full-service podcast agencies start at <strong>$2,500 per episode</strong>.</span>
+            </p>
           </div>
         </section>
 
