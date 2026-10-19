@@ -2,7 +2,7 @@
 
 ## What does it cost?
 
-There are two packages, both with 20 clips a month. Done For You is $1,597 a month and SLK Media Agency handles everything after the edit. Done With You is $997 a month and you post the clips yourself. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
+There are three packages, all with 20 clips a month. Done With You is $997 a month and you post the clips yourself. Done For You is $1,597 a month and SLK Media Agency handles everything after the edit. Done For You Plus is $1,897 a month and adds 4 long-form episode edits a month. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
 
 Keep it to that. Do not add the report, do not turn it into a list.
 
@@ -10,9 +10,9 @@ Keep it to that. Do not add the report, do not turn it into a list.
 
 No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and weekly performance reports.
 
-## What is the difference between the two packages?
+## What is the difference between the packages?
 
-Who does the rest. Both deliver the same 20 clips a month. Done For You adds a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip. On Done With You you post the clips yourself.
+Who does the rest, and whether your full episodes are edited too. All three deliver the same 20 clips a month. Done For You adds a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip. On Done With You you post the clips yourself. Done For You Plus is Done For You plus 4 long-form episode edits a month.
 
 ## Do you offer a trial?
 

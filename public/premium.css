@@ -1904,7 +1904,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 /* --------------------------------------------------------------------------
-   17. /pricing page (two packages, 2026-10-16)
+   17. /pricing page (two packages 2026-10-16, three packages 2026-10-19)
 
    The standalone pricing page the SDR sends when a prospect asks for numbers.
    Since 2026-10-16: hero, the two package cards (Done For You, the flagship,
@@ -2035,11 +2035,178 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   overflow: visible;
 }
 
-.pricing-page .pp-pair {
+.pricing-page .pp-trio {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
+}
+
+/* A card plus the commitment line under it. The card grows so the three
+   cards stay the same height. */
+.pricing-page .pp-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pricing-page .pp-col > .pp-card {
+  flex: 1;
+}
+
+.pricing-page .pp-commit {
+  margin: 0;
+  padding: 0 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-commit strong {
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-terms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 32px;
+  margin: 28px 0 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ---- Comparison line above the cards ---- */
+.pricing-page .pp-anchor {
+  padding: 0 0 32px;
+  overflow: visible;
+}
+
+.pricing-page .pp-anchor-box {
+  max-width: 880px;
+  padding: 20px 24px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-anchor-box p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.pricing-page .pp-anchor-box strong {
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-anchor-box .pp-anchor-src {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-anchor-src a {
+  color: var(--text-muted-2);
+  text-decoration: underline;
+}
+
+/* ---- Proof: client clips and quotes ---- */
+.pricing-page .pp-proof {
+  padding: 72px 0 0;
+  overflow: visible;
+}
+
+.pricing-page .pp-proof-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.pricing-page .pp-more {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pricing-page .pp-more:hover {
+  text-decoration: underline;
+}
+
+.pricing-page .pp-clips {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pricing-page .pp-clip {
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+}
+
+.pricing-page .pp-clip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pricing-page .pp-quotes-title {
+  margin-top: 56px;
+}
+
+.pricing-page .pp-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.pricing-page .pp-quote {
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-quote blockquote {
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.pricing-page .pp-quote figcaption {
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-proof-more {
+  margin: 20px 0 0;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-proof-more a {
+  color: var(--accent);
+}
+
+/* ---- Pricing FAQ: reuses the site accordion, only spacing here ---- */
+.pricing-page .pp-faq {
+  padding: 72px 0 0;
 }
 
 .pricing-page .pp-card {
@@ -2191,7 +2358,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 .pricing-page .pp-table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 520px;
+  min-width: 640px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -2559,6 +2726,24 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   .pricing-page .pp-addon-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .pricing-page .pp-trio {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .pricing-page .pp-tag-ghost {
+    display: none;
+  }
+
+  .pricing-page .pp-clips {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-page .pp-quotes {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2568,7 +2753,6 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 @media (max-width: 860px) {
-  .pricing-page .pp-pair,
   .pricing-page .pp-calc {
     grid-template-columns: 1fr;
   }

@@ -4,7 +4,7 @@
 
 Book a strategy call, the main next step for anyone ready to start or wanting a scoped quote: https://link.slkmediaagency.com/strmeet
 
-See both packages, the add-ons and the plan calculator: https://slkmediaagency.com/pricing
+See all three packages, the add-ons and the plan calculator: https://slkmediaagency.com/pricing
 
 See the work: https://slkmediaagency.com/portfolio
 

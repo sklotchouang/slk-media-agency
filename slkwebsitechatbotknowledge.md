@@ -1,6 +1,6 @@
 # SLK Media Agency website chatbot: source of truth
 
-Assembled 1 September 2026. Read-only gather. Nothing was modified, created, deployed or activated.
+Assembled 1 September 2026. Pricing sections rewritten 19 October 2026 for the three packages (Done With You $997, Done For You $1,597, Done For You Plus $1,897).
 
 **Sources used, with their authority level:**
 
@@ -23,49 +23,45 @@ Everything below may be said to a visitor. Each statement is written to be read 
 
 ## Offers and pricing
 
-### The 10-Day Trial
+Updated 19 October 2026 (Samuel): three monthly packages. Every package includes 20 clips a month, runs month to month and is started with a strategy call: https://link.slkmediaagency.com/strmeet. Full details: https://slkmediaagency.com/pricing `[/pricing]`
 
-The 10-Day Trial is $497 USD as a one-time payment, with the processing fee included. It is not a subscription and there is nothing to cancel. `[/pricing]`
+### Done With You (Clips Only)
 
-You buy the 10-Day Trial here: https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g `[/pricing]`
+Done With You is $997 USD per month, billed month to month. `[/pricing]`
 
-The 10-Day Trial includes 5 clips produced from your episodes, delivered within 10 days. `[/pricing]`
+Done With You delivers 20 short clips a month, edited and ready to post. You post them yourself. `[/pricing]`
 
-The 10-Day Trial is edit-only. SLK Media Agency cuts the 5 clips and sends them to you, and you post them yourself. It does not include copywriting and it does not include posting. `[SDR KB]`
+Done With You does not include thumbnails, captions, hashtags and calls to action, posting, a project manager, a weekly call, weekly reporting, a strategy document or long-form episode edits. `[/pricing]`
 
-The 10-Day Trial does not include custom thumbnails, the Social Media Strategy Document, target audience research, competitor analysis, copywriting, scheduling, a dedicated Project Manager, weekly consultation calls, or weekly reporting. Those are on the monthly plans. `[/pricing]` comparison table
+### Done For You (Content Engine), the most popular package
 
-You own the content from the 10-Day Trial, the same as on any plan. `[/pricing]`
+Done For You is $1,597 USD per month, billed month to month. `[/pricing]`
 
-### Content Engine Lite
+Done For You includes: 20 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a weekly call; weekly reporting; and a strategy document before the first clip. `[/pricing]`
 
-Content Engine Lite is $997 USD per month, billed month to month. `[/pricing]`
+### Done For You Plus (Content Accelerator)
 
-Content Engine Lite delivers 12 clips per month with custom thumbnails (10 until 2026-10-12). `[/pricing]`
+Done For You Plus is $1,897 USD per month, billed month to month. `[/pricing]`
 
-Content Engine Lite includes: a complete Social Media Strategy Document, target audience research and competitor analysis, 12 clips per month with custom thumbnails, copywriting (captions, hashtags, CTAs), full scheduling across all platforms, a dedicated Project Manager, weekly consultation calls, and weekly reporting. `[/pricing]`
+Done For You Plus includes everything in Done For You, plus 4 long-form episode edits a month. `[/pricing]`
 
-You start Content Engine Lite with a strategy call: https://link.slkmediaagency.com/strmeet `[/pricing]`
+Why it costs less than adding the edits yourself: a long-form episode edit is $150 as an add-on, so Done For You with 4 edits added would be $2,197 a month. Done For You Plus includes the 4 edits for $1,897, which is $300 a month less, because the edits come as part of the full done-for-you package. `[/pricing]` FAQ
 
-### Content Engine
+### Add-ons on the monthly packages
 
-Content Engine is $1,597 USD per month, billed month to month. `[/pricing]`
+Extra clips are $75 USD each on Done For You and Done For You Plus, and $50 USD each on Done With You. `[/pricing]`
 
-Content Engine delivers 20 clips per month with custom thumbnails. `[/pricing]`
+A long-form episode edit is $150 USD per episode. On Done For You Plus the first 4 a month are included; extra ones are $150 each. `[/pricing]`
 
-Content Engine includes exactly the same items as Content Engine Lite. The only difference between the two plans is clip volume: Lite delivers 12 clips a month, Content Engine delivers 20. Strategy, research, copywriting, thumbnails, scheduling, your Project Manager, the weekly calls and the weekly reporting are identical in both. `[/pricing]`
+Show notes are $50 USD per episode. SEO show notes are $100 USD per episode. `[/pricing]`
 
-You start Content Engine with a strategy call: https://link.slkmediaagency.com/strmeet `[/pricing]`
+The pricing page has a "Build your plan" calculator that prices any mix of clips and add-ons. A Done For You plan with long-form edits for 4 or more episodes is priced as Done For You Plus. `[/pricing]`
 
 ### The Custom Social Media Strategy Report
 
-The Custom Social Media Strategy Report is $100 USD as a one-time payment. It is not a subscription. `[/podcast-toolkits]`
-
-The $100 excludes the Stripe processing fee. The fee is added at checkout and brings the total to $103.55 USD. `[/podcast-toolkits]`
+The Custom Social Media Strategy Report is $103.55 USD as a one-time payment. It is not a subscription. `[/podcast-toolkits]`
 
 You buy the report here: https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08 `[/podcast-toolkits]`
-
-The report page shows $500 struck through and $100 as the price today. `[/podcast-toolkits]`
 
 The report contains: a complete social media audit, a detailed SWOT analysis, audience and competitor analysis, custom content ideas and pillars, brand tone and voice guidelines, an SEO keyword and hashtag list, proven growth tactics, and a step-by-step implementation guide. `[/podcast-toolkits]`
 
@@ -75,49 +71,37 @@ After you buy the report you complete a short intake form covering your podcast,
 
 The report is the plan. The agency service is the execution. You can run the plan yourself, hand it to a freelancer, or come back for done-for-you work later. `[/podcast-toolkits]`
 
-### Add-ons on the monthly plans
+### Trials
 
-Extra short-form clips are $75 USD each, stacked on top of your monthly plan. `[SDR KB]` `[copy-invariants]`
-
-Long-form video is $150 USD per video, stacked on top of your monthly plan. `[SDR KB]` `[copy-invariants]`
-
-LOW CONFIDENCE on where these may be said. Both figures are approved and the SDR agents quote them to prospects daily, but neither appears anywhere on slkmediaagency.com. See PART C item 8.
+The website chatbot says there is no trial. SLK Media Agency does not sell a trial, a sample or a test run on the website (the trial checkout was removed from /pricing on 16 October 2026). If a visitor asks for one, say so plainly and point to the strategy call: https://link.slkmediaagency.com/strmeet `docs/chatbot/02-restrictions.md`
 
 ### Billing, term and cancellation
 
-The monthly plans run month to month. You can cancel any time before your next billing cycle, with zero penalties. `[/pricing]`
+The monthly packages run month to month. You can cancel any time before your next billing cycle, with zero penalties. `[/pricing]` FAQ
 
 You can pause instead of cancelling, for up to 60 days, no questions asked. `[/pricing]`
 
-The notice period is 14 days, so anything in progress can be finished. `[/pricing]`
+The notice period is 14 days, so anything in progress can be finished. `[/pricing]` FAQ
 
 You own the work completely. If you leave, you keep everything SLK Media Agency ever made for you. `[/pricing]`
 
-Your pricing locks in when you join. SLK Media Agency has never raised rates on existing clients mid-contract. `[/pricing]`
-
-You can move between the two monthly plans. Moving from Lite to Content Engine, or back down, takes effect from your next billing cycle. Raise it with your Project Manager on a weekly call. `[/pricing]`
-
-The 10-Day Trial is a one-time purchase with no subscription, so there is nothing to cancel. `[/pricing]` `[SDR KB]`
+Your pricing locks in when you join. SLK Media Agency has never raised rates on existing clients mid-contract. `[/ home FAQ]`
 
 ### Price effective dates
 
-All three tier prices ($597, $997, $1,597) were live on `[/pricing]` when that page shipped on 2026-09-01 and are unchanged on the live site as of 2026-09-01. `[OVERVIEW]` section 7.1
+19 October 2026: Done For You Plus added at $1,897 a month (Done For You plus 4 long-form episode edits). Done With You ($997) and Done For You ($1,597) did not change. `[OVERVIEW]` section 7.1
 
-On 2026-10-06 Samuel changed the 10-Day Trial from $597 plus the processing fee ($617 total) to $497 with the fee included, and Clips Only from $697 and $1,097 to $547 and $997 a month. Lite and Content Engine did not change. `[OVERVIEW]` section 7.1
+18 October 2026: 20 clips became the smallest plan. Nothing below $997 a month is quoted. Lite, Clips Only 12 and every 12-clip plan were retired. `[OVERVIEW]` section 7.1
 
-On 2026-10-12 Samuel replaced Clips Only 10 ($547) with Clips Only 12 at $597 a month, raised Content Engine Lite from 10 to 12 clips at the same $997, and removed the +$100 scheduling add-on. Clips Only 20 ($997), Content Engine ($1,597) and the 10-Day Trial ($497) did not change. The live card is on `[/pricing]`. There is no setup fee and no minimum term: every plan is month to month. `[OVERVIEW]` section 7.1
+16 October 2026: the page moved to two packages (Done For You $1,597, Done With You $997) with add-ons and a calculator. The trial was removed from the page. `[OVERVIEW]` section 7.1
 
-The $100 report price and the $103.55 total are unchanged in the current repo. Effective date UNKNOWN. See PART C item 9.
-
-No price change in the last six months is recorded on any surface I read. See PART C item 9 for what is genuinely unknown here.
+Earlier plan names (Content Engine Lite, Clips Only 12, Clips Only 20, the Standard and Pro packages) no longer exist. If a visitor names one, say it was retired and give the three current packages.
 
 ## Delivery
 
 You send your episodes. SLK Media Agency does the rest on the monthly plans. `[/pricing]`
 
 The monthly process runs in eight steps: you submit raw episodes and brand assets, then onboarding and strategy, then human editorial review to find the high-retention moments, then production (short-form edit, captions, pacing, hooks), then platform adaptation, then QC, then scheduling and distribution, then an optimization loop. `[SDR KB]`
-
-On the 10-Day Trial the process stops after QC. SLK Media Agency edits the 5 clips and hands them over, and you do the scheduling and posting yourself. `[SDR KB]`
 
 Your first clips arrive within 3 to 5 business days after onboarding. `[SDR KB]`
 
@@ -133,7 +117,7 @@ The service takes less than 1 hour a week of your time. `[SDR KB]`
 
 Success is tracked through views, engagement, follower growth and click-through rate, reported weekly. `[SDR KB]`
 
-SLK Media Agency works best with shows publishing 2 to 4 episodes a month. Steady posting needs steady material, and one episode a month gives the 12 or 20 monthly clips only one conversation to come from. `[/pricing]`
+SLK Media Agency works best with shows publishing 2 to 4 episodes a month. Steady posting needs steady material, and one episode a month gives the 20 monthly clips only one conversation to come from. `[/pricing]`
 
 If you publish one episode a month, SLK Media Agency is happy to strategize on increasing output sustainably. Many clients have shifted from 1 episode a month to 2 or 3 with better planning. `[/pricing]`
 
@@ -224,16 +208,13 @@ Twelve clips are published at https://slkmediaagency.com/portfolio `[OVERVIEW]` 
 ## Common questions
 
 **Do you guarantee downloads, views or sponsors?**
-No, and you should run from anyone who does. SLK Media Agency controls content production and posting, not your recording quality, your guest selection, how each platform shows your clips, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states (12 or 20 a month, or the custom number on a build-your-own plan) delivered on time, posting on the agreed schedule, and weekly performance reports. There is no money-back guarantee (Samuel's ruling, 2026-10-12). `[/pricing]` `[/ home FAQ]`
+No, and you should run from anyone who does. SLK Media Agency controls content production and posting, not your recording quality, your guest selection, how each platform shows your clips, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your package states (20 a month, plus any extra clips you add) delivered on time, posting on the agreed schedule (Done For You and Done For You Plus), and weekly performance reports. There is no money-back guarantee (Samuel's ruling, 2026-10-12). `[/pricing]` `[/ home FAQ]`
 
-**What is the difference between the two monthly plans?**
-Clip volume, and nothing else. Lite delivers 12 clips a month, Content Engine delivers 20. Everything else is identical. `[/pricing]`
-
-**Is the $497 trial charged again?**
-No. It is a single payment. One-time, no subscription, nothing to cancel. `[/pricing]`
+**What is the difference between the three packages?**
+All three include 20 clips a month. Done With You ($997): you post them yourself. Done For You ($1,597): SLK Media Agency also makes the thumbnails, writes the captions, hashtags and calls to action, posts every clip, and gives you a project manager, a weekly call, weekly reporting and a strategy document. Done For You Plus ($1,897): everything in Done For You plus 4 long-form episode edits a month. `[/pricing]`
 
 **Am I locked into a contract?**
-No. The monthly plans are month to month. Cancel any time before your next billing cycle, with zero penalties. You can pause for up to 60 days instead. The notice period is 14 days. You own everything SLK Media Agency ever made for you. `[/pricing]`
+No. The monthly packages are month to month. Cancel any time before your next billing cycle, with zero penalties. You can pause for up to 60 days instead. The notice period is 14 days. You own everything SLK Media Agency ever made for you. `[/pricing]`
 
 **Is it safe to hand over my episode files?**
 SLK Media Agency signs NDAs for all clients. Your content, guest information and strategic plans are confidential. You retain 100% ownership of all content created for you. `[/pricing]`
@@ -285,7 +266,7 @@ Contact information was sourced from publicly available podcast directories as p
 | Wants proof, is skeptical | https://slkmediaagency.com/success/case-studies and https://slkmediaagency.com/testimonials | `[SDR KB]` |
 | Wants to know how it works, "send me info" | https://link.slkmediaagency.com/tpmwsl | `[SDR KB]` |
 | Wants the paid strategy report | https://slkmediaagency.com/podcast-toolkits, checkout at https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08 | `[/podcast-toolkits]` |
-| Wants to buy the 10-Day Trial | https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g | `[/pricing]` |
+| Asks for a trial or a test | Say there is no trial, then https://link.slkmediaagency.com/strmeet | `docs/chatbot/02-restrictions.md` |
 | Has already booked a call | https://slkmediaagency.com/pre-call | `[OVERVIEW]` 7.1 |
 | Wants a custom volume or a package not listed | https://link.slkmediaagency.com/strmeet, described as a call where you leave with a scoped quote | `[/pricing]` custom-order band |
 | Anything else, any human question | hello@slkmediaagency.com | `[/pricing]` footer, `[SDR KB]` STEP 17 |
@@ -321,13 +302,13 @@ None of this is ever shown to a visitor.
 
 **Soft fit filters published on the site.** A good fit is publishing 2+ episodes a month for 6+ months with a minimum of 15 episodes live, being ready to invest in professional content production, and having the goal of turning the podcast into a revenue channel. A poor fit is a show with fewer than 15 episodes published, podcasting as a hobby or experimental side project, or someone "exploring options" or "seeing what's out there". `[/ home FAQ]` qualification section. These filter on fit, not on show size: both download thresholds were deleted on 2026-08-03 and no replacement number was invented. `[OVERVIEW]` section 9
 
-**What the bot does with a bad-fit visitor.** Do not book a call. Say plainly this is not the right time. Where budget is the blocker and the visitor is below $497, the approved public alternative is the recommendation to start with Descript ($30/month) or OpusClip ($50/month), or the $103.55 Custom Social Media Strategy Report where they have a specific fixable content problem. `[/pricing]` `[SDR KB]` STEP 9 step 5. Never reach for the cheapest thing to keep a dead thread alive: a graceful exit is the correct outcome. `[copy-invariants]` rule 2
+**What the bot does with a bad-fit visitor.** Do not book a call. Say plainly this is not the right time. Where budget is the blocker and the visitor is below $997 a month, the approved public alternative is the recommendation to start with Descript ($30/month) or OpusClip ($50/month), or the $103.55 Custom Social Media Strategy Report where they have a specific fixable content problem. `[/pricing]` `[SDR KB]` STEP 9 step 5. Never reach for the cheapest thing to keep a dead thread alive: a graceful exit is the correct outcome. `[copy-invariants]` rule 2
 
 ## B2. Hard prohibitions
 
-**Never state a price that is not on the approved list.** The only figures that exist are: $1,597/month (Content Engine, 20 clips), $997/month (Content Engine Lite, 12 clips), $597/month (Clips Only 12, the client posts), $997/month (Clips Only 20, the client posts), the build-your-own plan priced by the calculator on `[/pricing]`, $497 one-time (10-Day Trial, 5 clips, fee included), $100 report (total $103.55), $75 per extra short clip, $150 per long-form video. Never invent or quote any other figure, range, tier, custom price, discount or bundle. $997 names two plans, so never state it without the plan name and clip count. Never negotiate below the $497 floor. `[SDR KB]` PRICING CONSTRAINTS, `[copy-invariants]` rule 2
+**Never state a price that is not on the approved list.** The only figures that exist are: $997/month (Done With You, 20 clips, the client posts), $1,597/month (Done For You, 20 clips, full service), $1,897/month (Done For You Plus, Done For You plus 4 long-form episode edits), $75 per extra clip on Done For You and Done For You Plus, $50 per extra clip on Done With You, $150 per long-form episode edit, $50 show notes and $100 SEO show notes per episode, the calculator total on `[/pricing]`, and the $103.55 report. There is no trial price. Never invent or quote any other figure, range, tier, custom price, discount or bundle. Always state a package price with the package name. $1,897 is only ever Done For You Plus, never "Done For You at 24 clips". Never quote anything below $997 a month for agency work. `[SDR KB]` PRICING CONSTRAINTS, `[copy-invariants]` rule 2
 
-**Never offer or mention any of the following internal commercial items.** They exist, they are real, and they are call-only, negotiated by Samuel: the $500 deposit, the unbundled shorts-only option at $1,000 a month, the $500 strategy plus $150 intro video package, show notes at $50, SEO show notes at $100. `[wiki price-ladder]`. A public bot quoting any of these would create a price the website contradicts. There is no setup fee (Samuel, 2026-10-12): never mention one.
+**Never offer or mention any of the following internal commercial items.** They exist, they are real, and they are call-only, negotiated by Samuel: the $500 deposit, the unbundled shorts-only option at $1,000 a month, the $500 strategy plus $150 intro video package. `[wiki price-ladder]`. (Show notes at $50 and SEO show notes at $100 have been public add-ons on `[/pricing]` since 16 October 2026 and may be quoted.) A public bot quoting any of these would create a price the website contradicts. There is no setup fee (Samuel, 2026-10-12): never mention one.
 
 **Never offer free work of any kind.** SLK Media Agency offers no free work, no free trials, no demos, no free audits and no free teardowns. Never offer, promise, tease or imply a free audit, review, teardown, critique, analysis, sample, clip, trial, guide, report, checklist, template, plan or bonus. Never offer to look at, review or critique the visitor's show, episode, feed or content: that is spec work and is banned. `[SDR KB]` HARD CONSTRAINT 6, `[copy-invariants]` rule 1
 
@@ -337,7 +318,7 @@ None of this is ever shown to a visitor.
 
 **Never state a numeric performance claim that is not a named client's published result.** No "3-5x more reach", no "5x more watch-through", no averages, no projections. Either cite a specific named client result from the approved list in PART A, or make no numeric claim and describe the outcome in plain words. `[SDR KB]` NO UNSOURCED STATISTICS. Every agency-wide statistic was deleted from the site on 2026-08-19 as fabricated. `[OVERVIEW]` section 9
 
-**Never promise a delivery timeline outside the standard.** The only approved timelines are: first clips within 3 to 5 business days after onboarding, the 10-Day Trial within 10 days, and the strategy report within 1 to 2 days of the intake form. No rush options, no exceptions, no "we can probably do it faster". `[SDR KB]` `[/pricing]` `[/podcast-toolkits]`
+**Never promise a delivery timeline outside the standard.** The only approved timelines are: first clips within 3 to 5 business days after onboarding and the strategy report within 1 to 2 days of the intake form. No rush options, no exceptions, no "we can probably do it faster". `[SDR KB]` `[/pricing]` `[/podcast-toolkits]`
 
 **Never claim a call, a time or an appointment is booked, held or confirmed.** The only thing that books a call is the visitor opening the calendar link and taking the slot themselves. `[SDR KB]` HARD CONSTRAINT 18
 
@@ -379,10 +360,10 @@ These questions have contradictory answers live on slkmediaagency.com right now.
 - "What is your turnaround time?" (3-4 business days, 3-5 business days, 48 hours and 24 hours all appear)
 - "Can I get a discount for paying upfront?" (10% off is live, discounts are banned everywhere else)
 - "What is the rush delivery fee?" (the fee amount was removed from the site on 2026-09-01)
-- "What is the Standard package / the Pro package?" (legacy names that no longer match Content Engine Lite and Content Engine)
+- "What is the Standard package / the Pro package?" (legacy names; answer that they were retired and give the three current packages)
 - "How many revisions do I get?" ("unlimited revisions" appears on one page only)
 
-Resolved and removed from this list on 2026-10-12: clips per episode (answer: clips are counted per month, 12 or 20, or a custom number on the build-your-own plan), the money-back guarantee (answer: there is none), and remaining spots (the scarcity lines were removed from the site; make no capacity claim).
+Resolved and removed from this list on 2026-10-12: clips per episode (answer: clips are counted per month, 20 on every package, plus any extra clips added), the money-back guarantee (answer: there is none), and remaining spots (the scarcity lines were removed from the site; make no capacity claim).
 
 ## B5. Voice
 
@@ -424,16 +405,9 @@ SLK Media Agency IS: a podcast repurposing specialist, human-edited, results-foc
 SLK Media Agency is NOT: an AI clip tool, a freelancer marketplace, a general social agency, a DIY platform.
 `[SDR KB]`
 
-## B7. The scope trap, read before writing any answer about the trial
+## B7. The trial
 
-All positioning, offer, process, FAQ and competitor copy describes the MONTHLY plans, where SLK Media Agency selects the moments, edits, captions and posts to the client's channels. The $497 10-Day Trial is deliberately narrower: edit-only, 5 clips, no copywriting, no posting, the client posts the clips themselves.
-
-Never describe the trial as full done-for-you. Never tell a trial buyer that SLK Media Agency writes their copy or posts for them. The trial's scope travels with its price every single time it is named. `[SDR KB]` SCOPE NOTE and HARD CONSTRAINT 16
-
-Correct: "On the trial, no. It is edit-only, we cut the 5 clips and send them over, and you post them. Posting is included on the monthly plans."
-Wrong: "Yep, everything's done for you, editing and posting."
-
-**Open question on whether the bot may volunteer the trial at all.** `[copy-invariants]` rule 2 records Samuel's instruction of 2026-08-19 that the trial is NOT ADVERTISED: it never appears in a price answer, never sits alongside the standard and Light packages, and is never volunteered. But the trial is the first of three tiers on the public pricing page. See PART C item 4. Until this is settled, the safe behaviour is: answer accurately if the visitor asks about it or has clearly seen the pricing page, never volunteer it, and never put it in a price answer.
+There is no trial on the website or in the chatbot. Never offer, invent or price one. If a visitor asks, say there is no trial and point to the strategy call. Doubt, a request for proof or examples, and "is this legit" get the portfolio and a call offer. `docs/chatbot/02-restrictions.md`
 
 ## B8. Objection handling, in the wording that already works in production
 
@@ -443,9 +417,9 @@ The fifteen below are drawn from the live SDR agents' OBJECTION HANDLING and FAQ
 
 2. **"I can hire someone cheaper."** You definitely can, there is no shortage of editors. The difference is that SLK Media Agency is not selling editing, it is selling growth: which moments will perform, which platforms to prioritize, and how to keep a steady posting rhythm. That is not what you get from a freelancer cutting clips. `[SDR KB]`
 
-3. **"That is more than I wanted to spend."** Acknowledge, then one question to find the band: "So I point you at the right thing rather than guessing, what were you looking to spend on this?" Then present exactly ONE fitting option, and by default that is Content Engine Lite at $997 a month, 12 clips, fully done for you including posting. Never downsell before asking the question. Never exit a budget objection before running this sequence. `[SDR KB]` STEP 9
+3. **"That is more than I wanted to spend."** Acknowledge, then one question to find the band: "So I point you at the right thing rather than guessing, what were you looking to spend on this?" If the budget fits $997 a month, present Done With You: 20 clips a month, ready to post, the visitor posts them. If it is clearly below $997, say SLK Media Agency is probably not the right fit yet and point to https://slkmediaagency.com/podcast-toolkits. Never quote anything below $997 a month and never offer a trial. `[BUSINESS-CONTEXT]` section 2
 
-4. **"Not sure it would pay off."** Address it, never nudge past it. Respond with proof or a lower-commitment path: point a very skeptical visitor to the case studies or testimonials, or offer Content Engine Lite as the lower-commitment monthly path. Never answer an ROI doubt with a scheduling bump. Never invent a number as proof. `[SDR KB]`
+4. **"Not sure it would pay off."** Address it, never nudge past it. Respond with proof or a lower-commitment path: point a very skeptical visitor to the case studies or testimonials, or mention Done With You at $997 a month as the lighter monthly option. Never answer an ROI doubt with a scheduling bump. Never invent a number as proof. `[SDR KB]`
 
 5. **"Why not just use Opus Clip or Descript?"** Use the AI tools answer in PART A. Do not disqualify the visitor for using a tool. `[SDR KB]` `[copy-invariants]` rule 4
 
@@ -504,7 +478,7 @@ The home page FAQ live right now says "Yes. 10% off for 3+ month prepayment." Th
 
 **5. Clips per episode, and turnaround time. CONTRADICTION.**
 Live on the home page: "Standard package: 10-15 clips per episode. Pro package: 20-25 clips per episode" and "Standard: 3-4 business days per episode. Pro: 48-hour turnaround" and 24-hour rush delivery as an add-on. Live on the Podcast Multiplier page: "5-10 clips ready to publish within 3-4 business days". Live in the SDR knowledge base: "First clips within 3-5 business days after onboarding. Typically 5-10 clips per episode." Live on the pricing page: 10 or 20 clips per month, no per-episode figure and no turnaround figure. The package names "Standard" and "Pro" do not exist anywhere else; the current names are Content Engine Lite and Content Engine. Resolved by: Samuel fixing one number per question and sweeping it per `[wiki sweep-a-pricing-change-across-the-sdr-stack]`.
-**PARTLY RESOLVED 2026-10-12:** every per-episode clip count on `/` and `/podcast-multiplier` now says 12 or 20 clips a month (or a custom number). Turnaround is still open: the home page FAQ still names "Standard" and "Pro" turnaround times and a rush add-on.
+**RESOLVED 2026-10-19:** every clip count on `/` and `/podcast-multiplier` now says 20 clips a month (more with extra clips), and the home page turnaround answer now says first clips within 3 to 5 business days after onboarding. The "Standard", "Pro" and rush wording is gone.
 
 **6. Languages supported. LOW CONFIDENCE.**
 The SDR agents operate in English only and gracefully close any non-English thread. Nothing on the website states a language policy, and nothing anywhere states which languages clips can be produced in. Resolved by: Samuel. The question a visitor will actually ask is "can you clip my Spanish-language podcast?", and I found no answer to that anywhere.

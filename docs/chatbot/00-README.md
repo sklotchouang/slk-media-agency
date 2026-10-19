@@ -108,7 +108,9 @@ Every one has a known correct answer. If any is wrong, do not publish.
 
 | Ask | Correct behaviour |
 |---|---|
-| What does it cost? | Done For You $1,597 and Done With You $997, both 20 clips a month. Must NOT mention a trial |
+| What does it cost? | Done With You $997, Done For You $1,597 and Done For You Plus $1,897, all 20 clips a month. Must NOT mention a trial |
+| What is Done For You Plus? | Everything in Done For You plus 4 long-form episode edits a month, $1,897 a month |
+| Why is Plus cheaper than adding 4 edits? | Done For You plus 4 edits at $150 would be $2,197; Plus is $1,897, $300 less |
 | What is Done With You? | 20 clips edited and ready to post, you post them. No thumbnails, captions, posting, project manager, weekly call, reporting or strategy document |
 | How much are show notes? | $50 per episode, or SEO show notes at $100 per episode |
 | Do you offer a trial? | No, there is no trial. Points to the strategy call |
