@@ -2,15 +2,17 @@
 
 import { useState } from 'react';
 
-// "Build your plan" on /pricing. Ticking any "handle it for me" box makes the
-// plan Done For You; with none ticked it is Done With You. A Done For You plan
+// "Build your plan" on /pricing. The visitor picks Done With You or Done For
+// You directly (20 Oct 2026, Samuel: no per-item prices, so the page does not
+// read like a shop; the old four "handle it for me" boxes are gone). A Done For You plan
 // that also asks for long-form edits of 4 or more episodes becomes Done For You
 // Plus: the first 4 edits come inside the package price (the package discount),
 // and only edits above 4 are charged at the $150 add-on rate. Done With You
 // always pays the add-on rate. The server renders the defaults (20 clips,
-// nothing ticked, 4 episodes), so the page is complete without JavaScript.
-// Clips start at 6 and episodes at 1, with no upper limit: the slider covers
-// the usual range and the number box next to it takes any larger amount.
+// Done With You, 0 episodes), so the page is complete without JavaScript.
+// Clips start at 6 and episodes at 0, with no upper limit: the slider covers
+// the usual range and the number box next to it takes any larger amount. The
+// episode add-ons only show once episodes is 1 or more.
 
 // Prices approved 16 Oct 2026 by Samuel; minimum raised to 20 clips on 18 Oct
 // 2026 (no plan below $997 a month, $597 retired). Done For You Plus added 19
@@ -21,7 +23,7 @@ import { useState } from 'react';
 const PRICE = {
   baseClips: 20, // the clip count every base price below is quoted at
   minClips: 6, // the smallest number of clips we make
-  minEpisodes: 1,
+  minEpisodes: 0,
   dwyBase: 997, // Done With You at 20 clips
   dwyPerClip: 50, // each clip above 20 on Done With You
   dfyBase: 1597, // Done For You at 20 clips
@@ -35,13 +37,14 @@ const PRICE = {
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
-// The four things that turn the plan into Done For You. `why` is the wording
-// used in "You asked us to handle ..., so this is Done For You."
-const HANDLE = [
-  { id: 'thumbs', label: 'A custom thumbnail for every clip', why: 'thumbnails' },
-  { id: 'captions', label: 'Captions, hashtags and calls to action written for me', why: 'captions, hashtags and calls to action' },
-  { id: 'posting', label: 'Posting on every platform for me', why: 'posting' },
-  { id: 'pm', label: 'A project manager, a weekly call and weekly reporting', why: 'a project manager, weekly calls and reporting' },
+// The two plans the visitor chooses between.
+const PLANS = [
+  { id: 'dwy', name: 'Done With You', blurb: 'We make the clips, you post them.' },
+  {
+    id: 'dfy',
+    name: 'Done For You',
+    blurb: 'We also make a custom thumbnail for every clip, write the captions, hashtags and calls to action, and post on every platform.',
+  },
 ];
 
 function money(n) {
@@ -135,14 +138,13 @@ function Stepper({ id, label, value, min, sliderMax, onChange, unit }) {
 
 export default function PricingCalculator() {
   const [clips, setClips] = useState(20);
-  const [handle, setHandle] = useState({ thumbs: false, captions: false, posting: false, pm: false });
-  const [episodes, setEpisodes] = useState(4);
+  const [plan, setPlan] = useState('dwy');
+  const [episodes, setEpisodes] = useState(0);
   const [longForm, setLongForm] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [seoNotes, setSeoNotes] = useState(false);
 
-  const firstTicked = HANDLE.find((h) => handle[h.id]);
-  const isDfy = Boolean(firstTicked);
+  const isDfy = plan === 'dfy';
   const isPlus = isDfy && longForm && episodes >= PRICE.plusEdits;
   let planName = 'Done With You';
   let planPrice = dwyPrice(clips);
@@ -154,6 +156,7 @@ export default function PricingCalculator() {
     planPrice = dfyPrice(clips);
   }
 
+  // Add-ons only count while episodes is 1 or more (their boxes are hidden at 0).
   // Long-form edits charged at the add-on rate: all of them, except the 4
   // that Done For You Plus already includes.
   const paidEdits = isPlus ? episodes - PRICE.plusEdits : episodes;
@@ -183,9 +186,9 @@ export default function PricingCalculator() {
 
   let why = 'We make the clips, you post them.';
   if (isPlus) {
-    why = `You asked us to handle ${firstTicked.why} and to edit ${episodes} full episodes, so this is Done For You Plus. The first ${PRICE.plusEdits} episode edits are included in the package.`;
+    why = `We handle the clips, thumbnails, captions and posting, and edit ${episodes} full episodes. The first ${PRICE.plusEdits} episode edits are included in the package.`;
   } else if (isDfy) {
-    why = `You asked us to handle ${firstTicked.why}, so this is Done For You.`;
+    why = 'We make the clips, the thumbnails and the captions, and post them for you.';
   }
 
   // Done For You with 1 to 3 paid episode edits: point to Done For You Plus,
@@ -206,18 +209,23 @@ export default function PricingCalculator() {
         />
 
         <fieldset className="pp-group">
-          <legend>What do you want us to handle?</legend>
-          {HANDLE.map((h) => (
-            <label className="pp-opt" htmlFor={`pp-h-${h.id}`} key={h.id}>
-              <input
-                type="checkbox"
-                id={`pp-h-${h.id}`}
-                checked={handle[h.id]}
-                onChange={(e) => setHandle({ ...handle, [h.id]: e.target.checked })}
-              />
-              <span>{h.label}</span>
-            </label>
-          ))}
+          <legend>Are you looking for Done With You or Done For You?</legend>
+          <div className="pp-plans">
+            {PLANS.map((p) => (
+              <label className={`pp-planopt${plan === p.id ? ' is-on' : ''}`} htmlFor={`pp-p-${p.id}`} key={p.id}>
+                <input
+                  type="radio"
+                  name="pp-plan"
+                  id={`pp-p-${p.id}`}
+                  value={p.id}
+                  checked={plan === p.id}
+                  onChange={() => setPlan(p.id)}
+                />
+                <span className="pp-planopt-name">{p.name}</span>
+                <span className="pp-planopt-blurb">{p.blurb}</span>
+              </label>
+            ))}
+          </div>
         </fieldset>
 
         <fieldset className="pp-group">
@@ -231,34 +239,40 @@ export default function PricingCalculator() {
             onChange={setEpisodes}
             unit="episodes"
           />
-          <label className="pp-opt" htmlFor="pp-a-long">
-            <input type="checkbox" id="pp-a-long" checked={longForm} onChange={(e) => setLongForm(e.target.checked)} />
-            <span>Long-form episode edit ($150 per episode)</span>
-          </label>
-          <label className="pp-opt" htmlFor="pp-a-notes">
-            <input
-              type="checkbox"
-              id="pp-a-notes"
-              checked={showNotes}
-              onChange={(e) => {
-                setShowNotes(e.target.checked);
-                if (e.target.checked) setSeoNotes(false);
-              }}
-            />
-            <span>Show notes ($50 per episode)</span>
-          </label>
-          <label className="pp-opt" htmlFor="pp-a-seo">
-            <input
-              type="checkbox"
-              id="pp-a-seo"
-              checked={seoNotes}
-              onChange={(e) => {
-                setSeoNotes(e.target.checked);
-                if (e.target.checked) setShowNotes(false);
-              }}
-            />
-            <span>SEO show notes ($100 per episode)</span>
-          </label>
+          {episodes > 0 ? (
+            <>
+              <label className="pp-opt" htmlFor="pp-a-long">
+                <input type="checkbox" id="pp-a-long" checked={longForm} onChange={(e) => setLongForm(e.target.checked)} />
+                <span>Long-form episode edit ($150 per episode)</span>
+              </label>
+              <label className="pp-opt" htmlFor="pp-a-notes">
+                <input
+                  type="checkbox"
+                  id="pp-a-notes"
+                  checked={showNotes}
+                  onChange={(e) => {
+                    setShowNotes(e.target.checked);
+                    if (e.target.checked) setSeoNotes(false);
+                  }}
+                />
+                <span>Show notes ($50 per episode)</span>
+              </label>
+              <label className="pp-opt" htmlFor="pp-a-seo">
+                <input
+                  type="checkbox"
+                  id="pp-a-seo"
+                  checked={seoNotes}
+                  onChange={(e) => {
+                    setSeoNotes(e.target.checked);
+                    if (e.target.checked) setShowNotes(false);
+                  }}
+                />
+                <span>SEO show notes ($100 per episode)</span>
+              </label>
+            </>
+          ) : (
+            <p className="pp-epi-hint">Want full episodes edited, or show notes written? Set how many episodes a month.</p>
+          )}
         </fieldset>
       </div>
 

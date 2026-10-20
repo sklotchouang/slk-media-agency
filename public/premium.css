@@ -2846,6 +2846,75 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   line-height: 1.5;
 }
 
+/* Done With You or Done For You: two selectable cards (radio buttons). */
+.pricing-page .pp-plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pricing-page .pp-planopt {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  column-gap: 10px;
+  row-gap: 6px;
+  align-content: start;
+  padding: 16px;
+  background: var(--surface-1);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color var(--dur-quick) var(--ease-out), background var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page .pp-planopt:hover {
+  background: var(--surface-2);
+}
+
+.pricing-page .pp-planopt.is-on {
+  border-color: var(--accent);
+  background: rgba(76, 178, 240, 0.08);
+}
+
+.pricing-page .pp-planopt input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+}
+
+.pricing-page .pp-planopt input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pricing-page .pp-planopt-name {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.pricing-page .pp-planopt-blurb {
+  grid-column: 2;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pricing-page .pp-epi-hint {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--hairline);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .pricing-page .pp-plans {
+    grid-template-columns: 1fr;
+  }
+}
+
 .pricing-page .pp-result {
   display: flex;
   flex-direction: column;
