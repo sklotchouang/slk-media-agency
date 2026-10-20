@@ -2787,6 +2787,38 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   font-variant-numeric: tabular-nums;
 }
 
+/* The count is a number box (any amount, no upper limit), styled as plain text
+   until hovered or focused. */
+.pricing-page input.pp-count {
+  flex: none;
+  width: 3.6ch;
+  padding: 2px 4px;
+  font-family: inherit;
+  line-height: 1.2;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  transition: border-color var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page input.pp-count::-webkit-outer-spin-button,
+.pricing-page input.pp-count::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pricing-page input.pp-count:hover {
+  border-color: var(--hairline-strong);
+}
+
+.pricing-page input.pp-count:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface-1);
+}
+
 .pricing-page .pp-opt {
   display: grid;
   grid-template-columns: 22px 1fr;

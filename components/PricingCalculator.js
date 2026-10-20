@@ -9,14 +9,19 @@ import { useState } from 'react';
 // and only edits above 4 are charged at the $150 add-on rate. Done With You
 // always pays the add-on rate. The server renders the defaults (20 clips,
 // nothing ticked, 4 episodes), so the page is complete without JavaScript.
+// Clips start at 6 and episodes at 1, with no upper limit: the slider covers
+// the usual range and the number box next to it takes any larger amount.
 
 // Prices approved 16 Oct 2026 by Samuel; minimum raised to 20 clips on 18 Oct
 // 2026 (no plan below $997 a month, $597 retired). Done For You Plus added 19
 // Oct 2026 by Samuel at $1,897 with 4 long-form edits. Change nothing here without
 // his yes, and re-run the reference values in OVERVIEW.md section 7.1 after any change.
+// 20 Oct 2026, Samuel: clips go down to 6 and episodes down to 1, nothing capped
+// at the top; below 20 clips each clip takes $50 / $75 off the 20-clip price.
 const PRICE = {
-  minClips: 20,
-  maxClips: 40,
+  baseClips: 20, // the clip count every base price below is quoted at
+  minClips: 6, // the smallest number of clips we make
+  minEpisodes: 1,
   dwyBase: 997, // Done With You at 20 clips
   dwyPerClip: 50, // each clip above 20 on Done With You
   dfyBase: 1597, // Done For You at 20 clips
@@ -43,8 +48,9 @@ function money(n) {
   return '$' + n.toLocaleString('en-US');
 }
 
-function clamp(n, min, max) {
-  return Math.min(max, Math.max(min, n));
+// No upper limit; anything not a whole number at or above `min` becomes `min`.
+function atLeast(n, min) {
+  return Number.isFinite(n) ? Math.max(min, Math.floor(n)) : min;
 }
 
 function plural(n, one, many) {
@@ -52,19 +58,23 @@ function plural(n, one, many) {
 }
 
 function dwyPrice(clips) {
-  return PRICE.dwyBase + (clips - PRICE.minClips) * PRICE.dwyPerClip;
+  return PRICE.dwyBase + (clips - PRICE.baseClips) * PRICE.dwyPerClip;
 }
 
 function dfyPrice(clips) {
-  return PRICE.dfyBase + (clips - PRICE.minClips) * PRICE.dfyPerClip;
+  return PRICE.dfyBase + (clips - PRICE.baseClips) * PRICE.dfyPerClip;
 }
 
 // Extra clips on Done For You Plus cost the same as on Done For You.
 function plusPrice(clips) {
-  return PRICE.plusBase + (clips - PRICE.minClips) * PRICE.dfyPerClip;
+  return PRICE.plusBase + (clips - PRICE.baseClips) * PRICE.dfyPerClip;
 }
 
-function Stepper({ id, label, value, min, max, onChange, unit }) {
+// The slider covers min to `sliderMax`; the number box takes any amount from
+// `min` up, and the slider stretches to reach a larger typed number.
+function Stepper({ id, label, value, min, sliderMax, onChange, unit }) {
+  const [draft, setDraft] = useState(null);
+  const top = Math.max(sliderMax, value);
   return (
     <div className="pp-field">
       <label htmlFor={id}>{label}</label>
@@ -75,7 +85,7 @@ function Stepper({ id, label, value, min, max, onChange, unit }) {
           aria-label={`Fewer ${unit}`}
           aria-controls={id}
           disabled={value <= min}
-          onClick={() => onChange(clamp(value - 1, min, max))}
+          onClick={() => onChange(atLeast(value - 1, min))}
         >
           <i className="fas fa-minus" aria-hidden="true"></i>
         </button>
@@ -83,22 +93,41 @@ function Stepper({ id, label, value, min, max, onChange, unit }) {
           type="range"
           id={id}
           min={min}
-          max={max}
+          max={top}
           step="1"
           value={value}
-          onChange={(e) => onChange(clamp(Number(e.target.value), min, max))}
+          onChange={(e) => onChange(atLeast(Number(e.target.value), min))}
         />
         <button
           type="button"
           className="pp-step"
           aria-label={`More ${unit}`}
           aria-controls={id}
-          disabled={value >= max}
-          onClick={() => onChange(clamp(value + 1, min, max))}
+          onClick={() => onChange(value + 1)}
         >
           <i className="fas fa-plus" aria-hidden="true"></i>
         </button>
-        <output className="pp-count" htmlFor={id}>{value}</output>
+        <input
+          type="number"
+          className="pp-count"
+          aria-label={`Number of ${unit}`}
+          inputMode="numeric"
+          min={min}
+          step="1"
+          value={draft ?? value}
+          onChange={(e) => {
+            setDraft(e.target.value);
+            const n = Number(e.target.value);
+            if (e.target.value !== '' && Number.isFinite(n) && n >= min) onChange(Math.floor(n));
+          }}
+          onBlur={() => {
+            if (draft !== null) onChange(atLeast(Number(draft), min));
+            setDraft(null);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') e.currentTarget.blur();
+          }}
+        />
       </div>
     </div>
   );
@@ -171,7 +200,7 @@ export default function PricingCalculator() {
           label="How many clips a month?"
           value={clips}
           min={PRICE.minClips}
-          max={PRICE.maxClips}
+          sliderMax={40}
           onChange={setClips}
           unit="clips"
         />
@@ -197,8 +226,8 @@ export default function PricingCalculator() {
             id="pp-episodes"
             label="Episodes a month"
             value={episodes}
-            min={0}
-            max={8}
+            min={PRICE.minEpisodes}
+            sliderMax={8}
             onChange={setEpisodes}
             unit="episodes"
           />
