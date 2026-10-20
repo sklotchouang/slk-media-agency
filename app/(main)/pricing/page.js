@@ -242,6 +242,7 @@ export default function PricingPage() {
             <li><Link href="/success/case-studies">Case Studies</Link></li>
             <li><Link href="/testimonials">Testimonials</Link></li>
             <li><Link href="/#faq">FAQ</Link></li>
+            <li><a href="#build">Pricing Calculator</a></li>
             <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Schedule a Call</a></li>
           </ul>
         </div>

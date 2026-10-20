@@ -233,6 +233,30 @@ export default function SiteBehaviors() {
       );
     });
 
+    // ----- Landing on a link with a #hash (e.g. /pricing#build) -----
+    // Jump to the target below the fixed navbar once the page is laid out, and
+    // once more shortly after, in case images or fonts moved it.
+    if (window.location.hash.length > 1) {
+      const jumpToHash = () => {
+        let target = null;
+        try {
+          target = document.querySelector(decodeURIComponent(window.location.hash));
+        } catch (error) {
+          return;
+        }
+        if (!target) return;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        if (window.__lenis) {
+          window.__lenis.scrollTo(top, { immediate: true });
+        } else {
+          window.scrollTo(0, top);
+        }
+      };
+      requestAnimationFrame(jumpToHash);
+      const hashTimer = setTimeout(jumpToHash, 600);
+      signal.addEventListener('abort', () => clearTimeout(hashTimer));
+    }
+
     // ----- Smooth scrolling for in-page anchor links, offset for the navbar -----
     document.addEventListener(
       'click',

@@ -194,7 +194,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/` | `app/(main)/page.js` | Home, long-form sales. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book Strategy Call (strmeet) only |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
-| `/pricing` | `app/(main)/pricing/page.js` | The pricing page (rebuilt 2026-10-16, three packages since 2026-10-19) the SDR sends when a prospect asks for numbers: three packages (Done With You $997, Done For You $1,597, Done For You Plus $1,897, all 20 clips), a comparison line, client clips and quotes, a comparison table, Optional Add-ons, a Build your plan calculator and a pricing FAQ. Public and indexed, deliberately **not** in any nav. | strmeet on the hero, every card button and the closing band; under each card a "Ready now? Skip the call and pay" link to that plan's Myfundbox checkout (since 2026-10-20). No trial checkout, no link to `/podcast-toolkits`. |
+| `/pricing` | `app/(main)/pricing/page.js` | The pricing page (rebuilt 2026-10-16, three packages since 2026-10-19) the SDR sends when a prospect asks for numbers: three packages (Done With You $997, Done For You $1,597, Done For You Plus $1,897, all 20 clips), a comparison line, client clips and quotes, a comparison table, Optional Add-ons, a Build your plan calculator and a pricing FAQ. Public and indexed, not in the site-wide nav; its own navbar has a "Pricing Calculator" link to `#build` (since 2026-10-20, Samuel). Send prospects `https://slkmediaagency.com/pricing#build` to land on the calculator: `SiteBehaviors.js` jumps to any `#hash` target below the navbar on load, and `.pp-build` has `scroll-margin-top: 90px`. | strmeet on the hero, every card button and the closing band; under each card a "Ready now? Skip the call and pay" link to that plan's Myfundbox checkout (since 2026-10-20). No trial checkout, no link to `/podcast-toolkits`. |
 | `/pricing/clips-only` | redirect in `next.config.mjs` | Was the Clips Only page from 2026-09-22 to 2026-10-12. Now a permanent (308) redirect to `/pricing`, kept because the SDR and old emails still send the URL. | none |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
 | `/success/conjure-queen` | `app/(main)/success/conjure-queen/page.js` | Case study | strmeet |
@@ -485,10 +485,10 @@ What was deliberately **kept**, because it is real and verifiable rather than an
 A public chatbot was built and published on 2026-09-01. The only thing in this repo is **one script tag in each of the two root layouts** (`app/(main)/layout.js` and `app/(multiplier)/layout.js`). Everything else, the prompt, the knowledge, the settings, lives in a third-party dashboard (re:tune), so there is no component, route or CSS to find here.
 
 ```html
-<script src="https://retune.so/api/script/chat.js?id=11f1a60b-aefa-d040-a8a7-3b547bcdc15e" defer></script>
+<script src="https://retune.so/api/script/chat.js?id=11f1a60b-aefa-d040-a8a7-3b547bcdc15e" async></script>
 ```
 
-It is a plain deferred tag **on purpose, not `next/script`**: re:tune reads its own chat id from `document.currentScript.src`, which is `null` when a script is injected dynamically, so `next/script` with `afterInteractive` would break it. Deleting those two lines removes the chatbot from the site completely.
+It is a plain `async` tag (was `defer` until 2026-10-20) **on purpose, not `next/script`**: re:tune reads its own chat id from `document.currentScript.src`, which is `null` when a script is injected dynamically, so `next/script` with `afterInteractive` would break it. Deleting those two lines removes the chatbot from the site completely.
 
 **It does not work on localhost, and that is correct.** re:tune enforces the domain allowlist with a `frame-ancestors` Content Security Policy header on the chat iframe. The launcher button mounts anywhere, but the chat panel only loads on an allowed origin, and the browser blocks the rest. On `localhost:3000` you get the button and a blank white panel plus this console error, which is expected, not a bug:
 
@@ -566,7 +566,7 @@ A trap worth knowing about that settings page: re:tune renders a saved key as `s
 
 One cosmetic leftover: a dead document called `05 Next steps, links and contact.txt` is stuck in the Train tab showing the OpenAI credit error. It is inert (no embeddings, and nothing reads the knowledge base) and re:tune will not delete it.
 
-**Dependency note.** This is the first third-party script on the site beyond the Font Awesome CDN. If re:tune is down the widget does not load. The tag is `defer`, so it can never block rendering, and removing the two lines is a complete revert.
+**Dependency note.** This is the first third-party script on the site beyond the Font Awesome CDN. If re:tune is down the widget does not load. The tag was `defer` until 2026-10-20, when retune.so stopped answering (every request timed out): a deferred script holds back DOMContentLoaded, so every page hung half-loaded and `/pricing#build` never reached the calculator. It is `async` since then, which only holds back the browser's final load event (the tab spinner can still turn while re:tune is down). Removing the two lines is a complete revert.
 
 **Verified behaviour on 2026-09-01**, ten test questions run against the live bot: correct prices, correct refusals on all eight DO NOT ANSWER topics, correct trial scope, admits to being a bot, and resists a prompt-extraction attempt. One failure was found and fixed: asked what it costs, it originally returned a bulleted menu of all four products including the trial. The cause was `kb-01` opening with "There are four things you can buy", which the model copied as a template. The fix is the FORMAT OVERRIDE block at the top of `02-restrictions.md`, which states that the knowledge base is reference material whose formatting must never be mirrored back.
 

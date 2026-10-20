@@ -2693,6 +2693,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 
 /* ---- Build your plan ---- */
 .pricing-page .pp-build {
+  scroll-margin-top: 90px; /* lands below the fixed navbar on /pricing#build */
   padding: 72px 0 0;
   overflow: visible;
 }
