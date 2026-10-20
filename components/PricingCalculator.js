@@ -211,7 +211,7 @@ export default function PricingCalculator() {
 
         <fieldset className="pp-group">
           <legend>Are you looking for Done With You or Done For You?</legend>
-          <div className="pp-plans">
+          <div className="pp-planpick">
             {PLANS.map((p) => (
               <label className={`pp-planopt${plan === p.id ? ' is-on' : ''}`} htmlFor={`pp-p-${p.id}`} key={p.id}>
                 <input

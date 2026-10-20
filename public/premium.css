@@ -2848,7 +2848,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 /* Done With You or Done For You: two selectable cards (radio buttons). */
-.pricing-page .pp-plans {
+.pricing-page .pp-planpick {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -2911,7 +2911,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 @media (max-width: 600px) {
-  .pricing-page .pp-plans {
+  .pricing-page .pp-planpick {
     grid-template-columns: 1fr;
   }
 }
