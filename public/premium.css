@@ -2313,9 +2313,130 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   color: var(--accent-ink);
 }
 
-/* Keeps the Done With You name level with the flagship name on desktop. */
-.pricing-page .pp-tag-ghost {
-  visibility: hidden;
+/* ---- Done For You stands out (audit fix, 20 Oct 2026): a wider column,
+   lifted 20px above its neighbours, a stronger tint, a bigger price and the
+   badge sitting on the top edge. The badge is absolute, so the plan names of
+   all three cards stay level without the old ghost tags. ---- */
+.pricing-page .pp-card {
+  position: relative;
+}
+
+.pricing-page .pp-trio {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  padding-top: 20px;
+}
+
+/* Two rows: the cards, then the commit lines. Each .pp-col spans both rows
+   through subgrid, so the Done With You card (no commit line) ends level with
+   the other two cards instead of running down past them. */
+.pricing-page .pp-trio {
+  grid-template-rows: 1fr auto;
+  row-gap: 12px;
+}
+
+.pricing-page .pp-col {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+}
+
+/* A negative top margin on a stretched grid item makes it taller upwards, so
+   the card rises while its bottom and the commit line stay level. */
+.pricing-page .pp-col-dfy {
+  margin-top: -20px;
+}
+
+.pricing-page .pp-col-dfy > .pp-card {
+  padding: 44px 34px 34px;
+  border-width: 2px;
+  background: linear-gradient(180deg, rgba(76, 178, 240, 0.18), rgba(76, 178, 240, 0.05) 55%, var(--bg-raised));
+  box-shadow: 0 28px 80px -30px rgba(76, 178, 240, 0.6);
+}
+
+.pricing-page .pp-col-dfy .pp-price b {
+  font-size: 3.6rem;
+}
+
+.pricing-page .pp-col-dfy .pp-tag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+}
+
+/* The call button and the checkout link under it. */
+.pricing-page .pp-actions {
+  margin-top: auto;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.pricing-page .pp-actions .pp-cta {
+  width: 100%;
+  margin-top: 0;
+}
+
+.pricing-page .pp-pay {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--hairline-strong);
+}
+
+.pricing-page .pp-pay:hover,
+.pricing-page .pp-pay:focus-visible {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+/* ---- Why SLK Media Agency, under the terms line ---- */
+.pricing-page .pp-why {
+  margin-top: 40px;
+  padding: 28px 32px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.pricing-page .pp-why h2 {
+  font-size: 1.35rem;
+}
+
+.pricing-page .pp-why-grid {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.pricing-page .pp-why-ic {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(76, 178, 240, 0.12);
+  color: var(--accent);
+}
+
+.pricing-page .pp-why-grid h3 {
+  margin: 12px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-why-grid p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 
 .pricing-page .pp-name {
@@ -2806,8 +2927,26 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     margin: 0 auto;
   }
 
-  .pricing-page .pp-tag-ghost {
-    display: none;
+  .pricing-page .pp-col-dfy {
+    margin-top: 0;
+  }
+
+  .pricing-page .pp-trio {
+    grid-template-rows: none;
+  }
+
+  .pricing-page .pp-col {
+    display: flex;
+    grid-row: auto;
+  }
+
+  .pricing-page .pp-trio {
+    gap: 36px;
+  }
+
+  .pricing-page .pp-why-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .pricing-page .pp-clips {
@@ -2838,10 +2977,6 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     grid-template-columns: 1fr;
   }
 
-  .pricing-page .pp-tag-ghost {
-    display: none;
-  }
-
   .pricing-page .pp-result {
     position: static;
   }
@@ -2866,6 +3001,18 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   .pricing-page .pp-price b,
   .pricing-page .pp-big {
     font-size: 2.5rem;
+  }
+
+  .pricing-page .pp-col-dfy .pp-price b {
+    font-size: 2.9rem;
+  }
+
+  .pricing-page .pp-col-dfy > .pp-card {
+    padding: 36px 20px 24px;
+  }
+
+  .pricing-page .pp-why {
+    padding: 22px 20px;
   }
 
   .pricing-page .pp-table th,
