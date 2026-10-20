@@ -4,15 +4,17 @@ import { useState } from 'react';
 
 // "Build your plan" on /pricing. The visitor picks Done With You or Done For
 // You directly (20 Oct 2026, Samuel: no per-item prices, so the page does not
-// read like a shop; the old four "handle it for me" boxes are gone). A Done For You plan
-// that also asks for long-form edits of 4 or more episodes becomes Done For You
-// Plus: the first 4 edits come inside the package price (the package discount),
-// and only edits above 4 are charged at the $150 add-on rate. Done With You
-// always pays the add-on rate. The server renders the defaults (20 clips,
+// read like a shop; the old four "handle it for me" boxes are gone). Every
+// episode counted is a long-form edit at $150 (20 Oct 2026, Samuel: choosing
+// the number of episodes adds the per-episode price by itself; the separate
+// "Long-form episode edit" checkbox is gone). A Done For You plan with 4 or more
+// episodes becomes Done For You Plus: the first 4 edits come inside the package
+// price (the package discount), and only edits above 4 are charged at the $150
+// rate. Done With You always pays the $150 rate. The server renders the defaults (20 clips,
 // Done With You, 0 episodes), so the page is complete without JavaScript.
 // Clips start at 6 and episodes at 0, with no upper limit: the slider covers
 // the usual range and the number box next to it takes any larger amount. The
-// episode add-ons only show once episodes is 1 or more.
+// show notes boxes only show once episodes is 1 or more.
 
 // Prices approved 16 Oct 2026 by Samuel; minimum raised to 20 clips on 18 Oct
 // 2026 (no plan below $997 a month, $597 retired). Done For You Plus added 19
@@ -140,12 +142,11 @@ export default function PricingCalculator() {
   const [clips, setClips] = useState(20);
   const [plan, setPlan] = useState('dwy');
   const [episodes, setEpisodes] = useState(0);
-  const [longForm, setLongForm] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [seoNotes, setSeoNotes] = useState(false);
 
   const isDfy = plan === 'dfy';
-  const isPlus = isDfy && longForm && episodes >= PRICE.plusEdits;
+  const isPlus = isDfy && episodes >= PRICE.plusEdits;
   let planName = 'Done With You';
   let planPrice = dwyPrice(clips);
   if (isPlus) {
@@ -156,13 +157,13 @@ export default function PricingCalculator() {
     planPrice = dfyPrice(clips);
   }
 
-  // Add-ons only count while episodes is 1 or more (their boxes are hidden at 0).
-  // Long-form edits charged at the add-on rate: all of them, except the 4
-  // that Done For You Plus already includes.
+  // Every episode is a long-form edit. Edits charged at the $150 rate: all of
+  // them, except the 4 that Done For You Plus already includes. The show notes
+  // boxes only count while episodes is 1 or more (they are hidden at 0).
   const paidEdits = isPlus ? episodes - PRICE.plusEdits : episodes;
 
   const addons = [];
-  if (paidEdits > 0 && longForm) {
+  if (paidEdits > 0) {
     addons.push({
       label: isPlus
         ? `${paidEdits} extra long-form ${plural(paidEdits, 'edit', 'edits')}`
@@ -193,7 +194,7 @@ export default function PricingCalculator() {
 
   // Done For You with 1 to 3 paid episode edits: point to Done For You Plus,
   // which includes 4 edits for a set price.
-  const plusHint = isDfy && !isPlus && longForm && episodes > 0;
+  const plusHint = isDfy && !isPlus && episodes > 0;
 
   return (
     <div className="pp-calc">
@@ -232,7 +233,7 @@ export default function PricingCalculator() {
           <legend className="pp-sr">Episode add-ons</legend>
           <Stepper
             id="pp-episodes"
-            label="Episodes a month"
+            label="Long-form episodes to edit each month"
             value={episodes}
             min={PRICE.minEpisodes}
             sliderMax={8}
@@ -241,10 +242,7 @@ export default function PricingCalculator() {
           />
           {episodes > 0 ? (
             <>
-              <label className="pp-opt" htmlFor="pp-a-long">
-                <input type="checkbox" id="pp-a-long" checked={longForm} onChange={(e) => setLongForm(e.target.checked)} />
-                <span>Long-form episode edit ($150 per episode)</span>
-              </label>
+              <p className="pp-epi-hint">Each episode is a full long-form edit, $150 per episode.</p>
               <label className="pp-opt" htmlFor="pp-a-notes">
                 <input
                   type="checkbox"
@@ -271,7 +269,7 @@ export default function PricingCalculator() {
               </label>
             </>
           ) : (
-            <p className="pp-epi-hint">Want full episodes edited, or show notes written? Set how many episodes a month.</p>
+            <p className="pp-epi-hint">Want full episodes edited too? Set how many episodes a month. Each one is a long-form edit at $150.</p>
           )}
         </fieldset>
       </div>
