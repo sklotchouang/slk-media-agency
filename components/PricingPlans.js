@@ -10,6 +10,16 @@
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
+// Myfundbox checkouts, one per package, given by Samuel on 20 Oct 2026. Each
+// was opened and checked that day: the plan name and the USD monthly price
+// match the card. Every card keeps the strategy call as its main button; the
+// checkout is the small "Ready now?" link under it.
+const PAY_URL = {
+  dwy: 'https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw',
+  dfy: 'https://pay.myfundbox.com/OVP/?token=YqnycQ4nQ-hWYXg64XvGBg',
+  plus: 'https://pay.myfundbox.com/OVP/?token=xAlmD9YT1xUcuR5nBQPv_g',
+};
+
 // One row per deliverable. dwy / dfy / plus: true = included, false = not
 // included, a string = shown as text. Column order matches the cards.
 const ROWS = [
@@ -86,6 +96,17 @@ function No({ children }) {
   );
 }
 
+// The card footer: the call button, named after the plan, and the checkout
+// link under it.
+function CardActions({ label, pay, quiet }) {
+  return (
+    <div className="pp-actions">
+      <a href={BOOK_URL} className={quiet ? 'primary-cta pp-cta pp-cta-quiet' : 'primary-cta pp-cta'} target="_blank" rel="noopener">{label}</a>
+      <a href={pay} className="pp-pay" target="_blank" rel="noopener">Ready now? Skip the call and pay</a>
+    </div>
+  );
+}
+
 function Cell({ value, us }) {
   const cls = us ? 'pp-us' : undefined;
   if (typeof value === 'string') return <td className={cls}>{value}</td>;
@@ -104,7 +125,6 @@ export function PlanCards() {
     <>
       <div className="pp-trio">
         <article className="pp-card" aria-labelledby="pp-dwy-name">
-          <span className="pp-tag pp-tag-ghost" aria-hidden="true">&nbsp;</span>
           <div>
             <h2 className="pp-name" id="pp-dwy-name">Done With You</h2>
             <p className="pp-sub">Clips Only</p>
@@ -124,10 +144,10 @@ export function PlanCards() {
             <No>Strategy document</No>
             <No>Long-form episode edits</No>
           </ul>
-          <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book a Strategy Call</a>
+          <CardActions label="Start with clips only" pay={PAY_URL.dwy} quiet />
         </article>
 
-        <div className="pp-col">
+        <div className="pp-col pp-col-dfy">
           <article className="pp-card pp-card-dfy" aria-labelledby="pp-dfy-name">
             <span className="pp-tag">Most Popular</span>
             <div>
@@ -145,15 +165,14 @@ export function PlanCards() {
               ))}
               <No>Long-form episode edits</No>
             </ul>
-            <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
+            <CardActions label="Start Done For You" pay={PAY_URL.dfy} />
           </article>
           <p className="pp-commit"><strong>What we commit to:</strong> 20 clips a month, the posting schedule and a weekly report.</p>
         </div>
 
         <div className="pp-col">
           <article className="pp-card" aria-labelledby="pp-plus-name">
-            <span className="pp-tag pp-tag-ghost" aria-hidden="true">&nbsp;</span>
-            <div>
+              <div>
               <h2 className="pp-name" id="pp-plus-name">Done For You Plus</h2>
               <p className="pp-sub">Content Accelerator</p>
             </div>
@@ -168,7 +187,7 @@ export function PlanCards() {
               ))}
               <Yes>4 long-form episode edits a month</Yes>
             </ul>
-            <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book a Strategy Call</a>
+            <CardActions label="Start Done For You Plus" pay={PAY_URL.plus} quiet />
           </article>
           <p className="pp-commit"><strong>What we commit to:</strong> 20 clips and 4 episode edits a month, the posting schedule and a weekly report.</p>
         </div>
@@ -179,7 +198,48 @@ export function PlanCards() {
         <span>Pause up to 60 days</span>
         <span>You own every clip</span>
       </p>
+
+      <WhyUs />
     </>
+  );
+}
+
+// Why SLK Media Agency, under the cards (audit fix approved by Samuel on
+// 20 Oct 2026). Every line is reused from approved copy: the first two from
+// the home page and /podcast-multiplier, the third from the
+// /podcast-multiplier FAQ.
+const WHY = [
+  {
+    icon: 'fa-users',
+    title: 'Part of your team',
+    text: 'We work like part of your team, not a vendor you have to manage.',
+  },
+  {
+    icon: 'fa-bullseye',
+    title: 'A plan behind every clip',
+    text: 'Each one picked for the people you want to reach.',
+  },
+  {
+    icon: 'fa-arrows-rotate',
+    title: 'Not happy after week 2?',
+    text: 'We assign a different team who better matches your style.',
+  },
+];
+
+function WhyUs() {
+  return (
+    <section className="pp-why" aria-labelledby="pp-why-title">
+      <h2 id="pp-why-title">Why SLK Media Agency</h2>
+      <ul className="pp-why-grid">
+        {WHY.map((w) => (
+          <li key={w.title}>
+            <span className="pp-why-ic" aria-hidden="true"><i className={`fas ${w.icon}`}></i></span>
+            <h3>{w.title}</h3>
+            <p>{w.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
