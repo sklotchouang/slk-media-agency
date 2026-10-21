@@ -3143,3 +3143,98 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     transition: none;
   }
 }
+
+/* =====================================================================
+   18. /pricing/promotion extras (21 Oct 2026). New classes only, every rule
+   scoped under .pricing-page, so /pricing renders exactly as before. The
+   promotion page reuses every section 17 rule above.
+   ===================================================================== */
+
+/* The banner above the three cards. */
+.pricing-page .pp-promo-banner {
+  display: block;
+  max-width: 880px;
+  margin: 0 auto 40px;
+  padding: 16px 24px;
+  text-align: center;
+  background: rgba(76, 178, 240, 0.12);
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px -28px rgba(76, 178, 240, 0.6);
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.pricing-page .pp-promo-banner p {
+  margin: 0;
+}
+
+.pricing-page .pp-promo-banner i {
+  margin-right: 10px;
+  color: var(--accent);
+}
+
+.pricing-page .pp-promo-banner strong {
+  color: var(--accent-strong);
+  white-space: nowrap;
+}
+
+.pricing-page .pp-promo-banner.is-full {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--hairline-strong);
+  box-shadow: none;
+}
+
+.pricing-page .pp-promo-banner.is-full i {
+  color: var(--text-muted-2);
+}
+
+/* The normal price, struck through, to the left of the promotion price. */
+.pricing-page .pp-was {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-muted-2);
+  text-decoration-thickness: 2px;
+  letter-spacing: 0;
+  margin-right: 4px;
+}
+
+.pricing-page .pp-price-wrap {
+  display: grid;
+  gap: 8px;
+}
+
+.pricing-page .pp-promo-spots {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted-2);
+}
+
+/* The table price row: normal price struck, promotion price next to it. */
+.pricing-page .pp-table .pp-tot .pp-was {
+  font-size: 0.9rem;
+  margin-right: 8px;
+}
+
+.pricing-page .pp-table .pp-tot .pp-now {
+  white-space: nowrap;
+}
+
+/* The calculator total. */
+.pricing-page .pp-big .pp-was {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .pricing-page .pp-promo-banner {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .pricing-page .pp-was {
+    font-size: 1.05rem;
+  }
+}

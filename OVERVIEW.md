@@ -17,6 +17,7 @@ Every visitor path ends at one of these actions:
 - Book a strategy call: `https://link.slkmediaagency.com/strmeet` (the primary CTA, labelled "Book Strategy Call" or similar, on almost every page).
 - Buy the paid strategy report: Stripe checkout `https://buy.stripe.com/eVqaEWbB2eM0f2d1x318c08` (on `/podcast-toolkits` only).
 - Buy a package directly, without the call: three Myfundbox checkouts (on `/pricing` only, since 2026-10-20, the "Ready now? Skip the call and pay" link under each card). Done With You `https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw` ($997/month), Done For You `https://pay.myfundbox.com/OVP/?token=YqnycQ4nQ-hWYXg64XvGBg` ($1,597/month), Done For You Plus `https://pay.myfundbox.com/OVP/?token=xAlmD9YT1xUcuR5nBQPv_g` ($1,897/month). All three were opened on 2026-10-20 and show the right plan in USD. Two earlier links Samuel sent that day charged in euros and were replaced; never use tokens `7wkxbD2gLs208qmVxVdO2Q` or `dRfxupAaldYRdw3531vD-Q`. The URLs live in `PAY_URL` in `components/PricingPlans.js`.
+- `/pricing/promotion` (since 2026-10-21) has NO checkout links on purpose: the Myfundbox links above charge the normal prices. Samuel will send promotion checkouts later. See "Promotion page and rollback" in section 7.1.
 - Retired: the paid 10-Day Trial. Its Myfundbox checkout `https://pay.myfundbox.com/OVP/?token=2vrB8voEVlNvxYLTc6S_5g` was retired from the website on 16 Oct 2026, kept here for reference. The checkout itself was not deleted. No page, component or chatbot file links to it any more. It was $497 one time (fee included, since 2026-10-06) for 5 edited clips within 10 days, and it lived only on `/pricing`. Do not bring it back without Samuel's instruction.
 - Fill the survey after purchase: `https://survey.slkmediaagency.com/0kdj1o` (on `/podcast-toolkits`).
 - Buy one of the 16 do-it-yourself PDF guides or the bundle of the first 10: Gumroad overlay checkout on the `samuellk.gumroad.com` store (on `/podcast-toolkits` only, since 2026-10-03). See "The `/podcast-toolkits` shop" in section 7.1.
@@ -81,6 +82,7 @@ Practical consequences:
 - Changes made in a session are committed and (if a remote is set) pushed to production automatically. There is no separate "save" or "deploy" step. Treat every edit as potentially going live.
 - You do not normally need to run git commands yourself. Do not fight the hook.
 - If you want changes staged but not live, that requires either no `origin` remote or a deliberate branch, and a conversation with Samuel first.
+- Backups: the tag `pricing-backup-2026-10-21` (and the branch `backup/pricing-2026-10-21`, same commit `95b8aed`) is the exact site before `/pricing/promotion` was added. Rollback steps are in "Promotion page and rollback" in section 7.1.
 
 ---
 
@@ -97,6 +99,7 @@ slk-media-agency/
       portfolio/           /portfolio (clip grid)
       testimonials/        /testimonials
       pricing/             /pricing (two packages, add-ons and a calculator since 2026-10-16; the link the SDR sends; not in any nav). /pricing/clips-only redirects here since 2026-10-12.
+        promotion/         /pricing/promotion (since 2026-10-21): the temporary promotion copy of /pricing for outreach links. noindex, not in any nav or the sitemap.
       pre-call/            /pre-call (instructions for a booked call)
       privacy-policy/      /privacy-policy (legal)
       terms-and-conditions/  /terms-and-conditions (legal)
@@ -195,6 +198,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
 | `/pricing` | `app/(main)/pricing/page.js` | The pricing page (rebuilt 2026-10-16, three packages since 2026-10-19) the SDR sends when a prospect asks for numbers: three packages (Done With You $997, Done For You $1,597, Done For You Plus $1,897, all 20 clips), a comparison line, client clips and quotes, a comparison table, Optional Add-ons, a Build your plan calculator and a pricing FAQ. Public and indexed, not in the site-wide nav; its own navbar has a "Pricing Calculator" link to `#build` (since 2026-10-20, Samuel). Send prospects `https://slkmediaagency.com/pricing#build` to land on the calculator: `SiteBehaviors.js` jumps to any `#hash` target below the navbar on load, and `.pp-build` has `scroll-margin-top: 90px`. | strmeet on the hero, every card button and the closing band; under each card a "Ready now? Skip the call and pay" link to that plan's Myfundbox checkout (since 2026-10-20). No trial checkout, no link to `/podcast-toolkits`. |
+| `/pricing/promotion` | `app/(main)/pricing/promotion/page.js` | Temporary promotion copy of `/pricing` (since 2026-10-21) for outreach links: same sections in the same order, promotion prices (Starter $697, Done For You $997, Done For You Plus $1,597, each next to its struck-through normal price), a spots banner and a promotion FAQ. `robots: noindex, follow`, canonical `/pricing/promotion`, not in any nav, not in `public/sitemap.xml`, no JSON-LD (so Google never sees a second set of prices). No redirect or rewrite in `next.config.mjs` touches it. See "Promotion page and rollback" below. | strmeet on the hero, every card button and the closing band. No checkout links. |
 | `/pricing/clips-only` | redirect in `next.config.mjs` | Was the Clips Only page from 2026-09-22 to 2026-10-12. Now a permanent (308) redirect to `/pricing`, kept because the SDR and old emails still send the URL. | none |
 | `/success/case-studies` | `app/(main)/success/case-studies/page.js` | Case study index | strmeet |
 | `/success/conjure-queen` | `app/(main)/success/conjure-queen/page.js` | Case study | strmeet |
@@ -285,6 +289,27 @@ How it is built:
 
 20 clips is the smallest plan since 2026-10-18 (Samuel, after a prospect was quoted "Plans start at $597 a month" by the AI SDR): the calculator minimum went from 12 to 20, its bases to $997 and $1,597, and nothing below $997 a month is quoted anywhere. The AI SDR (GetSales_Luna_v109, plusvibe_Luna_v105) and the sales system's price card were changed the same day. Price-sync hazards that remain: the live re:tune chatbot still runs the old text until `docs/chatbot/01-base-prompt.md` and `02-restrictions.md` are pasted in (see section 12); `slkwebsitechatbotknowledge.md` at the repo root is an older stale knowledge file that still describes the trial and old plans and was not updated. $997 now names two things on the page: Done With You at 20 clips and Done For You at 12 clips (calculator only), so read the plan name next to any `$997`.
 
+### Promotion prices (`/pricing/promotion`, since 2026-10-21)
+
+Set by Samuel's brief of 21 October 2026. `/pricing` and its prices are unchanged; these apply only to `/pricing/promotion`.
+
+- Cards: Done For You Starter ("Content Starter", 12 clips, full Done For You service, no long-form edits) $697 a month, normally $997 (what Done For You at 12 clips costs on the `/pricing` calculator); Done For You ("Content Engine", tag "Temporary promotion", 20 clips) $997, normally $1,597; Done For You Plus ("Content Accelerator", 20 clips plus 4 long-form edits) $1,597, normally $1,897. Each card shows the normal price as a muted `<s class="pp-was">` left of the big price, with hidden "Normally" / "now" words for screen readers. No "Ready now? Skip the call and pay" links.
+- Add-ons: Extra Clips $50 per clip on Done For You plans, $25 on Done With You; Long-form Episode Edit $150; Show Notes $50; SEO Show Notes $100.
+- Calculator (`PromoPricingCalculator.js`): Done For You $997 at 20 clips, minus $37.50 per clip below 20 (rounded to the nearest dollar, `Math.round`), plus $50 per clip above 20. Done For You Plus (Done For You with 4 or more episodes) $1,597 at 20 clips with 4 edits included, the same clip steps, edits above 4 at $150. Done With You $597 at 20 clips, $25 per clip up or down, every episode a $150 edit. Show notes $50 and SEO show notes $100 per episode. On Done For You and Plus the result shows the `/pricing` price for the same choice struck through (`#pp-calc-was`), but only when it is higher than the promotion price.
+- Reference values (clips / plan / episodes = promotion total, normal `/pricing` total in brackets): 20 / Done With You / 0 = $597; 12 / Done With You / 0 = $397; 6 / Done With You / 0 = $247; 20 / Done With You / 4 = $1,197; 20 / Done For You / 0 = $997 ($1,597); 12 / Done For You / 0 = $697 ($997); 6 / Done For You / 0 = $472 ($547); 19 / Done For You / 0 = $960 ($1,522); 25 / Done For You / 0 = $1,247 ($1,972); 20 / Done For You / 2 = $1,297 ($1,897), plus hint $1,597; 20 / Done For You / 4 = $1,597 Done For You Plus ($1,897); 20 / Done For You / 6 = $1,897 Done For You Plus ($2,197); 12 / Done For You / 4 = $1,297 Done For You Plus ($1,297, so no struck price); 6 / Done For You / 4 = $1,072 Done For You Plus ($847 on `/pricing`, so no struck price). Checked in the browser on 2026-10-21.
+- Open pricing question for Samuel: below 20 clips the Plus discount shrinks by $37.50 a clip (the normal step is $75), so Plus is the same price as `/pricing` at 12 clips and dearer than `/pricing` below 12. The calculator hides the struck price there rather than show a "normal" price lower than the promotion.
+- Copy not changed because the brief kept those answers: the FAQ "How many clips do I get?" still says every package comes with 20 clips, and "What if I only publish 1 episode a month?" still talks about filling 20 clips, while Starter is 12.
+
+### Promotion page and rollback
+
+`/pricing/promotion` is built from three new files only: `app/(main)/pricing/promotion/page.js`, `components/PromoPricingPlans.js` and `components/PromoPricingCalculator.js`, plus a new section 18 block at the end of `public/premium.css` (new `.pp-promo-banner`, `.pp-was`, `.pp-price-wrap`, `.pp-promo-spots`, `.pp-now` classes, all under `.pricing-page`). `/pricing`, `PricingPlans.js` and `PricingCalculator.js` were not edited; `/pricing` was screenshotted before and after and its markup compared byte for byte (identical).
+
+Updating the spots number: edit `PROMO_SPOTS_LEFT` at the top of `components/PromoPricingPlans.js`, commit, push (the Stop hook does the last two). The banner, the middle card line and the FAQ "How long does the promotion last?" all read it; nothing else holds the number. At 1 the banner reads "1 of 4 spots left". At 0 the promotion is over: the banner reads "This promotion is full. Book a call to join the waiting list for the next one.", the middle card tag reads "Promotion full", the spots line under its price disappears, the FAQ offers the waiting list, and the cards keep showing the prices.
+
+Rollback: the tag `pricing-backup-2026-10-21` (and the branch `backup/pricing-2026-10-21`) is the exact state of the site before this change, commit `95b8aed`. To remove the promotion, delete `app/(main)/pricing/promotion/`, `components/PromoPricingPlans.js` and `components/PromoPricingCalculator.js` (optionally the section 18 block in `premium.css`), or `git revert` the promotion commit, then push to redeploy. To see the old site exactly: `git checkout pricing-backup-2026-10-21`.
+
+The website chatbot files in `docs/chatbot/` were deliberately not changed: they still describe `/pricing` only and know nothing about the promotion.
+
 ### 7.2 Nav and footer
 
 There is no single shared Nav or Footer component. Each top-level page inlines its own `<nav>` and `<footer>` markup (they are visually identical because they share CSS classes). The six case studies get their nav and footer from the `CaseStudy` template. Practical implication: a change to the global navbar or footer that is not driven purely by CSS means editing the markup in each page file plus `CaseStudy.js`. Grep for `<nav` and `<footer>` to find them all.
@@ -314,6 +339,8 @@ They are outside the premium re-skin. Restyling them means editing each independ
 | `components/StrategySampleGallery.js` | client | Carousel + lightbox for the 16 strategy-report sample images on `/podcast-toolkits`. Lazy-loads offscreen slides; keyboard controls in the lightbox. |
 | `components/PricingPlans.js` | server | The two package cards, the comparison table (`ROWS`) and the add-on cards (`ADDONS`) on `/pricing`. See section 7.1. |
 | `components/PricingCalculator.js` | client | Build your plan on `/pricing`. Prices in its `PRICE` constant (approved 16 Oct 2026), picks Done For You or Done With You, `aria-live` result. See section 7.1. |
+| `components/PromoPricingPlans.js` | server | `/pricing/promotion` only: `PROMO_SPOTS_LEFT` (the only place the spots number lives), the promotion banner (`PromoBanner`), the three promo cards, the comparison table and the add-ons. A copy of `PricingPlans.js`; `/pricing` does not use it. |
+| `components/PromoPricingCalculator.js` | client | Build your plan on `/pricing/promotion`, promotion prices in its `PRICE` constant, the normal `/pricing` price struck through on Done For You and Plus. A copy of `PricingCalculator.js`; `/pricing` does not use it. |
 | `components/CaseStudy.js` | server | Shared template for all six case study pages (nav, hero, before/after columns, footer). Each page passes a data object. |
 | `components/fonts.js` | module | Sets up self-hosted Inter via `next/font` and exports the class name applied in the layouts. |
 
