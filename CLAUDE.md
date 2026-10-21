@@ -20,6 +20,10 @@ Whenever you change the website, update `OVERVIEW.md` in the same change so the 
 - After a visual change, verify with `npm run build` and `tools/shot.js`, and confirm zero console errors.
 
 <!-- claude-reflect: learned rules (saved from the band; edit freely) -->
+## Pricing changes reach every connected agent
+
+The pricing shown to prospects is `/pricing/promotion` since 21 October 2026 (a 2 to 3 month test). Any change to a price, package, add-on, pricing link or checkout link on either pricing page must, in the same session, also update `docs/pricing-promotion-spec.md`, the website chatbot (`docs/chatbot`, rebuilt and pasted into re:tune), the AI SDR workflows in n8n, the sales system price card and prompts, `Sales Call Prep/price-card.md`, `outreach-audit/rules/copy-invariants.md` and the wiki pricing pages. Full rule: the "slk pricing sync policy" block in `C:/Users/Admin/.claude/CLAUDE.md`.
+
 ## Learned rules
 - When asked to make a change, carry it through to the live site by merging and pushing without asking for confirmation first.
 <!-- end claude-reflect -->
