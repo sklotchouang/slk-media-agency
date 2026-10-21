@@ -1,8 +1,10 @@
-// Update this number by hand each time a promotion client signs up. It is the only place the number lives.
-export const PROMO_SPOTS_LEFT = 4;
+// Set this to false by hand once all 4 promotion creators have signed up. The
+// banner, the middle card and the FAQ then say the promotion is full.
+export const PROMO_OPEN = true;
 
 // How many creators the promotion takes in total. This is part of the copy
-// ("only 4 new creators"), not the live count above.
+// ("only 4 new creators"). The page never shows how many spots are left
+// (Samuel, 21 Oct 2026: a count that never moves would look untrue).
 export const PROMO_SPOTS_TOTAL = 4;
 
 // The temporary promotion on /pricing/promotion (built 21 October 2026 from
@@ -12,15 +14,23 @@ export const PROMO_SPOTS_TOTAL = 4;
 // prices are what /pricing charges today for the same plan.
 //
 // /pricing itself still uses components/PricingPlans.js, which this file does
-// not touch. No "Ready now? Skip the call and pay" links here: the Myfundbox
-// checkouts charge the normal prices. Samuel will send promotion checkouts.
+// not touch.
 //
-// No state, so these are server components. The page reads PROMO_SPOTS_LEFT
-// for its FAQ, so the banner, the middle card and the FAQ always agree.
+// No state, so these are server components. The page reads PROMO_OPEN for its
+// FAQ, so the banner, the middle card and the FAQ always agree.
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
-export const promoIsFull = PROMO_SPOTS_LEFT <= 0;
+// Myfundbox promotion checkouts, given by Samuel on 21 Oct 2026. Each was
+// opened that day: the plan name (marked "Promo") and the USD monthly price
+// match the card. These are NOT the /pricing checkouts.
+const PAY_URL = {
+  starter: 'https://pay.myfundbox.com/OVP/?token=SIoJ8jmLealcbfdLHdTGGw', // Done For You Starter, $697
+  dfy: 'https://pay.myfundbox.com/OVP/?token=yvTAp4UksMbLKpwqkAbLtg', // Done For You (Promo), $997
+  plus: 'https://pay.myfundbox.com/OVP/?token=ap4vMqLYmIo6jPOsQ5RLzA', // Done For You Plus (Promo), $1,597
+};
+
+export const promoIsFull = !PROMO_OPEN;
 
 // One row per deliverable. starter / dfy / plus: true = included, false = not
 // included, a string = shown as text. Column order matches the cards.
@@ -112,13 +122,23 @@ export function WasNow({ was, now, big = true }) {
   );
 }
 
-// The card footer: the call button only (no checkout link on this page).
-function CardActions({ label, quiet }) {
+// The card footer: the call button, named after the plan, and the promotion
+// checkout link under it (same pattern as /pricing). Once the promotion is
+// full the checkout links disappear, so nobody can pay a closed price.
+function CardActions({ label, pay, quiet }) {
   return (
     <div className="pp-actions">
       <a href={BOOK_URL} className={quiet ? 'primary-cta pp-cta pp-cta-quiet' : 'primary-cta pp-cta'} target="_blank" rel="noopener">{label}</a>
+      {promoIsFull ? null : (
+        <a href={pay} className="pp-pay" target="_blank" rel="noopener">Ready now? Skip the call and pay</a>
+      )}
     </div>
   );
+}
+
+// The saving on each card, in the promotion colour.
+function Save({ amount }) {
+  return <p className="pp-save"><i className="fas fa-tag" aria-hidden="true"></i> Save {amount} a month</p>;
 }
 
 function Cell({ value, us }) {
@@ -134,18 +154,22 @@ function Cell({ value, us }) {
   );
 }
 
-// The banner above the cards. Its count comes from PROMO_SPOTS_LEFT.
+// The banner above the cards, in the promotion colour. No spots count.
 export function PromoBanner() {
+  if (promoIsFull) {
+    return (
+      <div className="pp-promo-banner is-full" role="note">
+        <p className="pp-promo-text">This promotion is full. Book a call to join the waiting list for the next one.</p>
+      </div>
+    );
+  }
   return (
-    <div className={promoIsFull ? 'pp-promo-banner is-full' : 'pp-promo-banner'} role="note">
-      {promoIsFull ? (
-        <p><i className="fas fa-bolt" aria-hidden="true"></i>This promotion is full. Book a call to join the waiting list for the next one.</p>
-      ) : (
-        <p>
-          <i className="fas fa-bolt" aria-hidden="true"></i>Temporary promotion: Done For You is $997 a month instead of $1,597. We are taking only {PROMO_SPOTS_TOTAL} new creators at this price.{' '}
-          <strong>{PROMO_SPOTS_LEFT} of {PROMO_SPOTS_TOTAL} spots left.</strong>
-        </p>
-      )}
+    <div className="pp-promo-banner" role="note">
+      <span className="pp-promo-pill"><i className="fas fa-bolt" aria-hidden="true"></i> Temporary promotion</span>
+      <p className="pp-promo-head">Save up to $600 a month</p>
+      <p className="pp-promo-text">
+        Done For You is <strong>$997 a month instead of $1,597</strong>. We are taking only {PROMO_SPOTS_TOTAL} new creators at these prices, and the promotion ends as soon as all {PROMO_SPOTS_TOTAL} are on board.
+      </p>
     </div>
   );
 }
@@ -166,6 +190,7 @@ export function PlanCards() {
               <WasNow was="$997" now="$697" />
               <span>/month</span>
             </p>
+            <Save amount="$300" />
             <p className="pp-who">Everything we do, at a smaller volume.</p>
             <ul className="pp-feat">
               {STARTER_FEATURES.map((f) => (
@@ -173,7 +198,7 @@ export function PlanCards() {
               ))}
               <No>Long-form episode edits</No>
             </ul>
-            <CardActions label="Start with Starter" quiet />
+            <CardActions label="Start with Starter" pay={PAY_URL.starter} quiet />
           </article>
           <p className="pp-commit"><strong>What we commit to:</strong> 12 clips a month, the posting schedule and a weekly report.</p>
         </div>
@@ -190,8 +215,9 @@ export function PlanCards() {
                 <WasNow was="$1,597" now="$997" />
                 <span>/month</span>
               </p>
+              <Save amount="$600" />
               {promoIsFull ? null : (
-                <p className="pp-promo-spots">Only {PROMO_SPOTS_LEFT} of {PROMO_SPOTS_TOTAL} spots left at this price</p>
+                <p className="pp-promo-spots">Ends once {PROMO_SPOTS_TOTAL} new creators are on board</p>
               )}
             </div>
             <p className="pp-who">We make the clips and run your short-form content for you.</p>
@@ -201,7 +227,7 @@ export function PlanCards() {
               ))}
               <No>Long-form episode edits</No>
             </ul>
-            <CardActions label="Start Done For You" />
+            <CardActions label="Start Done For You" pay={PAY_URL.dfy} />
           </article>
           <p className="pp-commit"><strong>What we commit to:</strong> 20 clips a month, the posting schedule and a weekly report.</p>
         </div>
@@ -216,6 +242,7 @@ export function PlanCards() {
               <WasNow was="$1,897" now="$1,597" />
               <span>/month</span>
             </p>
+            <Save amount="$300" />
             <p className="pp-who">We run your short-form content and edit your full episodes.</p>
             <ul className="pp-feat">
               {DFY_FEATURES.map((f) => (
@@ -223,7 +250,7 @@ export function PlanCards() {
               ))}
               <Yes>4 long-form episode edits a month</Yes>
             </ul>
-            <CardActions label="Start Done For You Plus" quiet />
+            <CardActions label="Start Done For You Plus" pay={PAY_URL.plus} quiet />
           </article>
           <p className="pp-commit"><strong>What we commit to:</strong> 20 clips and 4 episode edits a month, the posting schedule and a weekly report.</p>
         </div>

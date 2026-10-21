@@ -3,7 +3,6 @@ import {
   PlanCards,
   CompareTable,
   AddOns,
-  PROMO_SPOTS_LEFT,
   PROMO_SPOTS_TOTAL,
   promoIsFull,
 } from '../../../../components/PromoPricingPlans';
@@ -15,9 +14,9 @@ import PromoPricingCalculator from '../../../../components/PromoPricingCalculato
 // noindex, not in any nav and not in the sitemap. /pricing is unchanged and
 // still uses PricingPlans.js and PricingCalculator.js.
 //
-// The spots count lives only in PROMO_SPOTS_LEFT in
+// Whether the promotion is still open lives only in PROMO_OPEN in
 // components/PromoPricingPlans.js. The banner, the middle card and the FAQ
-// below all read it. To remove the promotion, see "Promotion page and
+// below all read it. The page never shows how many spots are left. To remove the promotion, see "Promotion page and
 // rollback" in OVERVIEW.md.
 
 const DESCRIPTION =
@@ -100,8 +99,8 @@ const PROMOTION_LENGTH = promoIsFull
       'Book a call to join the waiting list for the next one.',
     ]
   : [
-      `Until the spots are filled. We are taking only ${PROMO_SPOTS_TOTAL} new creators at these prices, because that is how many we can onboard properly right now. ${PROMO_SPOTS_LEFT} of ${PROMO_SPOTS_TOTAL} spots are still open.`,
-      'When they are gone, the promotion ends and prices return to normal. If you want one, book your call now.',
+      `Until ${PROMO_SPOTS_TOTAL} new creators are on board. We are taking only ${PROMO_SPOTS_TOTAL} new creators at these prices, because that is how many we can onboard properly right now.`,
+      'Once all of them have joined, the promotion ends and prices return to normal. If you want one of the spots, book your call now.',
     ];
 
 const FAQ = [
@@ -216,11 +215,11 @@ export default function PricingPromotionPage() {
         </div>
       </nav>
 
-      <main id="main" className="pricing-page">
+      <main id="main" className="pricing-page pp-promo-page">
         {/* Hero */}
         <section className="pp-hero">
           <div className="container">
-            <p className="pp-kicker">Pricing</p>
+            <p className="pp-kicker pp-kicker-promo"><i className="fas fa-bolt" aria-hidden="true"></i> Temporary promotion pricing</p>
             <h1>Three ways to work with us.</h1>
             <p className="pp-hero-sub">Same clips, same quality. Pick how much of the rest you want us to handle.</p>
             <a href={BOOK_URL} className="primary-cta pp-hero-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
@@ -333,7 +332,7 @@ export default function PricingPromotionPage() {
         {/* Closing band */}
         <section className="pp-close">
           <div className="container">
-            <div className="pp-strip">
+            <div className="pp-strip pp-strip-promo">
               <h2>Temporary promotion, {PROMO_SPOTS_TOTAL} creators only: Starter $697 (normally $997), Done For You $997 (normally $1,597) or Done For You Plus $1,597 (normally $1,897) a month. Keep your price for as long as you stay. Book your 30-minute call now.</h2>
               <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
             </div>

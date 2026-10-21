@@ -3145,96 +3145,194 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 /* =====================================================================
-   18. /pricing/promotion extras (21 Oct 2026). New classes only, every rule
-   scoped under .pricing-page, so /pricing renders exactly as before. The
-   promotion page reuses every section 17 rule above.
+   18. /pricing/promotion extras (21 Oct 2026, restyled the same day at
+   Samuel's request so the promotion stands out). New classes only, scoped
+   under .pp-promo-page (set on <main> of the promotion page only, next to
+   .pricing-page), so /pricing renders exactly as before. The promotion page
+   reuses every section 17 rule above. The promotion colour is a warm orange
+   to gold, on purpose different from the site blue.
    ===================================================================== */
 
-/* The banner above the three cards. */
-.pricing-page .pp-promo-banner {
-  display: block;
-  max-width: 880px;
-  margin: 0 auto 40px;
-  padding: 16px 24px;
-  text-align: center;
-  background: rgba(76, 178, 240, 0.12);
-  border: 1px solid var(--accent);
-  border-radius: 16px;
-  box-shadow: 0 16px 48px -28px rgba(76, 178, 240, 0.6);
-  color: var(--text-primary);
-  font-weight: 600;
-  line-height: 1.55;
+.pp-promo-page {
+  --promo-a: #ff7a2f;
+  --promo-b: #ffc53d;
+  --promo-text: #ffc761;
+  --promo-ink: #1f1200;
+  --promo-glow: rgba(255, 140, 50, 0.55);
 }
 
-.pricing-page .pp-promo-banner p {
+/* Hero kicker becomes a promotion pill. */
+.pricing-page.pp-promo-page .pp-kicker-promo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--promo-a), var(--promo-b));
+  color: var(--promo-ink);
+  font-weight: 800;
+  box-shadow: 0 8px 28px -12px var(--promo-glow);
+}
+
+/* The banner above the three cards. */
+.pricing-page.pp-promo-page .pp-promo-banner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 920px;
+  margin: 0 auto 48px;
+  padding: 28px 32px;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(255, 150, 50, 0.32), transparent 60%),
+    linear-gradient(180deg, rgba(255, 122, 47, 0.16), rgba(255, 197, 61, 0.06));
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 2px var(--promo-a), 0 24px 70px -24px var(--promo-glow);
+  color: var(--text-primary);
+}
+
+.pricing-page.pp-promo-page .pp-promo-banner p {
   margin: 0;
 }
 
-.pricing-page .pp-promo-banner i {
-  margin-right: 10px;
-  color: var(--accent);
+.pricing-page.pp-promo-page .pp-promo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--promo-a), var(--promo-b));
+  color: var(--promo-ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.pricing-page .pp-promo-banner strong {
-  color: var(--accent-strong);
-  white-space: nowrap;
+.pricing-page.pp-promo-page .pp-promo-head {
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--promo-a), var(--promo-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.pricing-page .pp-promo-banner.is-full {
+.pricing-page.pp-promo-page .pp-promo-text {
+  max-width: 680px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.pricing-page.pp-promo-page .pp-promo-text strong {
+  color: var(--text-primary);
+}
+
+.pricing-page.pp-promo-page .pp-promo-banner.is-full {
   background: rgba(255, 255, 255, 0.04);
-  border-color: var(--hairline-strong);
-  box-shadow: none;
+  box-shadow: 0 0 0 1px var(--hairline-strong);
 }
 
-.pricing-page .pp-promo-banner.is-full i {
-  color: var(--text-muted-2);
+/* The middle card: promotion colour on the border, glow and tag. */
+.pricing-page.pp-promo-page .pp-col-dfy > .pp-card {
+  border-color: var(--promo-a);
+  background: linear-gradient(180deg, rgba(255, 122, 47, 0.16), rgba(255, 197, 61, 0.04) 55%, var(--bg-raised));
+  box-shadow: 0 28px 80px -30px var(--promo-glow);
 }
 
-/* The normal price, struck through, to the left of the promotion price. */
-.pricing-page .pp-was {
+.pricing-page.pp-promo-page .pp-col-dfy .pp-tag {
+  background: linear-gradient(90deg, var(--promo-a), var(--promo-b));
+  border-color: transparent;
+  color: var(--promo-ink);
+  font-weight: 800;
+  box-shadow: 0 8px 24px -10px var(--promo-glow);
+}
+
+.pricing-page.pp-promo-page .pp-col-dfy .pp-cta:not(.pp-cta-quiet),
+.pricing-page.pp-promo-page .pp-strip-promo .pp-cta {
+  background: linear-gradient(90deg, var(--promo-a), var(--promo-b));
+  border-color: transparent;
+  color: var(--promo-ink);
+}
+
+/* The saving on every card. */
+.pricing-page.pp-promo-page .pp-save {
+  justify-self: start;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 140, 50, 0.14);
+  border: 1px solid rgba(255, 160, 60, 0.5);
+  color: var(--promo-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* The normal price, struck through in the promotion colour, to the left of
+   the promotion price. */
+.pricing-page.pp-promo-page .pp-was {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-muted-2);
+  text-decoration-color: var(--promo-a);
   text-decoration-thickness: 2px;
   letter-spacing: 0;
   margin-right: 4px;
 }
 
-.pricing-page .pp-price-wrap {
+.pricing-page.pp-promo-page .pp-price-wrap {
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
-.pricing-page .pp-promo-spots {
+.pricing-page.pp-promo-page .pp-promo-spots {
   margin: 0;
   font-size: 0.85rem;
-  color: var(--text-muted-2);
+  font-weight: 600;
+  color: var(--promo-text);
 }
 
-/* The table price row: normal price struck, promotion price next to it. */
-.pricing-page .pp-table .pp-tot .pp-was {
+/* The table price row. */
+.pricing-page.pp-promo-page .pp-table .pp-tot .pp-was {
   font-size: 0.9rem;
   margin-right: 8px;
 }
 
-.pricing-page .pp-table .pp-tot .pp-now {
+.pricing-page.pp-promo-page .pp-table .pp-tot .pp-now {
   white-space: nowrap;
+  color: var(--promo-text);
 }
 
 /* The calculator total. */
-.pricing-page .pp-big .pp-was {
+.pricing-page.pp-promo-page .pp-big .pp-was {
   margin-right: 10px;
   vertical-align: middle;
 }
 
+/* Closing band. */
+.pricing-page.pp-promo-page .pp-strip-promo {
+  background: linear-gradient(180deg, rgba(255, 122, 47, 0.14), var(--bg-raised));
+  border-color: var(--promo-a);
+  box-shadow: 0 20px 60px -30px var(--promo-glow);
+}
+
 @media (max-width: 600px) {
-  .pricing-page .pp-promo-banner {
-    padding: 14px 16px;
-    font-size: 0.95rem;
-    text-align: left;
+  .pricing-page.pp-promo-page .pp-promo-banner {
+    padding: 22px 18px;
   }
 
-  .pricing-page .pp-was {
+  .pricing-page.pp-promo-page .pp-was {
     font-size: 1.05rem;
   }
 }
