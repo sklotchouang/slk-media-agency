@@ -16,8 +16,10 @@ import { useState } from 'react';
 // - Done For You: $997 at 20 clips. Below 20, each clip takes $37.50 off,
 //   rounded to the nearest dollar (12 clips = $697, 6 clips = $472). Above 20,
 //   each extra clip adds $50.
-// - Done For You Plus: $1,597 at 20 clips with 4 long-form edits included,
-//   the same $37.50 step below 20 and $50 per clip above.
+// - Done For You Plus: $1,597 at 20 clips with 4 long-form edits included.
+//   Below 20, each clip takes $75 off (12 clips = $997, 6 clips = $547), the
+//   same step as /pricing, so Plus is always $300 under /pricing below 20
+//   clips. Above 20, each extra clip adds $50.
 // - Done With You: $597 at 20 clips, $25 per clip up or down.
 // On Done For You and Plus the result also shows, struck through, what /pricing
 // charges for the same choice. Re-run the "Promotion prices" reference values
@@ -30,7 +32,8 @@ const PRICE = {
   dwyPerClip: 25, // each clip above or below 20 on Done With You
   dfyBase: 997, // Done For You at 20 clips
   dfyPerClipUp: 50, // each clip above 20 on Done For You and Plus
-  dfyPerClipDown: 37.5, // each clip below 20 on Done For You and Plus
+  dfyPerClipDown: 37.5, // each clip below 20 on Done For You (not Plus)
+  plusPerClipDown: 75, // each clip below 20 on Done For You Plus
   plusBase: 1597, // Done For You Plus at 20 clips, 4 long-form edits included
   plusEdits: 4, // long-form edits included in Done For You Plus
   longForm: 150, // per episode
@@ -75,19 +78,19 @@ function dwyPrice(clips) {
   return PRICE.dwyBase + (clips - PRICE.baseClips) * PRICE.dwyPerClip;
 }
 
-// Done For You and Plus share the clip steps: +$50 above 20, minus $37.50
-// below 20, rounded to the nearest dollar.
-function promoClipPrice(base, clips) {
+// Done For You and Plus share the step above 20 (+$50 a clip) but not below:
+// Done For You loses $37.50 a clip, Plus loses $75. Rounded to the nearest dollar.
+function promoClipPrice(base, clips, perClipDown) {
   if (clips >= PRICE.baseClips) return base + (clips - PRICE.baseClips) * PRICE.dfyPerClipUp;
-  return Math.round(base - (PRICE.baseClips - clips) * PRICE.dfyPerClipDown);
+  return Math.round(base - (PRICE.baseClips - clips) * perClipDown);
 }
 
 function dfyPrice(clips) {
-  return promoClipPrice(PRICE.dfyBase, clips);
+  return promoClipPrice(PRICE.dfyBase, clips, PRICE.dfyPerClipDown);
 }
 
 function plusPrice(clips) {
-  return promoClipPrice(PRICE.plusBase, clips);
+  return promoClipPrice(PRICE.plusBase, clips, PRICE.plusPerClipDown);
 }
 
 // The /pricing prices for the same clip count.
@@ -213,9 +216,9 @@ export default function PromoPricingCalculator() {
   const addonTotal = addons.reduce((sum, a) => sum + a.amount, 0);
   const total = planPrice + addonTotal;
   // The add-on prices are the same on /pricing, so only the plan price differs.
-  // The struck price only shows when it is really higher: on Done For You
-  // Plus at 12 clips or fewer the promotion step makes the two prices equal,
-  // or the promotion price higher.
+  // The struck price only shows when it is really higher. Safety net: with the
+  // current steps /pricing is always higher, but if a promotion step changes
+  // we never show a "normal" price that is lower than the promotion.
   const normalFull = normalPlanPrice === null ? null : normalPlanPrice + addonTotal;
   const normalTotal = normalFull !== null && normalFull > total ? normalFull : null;
 
