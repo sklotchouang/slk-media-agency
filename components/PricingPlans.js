@@ -198,8 +198,6 @@ export function PlanCards() {
         <span>Pause up to 60 days</span>
         <span>You own every clip</span>
       </p>
-
-      <WhyUs />
     </>
   );
 }
@@ -226,7 +224,7 @@ const WHY = [
   },
 ];
 
-function WhyUs() {
+export function WhyUs() {
   return (
     <section className="pp-why" aria-labelledby="pp-why-title">
       <h2 id="pp-why-title">Why SLK Media Agency</h2>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PlanCards, CompareTable, AddOns } from '../../../components/PricingPlans';
+import { PlanCards, CompareTable, AddOns, WhyUs } from '../../../components/PricingPlans';
 import PricingCalculator from '../../../components/PricingCalculator';
 
 // The /pricing page: three packages, proof, the comparison table, the add-ons,
@@ -278,6 +278,29 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* Optional add-ons, directly under the packages */}
+        <section className="pp-details pp-details-addons">
+          <div className="container">
+            <AddOns />
+          </div>
+        </section>
+
+        {/* Build your plan */}
+        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
+          <div className="container">
+            <h2 id="pp-build-title">Build your plan</h2>
+            <p className="pp-lead">Pick what you want each month. The price updates as you go.</p>
+            <PricingCalculator />
+          </div>
+        </section>
+
+        {/* Why SLK Media Agency (moved below Build your plan) */}
+        <section className="pp-whyus">
+          <div className="container">
+            <WhyUs />
+          </div>
+        </section>
+
         {/* Proof: real client clips, then real client quotes */}
         <section className="pp-proof" aria-labelledby="pp-clips-title">
           <div className="container">
@@ -325,20 +348,10 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Comparison table and add-ons */}
+        {/* Comparison table (moved below the proof) */}
         <section className="pp-details">
           <div className="container">
             <CompareTable />
-            <AddOns />
-          </div>
-        </section>
-
-        {/* Build your plan */}
-        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
-          <div className="container">
-            <h2 id="pp-build-title">Build your plan</h2>
-            <p className="pp-lead">Pick what you want each month. The price updates as you go.</p>
-            <PricingCalculator />
           </div>
         </section>
 
