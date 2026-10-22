@@ -165,7 +165,7 @@ export function PromoBanner() {
   }
   return (
     <div className="pp-promo-banner" role="note">
-      <span className="pp-promo-pill"><i className="fas fa-bolt" aria-hidden="true"></i> Temporary promotion</span>
+      <span className="pp-promo-pill"><i className="fas fa-bolt" aria-hidden="true"></i> Flash promotion</span>
       <p className="pp-promo-head">Save up to $600 a month</p>
       <p className="pp-promo-text">
         Done For You is <strong>$997 a month instead of $1,597</strong>. We are taking only {PROMO_SPOTS_TOTAL} new creators at these prices, and the promotion ends as soon as all {PROMO_SPOTS_TOTAL} are on board.
@@ -205,7 +205,7 @@ export function PlanCards() {
 
         <div className="pp-col pp-col-dfy">
           <article className="pp-card pp-card-dfy" aria-labelledby="pp-dfy-name">
-            <span className="pp-tag">{promoIsFull ? 'Promotion full' : 'Temporary promotion'}</span>
+            <span className="pp-tag">{promoIsFull ? 'Promotion full' : 'Flash promotion'}</span>
             <div>
               <h2 className="pp-name" id="pp-dfy-name">Done For You</h2>
               <p className="pp-sub">Content Engine</p>

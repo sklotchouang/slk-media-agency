@@ -20,10 +20,10 @@ import PromoPricingCalculator from '../../../../components/PromoPricingCalculato
 // rollback" in OVERVIEW.md.
 
 const DESCRIPTION =
-  'SLK Media Agency temporary promotion for 4 new creators: Done For You Starter at $697 a month (normally $997, 12 clips), Done For You at $997 a month (normally $1,597, 20 clips) or Done For You Plus at $1,597 a month (normally $1,897, 20 clips plus 4 long-form episode edits). Add-ons and a plan calculator.';
+  'SLK Media Agency flash promotion for 4 new creators: Done For You Starter at $697 a month (normally $997, 12 clips), Done For You at $997 a month (normally $1,597, 20 clips) or Done For You Plus at $1,597 a month (normally $1,897, 20 clips plus 4 long-form episode edits). Add-ons and a plan calculator.';
 
 const SHARE_DESCRIPTION =
-  'Temporary promotion for 4 new creators. Same clips, same quality, lower monthly price for as long as you stay.';
+  'Flash promotion for 4 new creators. Same clips, same quality, lower monthly price for as long as you stay.';
 
 const TITLE = 'Pricing Promotion: Podcast Clip Production Plans | SLK Media Agency';
 
@@ -219,7 +219,7 @@ export default function PricingPromotionPage() {
         {/* Hero */}
         <section className="pp-hero">
           <div className="container">
-            <p className="pp-kicker pp-kicker-promo"><i className="fas fa-bolt" aria-hidden="true"></i> Temporary promotion pricing</p>
+            <p className="pp-kicker pp-kicker-promo"><i className="fas fa-bolt" aria-hidden="true"></i> Flash promotion pricing</p>
             <h1>Three ways to work with us.</h1>
             <p className="pp-hero-sub">Same clips, same quality. Pick how much of the rest you want us to handle.</p>
             <a href={BOOK_URL} className="primary-cta pp-hero-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
@@ -333,7 +333,7 @@ export default function PricingPromotionPage() {
         <section className="pp-close">
           <div className="container">
             <div className="pp-strip pp-strip-promo">
-              <h2>Temporary promotion, {PROMO_SPOTS_TOTAL} creators only: Starter $697 (normally $997), Done For You $997 (normally $1,597) or Done For You Plus $1,597 (normally $1,897) a month. Keep your price for as long as you stay. Book your 30-minute call now.</h2>
+              <h2>Flash promotion, {PROMO_SPOTS_TOTAL} creators only: Starter $697 (normally $997), Done For You $997 (normally $1,597) or Done For You Plus $1,597 (normally $1,897) a month. Keep your price for as long as you stay. Book your 30-minute call now.</h2>
               <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
             </div>
           </div>
