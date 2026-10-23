@@ -31,7 +31,6 @@ const BEFORE_AFTER = [
   { file: 'ba-corvette-today-1', show: 'Corvette Today' },
   { file: 'ba-corvette-today-2', show: 'Corvette Today' },
   { file: 'ba-pine-forest-media', show: 'Pine Forest Media' },
-  { file: 'ba-mindset-neuroscience', show: 'Mindset Neuroscience' },
 ];
 
 // Finished clips, grouped by show. shape: 'square' (1:1) or 'vertical' (9:16, shown inside a square tile).
