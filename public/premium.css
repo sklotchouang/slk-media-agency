@@ -3336,3 +3336,275 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     font-size: 1.05rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   /portfolio/audio-only: clips made from audio-only podcasts.
+   Everything is scoped to .ao-page. Videos autoplay muted via SiteBehaviors
+   (data-autoplay); ClipSoundToggles.js drives the .ao-sound buttons.
+   -------------------------------------------------------------------------- */
+.ao-page .ao-hero {
+  padding-bottom: 48px;
+}
+
+.ao-page .ao-hero .portfolio-subtitle {
+  max-width: 62ch;
+  margin: 0 auto;
+  font-size: 1.15rem;
+}
+
+.ao-page .ao-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 6px 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-1);
+  color: var(--accent-strong);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.ao-page .ao-hint {
+  margin-top: 22px;
+  color: var(--text-muted-2);
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ao-page .ao-hint i {
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.ao-page .ao-section {
+  padding: 56px 0;
+}
+
+.ao-page .ao-section-alt {
+  border-top: 1px solid var(--hairline);
+}
+
+.ao-page .ao-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+.ao-page .ao-head h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.ao-page .ao-head p {
+  color: var(--text-secondary);
+}
+
+.ao-page .ao-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.ao-page .ao-grid-ba {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ao-page .ao-grid-clips {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ao-page .ao-show-group + .ao-show-group {
+  margin-top: 48px;
+}
+
+.ao-page .ao-group-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.ao-page .ao-group-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--hairline);
+}
+
+.ao-page .ao-card {
+  position: relative;
+  margin: 0;
+}
+
+.ao-page .ao-media {
+  position: relative;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-raised);
+  transition: transform 0.5s var(--ease-out), border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+.ao-page .ao-card:hover .ao-media {
+  transform: translateY(-4px);
+  border-color: var(--hairline-strong);
+  box-shadow: 0 32px 70px -30px rgba(0, 0, 0, 0.75);
+}
+
+.ao-page .ao-media-vertical {
+  aspect-ratio: 9 / 16;
+}
+
+.ao-page .ao-media-square {
+  aspect-ratio: 1 / 1;
+}
+
+.ao-page .ao-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* A 9:16 clip inside a square tile: shown whole, over a blurred copy of its poster. */
+.ao-page .ao-media-fit::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: var(--ao-poster) center / cover no-repeat;
+  filter: blur(22px) brightness(0.55);
+  z-index: 0;
+}
+
+.ao-page .ao-media-fit video {
+  object-fit: contain;
+}
+
+.ao-page .ao-sound {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-pill);
+  background: rgba(10, 10, 11, 0.72);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur-quick) var(--ease-out), border-color var(--dur-quick) var(--ease-out);
+}
+
+.ao-page .ao-sound:hover,
+.ao-page .ao-sound:focus-visible {
+  border-color: var(--accent);
+}
+
+.ao-page .ao-sound:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ao-page .ao-sound.is-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.ao-page .ao-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 4px 0;
+}
+
+.ao-page .ao-show {
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ao-page .ao-title {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ao-page .portfolio-cta {
+  margin-top: 72px;
+}
+
+.ao-page .ao-more {
+  margin-top: 22px;
+  margin-bottom: 0;
+}
+
+.ao-page .ao-more a {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.ao-page .ao-more a:hover {
+  color: #fff;
+}
+
+@media (max-width: 960px) {
+  .ao-page .ao-grid-ba {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ao-page .ao-grid-clips {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ao-page .ao-grid {
+    gap: 16px;
+  }
+
+  .ao-page .ao-grid-clips {
+    grid-template-columns: 1fr;
+  }
+
+  .ao-page .ao-sound {
+    top: 8px;
+    right: 8px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+
+  .ao-page .ao-section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .ao-page .ao-sound .ao-sound-label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ao-page .ao-card:hover .ao-media {
+    transform: none;
+  }
+}

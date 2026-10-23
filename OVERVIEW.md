@@ -97,6 +97,7 @@ slk-media-agency/
       not-found.js         404 UI
       [...rest]/page.js    Catch-all that triggers the 404 for any unknown path
       portfolio/           /portfolio (clip grid)
+        audio-only/        /portfolio/audio-only (since 2026-10-23): clips made from audio-only podcasts, for prospects with no video. Replaces the Canva link sent before.
       testimonials/        /testimonials
       pricing/             /pricing (two packages, add-ons and a calculator since 2026-10-16; the link the SDR sends; not in any nav). /pricing/clips-only redirects here since 2026-10-12.
         promotion/         /pricing/promotion (since 2026-10-21): the temporary promotion copy of /pricing for outreach links. noindex, not in any nav or the sitemap.
@@ -196,6 +197,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 |---|---|---|---|
 | `/` | `app/(main)/page.js` | Home, long-form sales. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book Strategy Call (strmeet) only |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
+| `/portfolio/audio-only` | `app/(main)/portfolio/audio-only/page.js` | Showcase for audio-only podcasts (added 2026-10-23, replaces the Canva deck sent to prospects). Two sections: "Before and after" (4 vertical composites, `BEFORE_AFTER` constant) and "Finished clips from audio-only shows" grouped by show (`SHOWS` constant: Corvette Today x3, Byte-Sized Biographies x3). Clips autoplay muted while on screen (`data-autoplay`) and keep their audio track; each card has a "Tap for sound" button (`components/ClipSoundToggles.js`), one clip heard at a time. Styles: the `.ao-page` block at the end of `premium.css`. Indexed, not in the nav, not linked from `/portfolio` yet. | strmeet, plus a link to /portfolio |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
 | `/pricing` | `app/(main)/pricing/page.js` | The normal-price pricing page (rebuilt 2026-10-16, three packages since 2026-10-19). Since 2026-10-21 it is NOT the page sent to prospects: the SDR, the chatbot and the sales system send `/pricing/promotion` for a 2 to 3 month test (see "Promotion page and rollback"). It shows: three packages (Done With You $997, Done For You $1,597, Done For You Plus $1,897, all 20 clips), a comparison line, then (since 2026-10-22) Optional Add-ons and the Build your plan calculator directly under the cards and terms line, then Why SLK Media Agency, client clips and quotes, a comparison table and a pricing FAQ. Public and indexed, not in the site-wide nav; its own navbar has a "Pricing Calculator" link to `#build` (since 2026-10-20, Samuel). Send prospects `https://slkmediaagency.com/pricing#build` to land on the calculator: `SiteBehaviors.js` jumps to any `#hash` target below the navbar on load, and `.pp-build` has `scroll-margin-top: 90px`. | strmeet on the hero, every card button and the closing band; under each card a "Ready now? Skip the call and pay" link to that plan's Myfundbox checkout (since 2026-10-20). No trial checkout, no link to `/podcast-toolkits`. |
 | `/pricing/promotion` | `app/(main)/pricing/promotion/page.js` | Temporary promotion copy of `/pricing` (since 2026-10-21) for outreach links: same sections in the same order (so Optional Add-ons and Build your plan sit right under the three cards, since 2026-10-22), promotion prices (Starter $697, Done For You $997, Done For You Plus $1,597, each next to its struck-through normal price), a promotion banner (no spots count) and a promotion FAQ, styled in a warm orange to gold promotion colour. `robots: noindex, follow`, canonical `/pricing/promotion`, not in any nav, not in `public/sitemap.xml`, no JSON-LD (so Google never sees a second set of prices). No redirect or rewrite in `next.config.mjs` touches it. See "Promotion page and rollback" below. | strmeet on the hero, every card button and the closing band; under each card a "Ready now? Skip the call and pay" link to that plan's promotion checkout (section 1). |
@@ -344,6 +346,7 @@ They are outside the premium re-skin. Restyling them means editing each independ
 | `components/PromoPricingPlans.js` | server | `/pricing/promotion` only: `PROMO_OPEN` (the only switch that ends the promotion), `PAY_URL` (the three promotion checkouts), the promotion banner (`PromoBanner`), the three promo cards, the comparison table and the add-ons. A copy of `PricingPlans.js`; `/pricing` does not use it. |
 | `components/PromoPricingCalculator.js` | client | Build your plan on `/pricing/promotion`, promotion prices in its `PRICE` constant, the normal `/pricing` price struck through on Done For You and Plus. A copy of `PricingCalculator.js`; `/pricing` does not use it. |
 | `components/CaseStudy.js` | server | Shared template for all six case study pages (nav, hero, before/after columns, footer). Each page passes a data object. |
+| `components/ClipSoundToggles.js` | client | `/portfolio/audio-only` only: wires every `[data-sound-toggle]` button to the video in its `.ao-card`. Unmuting a clip restarts it with sound and mutes all others. Renders nothing. |
 | `components/fonts.js` | module | Sets up self-hosted Inter via `next/font` and exports the class name applied in the layouts. |
 
 ---
@@ -377,6 +380,16 @@ ffmpeg -ss <seconds> -i public/portfolio/Clip-<n>.mp4 -frames:v 1 -q:v 4 \
 CRF 32 was chosen by comparing frames: it keeps the fine detail in these compositions (the editing-timeline strip and the logo strapline) legible while holding a 40 to 50 second clip near 1.5 MB. A 60 to 70 second clip lands near 2.1 to 2.6 MB. Source masters are 1080x1920 or larger (the Sunflower Podcast master was 2160x3840, and the single lanczos downscale to 540 wide handled it fine). If you raise the resolution or lower the CRF, remember `/portfolio` autoplays twelve of these at once and the home page pulls three of them.
 
 Note that the recipe carries no `-r` flag, so the **source frame rate passes straight through**. Most masters are 30fps, which is where the "30fps" in the profile above comes from, but `Clip-7` is 23.976fps because its master was. That is intentional: forcing 23.976 up to 30 duplicates every fifth frame unevenly and adds judder for no benefit on a silent looping clip. Do not add `-r 30` to "fix" a clip that probes below 30fps. The `-g 60` keyframe interval simply becomes a 2.5 second GOP instead of 2 seconds, which is immaterial here.
+
+### Audio-only showcase clips (`public/portfolio/audio-only/`)
+
+Unlike the main portfolio, these clips **keep their audio** (the page is about audio-only shows, so the sound is the point). Encoded 2026-10-23: H.264 High 4.0, CRF 30, maxrate 1100k, AAC 96k stereo, faststart. Vertical sources at 540x960, square sources at 720x720. Posters in `thumbnails/` (before/after posters grabbed at 8s so both sides show). Files prefixed `ba-` are before/after composites, `corvette-` and `bsb-` (Byte-Sized Biographies) are finished clips. A 9:16 clip in the square grid (`shape: 'vertical'`) is shown whole over a blurred copy of its poster (`.ao-media-fit`). Sources: `S:\PODCAST RESOURCES\CLIENTS\BEFORE-AFTER\` and Samuel's Downloads folder.
+
+```
+ffmpeg -i <source>.mp4 -vf "scale=540:960:flags=lanczos" -c:v libx264 -profile:v high -level 4.0   -preset slow -crf 30 -maxrate 1100k -bufsize 2200k -pix_fmt yuv420p -g 60   -c:a aac -b:a 96k -ac 2 -movflags +faststart public/portfolio/audio-only/<name>.mp4
+```
+
+Use `scale=720:720` for square sources.
 
 ### Generated atmosphere art and screenshot tooling
 
