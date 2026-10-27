@@ -3614,3 +3614,158 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     transform: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   19. Case study alignment pass (27 October 2026).
+
+   An audit of all six /success/<slug> pages plus the /success/case-studies
+   index found the same faults on every page, because they share one template
+   (components/CaseStudy.js) and the same item counts (3 hero stats, 4-card and
+   6-card grids):
+
+   - .stats-band is a fixed 4-column grid, so the 3 hero stats sat left of the
+     centred heading with an empty slot, and left a lone card on phones.
+   - .cs-grid used auto-fit, which picks the column count from the width, not
+     the card count: 6 cards became 4 + 2 on desktop, 4 cards 3 + 1 at ~1024px.
+   - .t-feature never stacked on phones (see the note in section 15), so the
+     video testimonial became two 139px columns.
+   - .t-feature-quote drew an unpadded box inside the feature card.
+
+   Grids are now flex rows that centre any leftover cards, whatever the count.
+   -------------------------------------------------------------------------- */
+
+/* Hero stats: centred, any count. */
+.cs-hero .stats-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+.cs-hero .stats-band .stat-card {
+  flex: 0 1 260px;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .cs-hero .stats-band {
+    gap: 14px;
+  }
+
+  .cs-hero .stats-band .stat-card {
+    flex: 1 1 calc(50% - 7px);
+    max-width: calc(50% - 7px);
+  }
+}
+
+/* Card grids: full rows, leftovers centred. 4 per row, 3 per row for 6-card
+   grids, 2 per row on tablets, 1 on phones. */
+.cs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.cs-grid > .cs-card {
+  flex: 0 1 calc((100% - 72px) / 4);
+  min-width: 0;
+}
+
+.cs-grid:has(> .cs-card:nth-child(6):last-child) > .cs-card,
+.cs-grid:has(> .cs-card:nth-child(3):last-child) > .cs-card {
+  flex-basis: calc((100% - 48px) / 3);
+}
+
+@media (max-width: 1100px) {
+  .cs-grid > .cs-card,
+  .cs-grid:has(> .cs-card:nth-child(6):last-child) > .cs-card,
+  .cs-grid:has(> .cs-card:nth-child(3):last-child) > .cs-card {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .cs-grid > .cs-card,
+  .cs-grid:has(> .cs-card:nth-child(6):last-child) > .cs-card,
+  .cs-grid:has(> .cs-card:nth-child(3):last-child) > .cs-card {
+    flex-basis: 100%;
+  }
+}
+
+/* Card titles: icon stays on the first line when a title wraps. */
+.cs-card h3 {
+  align-items: flex-start;
+}
+
+.cs-card h3 i {
+  margin-top: 0.28em;
+}
+
+/* Profile card: content centred in the height the stats column sets. */
+.cs-overview > .cs-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Quote and highlight boxes: same width as the centred intro text. */
+.cs-section .testimonial-mini,
+.cs-section .cs-highlight {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Video testimonial: one card, video always first, stacks on phones. */
+.cs-section .t-feature .t-feature-quote {
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.cs-section .t-feature .t-feature-media {
+  order: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 880px) {
+  .cs-section .t-feature,
+  .cs-section .t-feature:nth-child(2n) {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 22px;
+  }
+
+  .cs-section .t-feature .t-feature-media {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+/* Index cards: pill rows start at the same height in every card. */
+.case-stats {
+  min-height: 78px;
+  align-content: flex-start;
+}
+
+/* Footer contact row (every page): wrap on phones instead of running off the
+   screen as a hidden sideways scroller. */
+@media (max-width: 768px) {
+  .footer .footer-contact {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+  }
+}
+
+/* Video and quote centred against each other; quote mark clear of the text. */
+.cs-section .t-feature {
+  align-items: center;
+}
+
+.cs-section .testimonial-mini {
+  padding-left: 58px;
+}
