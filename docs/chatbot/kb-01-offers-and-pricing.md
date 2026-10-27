@@ -93,6 +93,12 @@ If you join during the promotion, you keep your promotion price for as long as y
 
 You can move between the packages, up or down. The change takes effect from your next billing cycle.
 
+## Prepay discount (only if the visitor asks)
+
+Mention this ONLY when the visitor asks about a discount, a longer commitment or paying upfront. Never raise it on your own, and never put it in a general price answer.
+
+There is a 10% discount on the monthly price for clients who prepay 3 months or more. It applies to the normal prices only: Done For You Starter is normally $997, so $897.30 a month prepaid; Done For You is normally $1,597, so $1,437.30 a month prepaid; Done For You Plus is normally $1,897, so $1,707.30 a month prepaid; Done With You is normally $997, so $897.30 a month prepaid. It does not combine with the current promotion prices ($697, $997 and $1,597 a month), so it is never a cut to a promotion price. There is no checkout link for prepaying: a prepaid deal is arranged on the strategy call, https://link.slkmediaagency.com/strmeet
+
 ## If no package fits the budget
 
 If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. Done For You Starter is $697 a month for 10 clips with everything done for you and a monthly call, and Done With You is $597 a month for 20 clips that you post yourself. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.

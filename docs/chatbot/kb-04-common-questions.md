@@ -22,6 +22,10 @@ The promotion is for 4 new creators and ends once 4 are on board. You do not kno
 
 No. SLK Media Agency does not sell a trial or a sample. The best way to see if it fits is the strategy call: https://link.slkmediaagency.com/strmeet
 
+## Do you offer a discount for paying upfront or committing longer?
+
+Yes. 10% off when you prepay 3 months or more, on our normal prices. It does not combine with the current promotion, so the promotion prices stay as they are. Prepaid deals are arranged on the strategy call: https://link.slkmediaagency.com/strmeet
+
 ## Am I locked into a contract?
 
 No. The monthly plans are month to month. Cancel any time before your next billing cycle, with zero penalties. You can pause for up to 60 days instead. The notice period is 14 days. You own everything SLK Media Agency ever made for you.

@@ -1,26 +1,28 @@
 import Link from 'next/link';
 import HeroAtmosphere from '../../components/HeroAtmosphere';
+import ClipChecklist from '../../components/ClipChecklist';
+import ClipCostCalculator from '../../components/ClipCostCalculator';
 
 export const metadata = {
-  title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
+  title: 'Done-for-You Podcast Clips, Posted and Reported | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns your episodes into 20 finished clips a month and posts them on LinkedIn, YouTube, TikTok and more. Done-for-you content for podcasters who publish consistently and want their time back.',
+    'Your episodes already hold a month of content. SLK Media Agency picks the best moments, edits them into short clips, posts them on LinkedIn, YouTube, Instagram, TikTok and Facebook, and reports on how each one did.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     siteName: 'SLK Media Agency',
-    title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
+    title: 'Done-for-You Podcast Clips, Posted and Reported | SLK Media Agency',
     description:
-      'Done-for-you clip production and posting. We turn your episodes into clips that help new listeners find your show while you focus on creating great content.',
+      'Your episodes already hold a month of content. We cut it, post it and report on it. You record the show. We handle everything after.',
     url: '/',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Content Engine for Podcasters Ready to Scale | SLK Media Agency',
+    title: 'Done-for-You Podcast Clips, Posted and Reported | SLK Media Agency',
     description:
-      'We turn your podcast episodes into 20 clips a month and post them everywhere your audience scrolls.',
+      'Your episodes already hold a month of content. We cut it, post it and report on it.',
     images: ['/og-image.jpg'],
   },
 };
@@ -39,6 +41,47 @@ const structuredData = {
   areaServed: 'Worldwide',
   serviceType: 'Podcast content production and distribution',
 };
+
+const STRMEET = 'https://link.slkmediaagency.com/strmeet';
+
+// Vertical client clips from public/portfolio, all 9:16.
+const WALL = [
+  { src: '/portfolio/Clip-4.mp4', poster: '/portfolio/thumbnails/Clip-4.jpg' },
+  { src: '/portfolio/Clip-5.mp4', poster: '/portfolio/thumbnails/Clip-5.jpg' },
+  { src: '/portfolio/Clip-6.mp4', poster: '/portfolio/thumbnails/Clip-6.jpg' },
+  { src: '/portfolio/Brian-Before-After.mp4', poster: '/portfolio/thumbnails/Brian-Before-After.jpg' },
+  { src: '/portfolio/Steve-Before-After.mp4', poster: '/portfolio/thumbnails/Steve-Before-After.jpg' },
+  { src: '/portfolio/Clip-1.mp4', poster: '/portfolio/thumbnails/Clip-1.jpg' },
+  { src: '/portfolio/Clip-2.mp4', poster: '/portfolio/thumbnails/Clip-2.jpg' },
+  { src: '/portfolio/Clip-3.mp4', poster: '/portfolio/thumbnails/Clip-3.jpg' },
+];
+
+// React drops the `muted` attribute in server HTML, which blocks autoplay, so
+// muted looping clips are written as raw HTML (same approach as the rest of
+// the site). data-autoplay lets SiteBehaviors play them only while on screen.
+function Clip({ src, poster, label, className }) {
+  const aria = label ? ` aria-label="${label}"` : ' aria-hidden="true"';
+  return (
+    <div
+      className={className}
+      dangerouslySetInnerHTML={{
+        __html: `<video muted loop playsinline preload="none" poster="${poster}" data-autoplay${aria}><source src="${src}" type="video/mp4"></video>`,
+      }}
+    />
+  );
+}
+
+const FAQ = [
+  ['How many clips do I get?', 'It depends on how often you publish and what you want the clips to do. We agree it with you on the strategy call, and you can change it later. We pick the strongest moments from every episode you send.'],
+  ['How fast do the first clips arrive?', '3 to 5 business days after onboarding. After that, on the schedule we agree with you.'],
+  ['Which platforms do you post on?', "LinkedIn, YouTube Shorts, Instagram, TikTok, Facebook and X. If you're not sure where to focus, we recommend based on your niche."],
+  ['Do you guarantee views, downloads or sponsors?', "No. We control the clips and the posting. We don't control how each platform shows them. We commit to the work, on time, with a report you can check."],
+  ['Can I get a discount if I prepay?', 'Yes. 10% off when you prepay 3 months or more, on our normal prices. It does not combine with a promotion.'],
+  ['Who owns the clips?', 'You do, all of them, forever, including if you leave.'],
+  ['Is my content kept confidential?', 'Yes. We sign an NDA with every client and never share your files or plans without permission.'],
+  ['Can I cancel or pause?', "Month to month. Give 14 days' notice to cancel, or pause for up to 60 days."],
+  ['Do you find sponsors for me?', 'No. We make and post the content. The report gives you real numbers to show sponsors yourself.'],
+];
 
 export default function HomePage() {
   return (
@@ -64,191 +107,133 @@ export default function HomePage() {
             <li><a href="#process">Process</a></li>
             <li><a href="#case-studies">Results</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
+            <li><a href={STRMEET} className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
         </div>
       </nav>
-      <main id="main">
+      <main id="main" className="home-v3">
 
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Hero */}
+      <section className="hero hp-hero">
         <HeroAtmosphere />
         <div className="container">
-          <div className="grid-pattern"></div>
-          <h1 className="headline"><span className="highlight">The Content Engine for Podcasters Ready to Scale</span></h1>
-          <p className="subheadline">Your show deserves more than 200-view clips. We turn your episodes into short clips that help new listeners find your show and show future clients what you know. You record once. We handle everything after.<br /><br /><strong>The Podcast Multiplier™: Done-for-you clip production and distribution for shows that are serious about growing.</strong></p>
-          <div className="cta-group">
-          <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
-            <a href="#process" className="secondary-cta">See our process</a>
-          </div>
-
-          <div className="floating-cards">
-            <div className="card card-1">
-              <div className="card-content">
-                <div className="mockup-container">
-                  <img src="/generated/card-clip.webp" alt="Podcast clip playing on a phone" className="card-art" width={640} height={960} loading="lazy" />
-                  <div className="mockup-title">Ready-to-Post Clips</div>
-                </div>
+          <div className="hp-hero-grid">
+            <div className="hp-hero-copy">
+              <p className="hp-kicker">Done-for-you clips for podcasts that publish every month</p>
+              <h1 className="hp-headline">Your episodes already hold a month of content. <span className="hp-shine">We cut it, post it and report on it.</span></h1>
+              <p className="hp-sub">We pick the moments that show what you know, edit them with captions and a custom thumbnail, post them on LinkedIn, YouTube, Instagram, TikTok and Facebook, and send you a report on how each one did. You record the show. We handle everything after.</p>
+              <div className="hp-cta-row">
+                <a href={STRMEET} className="primary-cta hp-btn-shine" target="_blank" rel="noopener">Book a strategy call</a>
+                <Link href="/portfolio" className="secondary-cta">See clips we&apos;ve made</Link>
+              </div>
+              <div className="hp-chips">
+                <span className="hp-chip"><i className="hp-live" aria-hidden="true"></i>First clips 3 to 5 business days after onboarding</span>
+                <span className="hp-chip">Month to month</span>
+                <span className="hp-chip">You own every clip</span>
               </div>
             </div>
-            <div className="card card-2">
-              <div className="card-content">
-                <div className="mockup-container">
-                  <img src="/generated/card-studio.webp" alt="Podcast studio microphone and headphones" className="card-art" width={640} height={960} loading="lazy" />
-                  <div className="mockup-title">A Plan for Every Clip</div>
-                </div>
-              </div>
-            </div>
-            <div className="card card-3">
-              <div className="card-content">
-                <div className="mockup-container">
-                  <img src="/generated/card-distribution.webp" alt="One podcast distributed to many platforms" className="card-art" width={640} height={960} loading="lazy" />
-                  <div className="mockup-title">Posted on Every Platform</div>
-                </div>
-              </div>
+            <div className="hp-stage" aria-label="Client clips playing on phones">
+              <div className="hp-phone hp-phone-b"><Clip className="hp-phone-in" src="/portfolio/Clip-2.mp4" poster="/portfolio/thumbnails/Clip-2.jpg" /></div>
+              <div className="hp-phone hp-phone-c"><Clip className="hp-phone-in" src="/portfolio/Clip-3.mp4" poster="/portfolio/thumbnails/Clip-3.jpg" /></div>
+              <div className="hp-phone hp-phone-a"><Clip className="hp-phone-in" src="/portfolio/Clip-1.mp4" poster="/portfolio/thumbnails/Clip-1.jpg" label="Client clip, edited by SLK Media Agency" /></div>
+              <div className="hp-toast hp-toast-1"><i aria-hidden="true">▶</i>New clip posted to TikTok</div>
+              <div className="hp-toast hp-toast-2"><i aria-hidden="true">✓</i>Weekly report ready</div>
+              <div className="hp-toast hp-toast-3"><i aria-hidden="true">✎</i>Captions and thumbnail done</div>
             </div>
           </div>
+          <div className="hp-marquee" aria-label="Wall of client clips">
+            <div className="hp-track">
+              {WALL.map((clip) => <Clip key={clip.src} className="hp-tile" src={clip.src} poster={clip.poster} />)}
+              {WALL.map((clip) => <Clip key={`${clip.src}-2`} className="hp-tile" src={clip.src} poster={clip.poster} />)}
+            </div>
+          </div>
+          <p className="hp-shows">Shows we work with: Conjure Queen Podcast (100K+ YouTube subscribers), Corvette Today (599+ episodes), Waste No Day Podcast, RWS Group, SalesFix.</p>
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="social-proof">
+      {/* Problem */}
+      <section className="hp-section hp-pain" id="services">
         <div className="container">
-          <p className="social-proof-text">Join podcasters who've grown from 1.82K to over 100K subscribers with our content system.</p>
-          <div className="client-videos">
-            <div
-              className="client-video"
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-1.jpg" data-autoplay aria-label="Client success clip, ready-to-post content"><source src="/portfolio/Clip-1.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Ready-to-Post Clips</p></div>',
-              }}
-            />
-            <div
-              className="client-video"
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-2.jpg" data-autoplay aria-label="Client success clip, authority-building content"><source src="/portfolio/Clip-2.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Authority-Building Content</p></div>',
-              }}
-            />
-            <div
-              className="client-video"
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-3.jpg" data-autoplay aria-label="Client success clip, short-form clips"><source src="/portfolio/Clip-3.mp4" type="video/mp4">Your browser does not support the video tag.</video><div class="video-overlay"><p class="client-name">Client Success Story</p><p class="video-description">Short-Form Clips</p></div>',
-              }}
-            />
+          <p className="hp-kicker">Where the time goes now</p>
+          <h2 className="section-title">Your best minute of every episode is sitting unseen inside the full recording.</h2>
+          <div className="hp-pain-grid">
+            <div className="hp-stack">
+              <div className="hp-card"><h3>New people never hear it</h3><p>A full episode reaches people who already follow you. Someone scrolling LinkedIn or TikTok will watch 60 seconds, not 50 minutes.</p></div>
+              <div className="hp-card"><h3>So posting stops and starts</h3><p>A good week of clips, then nothing while the next episode gets made. People who don&apos;t see you often forget the show.</p></div>
+              <div className="hp-card"><h3>AI tools only do the first cut</h3><p>They pick the loud moments, not the useful ones. You still check, fix, caption and post every clip yourself.</p></div>
+            </div>
+            <ClipChecklist />
           </div>
+          <ClipCostCalculator />
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="problem" id="services">
+      {/* How it works */}
+      <section className="hp-section hp-how" id="process">
         <div className="container">
-          <h2 className="section-title">Why Podcast Growth Hits A Ceiling
-          </h2>
-          <div className="problem-points">
-            <div className="problem-point">
-              <div className="icon"><i className="fas fa-hourglass-half"></i></div>
-              <p>You're spending 10-20 hours per week editing, clipping, and scheduling posts ($2,000-$5,000 in opportunity cost)</p>
-            </div>
-            <div className="problem-point">
-              <div className="icon"><i className="fas fa-chart-line"></i></div>
-              <p>Your clips get 300-800 views because you're rushing them between episodes, so new listeners rarely come across your show</p>
-            </div>
-            <div className="problem-point">
-              <div className="icon"><i className="fas fa-search-dollar"></i></div>
-              <p>You know you should be on LinkedIn, TikTok, and YouTube Shorts to reach new listeners and future clients... but who has time?</p>
-            </div>
+          <p className="hp-kicker">The Podcast Multiplier™</p>
+          <h2 className="section-title">One team does every step after you stop recording.</h2>
+          <div className="hp-how-grid">
+            <ol className="hp-steps">
+              <li><div><h3>We plan before the first clip</h3><p>We study your niche and what similar shows post, then write you a strategy document: which moments to clip, which platforms, how often.</p></div></li>
+              <li><div><h3>You upload the episode</h3><p>That is the last thing you do. No editor, no scheduler, no captions to write.</p></div></li>
+              <li><div><h3>We pick and edit the clips</h3><p>Moments that show your expertise, hold one complete idea, and give a viewer a reason to hear the full episode. Each gets captions, a hook and a custom thumbnail.</p></div></li>
+              <li><div><h3>We post on every platform</h3><p>Captions, hashtags and a call to action for each clip, posted on the schedule we agree with you.</p></div></li>
+              <li><div><h3>You get a report</h3><p>Which clips got the most views and engagement, which platforms did best, and what we post next.</p></div></li>
+            </ol>
+            <figure className="hp-ba">
+              <Clip className="hp-ba-frame" src="/portfolio/Steve-Before-After.mp4" poster="/portfolio/thumbnails/Steve-Before-After.jpg" label="Before and after edit, Corvette Today" />
+              <figcaption><span>Raw episode</span><span>Finished clip</span></figcaption>
+              <p className="hp-note">Corvette Today, Steve Garrett</p>
+            </figure>
           </div>
-          <p style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px', color: '#ffffff' }}><strong>The brutal math:</strong> 40 hours/month spent on content production = time you could spend on your clients, your business, or your next episode.</p>
         </div>
       </section>
 
-      {/* USP Section */}
-      <section className="usp">
+      {/* Benefits */}
+      <section className="hp-section hp-benefits">
         <div className="container">
-          <h2 className="section-title">The Podcast Multiplier™: Your Dedicated Content Team</h2>
-          <div className="features">
-            <div className="feature">
-              <div className="feature-icon">
-                <i className="fas fa-bullseye"></i>
-              </div>
-              <h3>Clips Picked With a Purpose</h3>
-              <p>We don't just "chop clips". We pick the moments that show what you know and give a new viewer a reason to hear the full episode.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <i className="fas fa-chart-line"></i>
-              </div>
-              <h3>Built Around Your Goals</h3>
-              <p>Every clip is picked with your goal in mind: new listeners for the show, or future clients for your business.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <i className="fas fa-rocket"></i>
-              </div>
-              <h3>Omnichannel Distribution</h3>
-              <p>We publish across LinkedIn, YouTube, Instagram, TikTok and Facebook, wherever your future listeners and clients spend their time.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <i className="fas fa-hand-holding-usd"></i>
-              </div>
-              <h3>Weekly Reports</h3>
-              <p>Every week you see which clips got the most views and engagement, which platforms performed best, and what we plan to post next.</p>
-            </div>
+          <p className="hp-kicker">What changes for you</p>
+          <h2 className="section-title">You keep the show. We take the work around it.</h2>
+          <div className="features hp-benefit-grid">
+            <div className="hp-card hp-benefit"><span className="hp-ico" aria-hidden="true">⏱</span><h3>Your clipping hours come back</h3><p>Editing, captions, thumbnails and scheduling leave your week. What is left is recording the show and a short check-in call.</p></div>
+            <div className="hp-card hp-benefit"><span className="hp-ico" aria-hidden="true">↻</span><h3>You show up every week</h3><p>Clips go out on schedule on every platform you use, including the weeks you don&apos;t record.</p></div>
+            <div className="hp-card hp-benefit"><span className="hp-ico" aria-hidden="true">◎</span><h3>The right people find you</h3><p>Clips are picked for your goal: new listeners for the show, or future clients for your business.</p></div>
+            <div className="hp-card hp-benefit"><span className="hp-ico" aria-hidden="true">▤</span><h3>You see what works</h3><p>Real view and engagement numbers you can share with guests or sponsors.</p></div>
+            <div className="hp-card hp-benefit"><span className="hp-ico" aria-hidden="true">⇄</span><h3>No lock-in</h3><p>Month to month, pause for up to 60 days, and every clip is yours to keep if you leave.</p></div>
           </div>
-            <div className="testimonial-mini">
-              <p>"Working with SLK Media has been an amazing experience. As someone juggling multiple platforms, they took a huge burden off my shoulders and freed up my time. The process became easier and the content quality improved."</p>
-            <span className="testimonial-author"> - Shatavia Green, Conjure Queen Podcast (100K+ YouTube subscribers, Silver Play Button)</span>
-            </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="how-it-works" id="process">
+      {/* What's included */}
+      <section className="hp-section hp-included">
         <div className="container">
-          <h2 className="section-title">How The Podcast Multiplier™ Works</h2>
-          <div className="process-steps">
-            <div className="step">
-              <div className="step-content">
-                <div className="step-icon">
-                  <i className="fas fa-chess"></i>
-                </div>
-                <h3>Strategy First</h3>
-                <p>We study your niche, look at what similar shows post, and map a 90-day content calendar: which clips to make, where to post them, and when.<br /><br /><strong>Deliverable:</strong> Full strategy report giving you clarity on what to expect in the coming weeks/months</p>
+          <p className="hp-kicker">What you get</p>
+          <h2 className="section-title">Everything after the recording, done for you.</h2>
+          <div className="hp-feat-grid">
+            <ul className="hp-incl">
+              <li>Short clips from every episode you send</li>
+              <li>A custom thumbnail for every clip</li>
+              <li>Captions, hashtags and a call to action for every clip</li>
+              <li>Every clip posted on every platform</li>
+              <li>A dedicated project manager</li>
+              <li>Regular calls and performance reports</li>
+              <li>A strategy document before the first clip</li>
+              <li>Full episode edits if you want them</li>
+            </ul>
+            <div className="hp-report" aria-label="Example report layout">
+              <div className="hp-report-head"><strong>Weekly report</strong><span>Views per clip</span></div>
+              <div className="hp-bars" aria-hidden="true">
+                <span style={{ height: '38%' }}></span><span style={{ height: '52%' }}></span><span style={{ height: '44%' }}></span><span style={{ height: '71%' }}></span><span style={{ height: '63%' }}></span><span style={{ height: '92%' }}></span><span style={{ height: '80%' }}></span>
               </div>
-              <div className="step-number">1</div>
-            </div>
-            <div className="step">
-              <div className="step-content">
-                <div className="step-icon">
-                  <i className="fas fa-magic"></i>
-                </div>
-                <h3>Content Multiplication</h3>
-                <p>Our team cuts your episodes into 20 finished clips a month, or more if you add extra clips. We don't edit in order. We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode.<br /><br /><strong>Output:</strong> We don't just edit. We turn your podcast into an omnipresent content machine.
-                </p>
-              </div>
-              <div className="step-number">2</div>
-            </div>
-            <div className="step">
-              <div className="step-content">
-                <div className="step-icon">
-                  <i className="fas fa-hand-holding-usd"></i>
-                </div>
-                <h3>Posting & Weekly Reports</h3>
-                <p>We write the captions, add a custom thumbnail, post every clip on your platforms on the schedule we agree with you, and send a weekly report on how each clip performed.<br /><br /><strong>Result:</strong> You show up on every platform, every week, without opening an editor or a scheduler</p>
-              </div>
-              <div className="step-number">3</div>
+              <p className="hp-note">Example layout, not client data</p>
             </div>
           </div>
-          <div className="cta-center">
-            <Link href="/portfolio" className="secondary-cta" target="_blank" rel="noopener">See Portfolio</Link>
-          </div>
+          <p className="hp-note hp-platforms">Platforms: LinkedIn, YouTube Shorts, Instagram, TikTok, Facebook and X.</p>
         </div>
       </section>
 
-      {/* Case Studies Showcase */}
+      {/* Case Studies Showcase (cards unchanged from the previous home page) */}
       <section className="case-showcase" id="case-studies">
         <div className="container">
           <h2 className="section-title">Real Clients. <span className="highlight">Real Results.</span></h2>
@@ -309,29 +294,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonial Carousel */}
-      <section className="testimonials">
+      {/* Testimonials */}
+      <section className="testimonials hp-quotes">
         <div className="container">
-          <div className="testimonial-carousel">
-            <div className="testimonial-slide active">
-              <p className="testimonial-text">"I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams I want to do business with for a long time. The quality of the short reels has been surprising, and the communication, support, and professionalism."</p>
-              <div className="testimonial-author">Brian Burton, Waste No Day Podcast</div>
-            </div>
-            <div className="testimonial-slide">
-              <p className="testimonial-text">"I've been really amazed at the quality of the content they produce. Since launch we've consistently grown our audience ahead of expectations, and we're driving really good metrics in reactions and engagement. I count SLK among our most valued agency partners."</p>
-              <div className="testimonial-author">David Hetling, Marketing Director, RWS Group</div>
-            </div>
-            <div className="testimonial-slide">
-              <p className="testimonial-text">"I'm highly impressed with the level of communication and transparency when you're working with SLK Media. What really impressed me was the expertise they bring. We saw significant growth in all the social media and online accounts we used them for."</p>
-              <div className="testimonial-author">Julien Recoussine, SalesFix</div>
-            </div>
-          </div>
-          <div className="carousel-controls">
-            <button className="control prev" type="button" aria-label="Previous testimonial"><i className="fas fa-chevron-left" aria-hidden="true"></i></button>
-            <button className="control next" type="button" aria-label="Next testimonial"><i className="fas fa-chevron-right" aria-hidden="true"></i></button>
+          <div className="hp-quote-grid">
+            <figure className="hp-card"><blockquote>&ldquo;I have several teams across three different businesses and I consider you one of the &lsquo;A-Players&rsquo; on the teams I want to do business with for a long time. The quality of the short reels has been surprising, and the communication, support, and professionalism.&rdquo;</blockquote><figcaption>Brian Burton, Waste No Day Podcast</figcaption></figure>
+            <figure className="hp-card"><blockquote>&ldquo;I&apos;ve been really amazed at the quality of the content they produce. Since launch we&apos;ve consistently grown our audience ahead of expectations, and we&apos;re driving really good metrics in reactions and engagement.&rdquo;</blockquote><figcaption>David Hetling, Marketing Director, RWS Group</figcaption></figure>
+            <figure className="hp-card"><blockquote>&ldquo;Working with SLK Media has been an amazing experience. As someone juggling multiple platforms, they took a huge burden off my shoulders and freed up my time. The process became easier and the content quality improved.&rdquo;</blockquote><figcaption>Shatavia Green, Conjure Queen Podcast</figcaption></figure>
           </div>
           <div className="video-testimonials">
-            <h3 className="video-testimonials-title">See What Our Clients Say</h3>
+            <h3 className="video-testimonials-title">Hear It From Them</h3>
             <div className="client-videos">
               <div
                 className="client-video ar-11"
@@ -376,324 +348,94 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="comparison">
+      {/* Objections */}
+      <section className="hp-section hp-objections">
         <div className="container">
-          <h2 className="section-title">Why Growth-Focused Podcasters Choose The Podcast Multiplier™</h2>
-          <div className="table-container">
-            <table className="comparison-table">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>AI Tools ($30-100/mo)</th>
-                  <th>Freelancers ($200-800/mo)</th>
-                  <th>The Podcast Multiplier™</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-label="Feature">Strategy</td>
-                  <td data-label="AI Tools"><span className="indicator negative">❌ No strategy</span></td>
-                  <td data-label="Freelancers"><span className="indicator warning">⚠️ Task-based only</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ A strategy for your show</span></td>
-                </tr>
-                <tr>
-                  <td data-label="Feature">Quality</td>
-                  <td data-label="AI Tools"><span className="indicator negative">❌ Robotic, contextless</span></td>
-                  <td data-label="Freelancers"><span className="indicator warning">⚠️ Variable quality</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ On-brand, ready to post</span></td>
-                </tr>
-                <tr>
-                  <td data-label="Feature">Time Investment</td>
-                  <td data-label="AI Tools"><span className="indicator warning">⚠️ 3-5 hrs/week cleanup</span></td>
-                  <td data-label="Freelancers"><span className="indicator warning">⚠️ 2-4 hrs/week managing</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ 1 hr/week strategy calls</span></td>
-                </tr>
-                <tr>
-                  <td data-label="Feature">Reporting</td>
-                  <td data-label="AI Tools"><span className="indicator negative">❌ Basic analytics</span></td>
-                  <td data-label="Freelancers"><span className="indicator negative">❌ No reporting</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Weekly performance reports</span></td>
-                </tr>
-                <tr>
-                  <td data-label="Feature">Built Around Your Goals</td>
-                  <td data-label="AI Tools"><span className="indicator negative">❌ Algorithm-driven</span></td>
-                  <td data-label="Freelancers"><span className="indicator negative">❌ Not their focus</span></td>
-                  <td data-label="Podcast Multiplier"><span className="indicator positive">✅ Every clip decision</span></td>
-                </tr>
-              </tbody>
-            </table>
+          <p className="hp-kicker">What podcasters ask us before they sign</p>
+          <h2 className="section-title">Before you decide</h2>
+          <div className="features hp-obj-grid">
+            <div className="hp-card"><h3>&ldquo;OpusClip does this for $30.&rdquo;</h3><p>It makes a first cut. You still choose, fix, caption and post every clip. If a monthly budget isn&apos;t realistic yet, use it. We&apos;ll tell you that on the call.</p></div>
+            <div className="hp-card"><h3>&ldquo;A freelancer is cheaper.&rdquo;</h3><p>A freelancer edits what you send and waits for your notes. We own the plan, the posting and the report, so there is nobody for you to manage.</p></div>
+            <div className="hp-card"><h3>&ldquo;What if it doesn&apos;t work?&rdquo;</h3><p>You see every clip&apos;s numbers, so you judge us on data. Month to month: cancel with 14 days&apos; notice, or pause up to 60 days.</p></div>
+            <div className="hp-card"><h3>&ldquo;I don&apos;t have time for another vendor.&rdquo;</h3><p>Your part is uploading episodes and a short check-in call. We handle the rest.</p></div>
+            <div className="hp-card"><h3>&ldquo;My niche is too specific.&rdquo;</h3><p>We&apos;ve made clips for a Corvette show, a spiritual coaching podcast, B2B sales training and a biotech institute. New niches get researched during onboarding.</p></div>
+            <div className="hp-card"><h3>&ldquo;I only publish once a month.&rdquo;</h3><p>That works. We plan the clips around how often you publish, and agree it with you on the call.</p></div>
           </div>
-          <p style={{ textAlign: 'center', marginTop: '30px', fontSize: '18px' }}><strong>The difference:</strong> We work like part of your team, not a vendor you have to manage. Every clip decision is filtered through: <em>"Will this help the right people find the show?"</em></p>
         </div>
       </section>
 
-      {/* Qualification Section */}
-      <section className="qualification">
+      {/* Offer: terms only, no packages, no prices, no clip counts */}
+      <section className="hp-section hp-offer">
         <div className="container">
-          <h2 className="section-title">Is The Podcast Multiplier™ Right for Your Show?</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginTop: '40px' }}>
-            <div>
-              <h3 style={{ color: '#10b981', marginBottom: '20px' }}>✅ This is for you if:</h3>
-              <div className="qualification-list">
-                <div className="qualification-item">
-                  <i className="fas fa-check"></i>
-                  <p>Publishing 2+ episodes/month for 6+ months (minimum 15 episodes live)</p>
-                </div>
-                <div className="qualification-item">
-                  <i className="fas fa-check"></i>
-                  <p>Ready to invest in professional-grade content production</p>
-                </div>
-                <div className="qualification-item">
-                  <i className="fas fa-check"></i>
-                  <p>Goal: Turn your podcast into a real revenue channel</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 style={{ color: '#ef4444', marginBottom: '20px' }}>❌ This is NOT for you if:</h3>
-              <div className="qualification-list">
-                <div className="qualification-item">
-                  <i className="fas fa-times"></i>
-                  <p>Just launched your podcast (fewer than 15 episodes published)</p>
-                </div>
-                <div className="qualification-item">
-                  <i className="fas fa-times"></i>
-                  <p>Treating podcasting as a hobby or experimental side project</p>
-                </div>
-                <div className="qualification-item">
-                  <i className="fas fa-times"></i>
-                  <p>Exploring options or "seeing what's out there"</p>
-                </div>
-              </div>
-            </div>
+          <p className="hp-kicker">The offer</p>
+          <h2 className="section-title">Your own clip team, on terms that don&apos;t tie you down.</h2>
+          <p className="hp-sub hp-center">On the call we look at how often you publish and what you want the podcast to do, then agree a plan that fits your show.</p>
+          <div className="features hp-terms">
+            <div className="hp-card"><span className="hp-ico" aria-hidden="true">↻</span><h3>Month to month</h3><p>No long contract. Cancel with 14 days&apos; notice.</p></div>
+            <div className="hp-card"><span className="hp-ico" aria-hidden="true">II</span><h3>Pause up to 60 days</h3><p>Taking a break from recording? Pause instead of cancelling.</p></div>
+            <div className="hp-card"><span className="hp-ico" aria-hidden="true">✓</span><h3>You own every clip</h3><p>Everything we make is yours to keep, including if you leave.</p></div>
+            <div className="hp-card"><span className="hp-ico" aria-hidden="true">⚡</span><h3>First clips in 3 to 5 days</h3><p>Business days after onboarding.</p></div>
           </div>
-          <p className="disclaimer" style={{ marginTop: '40px', textAlign: 'center', fontSize: '16px', color: '#ffffff' }}><strong>Not sure yet?</strong> Book a strategy call and we will tell you honestly whether your show is a fit. If a monthly content budget is not realistic for your show yet, Descript or OpusClip will serve you better for now, no hard feelings.</p>
+          <div className="hp-prepay"><span className="hp-pct">10% off</span><p>Prepay 3 months or more and save 10% on our normal prices.</p></div>
+          <div className="cta-center">
+            <a href={STRMEET} className="primary-cta hp-btn-shine" target="_blank" rel="noopener">Book a strategy call</a>
+          </div>
         </div>
       </section>
 
-      {/* Mid-Page CTA */}
-      <section className="mid-cta">
+      {/* Who it's for */}
+      <section className="hp-section hp-fit">
         <div className="container">
-          <h2>Ready to Scale Your Podcast?</h2>
-          <p style={{ margin: '20px 0', fontSize: '18px' }}>You'll speak directly with our founder, Samuel LK. We'll discuss your content, your goals, and whether we're the right fit. <strong>This is NOT a sales pitch.</strong> If we don't think we're the right fit for your show, we'll tell you.</p>
-          <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
+          <h2 className="section-title">Is this right for your show?</h2>
+          <div className="hp-fit-grid">
+            <div className="hp-card hp-fit-yes"><h3>A good fit if</h3><ul><li>You publish regularly and plan to keep going</li><li>You want the podcast to bring in listeners or clients</li><li>You have a monthly budget for content</li></ul></div>
+            <div className="hp-card hp-fit-no"><h3>Not a fit yet if</h3><ul><li>The show is a hobby or a test</li><li>You want guaranteed views or sponsors</li></ul></div>
+          </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <section className="faq" id="faq">
         <div className="container">
           <h2 className="section-title">Frequently Asked Questions</h2>
           <div className="accordion">
+            {FAQ.map(([q, a]) => (
+              <div className="accordion-item" key={q}>
+                <div className="accordion-header">
+                  <h3>{q}</h3>
+                  <span className="accordion-icon"><i className="fas fa-plus"></i></span>
+                </div>
+                <div className="accordion-content"><p>{a}</p></div>
+              </div>
+            ))}
             <div className="accordion-item">
               <div className="accordion-header">
-                <h3>How is this different from Descript or OpusClip?</h3>
+                <h3>Can I see your work first?</h3>
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Short answer:</strong> AI tools are for podcasters testing the waters with content repurposing. The Podcast Multiplier™ is for podcasters who are serious about growing their show or their business.</p>
-                <p><strong>Long answer:</strong> AI tools optimize for engagement metrics (watch time, likes, shares). They clip moments that the algorithm THINKS are interesting - usually loud moments, laughter, or high-energy segments.</p>
-                <p><strong>The Podcast Multiplier™ picks clips for the people you want to reach.</strong> We clip moments that show: Authority (you're an expert, not just entertaining), A complete idea (a viewer gets something useful in under a minute), A reason to go further (hear the full episode, or get in touch with you).</p>
-                <p><strong>Bottom line:</strong> AI tools still leave the picking, fixing and posting to you. We do all of it, so you get your time back.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Why not just hire a freelancer on Fiverr for $200/month?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p>Because <strong>you're not buying editing hours. You're buying the whole job, done.</strong></p>
-                <p><strong>Freelancers on Fiverr give you:</strong> Task-based labor (you tell them what to do), inconsistent quality (depends on their mood, workload, skill level), zero strategy (they edit what you send, with no plan behind it), management burden (you're revising, giving feedback, chasing deadlines).</p>
-                <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), a plan behind every clip (each one picked for the people you want to reach), full autonomy (we run on autopilot after Week 1).</p>
-                <p><strong>The real difference:</strong> a freelancer costs you management time on top of their fee, and still leaves you as the bottleneck. We take the whole job off your desk.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Do you guarantee downloads, views or sponsors?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>No, and you should run from anyone who does.</strong></p>
-                <p>Here's why: We control content production and posting. We don't control: Your recording quality, guest selection, or topic relevance; How each platform chooses to show your clips; Market conditions in your niche.</p>
-                <p><strong>What we DO commit to:</strong> 20 professionally edited clips a month (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did. We never promise downloads, views or sponsors.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>What if I'm not comfortable sharing episode files with a third party?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p>We sign NDAs for all clients. Your content, guest information, and strategic plans are 100% confidential. We've worked with: Corporate podcasts discussing unreleased product strategies, Health professionals navigating HIPAA compliance, Financial advisors with client confidentiality requirements.</p>
-                <p><strong>You retain 100% ownership</strong> of all content we create. If you leave, you keep everything forever.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Can you work with my niche? I do [very specific topic].</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>Yes.</strong> We've produced content for: B2B SaaS and sales podcasts, Health, wellness, and nutrition experts, Financial planning and investing shows, Real estate and entrepreneurship podcasts, Comedy, storytelling, and true crime shows, Technical deep-dives (AI, blockchain, biotech).</p>
-                <p>If your podcast is in a niche we haven't tackled, we research it until we're experts. That's included in onboarding.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>What's your cancellation policy?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>Month-to-month. Cancel anytime before your next billing cycle. Zero penalties.</strong></p>
-                <p>We don't trap clients in contracts because we don't need to. Clients stay because the work keeps earning its place, not because a contract says they have to.</p>
-                <p><strong>Can I pause instead of canceling?</strong> Yes. Pause for up to 60 days. No questions asked.</p>
-                <p><strong>Notice period:</strong> Give us 14 days' notice so we can finish any in-progress work.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>What if I only publish 1 episode per month?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>Honest answer:</strong> We work best with shows publishing <strong>2-4 episodes/month.</strong></p>
-                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
-                <p>We're happy to strategize on increasing output sustainably - many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Can I see examples of your work before committing?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>Absolutely.</strong> Check out our portfolio: <Link href="/portfolio" target="_blank" rel="noopener">View Client Work</Link></p>
-                <p>You'll see before/after examples from: SaaS/B2B podcasts, Health/wellness shows, Entrepreneurship content, Multiple niches with different brand styles.</p>
-                <p><strong>Want to see examples specific to your niche?</strong> Mention it on your strategy call and we'll pull relevant samples.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Do you help with sponsor outreach, or just content?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p>We don't do outreach for you (cold emailing brands, negotiating rates, closing deals). We make the content and post it.</p>
-                <p><strong>What you do get:</strong> Clips that show your expertise, posted every week, and a weekly report with real view and engagement numbers you can share with anyone you work with.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>How long before I see results?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>If "results" = finished clips:</strong> that part is in our hands. Every package includes 20 clips a month (more if you add extra clips) and we deliver it on the schedule agreed at onboarding.</p>
-                <p><strong>If "results" = more listeners, more views or new clients:</strong> we can't promise a number or a date, and nobody honestly can. What we do promise is the work: the clips, posted on schedule, with a weekly report so you can see exactly what is happening.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>What platforms do you post on?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>Wherever your audience spends time:</strong> LinkedIn, YouTube (Shorts & full), Instagram (feed, reels, stories), TikTok, Facebook, X (Twitter), and more.</p>
-                <p>Don't know which platforms to focus on? We'll recommend based on your niche and who you want to reach.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>How many clips do I get?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p>We count clips per month, not per episode. Every package comes with 20 clips a month, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>What's your turnaround time?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p>Your first clips arrive within 3 to 5 business days after onboarding. After that we deliver on the schedule we agree with you at onboarding.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Can I get a discount if I commit to 6-12 months upfront?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>Yes. 10% off for 3+ month prepayment.</strong></p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Will I still "own" my content and files?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>100%.</strong> Everything we create for you is yours to keep, forever, no matter what.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Do you provide analytics or growth reports?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p>Yes. We track and report weekly on: Which clips got the most views and engagement, Platform performance comparison, Recommendations for next week.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Is this confidential? I don't want competitors to know I use you.</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><strong>100% confidential.</strong> We never share your info or project details without permission.</p>
-              </div>
-            </div>
-
-            <div className="accordion-item">
-              <div className="accordion-header">
-                <h3>Didn't see your question?</h3>
-                <span className="accordion-icon"><i className="fas fa-plus"></i></span>
-              </div>
-              <div className="accordion-content">
-                <p><a href="https://link.slkmediaagency.com/strmeet" target="_blank" rel="noopener">Book a strategy call</a> and ask us directly.</p>
+                <p>Yes, on the <Link href="/portfolio">portfolio page</Link>. Ask on the call and we&apos;ll pull examples from your niche.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <section className="footer-cta" id="contact">
+      {/* Final CTA */}
+      <section className="footer-cta hp-final" id="contact">
         <div className="container">
-          <h2>You record once. We handle everything after.</h2>
-          <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Book Strategy Call - Qualified Shows Only</a>
+          <div className="hp-final-grid">
+            <div className="hp-final-copy">
+              <h2 className="hp-headline">You record once. <span className="hp-shine">We handle everything after.</span></h2>
+              <p className="hp-sub">Book a strategy call with Samuel LK, our founder. He looks at your show, tells you which plan fits or whether a cheaper tool makes more sense for now, and answers every question. If we&apos;re not the right fit, he&apos;ll say so.</p>
+              <div className="hp-cta-row"><a href={STRMEET} className="primary-cta hp-btn-shine" target="_blank" rel="noopener">Book a strategy call</a></div>
+            </div>
+            <div className="hp-mini-wall" aria-hidden="true">
+              <Clip className="hp-mini" src="/portfolio/Clip-5.mp4" poster="/portfolio/thumbnails/Clip-5.jpg" />
+              <Clip className="hp-mini" src="/portfolio/Brian-Before-After.mp4" poster="/portfolio/thumbnails/Brian-Before-After.jpg" />
+              <Clip className="hp-mini" src="/portfolio/Clip-6.mp4" poster="/portfolio/thumbnails/Clip-6.jpg" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -735,8 +477,8 @@ export default function HomePage() {
       {/* Sticky CTA */}
       <div className="sticky-cta">
         <div className="container">
-          <p>Month to month, no contract. See if your show is a fit.</p>
-          <a href="https://link.slkmediaagency.com/strmeet" className="primary-cta" target="_blank" rel="noopener">Check Availability & Book Now</a>
+          <p>Month to month. First clips 3 to 5 business days after onboarding.</p>
+          <a href={STRMEET} className="primary-cta" target="_blank" rel="noopener">Book a strategy call</a>
         </div>
       </div>
     </>

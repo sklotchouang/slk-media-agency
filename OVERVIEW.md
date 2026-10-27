@@ -195,7 +195,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 | Route | File | Purpose | CTA(s) |
 |---|---|---|---|
-| `/` | `app/(main)/page.js` | Home, long-form sales. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book Strategy Call (strmeet) only |
+| `/` | `app/(main)/page.js` | Home, long-form sales. Rebuilt 2026-10-27 as "home v3" (see "Home page v3" in section 9): headline B, real client clips with motion, no packages, no prices, no clip counts. Carried a pricing section until 2026-09-01, when every price was removed from it. | Book a strategy call (strmeet) only |
 | `/portfolio` | `app/(main)/portfolio/page.js` | Clip showreel grid | strmeet |
 | `/portfolio/audio-only` | `app/(main)/portfolio/audio-only/page.js` | Showcase for audio-only podcasts (added 2026-10-23, replaces the Canva deck sent to prospects). Two sections: "Before and after" (3 vertical composites, `BEFORE_AFTER` constant; Mindset Neuroscience was removed on 2026-10-23 because it is not an audio-only show) and "Finished clips from audio-only shows" grouped by show (`SHOWS` constant: Corvette Today x3, Byte-Sized Biographies x3). Clips autoplay muted while on screen (`data-autoplay`) and keep their audio track; each card has a "Tap for sound" button (`components/ClipSoundToggles.js`), one clip heard at a time. Styles: the `.ao-page` block at the end of `premium.css`. Indexed, not in the nav, not linked from `/portfolio` yet. | strmeet, plus a link to /portfolio |
 | `/testimonials` | `app/(main)/testimonials/page.js` | Testimonial grid + videos | strmeet |
@@ -350,6 +350,8 @@ They are outside the premium re-skin. Restyling them means editing each independ
 | `components/PromoPricingCalculator.js` | client | Build your plan on `/pricing/promotion`, promotion prices in its `PRICE` constant, the normal `/pricing` price struck through on Done For You and Plus. A copy of `PricingCalculator.js`; `/pricing` does not use it. |
 | `components/CaseStudy.js` | server | Shared template for all six case study pages (nav, hero, before/after columns, footer). Each page passes a data object. |
 | `components/ClipSoundToggles.js` | client | `/portfolio/audio-only` only: wires every `[data-sound-toggle]` button to the video in its `.ao-card`. Unmuting a clip restarts it with sound and mutes all others. Renders nothing. |
+| `components/ClipChecklist.js` | client | `/` only: the "Clipping is a second job" card. Steps tick themselves off every 700ms, then restart for the next platform and the next clip. Runs only while on screen; static (three steps ticked) under reduced motion. |
+| `components/ClipCostCalculator.js` | client | `/` only: "What does clipping cost you now?" The visitor types hours a week and an hourly value; shows the monthly hours and dollar value. Starting values (5 hours, $100) are labelled as an example. Quotes no SLK Media Agency price. |
 | `components/fonts.js` | module | Sets up self-hosted Inter via `next/font` and exports the class name applied in the layouts. |
 
 ---
@@ -456,6 +458,21 @@ The audience-qualification copy was deliberately unfrozen once and rewritten, at
 What was deliberately **kept**, because it filters on the approved axis rather than on size: publishing cadence and tenure ("2+ episodes/month for 6+ months", "minimum 15 episodes live", "we work best with shows publishing 2-4 episodes/month"), the hobby and side-project exclusion, the "exploring options" exclusion, and the "if we don't think we can deliver 3X ROI, we'll tell you to wait" line (that last one was replaced on 2026-10-12 by "if we don't think we're the right fit for your show, we'll tell you", because Samuel ruled out outcome promises). The Descript and OpusClip recommendation was kept too, but re-anchored from a download threshold to budget readiness.
 
 If you are asked to touch this copy again, keep the filter and keep it on that axis.
+
+### Home page v3, 2026-10-27
+
+Samuel approved a rewrite of `/` on 2026-10-27 after three mockup rounds (the mockup was a private claude.ai artifact, "Homepage Copy Proposal"). Frozen copy was deliberately unfrozen for it. Rules he set that the page must keep:
+
+- **No packages, no prices and no clip counts on `/`.** No package names (Starter, Done For You, Plus), no dollar amounts for SLK Media Agency, and no "20 clips" or "10 clips" anywhere, including FAQ answers and motion labels. Clip numbers are agreed on the strategy call. (Outreach may still pitch a number; the homepage must not.)
+- **Headline B:** "Your episodes already hold a month of content. We cut it, post it and report on it."
+- **Client results stay in the original case cards** (`case-showcase` section, wording and stats unchanged: Silver Play Button, 2x engagement, 8-12 clips/episode, 800+ views/short, 11.9K subscribers, 599+ episodes). Samuel rejected showing weekly view numbers on the homepage.
+- **The 10% prepay offer stays**, worded "on our normal prices"; it does not combine with a promotion (Samuel, 27 Oct 2026). It is in the offer block and the FAQ, and in `docs/pricing-promotion-spec.md`.
+- **"Not a fit yet"** lists only "hobby or a test" and "want guaranteed views or sponsors". No episode minimum or recency rule, so nobody gets scared off.
+- **Removed** from the old page: the "grown from 1.82K to over 100K" line (it mixed two clients), the unsourced "10-20 hours/week ($2,000-$5,000)", "300-800 views" and "3-5 hrs/week cleanup" figures, the AI-tools/freelancer comparison table (replaced by the "Before you decide" objection cards), the 15-episode minimum, the mid-page CTA and the testimonial carousel (replaced by three quote cards). David Hetling's quote is trimmed before "I count SLK among..." because the full sentence uses "SLK" alone.
+
+Structure, top to bottom: hero (copy left, three floating phones playing `Clip-1/2/3.mp4` with notification toasts right, then a scrolling wall of eight vertical clips), problem (three cards, `ClipChecklist`, `ClipCostCalculator`), how it works (five steps plus `Steve-Before-After.mp4`), benefits, what's included (with an example report chart, labelled "not client data"), case cards, quote cards plus the five video testimonials, objections, offer (terms only plus the 10% prepay line), fit, FAQ (10 items), final CTA with a tilted three-clip wall, sticky bar.
+
+How it is built: every new class starts `hp-` and all styles live in section 18 at the end of `public/premium.css`, scoped under `.home-v3` (on `<main>`). Looping clips are written as raw HTML through the `Clip` helper in `page.js` (React drops `muted` in server HTML, which blocks autoplay) and carry `data-autoplay`, so `SiteBehaviors` plays them only while on screen; they have no `autoplay` attribute and `preload="none"`. Looping animations (floating phones, bobbing toasts, the clip wall, headline shine, button sweep, report bars) only run under `html[data-motion="on"]`, which `MotionLayer` sets only when reduced motion is off. Animations always sit on inner wrappers, never on direct children of a `.container`, because `MotionLayer` owns the reveal transform on those. Only use 9:16 clips in the phones, the wall and the mini-wall: `Clip-8` and `Clip-9` are 16:9 and get cut off, so check the shape of any other clip before using it there.
 
 ### All prices removed from `/` and `/podcast-multiplier`, 2026-09-01
 

@@ -51,6 +51,14 @@ Which to suggest (from the page FAQ): Starter for 1 or 2 episodes a month. Done 
 - Done For You Plus (Promo), $1,597/month: https://pay.myfundbox.com/OVP/?token=ap4vMqLYmIo6jPOsQ5RLzA
 - The old /pricing checkouts (tokens nqEFAw0ZzvYeM2sHwa0ABw, YqnycQ4nQ-hWYXg64XvGBg, xAlmD9YT1xUcuR5nBQPv_g) charge the normal prices and must not be sent to prospects during the promotion. There is no promotion checkout for Done With You.
 
+## Prepay discount (set by Samuel in writing on 27 October 2026)
+
+- 10% off the monthly price when a client prepays 3 months or more.
+- It applies to the normal prices only: Done For You Starter normal $997 becomes $897.30/month prepaid, Done For You normal $1,597 becomes $1,437.30, Done For You Plus normal $1,897 becomes $1,707.30, Done With You normal $997 becomes $897.30.
+- It does not combine with the current promotion prices ($697 / $997 / $1,597). Never present it as a cut to a promotion price.
+- There is no prepay checkout link. Prepaid deals are arranged on the strategy call: https://link.slkmediaagency.com/strmeet
+- Agents mention it only when a prospect asks about discounts, longer commitments or paying upfront, never unprompted.
+
 ## Not changed
 
-No free work, no free trial, no discount beyond these published promotion prices, no guarantees of views, downloads or sponsors. Turnaround: first clips 3 to 5 business days after onboarding. The paid Custom Social Media Strategy Report and the toolkits are unchanged.
+No free work, no free trial, no discount beyond these published promotion prices except the prepay discount above, no guarantees of views, downloads or sponsors. Turnaround: first clips 3 to 5 business days after onboarding. The paid Custom Social Media Strategy Report and the toolkits are unchanged.
