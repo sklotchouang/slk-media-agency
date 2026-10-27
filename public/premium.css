@@ -3769,3 +3769,13 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 .cs-section .testimonial-mini {
   padding-left: 58px;
 }
+
+/* CTA note: when the line wraps on phones, the icon stays with the text. */
+.cs-cta-note {
+  display: block;
+  text-align: center;
+}
+
+.cs-cta-note i {
+  margin-right: 8px;
+}
