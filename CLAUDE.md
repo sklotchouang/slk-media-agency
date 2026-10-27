@@ -13,7 +13,7 @@ Whenever you change the website, update `OVERVIEW.md` in the same change so the 
 ## Guardrails specific to this site
 
 - Copy, CTAs, links, prices, disclosures, and legal identifiers are frozen. Do not change any text node or `href` unless explicitly asked.
-- Company name is always "SLK Media Agency" in full. Never "SLK" or "SLK Media".
+- Company name is always "SLK Media Agency" or "SLK Media". Never "SLK" alone (Samuel, 27 Oct 2026).
 - No em dashes and no en dashes anywhere. Use commas, colons, periods, and parentheses.
 - A Stop hook (`.claude/hooks/auto-commit-push.ps1`) auto-commits and pushes every session, which redeploys the live site. Treat edits as going to production.
 - Most visual changes go in `public/premium.css` (the re-skin layer loaded on top of the legacy stylesheets), not the large legacy CSS files.
