@@ -40,7 +40,7 @@ const data = {
   profileChipIcon: 'fab fa-youtube',
   profileChip: 'YouTube Shorts generating hundreds of views',
   profileStats: [
-    { number: '1.82K', label: 'YouTube Subscribers' },
+    { number: '2,560', label: 'YouTube Subscribers, 27 Oct 2026' },
     { number: '8-12', label: 'Clips Per Episode' },
     { number: 'Target', label: 'Trade Business Owners' },
   ],
@@ -99,12 +99,15 @@ const data = {
     poster: '/thumbnails/Brian Burton - Blue Collar Closer.png',
     aspect: 'ar-169',
   },
-  resultChip: { icon: 'fab fa-youtube', text: '1.82K Subscribers' },
+  resultChip: { icon: 'fab fa-youtube', text: '2,560 Subscribers (27 Oct 2026)' },
   testimonialQuote:
     '"I have several teams across three different businesses and I consider you one of the \'A-Players\' on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising. And also the communication, definitely the support, the communication, and professionalism."',
   person: { initials: 'BB', name: 'Brian Burton', role: 'Founder, Blue Collar Closer' },
   resultsHeading: 'Results That Speak for Themselves',
   results: [
+    { icon: 'fas fa-rocket', title: 'Five Shorts, Week of 7 September 2026', text: (<>All five new Shorts we made that week reached between <strong>1,010</strong> and <strong>1,125</strong> views each, 17 to 18 times Brian's typical Short at the time.</>) },
+    { icon: 'fab fa-facebook', title: 'Facebook Impressions, Week of 11 May 2026', text: (<>Facebook impressions went from <strong>1,363</strong> (week of 4 May) to <strong>18,729</strong> (week of 11 May 2026).</>) },
+    { icon: 'fas fa-film', title: '97 Clips Delivered', text: (<><strong>97</strong> edited clips delivered between <strong>3 July</strong> and <strong>22 October 2026</strong> (the period our delivery system has recorded).</>) },
     { icon: 'fas fa-expand-arrows-alt', title: 'Time Reclaimed', text: (<>SLK Media handles <strong>100% of video editing</strong> and distribution strategy. Brian can focus on coaching clients and recording content, not becoming a video editor.</>) },
     { icon: 'fas fa-clock', title: 'Consistent Social Presence', text: (<><strong>8-12 high-quality clips</strong> per episode, published across multiple platforms. Brian's content now appears where his ideal clients are actively scrolling.</>) },
     { icon: 'fas fa-chart-bar', title: 'Increased Visibility', text: (<>YouTube Shorts generating <strong>hundreds to thousands of views</strong> each. "PRICE WAS NEVER THE OBJECTION" hit 802 views, "OUTSELL THE CHEAP COMPETITOR!" reached 812 views.</>) },

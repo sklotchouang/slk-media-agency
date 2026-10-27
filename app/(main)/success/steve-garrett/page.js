@@ -30,7 +30,7 @@ const data = {
   heroMeta: [
     { icon: 'fab fa-youtube', text: 'Corvette Today Podcast' },
     { icon: 'fas fa-microphone', text: 'Automotive Enthusiasts' },
-    { icon: 'fas fa-users', text: '11.9K Subscribers' },
+    { icon: 'fas fa-users', text: '13,900 YouTube Subscribers (27 Oct 2026)' },
   ],
   profileHeading: 'Meet Steve Garrett',
   profileIcon: 'fas fa-podcast',
@@ -38,9 +38,9 @@ const data = {
   profileText:
     'One of the most respected voices in the Corvette community, delivering expert insights to enthusiasts, collectors, and automotive historians.',
   profileChipIcon: 'fab fa-youtube',
-  profileChip: '11.9K YouTube Subscribers',
+  profileChip: '13,900 YouTube Subscribers (27 Oct 2026)',
   profileStats: [
-    { number: '11.9K', label: 'YouTube Subscribers' },
+    { number: '13,900', label: 'YouTube Subscribers, 27 Oct 2026' },
     { number: '599+', label: 'Episodes Published' },
     { number: 'Target', label: 'Corvette Enthusiasts' },
   ],
@@ -99,12 +99,16 @@ const data = {
     poster: '/thumbnails/Steve Garrett - Corvette Today.png',
     aspect: 'ar-169',
   },
-  resultChip: { icon: 'fab fa-youtube', text: '11.9K Subscribers' },
+  resultChip: { icon: 'fab fa-youtube', text: '13,900 Subscribers (27 Oct 2026)' },
   testimonialQuote:
     '"Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we\'ve gained across multiple platforms is incredible."',
   person: { initials: 'SG', name: 'Steve Garrett', role: 'Host, Corvette Today Podcast' },
   resultsHeading: 'Results That Speak for Themselves',
   results: [
+    { icon: 'fas fa-user-plus', title: 'New Subscribers, Week of 15 June 2026', text: (<>New YouTube subscribers went from <strong>34</strong> (week of 8 June) to <strong>109</strong> (week of 15 June 2026). Source: our weekly report for that week.</>) },
+    { icon: 'fas fa-bolt', title: 'Shorts Views, Week of 17 August 2026', text: (<>YouTube Shorts views went from <strong>731</strong> (week of 10 August) to <strong>2,381</strong> (week of 17 August 2026).</>) },
+    { icon: 'fas fa-users', title: 'Subscriptions From Shorts, Week of 12 October 2026', text: (<>Shorts brought in <strong>24</strong> subscriptions, up from <strong>2</strong> the week before (week of 5 October 2026).</>) },
+    { icon: 'fas fa-film', title: '48 Clips Delivered', text: (<><strong>48</strong> edited clips delivered between <strong>16 July</strong> and <strong>23 October 2026</strong> (the period our delivery system has recorded).</>) },
     { icon: 'fas fa-expand-arrows-alt', title: 'Massive Reach Expansion', text: (<>Steve's content now lives on <strong>4+ platforms</strong> instead of just YouTube, reaching completely new audience segments.</>) },
     { icon: 'fas fa-clock', title: 'Zero Extra Time', text: (<>Steve added <strong>zero hours</strong> to his workweek. He records episodes like always while we handle the rest.</>) },
     { icon: 'fas fa-chart-bar', title: 'Algorithm Boost', text: 'Short-form clips feed the social media algorithms, creating momentum that drives traffic back to full episodes.' },
