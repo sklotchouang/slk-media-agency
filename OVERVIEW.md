@@ -219,6 +219,8 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 
 The six case study pages all render the shared `components/CaseStudy.js` template and pass in their own data object. One edit to the template reaches all six.
 
+Their layout is set by section 19 of `public/premium.css` (alignment pass, 2026-10-27), which overrides the legacy grids in `styles.css`. The hero stats (`.cs-hero .stats-band`) and every card grid (`.cs-grid`) are centred flex rows, so any card count stays centred: 4 cards per row, 3 per row when a grid has exactly 3 or 6 cards, 2 per row at 1100px and below, 1 at 600px and below. Adding or removing a card needs no CSS change. The video testimonial block (`.cs-section .t-feature`) stacks on phones (880px and below) with the video first. The same section makes the footer contact row wrap at 1200px and below on every page (it used to scroll sideways, cut off), keeps the pill rows level on the `/success/case-studies` index cards, and narrows the quote and highlight boxes to the 860px intro width.
+
 Two pages show a price: `/pricing` (every plan) and `/podcast-toolkits` (the $103.55 strategy report). `/` and `/podcast-multiplier` state no plan price (stripped 2026-09-01, see section 9). `/podcast-multiplier` still quotes comparison rates only (AI tools $30 to 100/mo, freelancers $200 to 800/mo, a $200/month Fiverr freelancer, $50 to 125/hour opportunity cost); none of those is a plan price.
 
 ### The `/pricing` page, rebuilt 2026-10-16, three packages since 2026-10-19
