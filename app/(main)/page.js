@@ -105,7 +105,7 @@ export default function HomePage() {
           <ul className="nav-menu" id="primary-nav">
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><a href="#process">Process</a></li>
-            <li><a href="#case-studies">Results</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href={STRMEET} className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
@@ -233,6 +233,60 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="testimonials hp-quotes" id="testimonials">
+        <div className="container">
+          <div className="hp-quote-grid">
+            <figure className="hp-card"><blockquote>&ldquo;I have several teams across three different businesses and I consider you one of the &lsquo;A-Players&rsquo; on the teams I want to do business with for a long time. The quality of the short reels has been surprising, and the communication, support, and professionalism.&rdquo;</blockquote><figcaption>Brian Burton, Waste No Day Podcast</figcaption></figure>
+            <figure className="hp-card"><blockquote>&ldquo;I&apos;ve been really amazed at the quality of the content they produce. Since launch we&apos;ve consistently grown our audience ahead of expectations, and we&apos;re driving really good metrics in reactions and engagement.&rdquo;</blockquote><figcaption>David Hetling, Marketing Director, RWS Group</figcaption></figure>
+            <figure className="hp-card"><blockquote>&ldquo;Working with SLK Media has been an amazing experience. As someone juggling multiple platforms, they took a huge burden off my shoulders and freed up my time. The process became easier and the content quality improved.&rdquo;</blockquote><figcaption>Shatavia Green, Conjure Queen Podcast</figcaption></figure>
+          </div>
+          <div className="video-testimonials">
+            <h3 className="video-testimonials-title">Hear It From Them</h3>
+            <div className="client-videos">
+              <div
+                className="client-video ar-11"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<video poster="/video-testimonials/poster-shatavia.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-shatavia.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Shatavia Green</p><p class="video-description">Conjure Queen</p></div>',
+                }}
+              />
+              <div
+                className="client-video ar-169"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<video poster="/video-testimonials/poster-brian.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-brian.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Brian Burton</p><p class="video-description">Waste No Day Podcast</p></div>',
+                }}
+              />
+              <div
+                className="client-video ar-169"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<video poster="/video-testimonials/poster-steve.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-steve.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Steve Garrett</p><p class="video-description">Corvette Today Podcast</p></div>',
+                }}
+              />
+              <div
+                className="client-video ar-169"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<video poster="/video-testimonials/poster-ad-edwards.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-ad-edwards.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">A.D. Edwards</p><p class="video-description">Ingleside Reviews Podcast</p></div>',
+                }}
+              />
+              <div
+                className="client-video ar-916"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    '<video poster="/video-testimonials/poster-preston.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-preston.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Preston Hurd</p><p class="video-description">The Filtered Brew Podcast</p></div>',
+                }}
+              />
+            </div>
+            <div className="view-more-testimonials">
+              <Link href="/testimonials" className="view-more-btn">View More Testimonials</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies Showcase (cards unchanged from the previous home page) */}
       <section className="case-showcase" id="case-studies">
         <div className="container">
@@ -290,60 +344,6 @@ export default function HomePage() {
           </div>
           <div className="cta-center">
             <Link href="/success/case-studies" className="secondary-cta">View All Case Studies</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="testimonials hp-quotes">
-        <div className="container">
-          <div className="hp-quote-grid">
-            <figure className="hp-card"><blockquote>&ldquo;I have several teams across three different businesses and I consider you one of the &lsquo;A-Players&rsquo; on the teams I want to do business with for a long time. The quality of the short reels has been surprising, and the communication, support, and professionalism.&rdquo;</blockquote><figcaption>Brian Burton, Waste No Day Podcast</figcaption></figure>
-            <figure className="hp-card"><blockquote>&ldquo;I&apos;ve been really amazed at the quality of the content they produce. Since launch we&apos;ve consistently grown our audience ahead of expectations, and we&apos;re driving really good metrics in reactions and engagement.&rdquo;</blockquote><figcaption>David Hetling, Marketing Director, RWS Group</figcaption></figure>
-            <figure className="hp-card"><blockquote>&ldquo;Working with SLK Media has been an amazing experience. As someone juggling multiple platforms, they took a huge burden off my shoulders and freed up my time. The process became easier and the content quality improved.&rdquo;</blockquote><figcaption>Shatavia Green, Conjure Queen Podcast</figcaption></figure>
-          </div>
-          <div className="video-testimonials">
-            <h3 className="video-testimonials-title">Hear It From Them</h3>
-            <div className="client-videos">
-              <div
-                className="client-video ar-11"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '<video poster="/video-testimonials/poster-shatavia.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-shatavia.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Shatavia Green</p><p class="video-description">Conjure Queen</p></div>',
-                }}
-              />
-              <div
-                className="client-video ar-169"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '<video poster="/video-testimonials/poster-brian.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-brian.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Brian Burton</p><p class="video-description">Waste No Day Podcast</p></div>',
-                }}
-              />
-              <div
-                className="client-video ar-169"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '<video poster="/video-testimonials/poster-steve.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-steve.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Steve Garrett</p><p class="video-description">Corvette Today Podcast</p></div>',
-                }}
-              />
-              <div
-                className="client-video ar-169"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '<video poster="/video-testimonials/poster-ad-edwards.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-ad-edwards.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">A.D. Edwards</p><p class="video-description">Ingleside Reviews Podcast</p></div>',
-                }}
-              />
-              <div
-                className="client-video ar-916"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '<video poster="/video-testimonials/poster-preston.webp" controls muted playsinline preload="none"><source src="/video-testimonials/testimonial-preston.mp4" type="video/mp4"></video><div class="video-overlay"><p class="client-name">Preston Hurd</p><p class="video-description">The Filtered Brew Podcast</p></div>',
-                }}
-              />
-            </div>
-            <div className="view-more-testimonials">
-              <Link href="/testimonials" className="view-more-btn">View More Testimonials</Link>
-            </div>
           </div>
         </div>
       </section>

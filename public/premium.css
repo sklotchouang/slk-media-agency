@@ -4047,3 +4047,6 @@ html[data-motion="on"] .home-v3 .hp-mini:nth-child(3) { animation-delay: -3.2s; 
   .home-v3 .hp-tile { width: 104px; }
   .home-v3 .hp-calc input { width: 120px; }
 }
+
+/* Home page #testimonials anchor (nav item) lands below the fixed navbar */
+.home-v3 #testimonials { scroll-margin-top: 90px; }
