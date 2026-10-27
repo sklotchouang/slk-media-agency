@@ -21,7 +21,7 @@ import PromoPricingCalculator from '../../../../components/PromoPricingCalculato
 // rollback" in OVERVIEW.md.
 
 const DESCRIPTION =
-  'SLK Media Agency flash promotion for 4 new creators: Done For You Starter at $697 a month (normally $997, 12 clips), Done For You at $997 a month (normally $1,597, 20 clips) or Done For You Plus at $1,597 a month (normally $1,897, 20 clips plus 4 long-form episode edits). Add-ons and a plan calculator.';
+  'SLK Media Agency flash promotion for 4 new creators: Done For You Starter at $697 a month (normally $997, 10 clips, monthly call and report), Done For You at $997 a month (normally $1,597, 20 clips) or Done For You Plus at $1,597 a month (normally $1,897, 20 clips plus 4 long-form episode edits). Add-ons and a plan calculator.';
 
 const SHARE_DESCRIPTION =
   'Flash promotion for 4 new creators. Same clips, same quality, lower monthly price for as long as you stay.';
@@ -108,9 +108,10 @@ const FAQ = [
   {
     q: 'What is the difference between the three packages?',
     a: [
-      'All three include the full service: editing, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip.',
-      'Starter ($697 a month, normally $997): 12 clips a month.',
-      'Done For You ($997 a month, normally $1,597): 20 clips a month.',
+      'All three include the full service: editing, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager and a strategy document before the first clip.',
+      'Starter ($697 a month, normally $997): 10 clips a month, with a monthly call and a monthly report.',
+      'Done For You and Done For You Plus come with a weekly call and a weekly report.',
+      'Done For You ($997 a month, normally $1,597): 20 clips a month, weekly call and report.',
       'Done For You Plus ($1,597 a month, normally $1,897): everything in Done For You, plus 4 long-form episode edits a month.',
     ],
   },
@@ -134,14 +135,14 @@ const FAQ = [
   {
     q: 'Can I add more clips or episode edits?',
     a: [
-      'Yes. Extra clips are $50 each on Done For You plans and $25 each on Done With You. Extra long-form episode edits are $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any package.',
+      'Yes. Extra clips are $30 each on Starter (at 20 clips you move up to Done For You), $50 each on Done For You and Done For You Plus, and $25 each on Done With You. Extra long-form episode edits are $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any package.',
       'Use the Build your plan calculator above to see your monthly price.',
     ],
   },
   {
     q: 'How many clips do I get?',
     a: [
-      'We count clips per month, not per episode. Every package comes with 20 clips a month, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.',
+      'We count clips per month, not per episode. Starter comes with 10 clips a month, Done For You and Done For You Plus with 20, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.',
     ],
   },
   {
@@ -161,7 +162,7 @@ const FAQ = [
   {
     q: 'Do you guarantee downloads, views or sponsors?',
     a: [
-      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree (on Done For You and Done For You Plus), with a weekly report showing what every clip did.',
+      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree (on Done For You and Done For You Plus), with a report showing what every clip did (monthly on Starter, weekly on Done For You and Done For You Plus).',
     ],
   },
   {

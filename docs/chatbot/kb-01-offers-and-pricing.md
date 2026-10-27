@@ -8,17 +8,17 @@ The pricing page to share is https://slkmediaagency.com/pricing/promotion (the p
 
 ## How to answer "what does it cost"
 
-There are three monthly packages on the temporary promotion. Done For You Starter is $697 a month (normally $997) for 12 clips a month. Done For You is $997 a month (normally $1,597) for 20 clips a month. Done For You Plus is $1,597 a month (normally $1,897): everything in Done For You plus 4 long-form episode edits a month. All three include the full done for you service. Say that in two or three short sentences, mention it is a temporary promotion for 4 new creators, and point at https://slkmediaagency.com/pricing/promotion for the rest.
+There are three monthly packages on the temporary promotion. Done For You Starter is $697 a month (normally $997) for 10 clips a month, with a monthly call and a monthly report. Done For You is $997 a month (normally $1,597) for 20 clips a month, with a weekly call and a weekly report. Done For You Plus is $1,597 a month (normally $1,897): everything in Done For You plus 4 long-form episode edits a month. All three include the full done for you service. Say that in two or three short sentences, mention it is a temporary promotion for 4 new creators, and point at https://slkmediaagency.com/pricing/promotion for the rest.
 
 Do NOT list the add-ons in a general price answer unless the visitor asks about them. Do NOT list the Custom Social Media Strategy Report in a price answer. Do NOT lay the options out as a menu or a bulleted list. A price answer is two or three sentences of plain prose.
 
-Example of a good price answer: "Right now there is a temporary promotion for 4 new creators: Done For You Starter is $697 a month for 12 clips, Done For You is $997 a month for 20 clips, and Done For You Plus is $1,597 a month, which adds 4 long-form episode edits. Everything is done for you on all three, and the full breakdown is at https://slkmediaagency.com/pricing/promotion"
+Example of a good price answer: "Right now there is a temporary promotion for 4 new creators: Done For You Starter is $697 a month for 10 clips with a monthly call and report, Done For You is $997 a month for 20 clips with a weekly call and report, and Done For You Plus is $1,597 a month, which adds 4 long-form episode edits. Everything is done for you on all three, and the full breakdown is at https://slkmediaagency.com/pricing/promotion"
 
 ## Done For You Starter (Content Starter), $697 USD per month (normally $997)
 
-Everything SLK Media Agency does, at a smaller volume.
+The full done for you service at a smaller volume, with a monthly check-in instead of a weekly one.
 
-Includes: 12 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a weekly call; weekly reporting; and a strategy document before the first clip. Long-form episode edits are not included.
+Includes: 10 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a monthly call; monthly reporting; and a strategy document before the first clip. Long-form episode edits are not included.
 
 Best for shows publishing 1 or 2 episodes a month.
 
@@ -52,13 +52,13 @@ Visitors who are ready to pay without a call can use the "Ready now? Skip the ca
 
 ## Other clip volumes
 
-The plan calculator on https://slkmediaagency.com/pricing/promotion#build works out the exact price for any volume from 6 clips a month up. Done For You is $997 at 20 clips, $50 for each clip above 20, and about $37.50 less for each clip below 20 (so $697 at 12 clips and $472 at 6). Done For You Plus is $1,597 at 20 clips, $50 for each clip above 20 and $75 less for each clip below 20 (so $997 at 12). Done With You is $597 at 20 clips and $25 per clip up or down (so $397 at 12). For anything beyond this, point at the calculator or the call rather than working it out in chat.
+The plan calculator on https://slkmediaagency.com/pricing/promotion#build works out the exact price for any volume from 6 clips a month up. Below 20 clips the done for you choice is Done For You Starter (monthly call and report): $697 at 10 clips, $30 more for each clip from 11 to 19 (so $757 at 12 and $967 at 19), and about $37.50 less for each clip below 10 (so $547 at 6). Done For You is $997 at 20 clips and $50 for each clip above 20. Done For You Plus is $1,597 at 20 clips and $50 for each clip above 20. Done For You and Done For You Plus start at 20 clips. Done With You is $597 at 20 clips and $25 per clip up or down (so $397 at 12). For anything beyond this, point at the calculator or the call rather than working it out in chat.
 
 ## Optional add-ons
 
 Add-ons work with any package.
 
-- Extra clips: $50 per clip on the Done For You plans, $25 per clip on Done With You.
+- Extra clips: $30 per clip on Done For You Starter (up to 19 clips; at 20 it becomes Done For You), $50 per clip on Done For You and Done For You Plus, $25 per clip on Done With You.
 - Long-form episode edit: $150 per episode. On Done For You Plus the first 4 a month are included, and only extra ones are $150 each.
 - Show notes: $50 per episode.
 - SEO show notes: $100 per episode.
@@ -95,4 +95,4 @@ You can move between the packages, up or down. The change takes effect from your
 
 ## If no package fits the budget
 
-If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. Done For You Starter is $697 a month for 12 clips with everything done for you, and Done With You is $597 a month for 20 clips that you post yourself. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.
+If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. Done For You Starter is $697 a month for 10 clips with everything done for you and a monthly call, and Done With You is $597 a month for 20 clips that you post yourself. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.

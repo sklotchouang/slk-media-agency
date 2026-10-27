@@ -12,14 +12,15 @@ import { useState } from 'react';
 // You Plus: the first 4 edits come inside the package price, only edits above 4
 // are charged at $150. Clips start at 6 and episodes at 0, with no upper limit.
 //
-// Promotion prices:
-// - Done For You: $997 at 20 clips. Below 20, each clip takes $37.50 off,
-//   rounded to the nearest dollar (12 clips = $697, 6 clips = $472). Above 20,
-//   each extra clip adds $50.
-// - Done For You Plus: $1,597 at 20 clips with 4 long-form edits included.
-//   Below 20, each clip takes $75 off (12 clips = $997, 6 clips = $547), the
-//   same step as /pricing, so Plus is always $300 under /pricing below 20
-//   clips. Above 20, each extra clip adds $50.
+// Promotion prices (Starter rule since 27 October 2026, see
+// docs/adr/0001-starter-monthly-service-below-20-clips.md):
+// - Below 20 clips, Done For You is sold as Done For You Starter (monthly call
+//   and report): $697 at 10 clips, +$30 per clip from 11 to 19 (19 = $967),
+//   -$37.50 per clip below 10, rounded to the nearest dollar (6 = $547). Every
+//   episode is a $150 edit; Plus is not sold below 20 clips.
+// - Done For You (weekly call and report): $997 at 20 clips, +$50 per extra clip.
+// - Done For You Plus: $1,597 at 20 clips with 4 long-form edits included,
+//   +$50 per extra clip. Only from 20 clips.
 // - Done With You: $597 at 20 clips, $25 per clip up or down.
 // On Done For You and Plus the result also shows, struck through, what /pricing
 // charges for the same choice. Re-run the "Promotion prices" reference values
@@ -32,8 +33,11 @@ const PRICE = {
   dwyPerClip: 25, // each clip above or below 20 on Done With You
   dfyBase: 997, // Done For You at 20 clips
   dfyPerClipUp: 50, // each clip above 20 on Done For You and Plus
-  dfyPerClipDown: 37.5, // each clip below 20 on Done For You (not Plus)
-  plusPerClipDown: 75, // each clip below 20 on Done For You Plus
+  starterBase: 697, // Done For You Starter at 10 clips (monthly call and report)
+  starterClips: 10,
+  starterPerClipUp: 30, // each clip from 11 to 19 on Starter
+  starterPerClipDown: 37.5, // each clip below 10 on Starter
+  starterSaving: 300, // Starter's normal price is $300 above the promotion
   plusBase: 1597, // Done For You Plus at 20 clips, 4 long-form edits included
   plusEdits: 4, // long-form edits included in Done For You Plus
   longForm: 150, // per episode
@@ -78,19 +82,24 @@ function dwyPrice(clips) {
   return PRICE.dwyBase + (clips - PRICE.baseClips) * PRICE.dwyPerClip;
 }
 
-// Done For You and Plus share the step above 20 (+$50 a clip) but not below:
-// Done For You loses $37.50 a clip, Plus loses $75. Rounded to the nearest dollar.
-function promoClipPrice(base, clips, perClipDown) {
-  if (clips >= PRICE.baseClips) return base + (clips - PRICE.baseClips) * PRICE.dfyPerClipUp;
-  return Math.round(base - (PRICE.baseClips - clips) * perClipDown);
+// Done For You Starter, the only done-for-you plan below 20 clips.
+function starterPrice(clips) {
+  if (clips >= PRICE.starterClips) return PRICE.starterBase + (clips - PRICE.starterClips) * PRICE.starterPerClipUp;
+  return Math.round(PRICE.starterBase - (PRICE.starterClips - clips) * PRICE.starterPerClipDown);
 }
 
+// Done For You and Plus start at 20 clips; each clip above 20 adds $50.
 function dfyPrice(clips) {
-  return promoClipPrice(PRICE.dfyBase, clips, PRICE.dfyPerClipDown);
+  return PRICE.dfyBase + (Math.max(clips, PRICE.baseClips) - PRICE.baseClips) * PRICE.dfyPerClipUp;
 }
 
 function plusPrice(clips) {
-  return promoClipPrice(PRICE.plusBase, clips, PRICE.plusPerClipDown);
+  return PRICE.plusBase + (Math.max(clips, PRICE.baseClips) - PRICE.baseClips) * PRICE.dfyPerClipUp;
+}
+
+// What a visitor who wants us to post pays at this clip count.
+function doneForYouAt(clips) {
+  return clips < PRICE.baseClips ? starterPrice(clips) : dfyPrice(clips);
 }
 
 // The /pricing prices for the same clip count.
@@ -173,7 +182,8 @@ export default function PromoPricingCalculator() {
   const [seoNotes, setSeoNotes] = useState(false);
 
   const isDfy = plan === 'dfy';
-  const isPlus = isDfy && episodes >= PRICE.plusEdits;
+  const isStarter = isDfy && clips < PRICE.baseClips;
+  const isPlus = isDfy && !isStarter && episodes >= PRICE.plusEdits;
   let planName = 'Done With You';
   let planPrice = dwyPrice(clips);
   let normalPlanPrice = null;
@@ -181,6 +191,10 @@ export default function PromoPricingCalculator() {
     planName = 'Done For You Plus';
     planPrice = plusPrice(clips);
     normalPlanPrice = normalPlusPrice(clips);
+  } else if (isStarter) {
+    planName = 'Done For You Starter';
+    planPrice = starterPrice(clips);
+    normalPlanPrice = planPrice + PRICE.starterSaving;
   } else if (isDfy) {
     planName = 'Done For You';
     planPrice = dfyPrice(clips);
@@ -225,8 +239,10 @@ export default function PromoPricingCalculator() {
   let why = 'We make the clips, you post them.';
   if (isPlus) {
     why = `We handle the clips, thumbnails, captions and posting, and edit ${episodes} full episodes. The first ${PRICE.plusEdits} episode edits are included in the package.`;
+  } else if (isStarter) {
+    why = 'We make the clips, the thumbnails and the captions, and post them for you, with a monthly call and a monthly report. At 20 clips you move up to Done For You, with a weekly call and report.';
   } else if (isDfy) {
-    why = 'We make the clips, the thumbnails and the captions, and post them for you.';
+    why = 'We make the clips, the thumbnails and the captions, and post them for you, with a weekly call and a weekly report.';
   }
 
   // Done For You with 1 to 3 paid episode edits: point to Done For You Plus,
@@ -341,12 +357,14 @@ export default function PromoPricingCalculator() {
         </ul>
         {isDfy ? null : (
           <p className="pp-hint" id="pp-calc-hint">
-            Want us to post them too? Done For You at this volume is {money(dfyPrice(clips))}/month.
+            Want us to post them too? {clips < PRICE.baseClips ? 'Done For You Starter' : 'Done For You'} at this volume is {money(doneForYouAt(clips))}/month.
           </p>
         )}
         {plusHint ? (
           <p className="pp-hint" id="pp-calc-plus-hint">
-            Done For You Plus includes {PRICE.plusEdits} long-form episode edits a month for {money(plusPrice(clips))}/month at this volume.
+            {isStarter
+              ? `Done For You Plus starts at ${PRICE.baseClips} clips and includes ${PRICE.plusEdits} long-form episode edits a month for ${money(plusPrice(PRICE.baseClips))}/month.`
+              : `Done For You Plus includes ${PRICE.plusEdits} long-form episode edits a month for ${money(plusPrice(clips))}/month at this volume.`}
           </p>
         ) : null}
         <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>

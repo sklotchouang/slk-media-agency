@@ -2,17 +2,17 @@
 
 ## What does it cost?
 
-Right now there is a temporary promotion for 4 new creators. Done For You Starter is $697 a month (normally $997) for 12 clips, Done For You is $997 a month (normally $1,597) for 20 clips, and Done For You Plus is $1,597 a month (normally $1,897), which adds 4 long-form episode edits. Everything is done for you on all three. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing/promotion
+Right now there is a temporary promotion for 4 new creators. Done For You Starter is $697 a month (normally $997) for 10 clips with a monthly call and report, Done For You is $997 a month (normally $1,597) for 20 clips with a weekly call and report, and Done For You Plus is $1,597 a month (normally $1,897), which adds 4 long-form episode edits. Everything is done for you on all three. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing/promotion
 
 Keep it to that. Do not add the report, do not turn it into a list.
 
 ## Do you guarantee download growth or sponsor revenue?
 
-No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and weekly performance reports.
+No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and performance reports (weekly, or monthly on Starter).
 
 ## What is the difference between the packages?
 
-Volume, and whether your full episodes are edited too. All three include the full service: a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip. Done For You Starter is 12 clips a month, Done For You is 20, and Done For You Plus is 20 clips plus 4 long-form episode edits a month. Someone who wants to post the clips themselves can pick Done With You in the plan calculator.
+Volume, how often you meet, and whether your full episodes are edited too. All three include a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager and a strategy document before the first clip. Done For You Starter is 10 clips a month with a monthly call and report, Done For You is 20 with a weekly call and report, and Done For You Plus is 20 clips plus 4 long-form episode edits a month. Someone who wants to post the clips themselves can pick Done With You in the plan calculator.
 
 ## How long does the promotion last? How many spots are left?
 
@@ -72,7 +72,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Done For You Starter is $697 a month for 12 clips with everything done for you, and Done With You, where you post the clips yourself, is $597 a month for 20 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Done For You Starter is $697 a month for 10 clips with everything done for you and a monthly call, and Done With You, where you post the clips yourself, is $597 a month for 20 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 
@@ -84,7 +84,7 @@ Yes. The portfolio is at https://slkmediaagency.com/portfolio, the case studies 
 
 ## Do you provide analytics or reports?
 
-Yes, weekly, on the monthly plans. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for the next week.
+Yes. Weekly on Done For You and Done For You Plus, monthly on Done For You Starter. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for the next period.
 
 ## Is this confidential? I do not want competitors knowing I use you.
 

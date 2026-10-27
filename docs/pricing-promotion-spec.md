@@ -1,6 +1,6 @@
 # Current client-facing pricing: the promotion (source of truth for every agent)
 
-Set by Samuel on 21 October 2026. From this date the promotion page is the pricing shown to every prospect and client, for a trial period of 2 to 3 months (review by Samuel between 21 December 2026 and 21 January 2027, then he decides whether to keep it). Until he decides otherwise, every agent, prompt, price card and knowledge file quotes these prices and sends this page.
+Set by Samuel on 21 October 2026. Starter scope and the calculator below 20 clips changed by Samuel on 27 October 2026 (decision record: `docs/adr/0001-starter-monthly-service-below-20-clips.md`). From this date the promotion page is the pricing shown to every prospect and client, for a trial period of 2 to 3 months (review by Samuel between 21 December 2026 and 21 January 2027, then he decides whether to keep it). Until he decides otherwise, every agent, prompt, price card and knowledge file quotes these prices and sends this page.
 
 The page lives in the website repo: `app/(main)/pricing/promotion/page.js`, `components/PromoPricingPlans.js`, `components/PromoPricingCalculator.js`. If those files and this sheet ever disagree, the files win, and this sheet is out of date.
 
@@ -21,23 +21,26 @@ The page lives in the website repo: `app/(main)/pricing/promotion/page.js`, `com
 
 | Package | Promotion price | Normal price | What it includes |
 |---|---|---|---|
-| Done For You Starter ("Content Starter") | $697/month | $997 | 12 short clips a month plus the full Done For You service. No long-form episode edits. |
+| Done For You Starter ("Content Starter") | $697/month | $997 | 10 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a strategy document before the first clip, a monthly call and a monthly report. No long-form episode edits. (Until 27 Oct 2026 it was 12 clips with a weekly call and weekly reporting.) |
 | Done For You ("Content Engine"), the featured one | $997/month | $1,597 | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. No long-form episode edits. |
 | Done For You Plus ("Content Accelerator") | $1,597/month | $1,897 | Everything in Done For You plus 4 long-form episode edits a month. |
 | Done With You (calculator only, not a card) | $597/month at 20 clips | $997 | 20 short clips a month, edited and ready to post. The client posts them. No thumbnails, captions, posting, reporting. $25 per clip up or down. |
+
+The difference between Starter and Done For You: Starter has one call and one report a month, Done For You has a weekly call and a weekly report. Both have a dedicated project manager.
 
 Which to suggest (from the page FAQ): Starter for 1 or 2 episodes a month. Done For You for 2 to 4. Done For You Plus if they also want full episodes edited. Done With You if they want to post the clips themselves.
 
 ## Add-ons
 
-- Extra clips: $50 each on the Done For You plans, $25 each on Done With You.
+- Extra clips: $30 each on Done For You Starter (11 to 19 clips; at 20 clips it becomes Done For You at $997), $50 each above 20 on Done For You and Done For You Plus, $25 each on Done With You.
 - Long-form episode edit: $150 per episode.
 - Show notes: $50 per episode. SEO show notes: $100 per episode.
 
 ## Calculator rules (only if an agent computes a custom price)
 
-- Done For You: $997 at 20 clips; below 20 each clip takes $37.50 off (rounded to the nearest dollar, so 12 clips = $697, 6 clips = $472); above 20 each clip adds $50.
-- Done For You Plus (Done For You with 4 or more episodes): $1,597 at 20 clips with 4 edits included; below 20 each clip takes $75 off (12 clips = $997, 6 clips = $547); above 20 each clip adds $50; edits above 4 are $150 each.
+- Below 20 clips, the done-for-you choice is the Starter service (monthly call and report): $697 at 10 clips; each clip from 11 to 19 adds $30 (12 clips = $757, 19 clips = $967); each clip below 10 takes $37.50 off, rounded to the nearest dollar (8 clips = $622, 6 clips = $547). Every episode edit is $150.
+- Done For You (weekly call and report): $997 at 20 clips; above 20 each clip adds $50. Not sold below 20 clips.
+- Done For You Plus (Done For You with 4 or more episodes): $1,597 at 20 clips with 4 edits included; above 20 each clip adds $50; edits above 4 are $150 each. Not sold below 20 clips.
 - Done With You: $597 at 20 clips, $25 per clip up or down; every episode edit $150.
 - Minimum 6 clips.
 

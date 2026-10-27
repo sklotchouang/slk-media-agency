@@ -16,7 +16,7 @@ Days 1 to 4: the team immerses itself in your niche, covering competitor analysi
 
 Days 5 to 8: a test batch of clips is produced and iterated on your feedback.
 
-From day 9: the work runs autonomously with weekly strategy syncs.
+From day 9: the work runs autonomously with strategy syncs, weekly on Done For You and Done For You Plus and monthly on Done For You Starter.
 
 ## Platforms and formats
 
@@ -38,7 +38,7 @@ Audio only shows are welcome. There are audio to video examples here: https://li
 
 ## Reporting
 
-Success is tracked through views, engagement, follower growth and click through rate, reported weekly on the monthly plans. The weekly reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for the next week.
+Success is tracked through views, engagement, follower growth and click through rate, reported weekly on Done For You and Done For You Plus and monthly on Done For You Starter. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for the next period.
 
 ## Publishing frequency
 

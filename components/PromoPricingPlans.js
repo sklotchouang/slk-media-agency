@@ -35,13 +35,13 @@ export const promoIsFull = !PROMO_OPEN;
 // One row per deliverable. starter / dfy / plus: true = included, false = not
 // included, a string = shown as text. Column order matches the cards.
 const ROWS = [
-  { label: 'Clips per month', starter: '12', dfy: '20', plus: '20' },
+  { label: 'Clips per month', starter: '10', dfy: '20', plus: '20' },
   { label: 'A custom thumbnail for every clip', starter: true, dfy: true, plus: true },
   { label: 'Captions, hashtags and calls to action', starter: true, dfy: true, plus: true },
   { label: 'Posting on every platform', starter: true, dfy: true, plus: true },
   { label: 'A dedicated project manager', starter: true, dfy: true, plus: true },
-  { label: 'A weekly call', starter: true, dfy: true, plus: true },
-  { label: 'Weekly reporting', starter: true, dfy: true, plus: true },
+  { label: 'A strategy call', starter: 'Monthly', dfy: 'Weekly', plus: 'Weekly' },
+  { label: 'Reporting', starter: 'Monthly', dfy: 'Weekly', plus: 'Weekly' },
   { label: 'A strategy document before the first clip', starter: true, dfy: true, plus: true },
   { label: 'Long-form episode edits', starter: false, dfy: false, plus: '4 a month' },
 ];
@@ -53,7 +53,7 @@ const ADDONS = [
     tone: 'pp-tone-a',
     price: '$50',
     unit: 'per clip',
-    note: 'On Done For You plans. $25 per clip on Done With You.',
+    note: 'On Done For You and Done For You Plus. $30 per clip on Starter, $25 on Done With You.',
   },
   {
     name: 'Long-form Episode Edit',
@@ -90,8 +90,15 @@ const DFY_FEATURES = [
   'A strategy document before the first clip',
 ];
 
-// Starter: the same list at 12 clips.
-const STARTER_FEATURES = ['12 short clips a month, edited and ready to post', ...DFY_FEATURES.slice(1)];
+// Starter (since 27 Oct 2026): 10 clips, and a monthly call and report instead
+// of weekly ones. Everything else matches Done For You word for word.
+const STARTER_FEATURES = [
+  '10 short clips a month, edited and ready to post',
+  ...DFY_FEATURES.slice(1, 5),
+  'A monthly call',
+  'Monthly reporting',
+  'A strategy document before the first clip',
+];
 
 function Yes({ children }) {
   return (
@@ -191,7 +198,7 @@ export function PlanCards() {
               <span>/month</span>
             </p>
             <Save amount="$300" />
-            <p className="pp-who">Everything we do, at a smaller volume.</p>
+            <p className="pp-who">The full service at a smaller volume, with a monthly check-in.</p>
             <ul className="pp-feat">
               {STARTER_FEATURES.map((f) => (
                 <Yes key={f}>{f}</Yes>
@@ -200,7 +207,7 @@ export function PlanCards() {
             </ul>
             <CardActions label="Start with Starter" pay={PAY_URL.starter} quiet />
           </article>
-          <p className="pp-commit"><strong>What we commit to:</strong> 12 clips a month, the posting schedule and a weekly report.</p>
+          <p className="pp-commit"><strong>What we commit to:</strong> 10 clips a month, the posting schedule and a monthly report.</p>
         </div>
 
         <div className="pp-col pp-col-dfy">
