@@ -3235,6 +3235,27 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   color: var(--text-primary);
 }
 
+/* The spots-left line under the banner text. */
+.pricing-page.pp-promo-page .pp-promo-left {
+  display: inline-block;
+  max-width: 100%;
+  padding: 8px 16px;
+  line-height: 1.4;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--promo-a);
+  background: rgba(255, 122, 47, 0.12);
+  font-size: 0.98rem;
+  color: var(--text-primary);
+}
+
+.pricing-page.pp-promo-page .pp-promo-left strong {
+  color: var(--promo-text);
+}
+
+.pricing-page.pp-promo-page .pp-promo-spots strong {
+  color: var(--text-primary);
+}
+
 .pricing-page.pp-promo-page .pp-promo-banner.is-full {
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 0 0 1px var(--hairline-strong);

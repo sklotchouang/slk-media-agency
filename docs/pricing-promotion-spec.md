@@ -14,7 +14,7 @@ The page lives in the website repo: `app/(main)/pricing/promotion/page.js`, `com
 ## The promotion
 
 - Temporary promotion for 4 new creators only. It ends once 4 new creators are on board.
-- Never state how many spots are left, never invent a deadline or countdown, never say "only X left".
+- Spots left: only 2 of the 4 (Samuel, 30 October 2026, to add scarcity). Every agent may say "only 2 of the 4 promotion spots are left". Never state any other number, never invent a deadline or countdown. Until 30 October 2026 the rule was to never state a number. The website reads this from `PROMO_SPOTS_LEFT` in `components/PromoPricingPlans.js`.
 - A creator who joins during the promotion keeps the promotion price for as long as they stay, even after the promotion ends.
 
 ## Packages (all monthly, month to month, pause up to 60 days, the client owns every clip)

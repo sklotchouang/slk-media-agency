@@ -5,6 +5,7 @@ import {
   AddOns,
   WhyUs,
   PROMO_SPOTS_TOTAL,
+  PROMO_SPOTS_LEFT,
   promoIsFull,
 } from '../../../../components/PromoPricingPlans';
 import PromoPricingCalculator from '../../../../components/PromoPricingCalculator';
@@ -17,7 +18,7 @@ import PromoPricingCalculator from '../../../../components/PromoPricingCalculato
 //
 // Whether the promotion is still open lives only in PROMO_OPEN in
 // components/PromoPricingPlans.js. The banner, the middle card and the FAQ
-// below all read it. The page never shows how many spots are left. To remove the promotion, see "Promotion page and
+// below all read it. How many spots are left lives in PROMO_SPOTS_LEFT in the same file. To remove the promotion, see "Promotion page and
 // rollback" in OVERVIEW.md.
 
 const DESCRIPTION =
@@ -100,7 +101,7 @@ const PROMOTION_LENGTH = promoIsFull
       'Book a call to join the waiting list for the next one.',
     ]
   : [
-      `Until ${PROMO_SPOTS_TOTAL} new creators are on board. We are taking only ${PROMO_SPOTS_TOTAL} new creators at these prices, because that is how many we can onboard properly right now.`,
+      `Until ${PROMO_SPOTS_TOTAL} new creators are on board. We are taking only ${PROMO_SPOTS_TOTAL} new creators at these prices, because that is how many we can onboard properly right now. Only ${PROMO_SPOTS_LEFT} of the ${PROMO_SPOTS_TOTAL} spots are left.`,
       'Once all of them have joined, the promotion ends and prices return to normal. If you want one of the spots, book your call now.',
     ];
 

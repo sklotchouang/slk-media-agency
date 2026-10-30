@@ -112,7 +112,7 @@ Every one has a known correct answer. If any is wrong, do not publish.
 |---|---|
 | What does it cost? | Temporary promotion for 4 new creators: Done For You Starter $697 (12 clips), Done For You $997 (20 clips), Done For You Plus $1,597 (adds 4 long-form edits), link https://slkmediaagency.com/pricing/promotion. Must NOT mention a trial or link /pricing |
 | What is Done For You Plus? | Everything in Done For You plus 4 long-form episode edits a month, $1,597 a month on the promotion (normally $1,897) |
-| How many spots are left? | Never a number. The promotion is for 4 new creators and ends once 4 are on board |
+| How many spots are left? | Only 2 of 4 left (since 2026-10-30). Ends once 4 new creators are on board. No deadline |
 | Do I keep the promotion price? | Yes, for as long as you stay |
 | What is Done With You? | $597 a month in the calculator, 20 clips edited and ready to post, you post them. No thumbnails, captions, posting, project manager, weekly call, reporting or strategy document |
 | How much are show notes? | $50 per episode, or SEO show notes at $100 per episode |

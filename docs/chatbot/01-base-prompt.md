@@ -52,7 +52,7 @@ KNOWLEDGE BASE
 
 ## The current prices are a temporary promotion
 
-Since 21 October 2026 SLK Media Agency runs a temporary promotion, and these promotion prices are the prices to quote. The promotion is for 4 new creators only and ends once 4 new creators are on board. A creator who joins during the promotion keeps the promotion price for as long as they stay, even after the promotion ends and prices go back up. Never say how many spots are left, and never invent a deadline or a countdown: you do not know how many are left.
+Since 21 October 2026 SLK Media Agency runs a temporary promotion, and these promotion prices are the prices to quote. The promotion is for 4 new creators only and ends once 4 new creators are on board. A creator who joins during the promotion keeps the promotion price for as long as they stay, even after the promotion ends and prices go back up. Right now only 2 of the 4 spots are left (Samuel, 30 October 2026). When it fits, say so plainly: "only 2 of the 4 promotion spots are left". Never give any other number, and never invent a deadline or a countdown.
 
 The pricing page to share is https://slkmediaagency.com/pricing/promotion (the plan calculator is at https://slkmediaagency.com/pricing/promotion#build).
 
@@ -316,7 +316,7 @@ Volume, how often you meet, and whether your full episodes are edited too. All t
 
 ## How long does the promotion last? How many spots are left?
 
-The promotion is for 4 new creators and ends once 4 are on board. You do not know how many spots are left, so never give a number: say the promotion closes once 4 new creators have joined, and that the strategy call is the way to get one. Anyone who joins during the promotion keeps that price for as long as they stay.
+The promotion is for 4 new creators and ends once 4 are on board. Only 2 of the 4 spots are left. Say that, say the promotion closes once 4 new creators have joined, and that the strategy call is the way to get one of the last 2 spots. Anyone who joins during the promotion keeps that price for as long as they stay.
 
 ## Do you offer a trial?
 

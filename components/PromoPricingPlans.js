@@ -3,9 +3,14 @@
 export const PROMO_OPEN = true;
 
 // How many creators the promotion takes in total. This is part of the copy
-// ("only 4 new creators"). The page never shows how many spots are left
-// (Samuel, 21 Oct 2026: a count that never moves would look untrue).
+// ("only 4 new creators").
 export const PROMO_SPOTS_TOTAL = 4;
+
+// How many promotion spots are still open. Shown on the banner, the middle card
+// and the FAQ (Samuel, 30 Oct 2026: show "Only 2 of 4 spots left"). Change it
+// by hand when a spot fills, and update docs/pricing-promotion-spec.md, the
+// chatbot and the SDR prompts in the same session.
+export const PROMO_SPOTS_LEFT = 2;
 
 // The temporary promotion on /pricing/promotion (built 21 October 2026 from
 // Samuel's brief). A copy of components/PricingPlans.js with the promotion
@@ -161,7 +166,7 @@ function Cell({ value, us }) {
   );
 }
 
-// The banner above the cards, in the promotion colour. No spots count.
+// The banner above the cards, in the promotion colour, with the spots left.
 export function PromoBanner() {
   if (promoIsFull) {
     return (
@@ -177,6 +182,7 @@ export function PromoBanner() {
       <p className="pp-promo-text">
         Done For You is <strong>$997 a month instead of $1,597</strong>. We are taking only {PROMO_SPOTS_TOTAL} new creators at these prices, and the promotion ends as soon as all {PROMO_SPOTS_TOTAL} are on board.
       </p>
+      <p className="pp-promo-left"><strong>Only {PROMO_SPOTS_LEFT} of {PROMO_SPOTS_TOTAL} spots left</strong> at these prices.</p>
     </div>
   );
 }
@@ -224,7 +230,7 @@ export function PlanCards() {
               </p>
               <Save amount="$600" />
               {promoIsFull ? null : (
-                <p className="pp-promo-spots">Ends once {PROMO_SPOTS_TOTAL} new creators are on board</p>
+                <p className="pp-promo-spots"><strong>Only {PROMO_SPOTS_LEFT} of {PROMO_SPOTS_TOTAL} spots left.</strong> Ends once {PROMO_SPOTS_TOTAL} new creators are on board</p>
               )}
             </div>
             <p className="pp-who">We make the clips and run your short-form content for you.</p>

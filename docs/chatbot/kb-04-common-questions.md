@@ -16,7 +16,7 @@ Volume, how often you meet, and whether your full episodes are edited too. All t
 
 ## How long does the promotion last? How many spots are left?
 
-The promotion is for 4 new creators and ends once 4 are on board. You do not know how many spots are left, so never give a number: say the promotion closes once 4 new creators have joined, and that the strategy call is the way to get one. Anyone who joins during the promotion keeps that price for as long as they stay.
+The promotion is for 4 new creators and ends once 4 are on board. Only 2 of the 4 spots are left. Say that, say the promotion closes once 4 new creators have joined, and that the strategy call is the way to get one of the last 2 spots. Anyone who joins during the promotion keeps that price for as long as they stay.
 
 ## Do you offer a trial?
 
