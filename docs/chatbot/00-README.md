@@ -102,6 +102,8 @@ Because the field literally holds that mask text, pressing **Save** on the Exter
 
 One dead document, `05 Next steps, links and contact.txt`, is stuck in the Train tab showing an OpenAI credit error. Four of its five siblings deleted cleanly; this one will not, apparently because re:tune cannot tidy up a document whose embedding never completed. It is inert: it has no embeddings, and nothing reads the knowledge base any more. Ignore it or try deleting it again later.
 
+**Live state as of 2026-11-02:** the promotion shutdown version of `01-base-prompt.md` (33,389 characters) and `02-restrictions.md` (7,336) is pasted into re:tune and was confirmed byte for byte after a reload.
+
 ## Test these before publishing
 
 Prices back to the normal /pricing ladder on 2026-11-02: the promotion ended that day (see `docs/pricing-promotion-spec.md`). Honor rule: a visitor quoted a promotion price before 2 November keeps it until 30 November by booking the strategy call; the bot never names the amount and never raises it.
