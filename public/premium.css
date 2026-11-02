@@ -2029,6 +2029,41 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   margin-top: 0;
 }
 
+/* /pricing/promotion after the promotion ended (2 Nov 2026) */
+.pricing-page.pp-ended-page {
+  min-height: 72vh;
+}
+
+.pricing-page .pp-ended {
+  padding-bottom: 96px;
+}
+
+.pricing-page .pp-ended-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pricing-page .pp-ended-more {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-ended-more a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
 /* Three facts under the hero line (2 Nov 2026) */
 .pricing-page .pp-hero-points {
   display: flex;

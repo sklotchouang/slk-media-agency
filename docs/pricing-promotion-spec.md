@@ -8,7 +8,7 @@
 
 - Pricing page: https://slkmediaagency.com/pricing
 - Straight to the calculator: https://slkmediaagency.com/pricing#build
-- Never send https://slkmediaagency.com/pricing/promotion again. Since 2 November 2026 it is a temporary redirect (307) to /pricing in `next.config.mjs`, so old links in sent emails and LinkedIn messages land on the normal page. The promotion page and its two components were deleted (they stay in git history and in the tag `pricing-backup-2026-10-21`).
+- Never send https://slkmediaagency.com/pricing/promotion again. Since 2 November 2026 it shows a "This promotion has ended" page with a "See current pricing" button to /pricing, so anyone opening an old link in a sent email or LinkedIn message is told plainly that it ended. It names no promotion price. The promotion page and its two components were deleted (they stay in git history and in the tag `pricing-backup-2026-10-21`).
 - Strategy call (unchanged): https://link.slkmediaagency.com/strmeet
 
 ## Current packages (the normal /pricing page; all monthly, month to month, pause up to 60 days, the client owns every clip)

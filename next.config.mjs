@@ -64,12 +64,12 @@ const nextConfig = {
       // and old emails still send this URL, so it keeps working (308).
       { source: '/pricing/clips-only', destination: '/pricing', permanent: true },
 
-      // The pricing promotion (21 Oct 2026) ended on 2 Nov 2026 (Samuel). Old
-      // links in sent emails and LinkedIn messages land on the normal /pricing
-      // page. Temporary (307) on purpose, so browsers do not cache it forever.
-      // A #build anchor survives the redirect in the browser.
-      { source: '/pricing/promotion', destination: '/pricing', permanent: false },
-      { source: '/pricing/promotion/:path*', destination: '/pricing', permanent: false },
+      // The pricing promotion (21 Oct 2026) ended on 2 Nov 2026 (Samuel).
+      // /pricing/promotion itself is now a "this promotion has ended" page
+      // (app/(main)/pricing/promotion/page.js, Samuel, 2 Nov 2026) with a
+      // button to /pricing. Anything below it still goes to /pricing. `:path+`
+      // (one or more segments) so the ended page itself is not redirected.
+      { source: '/pricing/promotion/:path+', destination: '/pricing', permanent: false },
     ];
   },
 
