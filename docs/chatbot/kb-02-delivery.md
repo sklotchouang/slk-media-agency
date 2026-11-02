@@ -16,7 +16,7 @@ Days 1 to 4: the team immerses itself in your niche, covering competitor analysi
 
 Days 5 to 8: a test batch of clips is produced and iterated on your feedback.
 
-From day 9: the work runs autonomously with weekly strategy syncs.
+From day 9: the work runs autonomously with weekly strategy syncs (monthly on Done For You Starter).
 
 ## Platforms and formats
 
@@ -66,4 +66,4 @@ You retain 100% ownership of all content SLK Media Agency creates. If you leave,
 
 SLK Media Agency does not do sponsor outreach. It does not cold email brands, negotiate rates, or close deals.
 
-What it does is build clips designed to demonstrate sponsor friendly messaging, weekly performance reports you can show to brands, and sponsor signal tracking. SLK Media Agency builds the visibility. You close the partnerships.
+What it does is build clips designed to demonstrate sponsor friendly messaging, performance reports you can show to brands, and sponsor signal tracking. SLK Media Agency builds the visibility. You close the partnerships.

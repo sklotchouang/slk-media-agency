@@ -17,7 +17,7 @@ import { useState } from 'react';
 // episodes becomes Done For You Plus: the first 4 edits come inside the package
 // price (the package discount), and only edits above 4 are charged at the $150
 // rate. Done With You always pays the $150 rate. The server renders the defaults (20 clips,
-// Done With You, 0 episodes), so the page is complete without JavaScript.
+// Done For You since 2 Nov 2026, 0 episodes), so the page is complete without JavaScript.
 // Clips start at 6 and episodes at 0, with no upper limit: the slider covers
 // the usual range and the number box next to it takes any larger amount. The
 // show notes boxes only show once episodes is 1 or more.
@@ -36,9 +36,9 @@ const PRICE = {
   starterBase: 997, // Done For You Starter at 10 clips
   starterPerClip: 60, // each clip up or down from 10 on Starter (19 clips = $1,537)
   dwyBase: 997, // Done With You at 20 clips
-  dwyPerClip: 50, // each clip above 20 on Done With You
+  dwyPerClip: 50, // each clip up or down from 20 on Done With You
   dfyBase: 1597, // Done For You at 20 clips
-  dfyPerClip: 75, // each clip above 20 on Done For You
+  dfyPerClip: 75, // each clip above 20 on Done For You (below 20 it is Starter)
   plusBase: 1897, // Done For You Plus at 20 clips, 4 long-form edits included
   plusEdits: 4, // long-form edits included in Done For You Plus
   longForm: 150, // per episode
@@ -325,9 +325,14 @@ export default function PricingCalculator() {
             Want us to post them too? {isStarter(clips) ? 'Done For You Starter' : 'Done For You'} at this volume is {money(dfyPrice(clips))}/month.
           </p>
         )}
-        {starter ? (
+        {starter && episodes < PRICE.plusEdits - 1 ? (
           <p className="pp-hint" id="pp-calc-starter-hint">
             At 20 clips you get Done For You, with a weekly call and weekly reporting, for {money(PRICE.dfyBase)}/month.
+          </p>
+        ) : null}
+        {starter && episodes >= PRICE.plusEdits - 1 ? (
+          <p className="pp-hint" id="pp-calc-starter-plus-hint">
+            At 20 clips, Done For You Plus includes {PRICE.plusEdits} long-form episode edits, a weekly call and weekly reporting for {money(PRICE.plusBase)}/month.
           </p>
         ) : null}
         {plusHint ? (

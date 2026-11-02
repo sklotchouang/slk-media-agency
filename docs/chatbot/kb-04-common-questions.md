@@ -84,7 +84,7 @@ Then this is not the right time, and SLK Media Agency will say so rather than se
 
 ## Do you do the sponsor outreach for me?
 
-No. SLK Media Agency does not cold email brands, negotiate rates, or close deals. What it does is build clips designed to demonstrate sponsor friendly messaging, weekly performance reports you can show to brands, and sponsor signal tracking. SLK Media Agency builds the visibility. You close the partnerships.
+No. SLK Media Agency does not cold email brands, negotiate rates, or close deals. What it does is build clips designed to demonstrate sponsor friendly messaging, performance reports you can show to brands, and sponsor signal tracking. SLK Media Agency builds the visibility. You close the partnerships.
 
 ## Can I see examples before committing?
 
@@ -92,7 +92,7 @@ Yes. The portfolio is at https://slkmediaagency.com/portfolio, the case studies 
 
 ## Do you provide analytics or reports?
 
-Yes, weekly, on the monthly plans. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for the next week.
+Yes, weekly on Done For You and Done For You Plus, monthly on Done For You Starter. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
 
 ## Is this confidential? I do not want competitors knowing I use you.
 
