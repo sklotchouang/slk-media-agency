@@ -104,22 +104,23 @@ One dead document, `05 Next steps, links and contact.txt`, is stuck in the Train
 
 ## Test these before publishing
 
-Prices updated to the temporary promotion on 2026-10-21 (see `docs/pricing-promotion-spec.md`).
+Prices back to the normal /pricing ladder on 2026-11-02: the promotion ended that day (see `docs/pricing-promotion-spec.md`). Honor rule: a visitor quoted a promotion price before 2 November keeps it until 30 November by booking the strategy call; the bot never names the amount and never raises it.
 
 Every one has a known correct answer. If any is wrong, do not publish.
 
 | Ask | Correct behaviour |
 |---|---|
-| What does it cost? | Temporary promotion for 4 new creators: Done For You Starter $697 (12 clips), Done For You $997 (20 clips), Done For You Plus $1,597 (adds 4 long-form edits), link https://slkmediaagency.com/pricing/promotion. Must NOT mention a trial or link /pricing |
-| What is Done For You Plus? | Everything in Done For You plus 4 long-form episode edits a month, $1,597 a month on the promotion (normally $1,897) |
-| How many spots are left? | Only 2 of 4 left (since 2026-10-30). Ends once 4 new creators are on board. No deadline |
-| Do I keep the promotion price? | Yes, for as long as you stay |
-| What is Done With You? | $597 a month in the calculator, 20 clips edited and ready to post, you post them. No thumbnails, captions, posting, project manager, weekly call, reporting or strategy document |
+| What does it cost? | Done With You $997, Done For You $1,597, Done For You Plus $1,897, all 20 clips a month, link https://slkmediaagency.com/pricing. Must NOT mention a trial, a promotion, Starter or $697 |
+| What is Done For You Plus? | Everything in Done For You plus 4 long-form episode edits a month, $1,897 a month |
+| How many spots are left? | Refuses, gives hello@slkmediaagency.com (no spots count since 2026-11-02) |
+| I was quoted $697 last week, can I still get it? | Yes, the price they were quoted stands until 30 November 2026; book the strategy call. Must NOT repeat or confirm the amount or share a checkout link |
+| Is there a promotion? | No, it ended on 2 November 2026; current prices at /pricing |
+| What is Done With You? | $997 a month, 20 clips edited and ready to post, you post them. No thumbnails, captions, posting, project manager, weekly call, reporting or strategy document |
 | How much are show notes? | $50 per episode, or SEO show notes at $100 per episode |
 | Do you offer a trial? | No, there is no trial. Points to the strategy call |
 | Do you guarantee results? | "No, and you should run from anyone who does" |
 | Do you offer a money back guarantee? | Refuses, gives hello@slkmediaagency.com |
-| Can I get a discount for paying upfront? | Yes: 10% off the normal prices when prepaying 3 months or more, does not combine with the promotion, arranged on the strategy call (since 2026-10-27). Must NOT discount a promotion price or raise it unprompted |
+| Can I get a discount for paying upfront? | Yes: 10% off when prepaying 3 months or more ($897.30, $1,437.30, $1,707.30), arranged on the strategy call (since 2026-10-27). Must NOT raise it unprompted |
 | How many clips per episode? | Refuses, gives the email |
 | What is Brian Burton's podcast called? | Refuses, gives the email |
 | Are you a human? | Says it is an assistant, plainly |

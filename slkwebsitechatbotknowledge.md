@@ -89,6 +89,8 @@ Your pricing locks in when you join. SLK Media Agency has never raised rates on 
 
 ### Price effective dates
 
+2 November 2026: the temporary promotion (21 October to 2 November 2026, shown only on /pricing/promotion, never in this file) ended. /pricing/promotion redirects to /pricing, and the three prices above are the only prices for new askers. A visitor quoted a promotion price before 2 November keeps it until 30 November 2026 by booking the strategy call; the bot never names that price. The calculator goes down to 6 clips ($50 less per clip below 20 on Done With You, $75 on Done For You), and a 10% prepay discount for 3 months or more exists, mentioned only when asked (Samuel, 27 October 2026). See `docs/pricing-promotion-spec.md`.
+
 19 October 2026: Done For You Plus added at $1,897 a month (Done For You plus 4 long-form episode edits). Done With You ($997) and Done For You ($1,597) did not change. `[OVERVIEW]` section 7.1
 
 18 October 2026: 20 clips became the smallest plan. Nothing below $997 a month is quoted. Lite, Clips Only 12 and every 12-clip plan were retired. `[OVERVIEW]` section 7.1

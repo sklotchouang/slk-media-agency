@@ -63,6 +63,13 @@ const nextConfig = {
       // Clips Only folded into the unified /pricing page on 2026-10-12. The SDR
       // and old emails still send this URL, so it keeps working (308).
       { source: '/pricing/clips-only', destination: '/pricing', permanent: true },
+
+      // The pricing promotion (21 Oct 2026) ended on 2 Nov 2026 (Samuel). Old
+      // links in sent emails and LinkedIn messages land on the normal /pricing
+      // page. Temporary (307) on purpose, so browsers do not cache it forever.
+      // A #build anchor survives the redirect in the browser.
+      { source: '/pricing/promotion', destination: '/pricing', permanent: false },
+      { source: '/pricing/promotion/:path*', destination: '/pricing', permanent: false },
     ];
   },
 

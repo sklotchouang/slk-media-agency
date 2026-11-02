@@ -1,4 +1,52 @@
-# Current client-facing pricing: the promotion (source of truth for every agent)
+# Client-facing pricing: the promotion ENDED on 2 November 2026 (source of truth for every agent)
+
+**The pricing promotion that started on 21 October 2026 ENDED on 2 November 2026** (Samuel, in writing, 2 November 2026). From that date every prospect and client is shown the normal pricing page and its prices, exactly as before 21 October. Everything under "HISTORY" further down is kept only as a record of what the promotion was; none of it may be quoted to a new asker.
+
+## The link to send
+
+- Pricing page: https://slkmediaagency.com/pricing
+- Straight to the calculator: https://slkmediaagency.com/pricing#build
+- Never send https://slkmediaagency.com/pricing/promotion again. Since 2 November 2026 it is a temporary redirect (307) to /pricing in `next.config.mjs`, so old links in sent emails and LinkedIn messages land on the normal page. The promotion page and its two components were deleted (they stay in git history and in the tag `pricing-backup-2026-10-21`).
+- Strategy call (unchanged): https://link.slkmediaagency.com/strmeet
+
+## Current packages (the normal /pricing page; all monthly, month to month, pause up to 60 days, the client owns every clip)
+
+| Package | Price | What it includes |
+|---|---|---|
+| Done With You ("Clips Only") | $997/month | 20 short clips a month, edited and ready to post. The client posts them. No thumbnails, captions, posting, project manager, call, reporting or strategy document. |
+| Done For You ("Content Engine"), most popular | $1,597/month | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. No long-form episode edits. |
+| Done For You Plus ("Content Accelerator") | $1,897/month | Everything in Done For You plus 4 long-form episode edits a month. |
+
+There is no Starter package and no $697 price for new askers. Starter existed only in the promotion.
+
+Calculator (`components/PricingCalculator.js`): base 20 clips, minimum 6. Below 20 each clip takes $50 off on Done With You and $75 off on Done For You. Above 20: +$50 per clip on Done With You, +$75 per clip on Done For You and Done For You Plus. Long-form edit $150 per episode (the first 4 are included in Done For You Plus). Show notes $50 per episode, SEO show notes $100 per episode. If `PricingPlans.js` / `PricingCalculator.js` and this sheet ever disagree, the files win and this sheet is out of date.
+
+## Pay without a call (normal Myfundbox checkouts, on /pricing under each card)
+
+- Done With You, $997/month: https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw
+- Done For You, $1,597/month: https://pay.myfundbox.com/OVP/?token=YqnycQ4nQ-hWYXg64XvGBg
+- Done For You Plus, $1,897/month: https://pay.myfundbox.com/OVP/?token=xAlmD9YT1xUcuR5nBQPv_g
+
+## Honor rule for leads already quoted a promotion price (until 30 November 2026)
+
+- Anyone who was ALREADY shown or quoted a promotion price before 2 November 2026 can still buy at that promotion price until 30 November 2026 (inclusive). New askers get the normal prices only. After 30 November 2026 nobody gets a promotion price.
+- Never advertise it and never raise it first. Only when an honored lead asks to buy at the price they were quoted.
+- The promotion checkouts are reserved for those honored leads, sent only when that lead asks to buy at the quoted price, until 30 November 2026: Done For You Starter $697 https://pay.myfundbox.com/OVP/?token=SIoJ8jmLealcbfdLHdTGGw ; Done For You (promo) $997 https://pay.myfundbox.com/OVP/?token=yvTAp4UksMbLKpwqkAbLtg ; Done For You Plus (promo) $1,597 https://pay.myfundbox.com/OVP/?token=ap4vMqLYmIo6jPOsQ5RLzA
+- The website chatbot never names a promotion price and never shares these checkouts: if a visitor says they were quoted one before 2 November, it says the quoted price stands until 30 November and points to the strategy call.
+- A creator who already joined at a promotion price keeps it for as long as they stay (unchanged).
+
+## Prepay discount (Samuel, 27 October 2026, unchanged)
+
+- 10% off for 3 months or more prepaid, on the normal prices: Done With You $897.30, Done For You $1,437.30, Done For You Plus $1,707.30 a month.
+- Arranged on the strategy call (no checkout link). Mentioned only when a prospect asks about discounts, paying upfront or a longer commitment. Never combined with a promotion price.
+
+## Not changed
+
+The trial ($497) is never offered by an agent unless the prospect asks for a trial or test in their own words (the website and its chatbot say there is no trial). The Custom Social Media Strategy Report is $103.55. No free work, no guarantees of views, downloads or sponsors. Never say "spots left" and never mention the promotion to new askers.
+
+---
+
+# HISTORY: the promotion as it ran from 21 October to 2 November 2026 (no longer current)
 
 Set by Samuel on 21 October 2026. Starter scope and the calculator below 20 clips changed by Samuel on 27 October 2026 (decision record: `docs/adr/0001-starter-monthly-service-below-20-clips.md`). From this date the promotion page is the pricing shown to every prospect and client, for a trial period of 2 to 3 months (review by Samuel between 21 December 2026 and 21 January 2027, then he decides whether to keep it). Until he decides otherwise, every agent, prompt, price card and knowledge file quotes these prices and sends this page.
 

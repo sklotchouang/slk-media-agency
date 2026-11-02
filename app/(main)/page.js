@@ -76,7 +76,7 @@ const FAQ = [
   ['How fast do the first clips arrive?', '3 to 5 business days after onboarding. After that, on the schedule we agree with you.'],
   ['Which platforms do you post on?', "LinkedIn, YouTube Shorts, Instagram, TikTok, Facebook and X. If you're not sure where to focus, we recommend based on your niche."],
   ['Do you guarantee views, downloads or sponsors?', "No. We control the clips and the posting. We don't control how each platform shows them. We commit to the work, on time, with a report you can check."],
-  ['Can I get a discount if I prepay?', 'Yes. 10% off when you prepay 3 months or more, on our normal prices. It does not combine with a promotion.'],
+  ['Can I get a discount if I prepay?', 'Yes. 10% off when you prepay 3 months or more.'],
   ['Who owns the clips?', 'You do, all of them, forever, including if you leave.'],
   ['Is my content kept confidential?', 'Yes. We sign an NDA with every client and never share your files or plans without permission.'],
   ['Can I cancel or pause?', "Month to month. Give 14 days' notice to cancel, or pause for up to 60 days."],

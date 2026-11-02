@@ -21,8 +21,8 @@ Clips edited and handed over; the client posts them. No project manager, calls, 
 _Avoid_: Clips Only
 
 **Promotion price**:
-The price shown on /pricing/promotion to the first 4 new creators, kept for as long as they stay.
+The price shown on /pricing/promotion from 21 October to 2 November 2026, when the promotion ended. Creators who joined at it keep it for as long as they stay; leads quoted it before 2 November can still buy at it until 30 November 2026. Never quoted to new askers. /pricing/promotion now redirects to /pricing.
 _Avoid_: Discount, sale price
 
 **Normal price**:
-The price on /pricing, shown struck through on the promotion page.
+The price on /pricing, the only price for new askers since 2 November 2026.
