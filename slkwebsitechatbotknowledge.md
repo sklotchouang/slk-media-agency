@@ -2,6 +2,8 @@
 
 Assembled 1 September 2026. Pricing sections rewritten 19 October 2026 for the three packages (Done With You $997, Done For You $1,597, Done For You Plus $1,897).
 
+**Out of date for pricing since 2 November 2026:** the Done With You card was replaced by Done For You Starter ($997, 10 clips, monthly call and report). For current prices use `docs/pricing-promotion-spec.md` and `docs/chatbot/kb-01-offers-and-pricing.md`, not the price lines below.
+
 **Sources used, with their authority level:**
 
 | Short cite | What it is | Authority |

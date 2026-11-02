@@ -2026,7 +2026,145 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 .pricing-page .pp-hero-cta {
-  margin-top: 8px;
+  margin-top: 0;
+}
+
+/* Three facts under the hero line (2 Nov 2026) */
+.pricing-page .pp-hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-hero-points li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricing-page .pp-hero-points i {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+/* Strategy call button plus the calculator button next to it */
+.pricing-page .pp-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 10px;
+}
+
+.pricing-page .pp-hero-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent-strong);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  background: rgba(76, 178, 240, 0.06);
+  transition: var(--transition);
+}
+
+.pricing-page .pp-hero-alt:hover,
+.pricing-page .pp-hero-alt:focus-visible {
+  background: rgba(76, 178, 240, 0.16);
+  color: var(--text-primary);
+}
+
+/* The prompt under the cards that points to the calculator (2 Nov 2026,
+   Samuel: it must be hard to miss) */
+.pricing-page .pp-calcpush {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px 22px;
+  margin: 28px 0 0;
+  padding: 22px 26px;
+  border: 1.5px solid var(--accent);
+  border-radius: 14px;
+  background: linear-gradient(100deg, rgba(76, 178, 240, 0.16), rgba(76, 178, 240, 0.04) 70%);
+  box-shadow: 0 18px 50px -28px rgba(76, 178, 240, 0.6);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.pricing-page .pp-calcpush:hover,
+.pricing-page .pp-calcpush:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 56px -24px rgba(76, 178, 240, 0.75);
+}
+
+.pricing-page .pp-calcpush-ic {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent-grad);
+  color: var(--accent-ink);
+  font-size: 1.2rem;
+}
+
+.pricing-page .pp-calcpush-text {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pricing-page .pp-calcpush-text strong {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.pricing-page .pp-calcpush-text span {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.pricing-page .pp-calcpush-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 10px;
+  background: var(--accent-grad);
+  color: var(--accent-ink);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .pricing-page .pp-calcpush {
+    grid-template-columns: auto 1fr;
+    padding: 20px;
+  }
+
+  .pricing-page .pp-calcpush-btn {
+    grid-column: 1 / -1;
+    justify-content: center;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-page .pp-hero-ctas > a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* ---- The two packages ---- */

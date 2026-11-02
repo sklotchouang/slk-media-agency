@@ -13,11 +13,11 @@ The full done-for-you service: everything in the Starter service, with a weekly 
 _Avoid_: Full service (on its own), Content Engine (that is the card label, not the service)
 
 **Done For You Starter**:
-The package that delivers the Starter service on 10 clips a month. Card label "Content Starter".
+The $997 package that delivers the Starter service on 10 clips a month (monthly call and report). Card label "Content Starter". On /pricing since 2 November 2026, in place of the Done With You card.
 _Avoid_: Starter plan at 12 clips (the scope before 27 October 2026)
 
 **Done With You**:
-Clips edited and handed over; the client posts them. No project manager, calls, reports or posting.
+Clips edited and handed over; the client posts them. No project manager, calls, reports or posting. Since 2 November 2026 not a package: only the "Clips only" choice in the calculator.
 _Avoid_: Clips Only
 
 **Promotion price**:

@@ -8,12 +8,15 @@ import PricingCalculator from '../../../components/PricingCalculator';
 // line, the proof section and the FAQ added 19 October 2026.
 // Replaced the 12 October page; the retired plans are listed in OVERVIEW.md
 // section 7.1. /pricing/clips-only still redirects here, see next.config.mjs.
+// 2 Nov 2026 (Samuel): Done For You Starter ($997, 10 clips) replaced the Done
+// With You card, the hero was rewritten, and the calculator moved up directly
+// under the packages with a prompt that points to it.
 
 const DESCRIPTION =
-  'SLK Media Agency pricing: Done With You at $997 a month (20 clips, you post), Done For You at $1,597 a month (20 clips, thumbnails, captions, posting, a project manager, weekly calls and reporting) or Done For You Plus at $1,897 a month (everything in Done For You plus 4 long-form episode edits). Add-ons and a plan calculator.';
+  'SLK Media Agency pricing: Done For You Starter at $997 a month (10 clips, thumbnails, captions, posting, a project manager, a monthly call and report), Done For You at $1,597 a month (20 clips, weekly calls and reporting) or Done For You Plus at $1,897 a month (everything in Done For You plus 4 long-form episode edits). Add-ons and a plan calculator.';
 
 const SHARE_DESCRIPTION =
-  'Three ways to work with us. Same clips, same quality. Pick how much of the rest you want us to handle.';
+  'Your podcast, clipped, captioned and posted for you. From $997 a month for 10 clips, or build your own plan.';
 
 export const metadata = {
   title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
@@ -93,16 +96,17 @@ const FAQ = [
   {
     q: 'What is the difference between the three packages?',
     a: [
-      'All three include 20 short clips a month, edited and ready to post.',
-      'Done With You ($997 a month): you post the clips yourself.',
-      'Done For You ($1,597 a month): we also make a custom thumbnail for every clip, write the captions, hashtags and calls to action, post every clip on every platform, and give you a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip.',
+      'All three are fully done for you: we edit the clips, make a custom thumbnail for every clip, write the captions, hashtags and calls to action, post every clip on every platform, and give you a dedicated project manager and a strategy document before the first clip.',
+      'Done For You Starter ($997 a month): 10 clips a month, with a monthly call and a monthly report.',
+      'Done For You ($1,597 a month): 20 clips a month, with a weekly call and weekly reporting.',
       'Done For You Plus ($1,897 a month): everything in Done For You, plus 4 long-form episode edits a month.',
     ],
   },
   {
     q: 'Which package should I pick?',
     a: [
-      'Done With You if you already have someone posting. Done For You if you want the whole short-form side handled. Done For You Plus if you also want your full episodes edited.',
+      'Done For You Starter if you publish 1 or 2 episodes a month. Done For You if you publish 2 to 4. Done For You Plus if you also want your full episodes edited.',
+      'Already have someone posting for you? Pick "Clips only" in the Build your own plan calculator: we make the clips and you post them.',
       'Still not sure? Book a 30-minute strategy call and we will work it out with you.',
     ],
   },
@@ -116,14 +120,14 @@ const FAQ = [
   {
     q: 'Can I add more clips or episode edits?',
     a: [
-      'Yes. Extra clips are $75 each on Done For You and Done For You Plus, and $50 each on Done With You. Extra long-form episode edits are $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any package.',
-      'Use the Build your plan calculator above to see your monthly price.',
+      'Yes. Extra clips are $60 each on Done For You Starter, and $75 each on Done For You and Done For You Plus. Extra long-form episode edits are $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any package.',
+      'Use the Build your own plan calculator above to see your monthly price.',
     ],
   },
   {
     q: 'How many clips do I get?',
     a: [
-      'We count clips per month, not per episode. Every package comes with 20 clips a month, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.',
+      'We count clips per month, not per episode. Done For You Starter comes with 10 clips a month, Done For You and Done For You Plus with 20, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.',
     ],
   },
   {
@@ -143,13 +147,14 @@ const FAQ = [
   {
     q: 'Do you guarantee downloads, views or sponsors?',
     a: [
-      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree (on Done For You and Done For You Plus), with a weekly report showing what every clip did.',
+      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree, with a report showing what every clip did (monthly on Starter, weekly on Done For You and Done For You Plus).',
     ],
   },
   {
     q: 'What if I only publish 1 episode a month?',
     a: [
-      'We work best with shows publishing 2 to 4 episodes a month. Steady posting needs steady material: with 2 to 4 episodes we have plenty of strong moments to fill your 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.',
+      'Done For You Starter is built for that. Its 10 clips a month fit one or two episodes without your feed starting to feel repetitive.',
+      'For 20 clips a month we work best with shows publishing 2 to 4 episodes. With one episode, every clip comes from the same conversation.',
     ],
   },
   {
@@ -159,7 +164,7 @@ const FAQ = [
   {
     q: 'Do you provide analytics or reports?',
     a: [
-      'Yes, on Done For You and Done For You Plus. Every week we report on which clips got the most views and engagement, how each platform performed, and what we recommend for next week.',
+      'Yes, on every package: weekly on Done For You and Done For You Plus, monthly on Done For You Starter. We report on which clips got the most views and engagement, how each platform performed, and what we recommend next.',
     ],
   },
   {
@@ -204,8 +209,8 @@ const structuredData = {
       '1597'
     ),
     monthlyOffer(
-      'Done With You',
-      '20 short clips a month, edited and ready for you to post.',
+      'Done For You Starter',
+      '10 short clips a month with a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, monthly reporting and a strategy document before the first clip.',
       '997'
     ),
     monthlyOffer(
@@ -253,9 +258,17 @@ export default function PricingPage() {
         <section className="pp-hero">
           <div className="container">
             <p className="pp-kicker">Pricing</p>
-            <h1>Three ways to work with us.</h1>
-            <p className="pp-hero-sub">Same clips, same quality. Pick how much of the rest you want us to handle.</p>
-            <a href={BOOK_URL} className="primary-cta pp-hero-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
+            <h1>Your podcast, clipped, captioned and posted for you.</h1>
+            <p className="pp-hero-sub">We turn your episodes into short clips, design a thumbnail for each one, write the captions and post them on every platform. A project manager runs it, so all you do is record.</p>
+            <ul className="pp-hero-points">
+              <li><i className="fas fa-check" aria-hidden="true"></i> From $997 a month for 10 clips</li>
+              <li><i className="fas fa-check" aria-hidden="true"></i> Month to month, pause up to 60 days</li>
+              <li><i className="fas fa-check" aria-hidden="true"></i> You own every clip</li>
+            </ul>
+            <div className="pp-hero-ctas">
+              <a href={BOOK_URL} className="primary-cta pp-hero-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
+              <a href="#build" className="pp-hero-alt"><i className="fas fa-sliders" aria-hidden="true"></i> Build your own plan</a>
+            </div>
           </div>
         </section>
 
@@ -278,19 +291,20 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Optional add-ons, directly under the packages */}
-        <section className="pp-details pp-details-addons">
-          <div className="container">
-            <AddOns />
-          </div>
-        </section>
-
         {/* Build your plan */}
         <section className="pp-build" id="build" aria-labelledby="pp-build-title">
           <div className="container">
-            <h2 id="pp-build-title">Build your plan</h2>
-            <p className="pp-lead">Pick what you want each month. The price updates as you go.</p>
+            <p className="pp-eyebrow">Pricing calculator</p>
+            <h2 id="pp-build-title">Build your own plan</h2>
+            <p className="pp-lead">Pick your clips, add full episode edits or show notes, or choose to post the clips yourself. The price updates as you go.</p>
             <PricingCalculator />
+          </div>
+        </section>
+
+        {/* Optional add-ons, under the calculator */}
+        <section className="pp-details pp-details-addons">
+          <div className="container">
+            <AddOns />
           </div>
         </section>
 
@@ -381,7 +395,7 @@ export default function PricingPage() {
         <section className="pp-close">
           <div className="container">
             <div className="pp-strip">
-              <h2>Done With You $997, Done For You $1,597 or Done For You Plus $1,897 a month. Not sure which one fits? We&apos;ll work it out with you on a 30-minute call.</h2>
+              <h2>Done For You Starter $997, Done For You $1,597 or Done For You Plus $1,897 a month. Not sure which one fits? We&apos;ll work it out with you on a 30-minute call.</h2>
               <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
             </div>
           </div>

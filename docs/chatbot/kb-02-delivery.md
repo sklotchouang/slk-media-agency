@@ -6,7 +6,7 @@ You send your episodes. On Done For You, SLK Media Agency does the rest.
 
 The Done For You process runs in eight steps: you submit raw episodes and brand assets, then onboarding and strategy, then human editorial review to find the high retention moments, then production (short form edit, captions, pacing, hooks), then platform adaptation, then quality control, then scheduling and distribution, then an ongoing optimization loop.
 
-On Done With You the process stops after quality control. SLK Media Agency edits the clips and hands them over, and you do the posting yourself.
+On the clips only choice in the calculator the process stops after quality control. SLK Media Agency edits the clips and hands them over, and you do the posting yourself.
 
 Your first clips arrive within 3 to 5 business days after onboarding.
 
@@ -38,7 +38,7 @@ Audio only shows are welcome. There are audio to video examples here: https://li
 
 ## Reporting
 
-Success is tracked through views, engagement, follower growth and click through rate, reported weekly on the monthly plans. The weekly reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for the next week.
+Success is tracked through views, engagement, follower growth and click through rate, reported weekly on Done For You and Done For You Plus and monthly on Done For You Starter. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
 
 ## Publishing frequency
 

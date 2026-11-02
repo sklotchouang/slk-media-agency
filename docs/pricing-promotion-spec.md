@@ -1,6 +1,8 @@
 # Client-facing pricing: the promotion ENDED on 2 November 2026 (source of truth for every agent)
 
-**The pricing promotion that started on 21 October 2026 ENDED on 2 November 2026** (Samuel, in writing, 2 November 2026). From that date every prospect and client is shown the normal pricing page and its prices, exactly as before 21 October. Everything under "HISTORY" further down is kept only as a record of what the promotion was; none of it may be quoted to a new asker.
+**The pricing promotion that started on 21 October 2026 ENDED on 2 November 2026** (Samuel, in writing, 2 November 2026). From that date every prospect and client is shown the normal pricing page and its prices. Everything under "HISTORY" further down is kept only as a record of what the promotion was; none of it may be quoted to a new asker.
+
+**Package change, 2 November 2026 (Samuel, in writing, later the same day):** the Done With You card ($997, 20 clips, client posts) is gone from /pricing. In its place is **Done For You Starter at $997 a month for 10 clips**, with a monthly call and a monthly report. Done With You still exists only as the "Clips only" choice inside the calculator; agents never offer it as a package, and only mention it if a prospect says they want to post the clips themselves. Existing Done With You clients keep their plan.
 
 ## The link to send
 
@@ -13,17 +15,24 @@
 
 | Package | Price | What it includes |
 |---|---|---|
-| Done With You ("Clips Only") | $997/month | 20 short clips a month, edited and ready to post. The client posts them. No thumbnails, captions, posting, project manager, call, reporting or strategy document. |
+| Done For You Starter ("Content Starter") | $997/month | 10 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a monthly call, monthly reporting, a strategy document before the first clip. No long-form episode edits. |
 | Done For You ("Content Engine"), most popular | $1,597/month | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. No long-form episode edits. |
 | Done For You Plus ("Content Accelerator") | $1,897/month | Everything in Done For You plus 4 long-form episode edits a month. |
 
-There is no Starter package and no $697 price for new askers. Starter existed only in the promotion.
+The difference between Starter and Done For You: Starter has 10 clips with one call and one report a month; Done For You has 20 clips with a weekly call and a weekly report. Both have thumbnails, captions, posting, a dedicated project manager and a strategy document. There is no $697 price for new askers (that was the promotion).
 
-Calculator (`components/PricingCalculator.js`): base 20 clips, minimum 6. Below 20 each clip takes $50 off on Done With You and $75 off on Done For You. Above 20: +$50 per clip on Done With You, +$75 per clip on Done For You and Done For You Plus. Long-form edit $150 per episode (the first 4 are included in Done For You Plus). Show notes $50 per episode, SEO show notes $100 per episode. If `PricingPlans.js` / `PricingCalculator.js` and this sheet ever disagree, the files win and this sheet is out of date.
+Which to suggest (from the page FAQ): Starter for 1 or 2 episodes a month. Done For You for 2 to 4. Done For You Plus if they also want full episodes edited. A prospect who wants to post the clips themselves: point them to the "Clips only" choice in the calculator (https://slkmediaagency.com/pricing#build).
+
+Calculator (`components/PricingCalculator.js`), minimum 6 clips, default Done For You at 20 clips:
+- Done For You below 20 clips is Starter: $997 at 10 clips, $60 per clip up or down (6 clips = $757, 12 = $1,117, 19 = $1,537). Every episode edit on Starter is $150 (Done For You Plus needs 20 clips).
+- Done For You at 20 clips and up: $1,597 at 20, +$75 per clip above 20.
+- Done For You Plus (Done For You at 20+ clips with 4 or more episodes): $1,897 at 20 clips with 4 edits included, +$75 per clip above 20, edits above 4 at $150 each.
+- Clips only (Done With You, calculator only): $997 at 20 clips, $50 per clip up or down (10 clips = $497).
+- Add-ons: long-form edit $150 per episode, show notes $50 per episode, SEO show notes $100 per episode. Extra clips: $60 on Starter, $75 on Done For You and Done For You Plus. If `PricingPlans.js` / `PricingCalculator.js` and this sheet ever disagree, the files win and this sheet is out of date.
 
 ## Pay without a call (normal Myfundbox checkouts, on /pricing under each card)
 
-- Done With You, $997/month: https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw
+- Done For You Starter, $997/month: https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw (Samuel, 2 Nov 2026: this is the old Done With You checkout, reused because the amount is right; the checkout page still shows the plan name "Done With You". Tell the prospect that if they ask.)
 - Done For You, $1,597/month: https://pay.myfundbox.com/OVP/?token=YqnycQ4nQ-hWYXg64XvGBg
 - Done For You Plus, $1,897/month: https://pay.myfundbox.com/OVP/?token=xAlmD9YT1xUcuR5nBQPv_g
 
@@ -37,7 +46,7 @@ Calculator (`components/PricingCalculator.js`): base 20 clips, minimum 6. Below 
 
 ## Prepay discount (Samuel, 27 October 2026, unchanged)
 
-- 10% off for 3 months or more prepaid, on the normal prices: Done With You $897.30, Done For You $1,437.30, Done For You Plus $1,707.30 a month.
+- 10% off for 3 months or more prepaid, on the normal prices: Done For You Starter $897.30, Done For You $1,437.30, Done For You Plus $1,707.30 a month.
 - Arranged on the strategy call (no checkout link). Mentioned only when a prospect asks about discounts, paying upfront or a longer commitment. Never combined with a promotion price.
 
 ## Not changed

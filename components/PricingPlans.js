@@ -1,8 +1,10 @@
 // The three packages on /pricing and everything that describes them: the
-// three cards, the terms line, the full comparison table and the Optional
-// Add-ons. Samuel approved the two original packages on 16 October 2026 and
-// added Done For You Plus ($1,897, Done For You plus 4 long-form episode edits
-// a month) on 19 October 2026. Every card carries the same 20 clips.
+// three cards, the terms line, the calculator prompt, the full comparison
+// table and the Optional Add-ons. Samuel approved Done For You on 16 October
+// 2026 and Done For You Plus ($1,897, Done For You plus 4 long-form episode
+// edits a month) on 19 October 2026. On 2 November 2026 he replaced the Done
+// With You card with Done For You Starter ($997, 10 clips, a monthly call and
+// a monthly report). Done With You lives on only as a calculator choice.
 //
 // No state, so these are server components and the page is complete without
 // JavaScript. The calculator is components/PricingCalculator.js. The page
@@ -11,27 +13,29 @@
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
 // Myfundbox checkouts, one per package, given by Samuel on 20 Oct 2026. Each
-// was opened and checked that day: the plan name and the USD monthly price
-// match the card. Every card keeps the strategy call as its main button; the
-// checkout is the small "Ready now?" link under it.
+// was opened and checked that day. Starter reuses the $997 checkout that was
+// made for Done With You (Samuel, 2 Nov 2026): the amount is right, the plan
+// name on the checkout page still says Done With You. Every card keeps the
+// strategy call as its main button; the checkout is the small "Ready now?"
+// link under it.
 const PAY_URL = {
-  dwy: 'https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw',
+  starter: 'https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw',
   dfy: 'https://pay.myfundbox.com/OVP/?token=YqnycQ4nQ-hWYXg64XvGBg',
   plus: 'https://pay.myfundbox.com/OVP/?token=xAlmD9YT1xUcuR5nBQPv_g',
 };
 
-// One row per deliverable. dwy / dfy / plus: true = included, false = not
+// One row per deliverable. starter / dfy / plus: true = included, false = not
 // included, a string = shown as text. Column order matches the cards.
 const ROWS = [
-  { label: 'Clips per month', dwy: '20', dfy: '20', plus: '20' },
-  { label: 'A custom thumbnail for every clip', dwy: false, dfy: true, plus: true },
-  { label: 'Captions, hashtags and calls to action', dwy: false, dfy: true, plus: true },
-  { label: 'Posting on every platform', dwy: false, dfy: true, plus: true },
-  { label: 'A dedicated project manager', dwy: false, dfy: true, plus: true },
-  { label: 'A weekly call', dwy: false, dfy: true, plus: true },
-  { label: 'Weekly reporting', dwy: false, dfy: true, plus: true },
-  { label: 'A strategy document before the first clip', dwy: false, dfy: true, plus: true },
-  { label: 'Long-form episode edits', dwy: false, dfy: false, plus: '4 a month' },
+  { label: 'Clips per month', starter: '10', dfy: '20', plus: '20' },
+  { label: 'A custom thumbnail for every clip', starter: true, dfy: true, plus: true },
+  { label: 'Captions, hashtags and calls to action', starter: true, dfy: true, plus: true },
+  { label: 'Posting on every platform', starter: true, dfy: true, plus: true },
+  { label: 'A dedicated project manager', starter: true, dfy: true, plus: true },
+  { label: 'A strategy call', starter: 'Monthly', dfy: 'Weekly', plus: 'Weekly' },
+  { label: 'Reporting', starter: 'Monthly', dfy: 'Weekly', plus: 'Weekly' },
+  { label: 'A strategy document before the first clip', starter: true, dfy: true, plus: true },
+  { label: 'Long-form episode edits', starter: false, dfy: false, plus: '4 a month' },
 ];
 
 const ADDONS = [
@@ -41,7 +45,7 @@ const ADDONS = [
     tone: 'pp-tone-a',
     price: '$75',
     unit: 'per clip',
-    note: 'On Done For You and Done For You Plus. $50 per clip on Done With You.',
+    note: 'On Done For You and Done For You Plus. $60 per clip on Starter.',
   },
   {
     name: 'Long-form Episode Edit',
@@ -75,6 +79,16 @@ const DFY_FEATURES = [
   'A dedicated project manager',
   'A weekly call',
   'Weekly reporting',
+  'A strategy document before the first clip',
+];
+
+// Starter: 10 clips, and a monthly call and report instead of weekly ones.
+// Everything else matches Done For You word for word.
+const STARTER_FEATURES = [
+  '10 short clips a month, edited and ready to post',
+  ...DFY_FEATURES.slice(1, 5),
+  'A monthly call',
+  'Monthly reporting',
   'A strategy document before the first clip',
 ];
 
@@ -124,28 +138,27 @@ export function PlanCards() {
   return (
     <>
       <div className="pp-trio">
-        <article className="pp-card" aria-labelledby="pp-dwy-name">
-          <div>
-            <h2 className="pp-name" id="pp-dwy-name">Done With You</h2>
-            <p className="pp-sub">Clips Only</p>
-          </div>
-          <p className="pp-price">
-            <b>$997</b>
-            <span>/month</span>
-          </p>
-          <p className="pp-who">We make the clips. You post them.</p>
-          <ul className="pp-feat">
-            <Yes>20 short clips a month, edited and ready to post</Yes>
-            <No>Thumbnails</No>
-            <No>Captions, hashtags and calls to action</No>
-            <No>Posting</No>
-            <No>Project manager and weekly call</No>
-            <No>Weekly reporting</No>
-            <No>Strategy document</No>
-            <No>Long-form episode edits</No>
-          </ul>
-          <CardActions label="Start with clips only" pay={PAY_URL.dwy} quiet />
-        </article>
+        <div className="pp-col">
+          <article className="pp-card" aria-labelledby="pp-starter-name">
+            <div>
+              <h2 className="pp-name" id="pp-starter-name">Done For You Starter</h2>
+              <p className="pp-sub">Content Starter</p>
+            </div>
+            <p className="pp-price">
+              <b>$997</b>
+              <span>/month</span>
+            </p>
+            <p className="pp-who">The full done-for-you service at 10 clips a month, with a monthly check-in.</p>
+            <ul className="pp-feat">
+              {STARTER_FEATURES.map((f) => (
+                <Yes key={f}>{f}</Yes>
+              ))}
+              <No>Long-form episode edits</No>
+            </ul>
+            <CardActions label="Start with Starter" pay={PAY_URL.starter} quiet />
+          </article>
+          <p className="pp-commit"><strong>What we commit to:</strong> 10 clips a month, the posting schedule and a monthly report.</p>
+        </div>
 
         <div className="pp-col pp-col-dfy">
           <article className="pp-card pp-card-dfy" aria-labelledby="pp-dfy-name">
@@ -198,7 +211,24 @@ export function PlanCards() {
         <span>Pause up to 60 days</span>
         <span>You own every clip</span>
       </p>
+
+      <CalcPrompt />
     </>
+  );
+}
+
+// The prompt under the cards that sends anyone who did not find a fit to the
+// calculator (Samuel, 2 Nov 2026: the calculator was too easy to miss).
+export function CalcPrompt() {
+  return (
+    <a href="#build" className="pp-calcpush">
+      <span className="pp-calcpush-ic" aria-hidden="true"><i className="fas fa-sliders"></i></span>
+      <span className="pp-calcpush-text">
+        <strong>None of these quite fit?</strong>
+        <span>Build your own plan: pick any number of clips, add full episode edits or show notes, or post the clips yourself. Your price shows as you go.</span>
+      </span>
+      <span className="pp-calcpush-btn">Open the pricing calculator <i className="fas fa-arrow-down" aria-hidden="true"></i></span>
+    </a>
   );
 }
 
@@ -251,7 +281,7 @@ export function CompareTable() {
           <thead>
             <tr>
               <th scope="col">What you get</th>
-              <th scope="col">Done With You</th>
+              <th scope="col">Done For You Starter</th>
               <th scope="col" className="pp-us">Done For You</th>
               <th scope="col">Done For You Plus</th>
             </tr>
@@ -260,7 +290,7 @@ export function CompareTable() {
             {ROWS.map((row) => (
               <tr key={row.label}>
                 <th scope="row">{row.label}</th>
-                <Cell value={row.dwy} />
+                <Cell value={row.starter} />
                 <Cell value={row.dfy} us />
                 <Cell value={row.plus} />
               </tr>

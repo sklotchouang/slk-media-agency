@@ -2,7 +2,13 @@
 
 import { useState } from 'react';
 
-// "Build your plan" on /pricing. The visitor picks Done With You or Done For
+// "Build your plan" on /pricing. 2 Nov 2026, Samuel: the done-for-you choice
+// below 20 clips is Done For You Starter ($997 at 10 clips, $60 a clip up or
+// down, monthly call and report); at 20 clips and up it is Done For You. Done
+// With You (clips only, the visitor posts) is no longer a card but stays here
+// as the second choice. Default is Done For You at 20 clips.
+//
+// History: the visitor picks Done With You or Done For
 // You directly (20 Oct 2026, Samuel: no per-item prices, so the page does not
 // read like a shop; the old four "handle it for me" boxes are gone). Every
 // episode counted is a long-form edit at $150 (20 Oct 2026, Samuel: choosing
@@ -26,6 +32,9 @@ const PRICE = {
   baseClips: 20, // the clip count every base price below is quoted at
   minClips: 6, // the smallest number of clips we make
   minEpisodes: 0,
+  starterClips: 10, // Done For You Starter is quoted at 10 clips
+  starterBase: 997, // Done For You Starter at 10 clips
+  starterPerClip: 60, // each clip up or down from 10 on Starter (19 clips = $1,537)
   dwyBase: 997, // Done With You at 20 clips
   dwyPerClip: 50, // each clip above 20 on Done With You
   dfyBase: 1597, // Done For You at 20 clips
@@ -39,14 +48,14 @@ const PRICE = {
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
-// The two plans the visitor chooses between.
+// The two choices the visitor picks between.
 const PLANS = [
-  { id: 'dwy', name: 'Done With You', blurb: 'We make the clips, you post them.' },
   {
     id: 'dfy',
     name: 'Done For You',
-    blurb: 'We also make a custom thumbnail for every clip, write the captions, hashtags and calls to action, and post on every platform.',
+    blurb: 'We make the clips and the thumbnails, write the captions and post on every platform.',
   },
+  { id: 'dwy', name: 'Clips only (Done With You)', blurb: 'We make the clips, you post them yourself.' },
 ];
 
 function money(n) {
@@ -66,7 +75,13 @@ function dwyPrice(clips) {
   return PRICE.dwyBase + (clips - PRICE.baseClips) * PRICE.dwyPerClip;
 }
 
+// Below 20 clips the done-for-you service is Starter.
+function isStarter(clips) {
+  return clips < PRICE.baseClips;
+}
+
 function dfyPrice(clips) {
+  if (isStarter(clips)) return PRICE.starterBase + (clips - PRICE.starterClips) * PRICE.starterPerClip;
   return PRICE.dfyBase + (clips - PRICE.baseClips) * PRICE.dfyPerClip;
 }
 
@@ -140,18 +155,23 @@ function Stepper({ id, label, value, min, sliderMax, onChange, unit }) {
 
 export default function PricingCalculator() {
   const [clips, setClips] = useState(20);
-  const [plan, setPlan] = useState('dwy');
+  const [plan, setPlan] = useState('dfy');
   const [episodes, setEpisodes] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
   const [seoNotes, setSeoNotes] = useState(false);
 
   const isDfy = plan === 'dfy';
-  const isPlus = isDfy && episodes >= PRICE.plusEdits;
+  const starter = isDfy && isStarter(clips);
+  // Done For You Plus needs the full 20 clips; Starter pays every edit at $150.
+  const isPlus = isDfy && !starter && episodes >= PRICE.plusEdits;
   let planName = 'Done With You';
   let planPrice = dwyPrice(clips);
   if (isPlus) {
     planName = 'Done For You Plus';
     planPrice = plusPrice(clips);
+  } else if (starter) {
+    planName = 'Done For You Starter';
+    planPrice = dfyPrice(clips);
   } else if (isDfy) {
     planName = 'Done For You';
     planPrice = dfyPrice(clips);
@@ -188,13 +208,15 @@ export default function PricingCalculator() {
   let why = 'We make the clips, you post them.';
   if (isPlus) {
     why = `We handle the clips, thumbnails, captions and posting, and edit ${episodes} full episodes. The first ${PRICE.plusEdits} episode edits are included in the package.`;
+  } else if (starter) {
+    why = 'We make the clips, the thumbnails and the captions, post them for you, and check in with a monthly call and report.';
   } else if (isDfy) {
-    why = 'We make the clips, the thumbnails and the captions, and post them for you.';
+    why = 'We make the clips, the thumbnails and the captions, post them for you, and check in with a weekly call and report.';
   }
 
   // Done For You with 1 to 3 paid episode edits: point to Done For You Plus,
   // which includes 4 edits for a set price.
-  const plusHint = isDfy && !isPlus && episodes > 0;
+  const plusHint = isDfy && !starter && !isPlus && episodes > 0;
 
   return (
     <div className="pp-calc">
@@ -210,7 +232,7 @@ export default function PricingCalculator() {
         />
 
         <fieldset className="pp-group">
-          <legend>Are you looking for Done With You or Done For You?</legend>
+          <legend>Do you want us to post the clips for you?</legend>
           <div className="pp-planpick">
             {PLANS.map((p) => (
               <label className={`pp-planopt${plan === p.id ? ' is-on' : ''}`} htmlFor={`pp-p-${p.id}`} key={p.id}>
@@ -300,9 +322,14 @@ export default function PricingCalculator() {
         </ul>
         {isDfy ? null : (
           <p className="pp-hint" id="pp-calc-hint">
-            Want us to post them too? Done For You at this volume is {money(dfyPrice(clips))}/month.
+            Want us to post them too? {isStarter(clips) ? 'Done For You Starter' : 'Done For You'} at this volume is {money(dfyPrice(clips))}/month.
           </p>
         )}
+        {starter ? (
+          <p className="pp-hint" id="pp-calc-starter-hint">
+            At 20 clips you get Done For You, with a weekly call and weekly reporting, for {money(PRICE.dfyBase)}/month.
+          </p>
+        ) : null}
         {plusHint ? (
           <p className="pp-hint" id="pp-calc-plus-hint">
             Done For You Plus includes {PRICE.plusEdits} long-form episode edits a month for {money(plusPrice(clips))}/month at this volume.
