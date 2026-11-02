@@ -606,7 +606,7 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Yes. 10% off for 3+ month prepayment.</strong></p>
+                <p><strong>Yes. 10% off Done For You and Done For You Plus for 3+ month prepayment.</strong></p>
               </div>
             </div>
 

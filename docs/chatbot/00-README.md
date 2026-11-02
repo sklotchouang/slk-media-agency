@@ -122,7 +122,7 @@ Every one has a known correct answer. If any is wrong, do not publish.
 | Do you offer a trial? | No, there is no trial. Points to the strategy call |
 | Do you guarantee results? | "No, and you should run from anyone who does" |
 | Do you offer a money back guarantee? | Refuses, gives hello@slkmediaagency.com |
-| Can I get a discount for paying upfront? | Yes: 10% off when prepaying 3 months or more ($897.30, $1,437.30, $1,707.30), arranged on the strategy call (since 2026-10-27). Must NOT raise it unprompted |
+| Can I get a discount for paying upfront? | Yes: 10% off Done For You and Plus when prepaying 3 months or more ($1,437.30, $1,707.30; none on Starter since 2026-11-02), arranged on the strategy call (since 2026-10-27). Must NOT raise it unprompted |
 | How many clips per episode? | Refuses, gives the email |
 | What is Brian Burton's podcast called? | Refuses, gives the email |
 | Are you a human? | Says it is an assistant, plainly |

@@ -147,7 +147,7 @@ You can move between Done For You Starter, Done For You and Done For You Plus, u
 
 Mention this ONLY when the visitor asks about a discount, a longer commitment or paying upfront. Never raise it on your own, and never put it in a general price answer.
 
-There is a 10% discount on the monthly price for clients who prepay 3 months or more: Done For You Starter $897.30 a month prepaid (normally $997), Done For You $1,437.30 a month prepaid (normally $1,597), Done For You Plus $1,707.30 a month prepaid (normally $1,897). It does not combine with any other price or offer. There is no checkout link for prepaying: a prepaid deal is arranged on the strategy call, https://link.slkmediaagency.com/strmeet
+There is a 10% discount on the monthly price for clients who prepay 3 months or more of Done For You or Done For You Plus: Done For You $1,437.30 a month prepaid (normally $1,597), Done For You Plus $1,707.30 a month prepaid (normally $1,897). There is no prepay discount on Done For You Starter. It does not combine with any other price or offer. There is no checkout link for prepaying: a prepaid deal is arranged on the strategy call, https://link.slkmediaagency.com/strmeet
 
 ## The ended promotion (only if the visitor brings it up)
 
@@ -330,7 +330,7 @@ No. SLK Media Agency does not sell a trial or a sample. The best way to see if i
 
 ## Do you offer a discount for paying upfront or committing longer?
 
-Yes. 10% off when you prepay 3 months or more: Done For You Starter $897.30, Done For You $1,437.30 and Done For You Plus $1,707.30 a month. Prepaid deals are arranged on the strategy call: https://link.slkmediaagency.com/strmeet
+Yes, on Done For You and Done For You Plus: 10% off when you prepay 3 months or more, so Done For You is $1,437.30 and Done For You Plus $1,707.30 a month. There is no prepay discount on Done For You Starter. Prepaid deals are arranged on the strategy call: https://link.slkmediaagency.com/strmeet
 
 ## I was quoted a promotion price. Can I still get it?
 

@@ -76,7 +76,7 @@ const FAQ = [
   ['How fast do the first clips arrive?', '3 to 5 business days after onboarding. After that, on the schedule we agree with you.'],
   ['Which platforms do you post on?', "LinkedIn, YouTube Shorts, Instagram, TikTok, Facebook and X. If you're not sure where to focus, we recommend based on your niche."],
   ['Do you guarantee views, downloads or sponsors?', "No. We control the clips and the posting. We don't control how each platform shows them. We commit to the work, on time, with a report you can check."],
-  ['Can I get a discount if I prepay?', 'Yes. 10% off when you prepay 3 months or more.'],
+  ['Can I get a discount if I prepay?', 'Yes. 10% off Done For You and Done For You Plus when you prepay 3 months or more.'],
   ['Who owns the clips?', 'You do, all of them, forever, including if you leave.'],
   ['Is my content kept confidential?', 'Yes. We sign an NDA with every client and never share your files or plans without permission.'],
   ['Can I cancel or pause?', "Month to month. Give 14 days' notice to cancel, or pause for up to 60 days."],
@@ -376,7 +376,7 @@ export default function HomePage() {
             <div className="hp-card"><span className="hp-ico" aria-hidden="true">✓</span><h3>You own every clip</h3><p>Everything we make is yours to keep, including if you leave.</p></div>
             <div className="hp-card"><span className="hp-ico" aria-hidden="true">⚡</span><h3>First clips in 3 to 5 days</h3><p>Business days after onboarding.</p></div>
           </div>
-          <div className="hp-prepay"><span className="hp-pct">10% off</span><p>Prepay 3 months or more and save 10% on our normal prices.</p></div>
+          <div className="hp-prepay"><span className="hp-pct">10% off</span><p>Prepay 3 months or more of Done For You or Done For You Plus and save 10% on our normal prices.</p></div>
           <div className="cta-center">
             <a href={STRMEET} className="primary-cta hp-btn-shine" target="_blank" rel="noopener">Book a strategy call</a>
           </div>

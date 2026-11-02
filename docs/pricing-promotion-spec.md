@@ -46,7 +46,7 @@ Calculator (`components/PricingCalculator.js`), minimum 6 clips, default Done Fo
 
 ## Prepay discount (Samuel, 27 October 2026, unchanged)
 
-- 10% off for 3 months or more prepaid, on the normal prices: Done For You Starter $897.30, Done For You $1,437.30, Done For You Plus $1,707.30 a month.
+- 10% off for 3 months or more prepaid, on the normal prices: Done For You $1,437.30, Done For You Plus $1,707.30 a month. There is no prepay discount on Done For You Starter. (Samuel, 2 November 2026: Starter stays $997 a month whatever the term.)
 - Arranged on the strategy call (no checkout link). Mentioned only when a prospect asks about discounts, paying upfront or a longer commitment. Never combined with a promotion price.
 
 ## Not changed
