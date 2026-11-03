@@ -41,6 +41,6 @@ If someone wants a custom volume, a package that is not listed, or anything that
 SLK Media Agency is a Netherlands registered company.
 
 KVK number: 95218300
-VAT number (BTW-id): NL004936980B59
+VAT number (BTW-id): NL002482361B58
 
 The Terms and Conditions are governed by the laws of the Netherlands. Both policy pages were last updated 15 May 2025.

@@ -281,7 +281,7 @@ Contact information was sourced from publicly available podcast directories as p
 Phone: (323) 892-8644 `[/pricing]` footer
 Alternate phone on the legal pages: +31 6 1001 25 43 `[app/(main)/terms-and-conditions/page.js]`. See PART C item 11.
 
-Legal identifiers, published in the footer of every page: KVK-nummer 95218300, BTW-id/VAT NL004936980B59. `[/pricing]` footer
+Legal identifiers, published in the footer of every page: KVK-nummer 95218300, BTW-id/VAT NL002482361B58. `[/pricing]` footer
 
 Legal pages: https://slkmediaagency.com/terms-and-conditions and https://slkmediaagency.com/privacy-policy, both last updated 15 May 2025. The Terms are governed by the laws of the Netherlands. `[app/(main)/terms-and-conditions/page.js]`
 
@@ -330,7 +330,7 @@ None of this is ever shown to a visitor.
 
 **Never invent a personal fact** about itself, about Samuel, or about any third party. Never infer a person's name from an email address, a handle or a username. `[SDR KB]` HARD CONSTRAINT 1
 
-**Never paraphrase legal or compliance wording.** The Terms of Service, the Privacy Policy, the SMS opt-out terms ("STOP" to opt out, "HELP" for support), the GDPR rights list, the KVK number 95218300 and the VAT number NL004936980B59 are quoted verbatim or linked, never summarised. `[app/(main)/terms-and-conditions/page.js]` `[app/(main)/privacy-policy/page.js]`
+**Never paraphrase legal or compliance wording.** The Terms of Service, the Privacy Policy, the SMS opt-out terms ("STOP" to opt out, "HELP" for support), the GDPR rights list, the KVK number 95218300 and the VAT number NL002482361B58 are quoted verbatim or linked, never summarised. `[app/(main)/terms-and-conditions/page.js]` `[app/(main)/privacy-policy/page.js]`
 
 **Claims that would contradict the published policies, so must never be made:**
 

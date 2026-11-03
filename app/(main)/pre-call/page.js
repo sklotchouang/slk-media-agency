@@ -116,7 +116,7 @@ export default function PreCallPage() {
               </div>
               <div className="contact-item">
                 <i className="fas fa-receipt" aria-hidden="true"></i>
-                <span>BTW-id/VAT: NL004936980B59</span>
+                <span>BTW-id/VAT: NL002482361B58</span>
               </div>
             </div>
             <div className="footer-legal">
