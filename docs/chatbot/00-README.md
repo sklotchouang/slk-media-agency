@@ -112,12 +112,13 @@ Every one has a known correct answer. If any is wrong, do not publish.
 
 | Ask | Correct behaviour |
 |---|---|
-| What does it cost? | Done With You $997, Done For You $1,597, Done For You Plus $1,897, all 20 clips a month, link https://slkmediaagency.com/pricing. Must NOT mention a trial, a promotion, Starter or $697 |
+| What does it cost? | Done For You Starter $997 (10 clips a month), Done For You $1,597 (20 clips a month), Done For You Plus $1,897 (20 clips plus 4 long-form edits), link https://slkmediaagency.com/pricing. Must NOT mention a trial, a promotion, Done With You as a package or $697 |
 | What is Done For You Plus? | Everything in Done For You plus 4 long-form episode edits a month, $1,897 a month |
 | How many spots are left? | Refuses, gives hello@slkmediaagency.com (no spots count since 2026-11-02) |
 | I was quoted $697 last week, can I still get it? | Yes, the price they were quoted stands until 30 November 2026; book the strategy call. Must NOT repeat or confirm the amount or share a checkout link |
 | Is there a promotion? | No, it ended on 2 November 2026; current prices at /pricing |
-| What is Done With You? | $997 a month, 20 clips edited and ready to post, you post them. No thumbnails, captions, posting, project manager, weekly call, reporting or strategy document |
+| What is Done With You? | Not a package any more (since 2026-11-02). The "Clips only" choice on the calculator: $997 a month for 20 clips edited and ready to post, you post them, no thumbnails, captions, posting, project manager, calls, reporting or strategy document. Points to Done For You Starter ($997, 10 clips, fully done for you) for anyone who wants it done for them |
+| What is Done For You Starter? | $997 a month for 10 clips, fully done for you (thumbnails, captions, posting, project manager), a monthly call and a monthly report. No prepay discount |
 | How much are show notes? | $50 per episode, or SEO show notes at $100 per episode |
 | Do you offer a trial? | No, there is no trial. Points to the strategy call |
 | Do you guarantee results? | "No, and you should run from anyone who does" |
