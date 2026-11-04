@@ -15,8 +15,8 @@
 
 | Package | Price | What it includes |
 |---|---|---|
-| Done For You Starter ("Content Starter") | $997/month | 10 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a monthly call, monthly reporting, a strategy document before the first clip. No long-form episode edits. |
-| Done For You ("Content Engine"), most popular | $1,597/month | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. No long-form episode edits. |
+| Done For You Starter ("Content Starter") | $997/month | 10 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a monthly call, monthly reporting, a strategy document before the first clip. Long-form episode edits are not included: they are $150 per episode, and we also edit full episodes on their own. |
+| Done For You ("Content Engine"), most popular | $1,597/month | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. Long-form episode edits are not included: they are $150 per episode, and we also edit full episodes on their own. |
 | Done For You Plus ("Content Accelerator") | $1,897/month | Everything in Done For You plus 4 long-form episode edits a month. |
 
 The difference between Starter and Done For You: Starter has 10 clips with one call and one report a month; Done For You has 20 clips with a weekly call and a weekly report. Both have thumbnails, captions, posting, a dedicated project manager and a strategy document. There is no $697 price for new askers (that was the promotion).
@@ -28,6 +28,7 @@ Calculator (`components/PricingCalculator.js`), minimum 6 clips, default Done Fo
 - Done For You at 20 clips and up: $1,597 at 20, +$75 per clip above 20.
 - Done For You Plus (Done For You at 20+ clips with 4 or more episodes): $1,897 at 20 clips with 4 edits included, +$75 per clip above 20, edits above 4 at $150 each.
 - Clips only (Done With You, calculator only): $997 at 20 clips, $50 per clip up or down (10 clips = $497).
+- Long-form editing on its own (Samuel, 4 November 2026): we edit full episodes with or without a package, $150 per episode. Someone who only wants full episodes edited is quoted episodes a month x $150 (4 episodes = $600 a month). Never tell a prospect we do not do long-form.
 - Add-ons: long-form edit $150 per episode, show notes $50 per episode, SEO show notes $100 per episode. Extra clips: $60 on Starter, $75 on Done For You and Done For You Plus. If `PricingPlans.js` / `PricingCalculator.js` and this sheet ever disagree, the files win and this sheet is out of date.
 
 ## Pay without a call (normal Myfundbox checkouts, on /pricing under each card)
@@ -78,8 +79,8 @@ The page lives in the website repo: `app/(main)/pricing/promotion/page.js`, `com
 
 | Package | Promotion price | Normal price | What it includes |
 |---|---|---|---|
-| Done For You Starter ("Content Starter") | $697/month | $997 | 10 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a strategy document before the first clip, a monthly call and a monthly report. No long-form episode edits. (Until 27 Oct 2026 it was 12 clips with a weekly call and weekly reporting.) |
-| Done For You ("Content Engine"), the featured one | $997/month | $1,597 | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. No long-form episode edits. |
+| Done For You Starter ("Content Starter") | $697/month | $997 | 10 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a strategy document before the first clip, a monthly call and a monthly report. Long-form episode edits are not included: they are $150 per episode, and we also edit full episodes on their own. (Until 27 Oct 2026 it was 12 clips with a weekly call and weekly reporting.) |
+| Done For You ("Content Engine"), the featured one | $997/month | $1,597 | 20 short clips a month, a custom thumbnail for every clip, captions, hashtags and calls to action for every clip, every clip posted on every platform, a dedicated project manager, a weekly call, weekly reporting, a strategy document before the first clip. Long-form episode edits are not included: they are $150 per episode, and we also edit full episodes on their own. |
 | Done For You Plus ("Content Accelerator") | $1,597/month | $1,897 | Everything in Done For You plus 4 long-form episode edits a month. |
 | Done With You (calculator only, not a card) | $597/month at 20 clips | $997 | 20 short clips a month, edited and ready to post. The client posts them. No thumbnails, captions, posting, reporting. $25 per clip up or down. |
 

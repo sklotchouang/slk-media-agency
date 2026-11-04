@@ -72,7 +72,7 @@ The full done for you service at a smaller volume, with a monthly check-in. A go
 
 Includes: 10 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a monthly call; monthly reporting; and a strategy document before the first clip.
 
-Does not include: long-form episode edits. Compared with Done For You, Starter has 10 clips instead of 20, and one call and one report a month instead of weekly ones.
+Does not include long-form episode edits. Those are $150 per episode, and we also edit full episodes on their own, with no package needed. Compared with Done For You, Starter has 10 clips instead of 20, and one call and one report a month instead of weekly ones.
 
 You start Done For You Starter with a strategy call: https://link.slkmediaagency.com/strmeet
 
