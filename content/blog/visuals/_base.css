@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+/* Shared look for blog diagrams (Studio Dark). Rendered to images by
+   scripts/render-blog-visuals.mjs, never served as CSS. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0a0a0b;color:#f5f6f8;font-family:Inter,"Segoe UI",system-ui,sans-serif;overflow:hidden}
+body{position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 0%,rgba(76,178,240,.16),transparent 60%),linear-gradient(160deg,#0f1c27 0%,#0a0a0b 60%,#101014 100%)}
+.frame{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column}
+.kick{font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:#7cc6f5;font-weight:700;margin-bottom:14px}
+h1{font-size:46px;line-height:1.1;font-weight:800;letter-spacing:-.015em;margin-bottom:10px}
+.sub{font-size:21px;color:#b6bac3;line-height:1.5;max-width:1100px}
+.ac{color:#4cb2f0}
+.card{background:#111114;border:1px solid rgba(255,255,255,.1);border-radius:20px}
+.foot{margin-top:auto;display:flex;justify-content:space-between;font-size:16px;color:#8b8f99;padding-top:24px}
+.foot b{color:#b6bac3;font-weight:600}
+.yes{color:#5fd49a}.no{color:#f07a7a}
+.pill{display:inline-block;padding:6px 14px;border-radius:999px;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.pill.y{background:rgba(95,212,154,.14);color:#5fd49a;border:1px solid rgba(95,212,154,.35)}
+.pill.n{background:rgba(240,122,122,.14);color:#f07a7a;border:1px solid rgba(240,122,122,.35)}
+.pill.b{background:rgba(76,178,240,.14);color:#7cc6f5;border:1px solid rgba(76,178,240,.35)}

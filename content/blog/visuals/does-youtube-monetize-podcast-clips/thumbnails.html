@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="size" content="1600x800"><link rel="stylesheet" href="../_base.css"><style>
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px}
+.side{padding:24px}
+.side .h{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:700;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.t{aspect-ratio:16/9;border-radius:10px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:9px}
+.same{background:#14202b;border:1px solid rgba(255,255,255,.06)}
+.same .w{position:absolute;left:12%;right:12%;top:26%;height:32%;display:flex;gap:3px;align-items:center}
+.same .w i{flex:1;background:#4cb2f0;opacity:.55;border-radius:2px}
+.same b{font-size:13px;color:#8b8f99;font-weight:700}
+.var b{font-size:14px;line-height:1.15;color:#fff;font-weight:800;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.note{font-size:17px;color:#b6bac3;margin-top:16px;line-height:1.5}
+</style></head><body style="width:1600px;height:800px"><div class="bg"></div><div class="frame">
+<div class="kick">YouTube reviews "your channel as a whole"</div>
+<h1>What a reviewer sees when they <span class="ac">open your channel</span></h1>
+<div class="two">
+ <div class="side card"><div class="h"><span class="pill n">Looks templated</span>Same tile, every upload</div><div class="grid" id="a"></div>
+  <div class="note">Static waveform, "Episode #" titles, nothing that says what each video is about.</div></div>
+ <div class="side card"><div class="h"><span class="pill y">Reads as original</span>Each video has a point</div><div class="grid" id="b"></div>
+  <div class="note">A different frame and a title that names the idea, while the brand style stays the same.</div></div>
+</div>
+<div class="foot"><span>Example tiles, made for this article</span><span>SLK Media Agency</span></div>
+</div>
+<script>
+var bars = function (n) { var s = ''; for (var i = 0; i < 18; i++) { s += '<i style="height:' + (25 + Math.round(70 * Math.abs(Math.sin(i * 1.3 + n)))) + '%"></i>'; } return s; };
+var a = ''; for (var i = 0; i < 12; i++) { a += '<div class="t same"><div class="w">' + bars(0) + '</div><b>Episode ' + (31 + i) + '</b></div>'; }
+document.getElementById('a').innerHTML = a;
+var hooks = ['Why we stopped booking big guests', 'The pricing call I got wrong', '3 questions before any interview', 'What our first 50 episodes taught us', 'The guest who changed my mind', 'Stop opening with your intro', 'How I prep in 20 minutes', 'The email that books guests', 'Our worst episode, rewatched', 'One habit from growing shows', 'Why short answers win', 'What to cut from every clip'];
+var hues = [205, 190, 215, 170, 225, 195, 200, 185, 210, 175, 220, 200];
+var b = ''; for (var j = 0; j < 12; j++) { b += '<div class="t var" style="background:linear-gradient(135deg,hsl(' + hues[j] + ',55%,' + (22 + (j % 3) * 6) + '%),hsl(' + (hues[j] + 30) + ',40%,10%))"><b>' + hooks[j] + '</b></div>'; }
+document.getElementById('b').innerHTML = b;
+</script></body></html>

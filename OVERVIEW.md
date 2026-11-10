@@ -120,8 +120,13 @@ slk-media-agency/
     podcast-multiplier-styles.css  Legacy global stylesheet for the (multiplier) group
     premium.css            The premium re-skin layer, loaded on top of both (the file you edit for most visual changes)
     script.js, podcast-multiplier-script.js  LEGACY. Not loaded by the app. Kept for the static HTML pages only.
-    robots.txt, sitemap.xml, og-image.jpg  sitemap.xml is hand-maintained: add a <url> block when you add a route
+    og-image.jpg           Default share image. robots.txt and sitemap.xml are no longer files here: since 2026-11-10 they are app/robots.js and app/sitemap.js
+    blog/<slug>/           Header (1680x720), card (1280x720) and share (1200x630) images per blog post, made by scripts/render-blog-header.mjs
+  content/blog/posts/      Blog posts as files: <slug>.json (metadata, short answer, FAQ, sources, toolkit, status) and <slug>.html (body). See section 7.5
+  lib/blog.js              Blog data layer: reads the post files, hides drafts, topics, author, reading time, table of contents
+  app/sitemap.js, app/robots.js  /sitemap.xml and /robots.txt (added 2026-11-10, replacing the hand-kept files in public/)
   scripts/
+    render-blog-header.mjs  Renders a post's header, card and share images locally (headless Chrome + sharp, free)
     generate-assets.mjs    One-time generator for the atmosphere art via KIE.ai (needs KIE_API_KEY)
     sync-toolkits.mjs      Copies the guide data and images from the product-forge handoff folder (free, local, sharp only)
   tools/
@@ -214,6 +219,9 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/privacy-policy` | `app/(main)/privacy-policy/page.js` | Legal | none |
 | `/terms-and-conditions` | `app/(main)/terms-and-conditions/page.js` | Legal | none |
 | 404 | `app/(main)/not-found.js` (+ `[...rest]/page.js` catch-all) | Not-found | internal links |
+| `/blog` | `app/(main)/blog/page.js` | Blog index (added 2026-11-10, design A "Studio Dark"): hero, search, featured post, topic tabs with counts, 9 cards a page with page buttons, toolkit band, strategy call band. Live since 2026-11-10 (post 1 published at Samuel's approval). Returns 404 whenever no post is published. Not linked from any site nav. See section 7.5. | Browse the toolkits (`/podcast-toolkits#guides`), strmeet |
+| `/blog/<slug>` | `app/(main)/blog/[slug]/page.js` | Blog article: breadcrumb, H1, author line with published and updated dates, header image, sticky table of contents, short answer box, toolkit card, body, strategy call box, FAQ, sources, author box, related posts. Article, FAQPage and BreadcrumbList JSON-LD. Draft posts are 404 live. | Toolkit Gumroad checkout + `/podcast-toolkits#guides`, strmeet |
+| `/sitemap.xml`, `/robots.txt` | `app/sitemap.js`, `app/robots.js` | Generated since 2026-11-10. Same URLs and rules as the old `public/` files, plus `/blog` and each published post once one exists. Add a line to `PAGES` in `app/sitemap.js` when you add a page. | none |
 | `/podcast-multiplier` | `app/(multiplier)/podcast-multiplier/page.js` | Long-form sales page. Carried a pricing section until 2026-09-01, when every price was removed from it. | strmeet + a gamma.app case study link |
 | `/podcast-toolkits` | `app/(multiplier)/podcast-toolkits/page.js` | Shop in two separate blocks: the 16 do-it-yourself PDF guides and a bundle of the first 10 first (`#guides`), then the full social media strategy block (`#strategy`, starting with the $103.55 report) | Stripe checkout + survey link for the report, Gumroad overlay for the guides and bundle, strmeet in the agency line above the footer |
 | `/podcast-toolkits/thank-you` | `app/(multiplier)/podcast-toolkits/thank-you/page.js` | Purchase confirmation | internal / email |
@@ -333,6 +341,25 @@ These clean URLs are served from raw HTML files in `public/` via rewrites in `ne
 
 They are outside the premium re-skin. Restyling them means editing each independent legacy HTML file by hand. Each lead magnet exists twice (a capitalised file name and a lowercase one); a copy change must be made in both. Their "Limited spots available" lines were removed on 2026-10-12. Nothing in the redesigned app links into them, and their URLs keep working. The legacy `public/script.js` and `public/podcast-multiplier-script.js` exist only for these static pages; the Next app does not load them.
 
+### 7.5 The blog (added 2026-11-10, live since 2026-11-10 with post 1)
+
+Built for SEO and AI search. Posts lead first to one of the 16 toolkits on `/podcast-toolkits` and second to the strategy call. Design A "Studio Dark" (Samuel, 10 Nov 2026), mockups in `D:\CLAUDE CODE\slk-content-workflow
+eportslog-mockup-design-a\`. Styles: `app/(main)/blog/blog.css`, imported by both blog pages, every rule scoped under `.blog-page`. It resets the legacy `section` padding and overflow inside the blog.
+
+**Publishing rule.** A post goes live only after Samuel approves it. Each post's JSON has `"status": "draft"` or `"published"`. The live build (Vercel) never shows drafts, and while no post is published `/blog` and every `/blog/<slug>` return 404 and the sitemap has no blog URLs. To preview drafts locally: `BLOG_PREVIEW=1 npm run build`, then `npx next start -p 3105` and open `/blog` (a yellow "Draft preview" badge shows on draft articles). Never set `BLOG_PREVIEW` on Vercel.
+
+**To publish a post:** set `"status": "published"` and the real `publishedAt` / `updatedAt` (YYYY-MM-DD) in its JSON, run `npm run build`, push. `/blog` then appears (still unlinked from the site navs unless Samuel asks), and the sitemap lists it. Change `updatedAt` only for a real content update.
+
+**To add a post:** write `content/blog/posts/<slug>.json` (copy the existing one: title, shortTitle, seoTitle, description, dek, topic, author, dates, image, art, shortAnswer, toolkit id from `toolkits.json`, toolkitPitch, faq, sources, neuron) and `<slug>.html` (body only; every `<h2>` needs an `id`, which feeds the table of contents; wrap tables in `<div class="bl-table">`). Then `node scripts/render-blog-header.mjs <slug>` for the images. Topics are the `TOPICS` list in `lib/blog.js` (tabs only show topics that have posts). Toolkit name, price, cover and Gumroad link come from `toolkits.json`, so a price change there reaches the posts.
+
+**Authors (Samuel, 10 Nov 2026).** Posts are signed by the SDR personas, never Samuel, in strict rotation: Natalie Nicholas, Claire Peter, Rachel Davis (`AUTHORS` and `AUTHOR_ROTATION` in `lib/blog.js`). Set `"author"` in a new post's JSON to `nextAuthor()` (command in the comment above `AUTHORS`). Photos are 320 px copies of each SDR's `original.png` from `slk-content-workflow/linkedin-sdr-images/`, in `public/blog/authors/`. If an SDR account is retired, take her out of `AUTHOR_ROTATION` only. The byline does not link to LinkedIn.
+
+**Visuals (Samuel, 10 Nov 2026: posts must be full of visuals, like the top-ranking ones).** Every post gets, at minimum: a photo header made with kie.ai (GPT Image 2, about $0.05 an image; resized to `header.webp` 1680x720 and `card.webp` 1280x720), real screenshots of the sources it discusses, and diagrams made for the post. Diagrams are HTML files in `content/blog/visuals/<slug>/` (shared look in `content/blog/visuals/_base.css`, size set by `<meta name="size">`), rendered free by `node scripts/render-blog-visuals.mjs <slug>` into `public/blog/<slug>/<name>.webp`. In the body each image is a `<figure>` with alt text and a caption, wrapped in `<a class="bl-zoom">` so it opens full size on phones. `node scripts/render-blog-header.mjs <slug>` now writes only the share image `og.jpg` (pass `--all` to also overwrite header and card, for posts without a photo header). Keep kie.ai raw files out of `public/`.
+
+**Short answer box.** Two or three sentences that answer the question and point to something only the article has (a flowchart, a table, a checklist). No bullet summary: Samuel, 10 Nov 2026, a full summary up top gives readers no reason to keep reading. The box stays because Google and AI answer engines quote the passage that answers the question near the top.
+
+**SEO and AI search.** Per article: canonical, Open Graph article tags, a 1200x630 share image, `BlogPosting` JSON-LD (author Samuel LK with photo, publisher with logo, dates, word count), `FAQPage` and `BreadcrumbList`. The index carries `Blog` and `BreadcrumbList`. robots.txt allows every crawler, AI search crawlers included. The answer comes first on the page, headings are questions, and FAQ answers sit in the HTML inside `<details>`. Neuron Writer scores drafts (project "slkmediaagency.com"); see `slk-content-workflow/reports/2026-11-10-neuron-month-one.md`.
+
 ### 7.4 Components
 
 | File | Client/Server | What it does |
@@ -349,6 +376,9 @@ They are outside the premium re-skin. Restyling them means editing each independ
 | `components/ClipSoundToggles.js` | client | `/portfolio/audio-only` only: wires every `[data-sound-toggle]` button to the video in its `.ao-card`. Unmuting a clip restarts it with sound and mutes all others. Renders nothing. |
 | `components/ClipChecklist.js` | client | `/` only: the "Clipping is a second job" card. Steps tick themselves off every 700ms, then restart for the next platform and the next clip. Runs only while on screen; static (three steps ticked) under reduced motion. |
 | `components/ClipCostCalculator.js` | client | `/` only: "What does clipping cost you now?" The visitor types hours a week and an hourly value; shows the monthly hours and dollar value. Starting values (5 hours, $100) are labelled as an example. Quotes no SLK Media Agency price. |
+| `components/BlogChrome.js` | server | Nav and footer for the two blog routes only (same markup as the sub-pages; the nav has a Blog item, the rest of the site does not). |
+| `components/BlogBrowser.js` | client | `/blog` index: search, featured post, topic tabs with counts, pages of 9 cards. Tab, search and page are kept in the URL (`?topic=&q=&page=`). |
+| `components/BlogToc.js` | client | Article table of contents that highlights the section in view. |
 | `components/fonts.js` | module | Sets up self-hosted Inter via `next/font` and exports the class name applied in the layouts. |
 
 ---
@@ -511,7 +541,7 @@ What was deliberately **kept**, because it is real and verifiable rather than an
 - Change wording on a page: edit that page's `page.js` under `app/`. For a case study, edit the data object in the specific `success/<name>/page.js`. For copy shared by all case studies, edit `components/CaseStudy.js`.
 - Restyle something site-wide: edit `public/premium.css` (the re-skin layer). Change a token value there or, if it is a legacy token, in the base stylesheet it remaps. Re-skin details and tokens are in `DESIGN.md`.
 - Add a new case study: create `app/(main)/success/<slug>/page.js` that renders `CaseStudy` with a data object (copy an existing one), add the page to the index at `success/case-studies/page.js`, and add a 301 redirect for the old `.html` form in `next.config.mjs` if one existed.
-- Add a new page: create `app/(group)/<slug>/page.js`, inline the nav and footer from an existing page in the same group (they are not shared components), wrap the body in `<main id="main" className="<slug>-page">` so the skip link works and so any page-specific CSS has a scope hook, add a `<url>` block to `public/sitemap.xml`, and put page-specific styles in a scoped block at the end of `public/premium.css`. On a `(main)` page use `.primary-cta` for buttons, not `.btn-primary`, for the reason in section 6.
+- Add a new page: create `app/(group)/<slug>/page.js`, inline the nav and footer from an existing page in the same group (they are not shared components), wrap the body in `<main id="main" className="<slug>-page">` so the skip link works and so any page-specific CSS has a scope hook, add a line to `PAGES` in `app/sitemap.js`, and put page-specific styles in a scoped block at the end of `public/premium.css`. On a `(main)` page use `.primary-cta` for buttons, not `.btn-primary`, for the reason in section 6.
 - Change a package or add-on price: edit the cards, `ROWS` and `ADDONS` in `components/PricingPlans.js`, the `PRICE` constant in `components/PricingCalculator.js`, and the metadata description and JSON-LD `Offer`s in `app/(main)/pricing/page.js`. Re-run the seven reference values in section 7.1. Then update `docs/chatbot/`, rebuild the prompt, and tell Samuel the SDR and the live re:tune bot need the same change.
 - Add a redirect or serve a new static HTML page at a clean URL: edit `next.config.mjs` (`redirects()` for old-to-new, `rewrites()` for clean-URL-to-file).
 - Change page metadata, favicon, theme color, or the CSS/font wiring: edit the relevant `app/(group)/layout.js`. Remember there are two layouts, one per route group, and they should usually stay in sync.
@@ -641,4 +671,4 @@ This standing rule is also recorded in the project `CLAUDE.md` so it is loaded a
 
 ---
 
-Last verified against the codebase: 2026-10-16.
+Last verified against the codebase: 2026-11-10 (blog section).

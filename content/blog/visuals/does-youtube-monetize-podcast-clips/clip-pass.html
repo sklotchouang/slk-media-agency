@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="size" content="1600x860"><link rel="stylesheet" href="../_base.css"><style>
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:34px}
+.col{display:flex;gap:28px;align-items:center}
+.ph{flex:none;width:300px;aspect-ratio:9/16;border-radius:34px;border:3px solid rgba(255,255,255,.18);overflow:hidden;position:relative;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent 35%,transparent 55%,rgba(0,0,0,.6))}
+.hook{position:absolute;left:16px;right:16px;top:44px;font-size:24px;font-weight:900;line-height:1.15;text-align:center;color:#fff}
+.hook em{font-style:normal;background:#4cb2f0;color:#0a0a0b;padding:0 6px;border-radius:4px}
+.cap{position:absolute;left:14px;right:14px;bottom:70px;text-align:center;font-size:19px;font-weight:800;color:#fff;text-shadow:0 2px 6px #000}
+.cap.g{font-weight:600;font-size:17px;background:rgba(0,0,0,.55);padding:6px;border-radius:6px;color:#ddd;text-shadow:none}
+.cap .hl{color:#4cb2f0}
+.wave{position:absolute;left:30px;right:30px;bottom:130px;height:40px;display:flex;gap:3px;align-items:center}
+.wave i{flex:1;background:#fff;opacity:.6;border-radius:2px}
+.ts{position:absolute;right:12px;top:12px;font-size:13px;background:rgba(0,0,0,.6);padding:3px 8px;border-radius:6px;color:#ddd}
+ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+li{font-size:20px;line-height:1.35;display:flex;gap:12px}
+li b{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:15px}
+.n b{background:rgba(240,122,122,.16);color:#f07a7a}.y b{background:rgba(95,212,154,.16);color:#5fd49a}
+.ttl{font-size:24px;font-weight:800;margin-bottom:18px}
+</style></head><body style="width:1600px;height:860px"><div class="bg"></div><div class="frame">
+<div class="kick">Same moment, two clips</div>
+<h1>The human pass that keeps AI clips <span class="ac">from looking mass-produced</span></h1>
+<div class="pair">
+ <div class="col"><div class="ph"><img src="guest.jpg" alt=""><div class="shade"></div><span class="ts">0:00</span>
+   <div class="wave" id="w"></div><div class="cap g">so yeah, anyway, I think the thing is that</div></div>
+  <div><div class="ttl no">Unedited AI pick</div><ul class="n"><li><b>&#10005;</b>Starts mid-sentence</li><li><b>&#10005;</b>No hook, same caption style as every clip</li><li><b>&#10005;</b>Title: "Episode 47 highlight"</li><li><b>&#10005;</b>Third clip this week on the same point</li></ul></div></div>
+ <div class="col"><div class="ph"><img src="guest.jpg" alt=""><div class="shade"></div><span class="ts">0:09</span>
+   <div class="hook">The one question I ask <em>every</em> guest</div><div class="cap">and that is when the <span class="hl">real story</span> starts</div></div>
+  <div><div class="ttl yes">After a human pass</div><ul class="y"><li><b>&#10003;</b>Opens on the strongest line, at 0:09</li><li><b>&#10003;</b>A hook written for this clip</li><li><b>&#10003;</b>Title names the idea</li><li><b>&#10003;</b>Kept only if it makes a new point</li></ul></div></div>
+</div>
+<div class="foot"><span>Illustration. The guest image is AI-generated for this article.</span><span>SLK Media Agency</span></div>
+</div>
+<script>var w = ''; for (var i = 0; i < 22; i++) { w += '<i style="height:' + (20 + Math.round(75 * Math.abs(Math.sin(i * 0.9)))) + '%"></i>'; } document.getElementById('w').innerHTML = w;</script>
+</body></html>

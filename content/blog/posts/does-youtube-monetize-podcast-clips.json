@@ -1,0 +1,108 @@
+{
+  "status": "published",
+  "title": "Does YouTube Monetize Podcast Clips? What the Reused and Inauthentic Content Rules Say (2025 Update)",
+  "shortTitle": "Does YouTube monetize podcast clips?",
+  "seoTitle": "Does YouTube Monetize Podcast Clips? The 2025 Rules Quoted",
+  "description": "Yes, if they are clips of your own show that add something. YouTube's reused and inauthentic content policies, quoted and applied to podcast clips and Shorts.",
+  "dek": "Two YouTube rules decide it. Here is what they say, quoted from YouTube, and how to tell which side of them your clips are on.",
+  "topic": "ai",
+  "author": "natalie-nicholas",
+  "publishedAt": "2026-11-10",
+  "updatedAt": "2026-11-10",
+  "image": {
+    "src": "/blog/does-youtube-monetize-podcast-clips/header.webp",
+    "card": "/blog/does-youtube-monetize-podcast-clips/card.webp",
+    "og": "/blog/does-youtube-monetize-podcast-clips/og.jpg",
+    "alt": "A podcast home studio at night: a phone on a stand plays a vertical podcast clip next to a microphone and a laptop with a video editing timeline"
+  },
+  "art": {
+    "kicker": "YouTube policy, checked 10 Nov 2026",
+    "headline": "Does YouTube monetize podcast clips?",
+    "accent": "podcast clips",
+    "cardTitle": "What YouTube's rules say",
+    "rows": [
+      [
+        "Clips of your own show",
+        "yes",
+        "Allowed on your own channel"
+      ],
+      [
+        "Other shows, with your commentary",
+        "yes",
+        "Allowed as review or reaction"
+      ],
+      [
+        "Other shows, no narrative",
+        "no",
+        "Reused content, not monetized"
+      ],
+      [
+        "Template-made AI clips",
+        "no",
+        "Inauthentic content since July 2025"
+      ]
+    ]
+  },
+  "shortAnswer": {
+    "text": "Yes in two situations, and no in a third, which is where most clip channels get turned down. Since July 2025 YouTube also names a risk that hits AI clipping workflows. The flowchart further down shows where your channel stands, in YouTube's own words."
+  },
+  "toolkit": "clip-formula",
+  "toolkitPitch": "Keep, fix or bin every clip your AI tool hands you, so the channel never looks mass-produced. Two gates, six fault points and fix steps for OpusClip, Descript, Riverside and Vizard.",
+  "faq": [
+    {
+      "q": "Can you monetize podcast clips on YouTube?",
+      "a": "Yes, if the clips are of your own podcast on your own channel, or if clips from another show sit inside your own commentary or review. YouTube does not monetize channels built from other shows' moments edited together with little or no narrative."
+    },
+    {
+      "q": "Can you monetize podcast clips without adding original value?",
+      "a": "Not if they are someone else's. YouTube's reused content policy requires significant original commentary, substantive changes or educational or entertainment value, and it applies even if you have permission. Clips of your own show are your original content."
+    },
+    {
+      "q": "Did YouTube stop monetizing AI content in July 2025?",
+      "a": "No. YouTube renamed its repetitious content policy to inauthentic content and said there was no change to its reused content policy. AI-made videos lose monetization when they look template-made and mass-produced without the creator's own insight, not because AI was used."
+    },
+    {
+      "q": "Do podcast Shorts count toward YouTube monetization?",
+      "a": "Yes. One Partner Program route is 1,000 subscribers and 10 million qualified Shorts views in 90 days. Views of unoriginal Shorts, reuploads and compilations with no original content added are not eligible for Shorts revenue sharing."
+    },
+    {
+      "q": "Can you monetize a podcast on YouTube without video?",
+      "a": "YouTube does not ban audio-only uploads, but its generic content rules bar slideshows and scrolling text with minimal narrative or commentary. A channel of identical static waveform videos is the pattern hosts report being rejected for, so vary titles and visuals at minimum."
+    },
+    {
+      "q": "How can podcasters earn money on YouTube besides ads?",
+      "a": "Inside the Partner Program, YouTube also offers features such as channel memberships and Super Chat, subject to their own rules. Outside it, a channel can send viewers to sponsors, paid products or services, which do not depend on YouTube's ad revenue rules."
+    }
+  ],
+  "sources": [
+    {
+      "label": "YouTube Help: YouTube channel monetization policies",
+      "url": "https://support.google.com/youtube/answer/1311392?hl=en",
+      "note": "Reused content, generic or repetitive content and the 15 July 2025 notice. Quoted as read on 10 November 2026"
+    },
+    {
+      "label": "YouTube Help: YouTube Partner Program overview and eligibility",
+      "url": "https://support.google.com/youtube/answer/72851?hl=en",
+      "note": "Thresholds and channel review. Read on 10 November 2026"
+    },
+    {
+      "label": "YouTube Help: YouTube Shorts monetization policies",
+      "url": "https://support.google.com/youtube/answer/12504220?hl=en",
+      "note": "Views not eligible for Shorts revenue sharing. Read on 10 November 2026"
+    },
+    {
+      "label": "YouTube Help: What kind of content can I monetize?",
+      "url": "https://support.google.com/youtube/answer/2490020?hl=en",
+      "note": "Commercial rights to visual and audio elements. Read on 10 November 2026"
+    },
+    {
+      "label": "Social Media Today: YouTube clarifies monetization update on inauthentic, repeated content",
+      "url": "https://www.socialmediatoday.com/news/youtube-clarifies-monetization-update-inauthentic-repeated-content/752892/",
+      "note": "Press coverage of the July 2025 update"
+    }
+  ],
+  "neuron": {
+    "query": "a042925ab30e9bbf",
+    "keyword": "does youtube monetize podcast clips"
+  }
+}
