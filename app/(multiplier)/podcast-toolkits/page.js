@@ -181,6 +181,7 @@ export default function PodcastToolkitsPage() {
           <ul className="nav-menu" id="nav-menu">
             <li><Link href="/">Home</Link></li>
             <li><a href="#guides">Guides</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="#pricing" className="cta-button">Get the Plan</a></li>
           </ul>
         </div>

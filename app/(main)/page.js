@@ -107,6 +107,7 @@ export default function HomePage() {
             <li><a href="#process">Process</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href={STRMEET} className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
         </div>

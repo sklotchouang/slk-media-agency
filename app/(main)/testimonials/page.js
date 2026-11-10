@@ -37,6 +37,7 @@ export default function TestimonialsPage() {
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><Link href="/success/case-studies">Case Studies</Link></li>
             <li><Link href="/#faq">FAQ</Link></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
         </div>

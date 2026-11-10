@@ -37,6 +37,7 @@ export default function PodcastMultiplierPage() {
             <li><a href="#results">Results</a></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
             <li><a href="#next-steps">Get Started</a></li>
+            <li><a href="/blog">Blog</a></li>
           </ul>
         </div>
       </nav>

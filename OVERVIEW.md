@@ -219,7 +219,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/privacy-policy` | `app/(main)/privacy-policy/page.js` | Legal | none |
 | `/terms-and-conditions` | `app/(main)/terms-and-conditions/page.js` | Legal | none |
 | 404 | `app/(main)/not-found.js` (+ `[...rest]/page.js` catch-all) | Not-found | internal links |
-| `/blog` | `app/(main)/blog/page.js` | Blog index (added 2026-11-10, design A "Studio Dark"): hero, search, featured post, topic tabs with counts, 9 cards a page with page buttons, toolkit band, strategy call band. Live since 2026-11-10 (post 1 published at Samuel's approval). Returns 404 whenever no post is published. Not linked from any site nav. See section 7.5. | Browse the toolkits (`/podcast-toolkits#guides`), strmeet |
+| `/blog` | `app/(main)/blog/page.js` | Blog index (added 2026-11-10, design A "Studio Dark"): hero, search, featured post, topic tabs with counts, 9 cards a page with page buttons, toolkit band, strategy call band. Live since 2026-11-10 (post 1 published at Samuel's approval). Returns 404 whenever no post is published. In every site menu except `/pre-call` (section 7.2). See section 7.5. | Browse the toolkits (`/podcast-toolkits#guides`), strmeet |
 | `/blog/<slug>` | `app/(main)/blog/[slug]/page.js` | Blog article: breadcrumb, H1, author line with published and updated dates, header image, sticky table of contents, short answer box, toolkit card, body, strategy call box, FAQ, sources, author box, related posts. Article, FAQPage and BreadcrumbList JSON-LD. Draft posts are 404 live. | Toolkit Gumroad checkout + `/podcast-toolkits#guides`, strmeet |
 | `/sitemap.xml`, `/robots.txt` | `app/sitemap.js`, `app/robots.js` | Generated since 2026-11-10. Same URLs and rules as the old `public/` files, plus `/blog` and each published post once one exists. Add a line to `PAGES` in `app/sitemap.js` when you add a page. | none |
 | `/podcast-multiplier` | `app/(multiplier)/podcast-multiplier/page.js` | Long-form sales page. Carried a pricing section until 2026-09-01, when every price was removed from it. | strmeet + a gamma.app case study link |
@@ -332,6 +332,8 @@ The nav items differ per page and are not meant to be identical. The home page n
 
 `/pricing` uses the plain sub-page nav (its own `#pricing-faq` FAQ anchor went when the FAQ was removed on 2026-10-12). **No nav anywhere links to `/pricing`, and that is deliberate** (Samuel's call, 2026-09-01): the page is public and indexed so it can rank and be shared, but nothing on the site routes a visitor to it. The URL exists so the SDR can paste one clean link when a prospect asks about price. Combined with the price removal from the two sales pages, the practical effect is that a visitor browsing the site never sees a number unless they were sent the link or found the page through search. That is intended, so do not "fix" it by adding a nav entry or an inline link without asking.
 
+**Blog item (added 2026-11-10, Samuel).** Every page's menu has a Blog item (`/blog`) just before the call button, including `CaseStudy.js`, `/podcast-multiplier` and `/podcast-toolkits`. The one exception is `/pre-call`, whose menu stays a single email link so booked prospects stay on the call instructions.
+
 ### 7.3 Static HTML served from `public/` (not app pages)
 
 These clean URLs are served from raw HTML files in `public/` via rewrites in `next.config.mjs`, not by React pages:
@@ -348,7 +350,7 @@ eportslog-mockup-design-a\`. Styles: `app/(main)/blog/blog.css`, imported by bo
 
 **Publishing rule.** A post goes live only after Samuel approves it. Each post's JSON has `"status": "draft"` or `"published"`. The live build (Vercel) never shows drafts, and while no post is published `/blog` and every `/blog/<slug>` return 404 and the sitemap has no blog URLs. To preview drafts locally: `BLOG_PREVIEW=1 npm run build`, then `npx next start -p 3105` and open `/blog` (a yellow "Draft preview" badge shows on draft articles). Never set `BLOG_PREVIEW` on Vercel.
 
-**To publish a post:** set `"status": "published"` and the real `publishedAt` / `updatedAt` (YYYY-MM-DD) in its JSON, run `npm run build`, push. `/blog` then appears (still unlinked from the site navs unless Samuel asks), and the sitemap lists it. Change `updatedAt` only for a real content update.
+**To publish a post:** set `"status": "published"` and the real `publishedAt` / `updatedAt` (YYYY-MM-DD) in its JSON, run `npm run build`, push. The sitemap lists it automatically. Change `updatedAt` only for a real content update.
 
 **To add a post:** write `content/blog/posts/<slug>.json` (copy the existing one: title, shortTitle, seoTitle, description, dek, topic, author, dates, image, art, shortAnswer, toolkit id from `toolkits.json`, toolkitPitch, faq, sources, neuron) and `<slug>.html` (body only; every `<h2>` needs an `id`, which feeds the table of contents; wrap tables in `<div class="bl-table">`). Then `node scripts/render-blog-header.mjs <slug>` for the images. Topics are the `TOPICS` list in `lib/blog.js` (tabs only show topics that have posts). Toolkit name, price, cover and Gumroad link come from `toolkits.json`, so a price change there reaches the posts.
 

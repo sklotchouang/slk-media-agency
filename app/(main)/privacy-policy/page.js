@@ -26,6 +26,7 @@ export default function PrivacyPolicyPage() {
             <li><Link href="/">Home</Link></li>
             <li><Link href="/#services">Services</Link></li>
             <li><Link href="/#process">Process</Link></li>
+            <li><a href="/blog">Blog</a></li>
             <li><Link href="/#contact" className="cta-button">Get Started</Link></li>
           </ul>
         </div>

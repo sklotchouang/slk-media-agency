@@ -42,6 +42,7 @@ export default function PromotionEndedPage() {
             <li><Link href="/success/case-studies">Case Studies</Link></li>
             <li><Link href="/testimonials">Testimonials</Link></li>
             <li><Link href="/pricing">Pricing</Link></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href={BOOK_URL} className="cta-button" target="_blank" rel="noopener">Schedule a Call</a></li>
           </ul>
         </div>

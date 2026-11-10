@@ -127,6 +127,7 @@ export default function CaseStudiesPage() {
             <li><a href="#" aria-current="page">Case Studies</a></li>
             <li><Link href="/testimonials">Testimonials</Link></li>
             <li><Link href="/#faq">FAQ</Link></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
           </ul>
         </div>
