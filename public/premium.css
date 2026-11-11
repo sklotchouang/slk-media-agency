@@ -4030,3 +4030,196 @@ html[data-motion="on"] .home-v3 .hp-mini:nth-child(3) { animation-delay: -3.2s; 
 
 /* Home page #testimonials anchor (nav item) lands below the fixed navbar */
 .home-v3 #testimonials { scroll-margin-top: 90px; }
+
+/* ==========================================================================
+   /pricing, 11 Nov 2026: "Your podcast content team" rework. Proof under the
+   cards (quote first on phones), dated channel growth, the three ways
+   comparison and the raw vs finished pair. Scoped to .pricing-page.
+   ========================================================================== */
+.pricing-page .pp-proof { padding-top: 64px; }
+.pricing-page .pp-proof h2 + .pp-tlist { margin-top: 24px; }
+
+.pricing-page .pp-growth {
+  margin-top: 28px;
+  padding: 24px 28px;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.pricing-page .pp-growth h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.pricing-page .pp-growth-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+.pricing-page .pp-growth-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid var(--hairline);
+}
+.pricing-page .pp-growth-show {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.pricing-page .pp-growth-show span {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-muted-2);
+}
+.pricing-page .pp-growth-nums {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.pricing-page .pp-growth-big strong {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.pricing-page .pp-growth-big strong:last-of-type { color: var(--accent); }
+.pricing-page .pp-growth-when {
+  font-size: 0.88rem;
+  color: var(--text-muted-2);
+}
+.pricing-page .pp-growth-note {
+  margin: 8px 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted-2);
+}
+
+/* Three ways: a table on wide screens, stacked rows on phones */
+.pricing-page .pp-ways { padding: 72px 0 0; overflow: visible; }
+.pricing-page .pp-ways-box {
+  position: relative;
+  margin-top: 24px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pricing-page .pp-ways-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.pricing-page .pp-ways-table th,
+.pricing-page .pp-ways-table td {
+  padding: 14px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+.pricing-page .pp-ways-table tbody tr:last-child > * { border-bottom: 0; }
+.pricing-page .pp-ways-table thead th {
+  background: var(--bg-raised);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.pricing-page .pp-ways-table tbody th {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.pricing-page .pp-ways-table .pp-us {
+  background: rgba(76, 178, 240, 0.08);
+  color: var(--text-primary);
+}
+.pricing-page .pp-ways-table thead .pp-us { color: var(--accent); }
+
+/* Raw vs finished */
+.pricing-page .pp-pair { padding: 72px 0 0; overflow: visible; }
+.pricing-page .pp-pair-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 20px;
+  max-width: 920px;
+  margin-top: 24px;
+}
+.pricing-page .pp-pair figure {
+  margin: 0;
+  padding: 20px;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  background: var(--bg-raised);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pricing-page .pp-pair-done { border-color: rgba(76, 178, 240, 0.35); }
+.pricing-page .pp-pair-shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.pricing-page .pp-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #000;
+}
+.pricing-page .pp-pair-raw img { filter: saturate(0.85); }
+.pricing-page .pp-pair figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.pricing-page .pp-pair figcaption strong {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+.pricing-page .pp-pair-done figcaption strong { color: var(--accent); }
+.pricing-page .pp-pair .pp-more { margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .pricing-page .pp-tcard .pp-tbody { order: -1; }
+  .pricing-page .pp-growth-list li { grid-template-columns: 1fr; gap: 6px; }
+  .pricing-page .pp-pair-grid { grid-template-columns: 1fr; }
+  .pricing-page .pp-pair-raw { flex-direction: row !important; align-items: flex-start; }
+  .pricing-page .pp-pair-raw img { width: 38%; flex: none; }
+}
+
+@media (max-width: 760px) {
+  .pricing-page .pp-ways-table,
+  .pricing-page .pp-ways-table tbody,
+  .pricing-page .pp-ways-table tr,
+  .pricing-page .pp-ways-table th,
+  .pricing-page .pp-ways-table td { display: block; }
+  .pricing-page .pp-ways-table thead { display: none; }
+  .pricing-page .pp-ways-table tbody tr { border-bottom: 1px solid var(--hairline); padding: 10px 0; }
+  .pricing-page .pp-ways-table tbody tr:last-child { border-bottom: 0; }
+  .pricing-page .pp-ways-table tbody th { border: 0; padding: 4px 16px 6px; }
+  .pricing-page .pp-ways-table td {
+    border: 0;
+    padding: 4px 16px;
+    display: grid;
+    grid-template-columns: 5.5em minmax(0, 1fr);
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+  .pricing-page .pp-ways-table td::before {
+    content: attr(data-label);
+    color: var(--text-muted-2);
+    font-size: 0.85rem;
+  }
+  .pricing-page .pp-ways-table td.pp-us { background: none; color: var(--accent); font-weight: 600; }
+  .pricing-page .pp-growth { padding: 20px; }
+  .pricing-page .pp-pair figure { padding: 16px; }
+}

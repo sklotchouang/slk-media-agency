@@ -46,8 +46,8 @@ Published results: high industry engagement, 2X outreach effectiveness, 1 year o
 **Brian Burton.** 8-12 clips per episode, every episode.
 "I have several teams across three different businesses and I consider you one of the 'A-Players' on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and also the communication, the support, and the professionalism."
 
-**Steve Garrett, Corvette Today Podcast.** 11.9K subscribers, 599+ episodes.
-"Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we've gained across multiple platforms is incredible."
+**Steve Garrett, Corvette Today Podcast.** YouTube subscribers 11,500 in October 2025, 13,900 on 8 November 2026.
+"That was one thing that was on my list of things to do is to make these videos. And with you guys doing that, it's really helped me out a lot. It takes one thing off of my plate. I think you guys do a great job. You're professional. I'm very happy with everything so far."
 
 **Preston Hurd, The Filtered Brew Podcast.** Fast turnaround on every edit.
 "I showed him your intro video, which I think is fantastic. It's not done, but it's fantastic. I love it. I don't like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast."
@@ -68,6 +68,8 @@ Nothing outside this list is a real published result.
 - Shatavia Green: 100K+ YouTube subscribers, Silver Play Button, 2x engagement growth.
 - Brian Burton: 1.82K YouTube subscribers, 8 to 12 clips per episode, 800+ views per short.
 - Steve Garrett: 11.9K YouTube subscribers, 599+ episodes, 4+ platforms.
+- Steve Garrett, Corvette Today, dated: 11,500 YouTube subscribers in October 2025 to 13,900 on 8 November 2026, while working with SLK Media Agency. This counts the whole channel, full episodes included, not only the clips.
+- Brian Burton, Waste No Day, dated: 1,700 YouTube subscribers in October 2025 to 2,580 on 8 November 2026, while working with SLK Media Agency. This counts the whole channel, full episodes included, not only the clips.
 - Kelly Bellaria: 2X outreach effectiveness, 1 year partnership.
 - Across the whole client portfolio, shows range from 1.82K to over 100K subscribers.
 

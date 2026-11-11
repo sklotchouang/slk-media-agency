@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PlanCards, CompareTable, AddOns, WhyUs } from '../../../components/PricingPlans';
+import { PlanCards, CompareTable, AddOns } from '../../../components/PricingPlans';
 import PricingCalculator from '../../../components/PricingCalculator';
 
 // The /pricing page: three packages, proof, the comparison table, the add-ons,
@@ -11,12 +11,18 @@ import PricingCalculator from '../../../components/PricingCalculator';
 // 2 Nov 2026 (Samuel): Done For You Starter ($997, 10 clips) replaced the Done
 // With You card, the hero was rewritten, and the calculator moved up directly
 // under the packages with a prompt that points to it.
+// 11 Nov 2026 (Samuel approved the positioning "Your podcast content team"):
+// new hero, client proof moved directly under the cards, dated channel
+// growth, a freelancer vs AI tool vs content team comparison and a raw vs
+// finished clip block. The agency and salary comparison line, the four
+// portfolio clips and the Why SLK Media Agency block were removed to keep the
+// page short. Prices, plans, checkouts and the calculator are unchanged.
 
 const DESCRIPTION =
   'SLK Media Agency pricing: Done For You Starter at $997 a month (10 clips, thumbnails, captions, posting, a project manager, a monthly call and report), Done For You at $1,597 a month (20 clips, weekly calls and reporting) or Done For You Plus at $1,897 a month (everything in Done For You plus 4 long-form episode edits). Add-ons and a plan calculator.';
 
 const SHARE_DESCRIPTION =
-  'Your podcast, clipped, captioned and posted for you. From $997 a month for 10 clips, or build your own plan.';
+  'Your podcast content team: we pick the moments, edit the clips, design the thumbnails, write the captions, post everywhere and report back. From $997 a month for 10 clips.';
 
 export const metadata = {
   title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
@@ -47,45 +53,51 @@ export const viewport = {
 
 const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 
-// Four client clips from /portfolio (the files in public/portfolio), picked by
-// Samuel on 19 Oct 2026.
-const CLIPS = [4, 6, 7, 8];
-// Clip-8.jpg is a 16:9 frame with the clip in the middle; this poster is the
-// 9:16 centre of a frame of Clip-8.mp4, so the card shows the clip, not bars.
-const POSTER = { 8: '/portfolio/thumbnails/Clip-8-vertical.jpg' };
-
-// Video testimonials picked by Samuel on 19 Oct 2026. Quotes, result chips and
-// files are verbatim from /testimonials. `vertical` gives Preston's 9:16 split
-// screen a narrow frame so neither speaker is cropped.
+// Video testimonials. Steve's quote is his own words from
+// testimonial-steve.mp4 (transcribed 11 Nov 2026; the older quote shown for
+// him was not in the video). Brian's matches testimonial-brian.mp4. Preston
+// Hurd's card was dropped here to keep the page short (still on /testimonials). The chips are whole-channel YouTube
+// figures from the production system's growth record
+// (scripts/growth-record.js): start from the first report, measured
+// 27 Oct to 2 Nov 2025; now from the weekly report for 2 to 8 Nov 2026.
 const TESTIMONIALS = [
-  {
-    name: 'Brian Burton',
-    show: 'Waste No Day Podcast',
-    initials: 'BB',
-    chip: '8-12 clips per episode, every episode',
-    icon: 'fas fa-video',
-    video: 'brian',
-    quote: 'I have several teams across three different businesses and I consider you one of the "A-Players" on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and also the communication, the support, and the professionalism.',
-  },
   {
     name: 'Steve Garrett',
     show: 'Corvette Today Podcast',
     initials: 'SG',
-    chip: '11.9K subscribers, 599+ episodes',
+    chip: 'YouTube: 11,500 to 13,900 subscribers',
     icon: 'fab fa-youtube',
     video: 'steve',
-    quote: "Working with SLK Media Agency has been a game-changer for my podcast. They handle all the clip creation and distribution while I focus on what I do best: creating great content. The reach we've gained across multiple platforms is incredible.",
+    quote: "That was one thing that was on my list of things to do is to make these videos. And with you guys doing that, it's really helped me out a lot. It takes one thing off of my plate. I think you guys do a great job. You're professional. I'm very happy with everything so far.",
   },
   {
-    name: 'Preston Hurd',
-    show: 'The Filtered Brew Podcast',
-    initials: 'PH',
-    chip: 'Fast turnaround on every edit',
-    icon: 'fas fa-bolt',
-    video: 'preston',
-    vertical: true,
-    quote: "I showed him your intro video, which I think is fantastic. It's not done, but it's fantastic. I love it. I don't like it, I love it. What you do is so professional. It gave me the confidence to move forward on the whole project. And your team is fast. I don't know how you make any money with all the time these edits take. I don't know how you charge so cheap for what you do.",
+    name: 'Brian Burton',
+    show: 'Waste No Day Podcast',
+    initials: 'BB',
+    chip: 'YouTube: 1,700 to 2,580 subscribers',
+    icon: 'fab fa-youtube',
+    video: 'brian',
+    quote: 'I have several teams across three different businesses and I consider you one of the "A-Players" on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and also the communication, the support, and the professionalism.',
   },
+];
+
+// Channel growth while we worked together (same source as the chips).
+const GROWTH = [
+  { show: 'Corvette Today', host: 'Steve Garrett', from: '11,500', to: '13,900' },
+  { show: 'Waste No Day', host: 'Brian Burton', from: '1,700', to: '2,580' },
+];
+
+// A freelancer vs doing it yourself with an AI tool vs us. No prices and no
+// numbers on purpose: nothing here is a measured figure.
+const WAYS = [
+  { label: 'Who picks the best moments', free: 'You brief them, or they guess', ai: 'The tool suggests, you choose', us: 'We pick them, for the people you want to reach' },
+  { label: 'Editing the clips', free: 'Yes', ai: 'A first cut. You fix the rest', us: 'Our editors finish every clip' },
+  { label: 'A thumbnail for every clip', free: 'Depends on who you hire', ai: 'You make it', us: 'Yes, designed for each clip' },
+  { label: 'Captions and hashtags', free: 'Depends on who you hire', ai: 'You write them', us: 'Written for each platform' },
+  { label: 'Posting on every platform', free: 'Usually you', ai: 'You', us: 'We post them' },
+  { label: 'Reporting on what worked', free: 'Depends on who you hire', ai: 'You pull the numbers', us: 'A report every week or month' },
+  { label: 'Who keeps it running', free: 'You manage them', ai: 'You', us: 'Your project manager' },
+  { label: 'Your time each month', free: 'Briefing, checking, posting', ai: 'All of it', us: 'Recording, plus your call with us' },
 ];
 
 // The pricing FAQ. Pricing questions taken from the home page FAQ (answers
@@ -170,7 +182,7 @@ const FAQ = [
   {
     q: 'Can I see examples of your work first?',
     a: [
-      'Yes. The clips above are real client work, and the portfolio has more. Want examples from your niche? Mention it on your strategy call and we will pull relevant samples.',
+      'Yes. The clip above is real client work, and the portfolio has more. Want examples from your niche? Mention it on your strategy call and we will pull relevant samples.',
     ],
   },
 ];
@@ -259,8 +271,8 @@ export default function PricingPage() {
         <section className="pp-hero">
           <div className="container">
             <p className="pp-kicker">Pricing</p>
-            <h1>Your podcast, clipped, captioned and posted for you.</h1>
-            <p className="pp-hero-sub">We turn your episodes into short clips, design a thumbnail for each one, write the captions and post them on every platform. A project manager runs it, so all you do is record.</p>
+            <h1>Your podcast content team.</h1>
+            <p className="pp-hero-sub">The whole job, off your plate. You record. We pick the best moments, edit the clips, design a thumbnail for each one, write the captions, post on every platform and report back.</p>
             <ul className="pp-hero-points">
               <li><i className="fas fa-check" aria-hidden="true"></i> From $997 a month for 10 clips</li>
               <li><i className="fas fa-check" aria-hidden="true"></i> Month to month, pause up to 60 days</li>
@@ -273,18 +285,6 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Comparison: figures checked 19 Oct 2026 (BLS median for film and
-            video editors, May 2025; Caspian Studios published plans). The
-            source line was removed from the page at Samuel's request. */}
-        <section className="pp-anchor" aria-label="Price comparison">
-          <div className="container">
-            <p className="pp-anchor-note">
-              <i className="fas fa-circle-info" aria-hidden="true"></i>
-              <span>For comparison: a full-time US video editor earns a median salary of <strong>$75,420 a year</strong>, and full-service podcast agencies start at <strong>$2,500 per episode</strong>.</span>
-            </p>
-          </div>
-        </section>
-
         {/* The three packages and the terms line */}
         <section className="pp-plans" id="pricing">
           <div className="container">
@@ -292,50 +292,10 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Build your plan */}
-        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
-          <div className="container">
-            <p className="pp-eyebrow">Pricing calculator</p>
-            <h2 id="pp-build-title">Build your own plan</h2>
-            <p className="pp-lead">Pick your clips, add full episode edits or show notes, or choose to post the clips yourself. The price updates as you go.</p>
-            <PricingCalculator />
-          </div>
-        </section>
-
-        {/* Optional add-ons, under the calculator */}
-        <section className="pp-details pp-details-addons">
-          <div className="container">
-            <AddOns />
-          </div>
-        </section>
-
-        {/* Why SLK Media Agency (moved below Build your plan) */}
-        <section className="pp-whyus">
-          <div className="container">
-            <WhyUs />
-          </div>
-        </section>
-
-        {/* Proof: real client clips, then real client quotes */}
+        {/* Proof straight under the cards: client video quotes, then dated channel growth */}
         <section className="pp-proof" aria-labelledby="pp-clips-title">
           <div className="container">
-            <div className="pp-proof-head">
-              <h2 id="pp-clips-title">Clips we made for real shows</h2>
-              <Link href="/portfolio" className="pp-more">Watch more examples <i className="fas fa-arrow-right" aria-hidden="true"></i></Link>
-            </div>
-            <div className="pp-clips">
-              {CLIPS.map((n) => (
-                <div
-                  key={n}
-                  className="pp-clip"
-                  dangerouslySetInnerHTML={{
-                    __html: `<video controls muted playsinline preload="none" poster="${POSTER[n] || `/portfolio/thumbnails/Clip-${n}.jpg`}" aria-label="Client clip ${n}"><source src="/portfolio/Clip-${n}.mp4" type="video/mp4"></video>`,
-                  }}
-                />
-              ))}
-            </div>
-
-            <h2 className="pp-quotes-title">What clients say</h2>
+            <h2 id="pp-clips-title">What clients say</h2>
             <div className="pp-tlist">
               {TESTIMONIALS.map((t) => (
                 <figure className={t.vertical ? 'pp-tcard pp-tcard-vertical' : 'pp-tcard'} key={t.name}>
@@ -359,7 +319,101 @@ export default function PricingPage() {
                 </figure>
               ))}
             </div>
+            <div className="pp-growth" aria-labelledby="pp-growth-title">
+              <h3 id="pp-growth-title">Their YouTube channels while we worked together</h3>
+              <ul className="pp-growth-list">
+                {GROWTH.map((g) => (
+                  <li key={g.show}>
+                    <span className="pp-growth-show">{g.show}<span>{g.host}</span></span>
+                    <span className="pp-growth-nums">
+                      <span className="pp-growth-big"><strong>{g.from}</strong> to <strong>{g.to}</strong> subscribers</span>
+                      <span className="pp-growth-when">October 2025 to 8 November 2026</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="pp-growth-note">Whole-channel numbers, full episodes included, not only our clips. Each is one client&apos;s result, not an average.</p>
+            </div>
             <p className="pp-proof-more"><Link href="/testimonials">See all testimonials</Link> or <Link href="/success/case-studies">read the case studies</Link>.</p>
+          </div>
+        </section>
+
+        {/* Three ways to get it done (positioning approved 11 Nov 2026) */}
+        <section className="pp-ways" aria-labelledby="pp-ways-title">
+          <div className="container">
+            <h2 id="pp-ways-title">Three ways to get your clips made</h2>
+            <p className="pp-lead">We use an AI tool for the first cut too. The difference is everything a tool, or one freelancer, leaves for you to do after it.</p>
+            <div className="pp-ways-box">
+              <table className="pp-ways-table">
+                <thead>
+                  <tr>
+                    <th scope="col"><span className="pp-sr">Task</span></th>
+                    <th scope="col">A freelancer</th>
+                    <th scope="col">You, with an AI clipping tool</th>
+                    <th scope="col" className="pp-us">Your podcast content team</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {WAYS.map((w) => (
+                    <tr key={w.label}>
+                      <th scope="row">{w.label}</th>
+                      <td data-label="Freelancer">{w.free}</td>
+                      <td data-label="AI tool">{w.ai}</td>
+                      <td data-label="Us" className="pp-us">{w.us}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Raw vs finished: one real Corvette Today moment (production clip
+            d622cdf2, Opus candidate "Corvette Triple Diamond", raw export
+            82.2 s, finished 70.2 s). Frames taken at 1 s from the stored raw
+            and finished files on 11 Nov 2026; YouTube views read that day. */}
+        <section className="pp-pair" aria-labelledby="pp-pair-title">
+          <div className="container">
+            <h2 id="pp-pair-title">One moment, before and after</h2>
+            <p className="pp-lead">A real Corvette Today clip. First what the AI clipping tool handed us, then what went out.</p>
+            <div className="pp-pair-grid">
+              <figure className="pp-pair-raw">
+                <img src="/pricing/corvette-raw-opening.webp" alt="Opening frame of the raw AI cut: a stretched, repeated graphic with no captions" width={540} height={960} loading="lazy" />
+                <figcaption>
+                  <strong>The AI first cut</strong>
+                  <span>82 seconds of the episode video. Repeated still images, no captions, no thumbnail, nothing written, nothing posted.</span>
+                </figcaption>
+              </figure>
+              <figure className="pp-pair-done">
+                <div className="pp-pair-shots">
+                  <img src="/pricing/corvette-finished-opening.webp" alt="Opening frame of the finished clip: car footage with a bold on-screen caption" width={540} height={960} loading="lazy" />
+                  <img src="/pricing/corvette-thumbnail.webp" alt="The thumbnail we designed for the clip, reading Triple Diamond's big secret" width={540} height={960} loading="lazy" />
+                </div>
+                <figcaption>
+                  <strong>The finished clip</strong>
+                  <span>Cut to 70 seconds, with car footage, on-screen captions and its own thumbnail. Captions written for YouTube, Instagram and LinkedIn, then posted for him. On YouTube since 9 November 2026: 623 views two days later.</span>
+                  <a href="https://www.youtube.com/shorts/9Ll0SdxGvKA" className="pp-more" target="_blank" rel="noopener">Watch it on YouTube <i className="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </figcaption>
+              </figure>
+            </div>
+            <p className="pp-proof-more"><Link href="/portfolio">See more finished clips</Link> in the portfolio.</p>
+          </div>
+        </section>
+
+        {/* Build your plan */}
+        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
+          <div className="container">
+            <p className="pp-eyebrow">Pricing calculator</p>
+            <h2 id="pp-build-title">Build your own plan</h2>
+            <p className="pp-lead">Pick your clips, add full episode edits or show notes, or choose to post the clips yourself. The price updates as you go.</p>
+            <PricingCalculator />
+          </div>
+        </section>
+
+        {/* Optional add-ons, under the calculator */}
+        <section className="pp-details pp-details-addons">
+          <div className="container">
+            <AddOns />
           </div>
         </section>
 
