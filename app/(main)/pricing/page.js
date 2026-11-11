@@ -366,37 +366,6 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Raw vs finished: one real Corvette Today moment (production clip
-            d622cdf2, Opus candidate "Corvette Triple Diamond", raw export
-            82.2 s, finished 70.2 s). Frames taken at 1 s from the stored raw
-            and finished files on 11 Nov 2026 */}
-        <section className="pp-pair" aria-labelledby="pp-pair-title">
-          <div className="container">
-            <h2 id="pp-pair-title">One moment, before and after</h2>
-            <p className="pp-lead">A real Corvette Today clip. First the moment as it sat in the episode, then what went out.</p>
-            <div className="pp-pair-grid">
-              <figure className="pp-pair-raw">
-                <img src="/pricing/corvette-raw-opening.webp?v=2" alt="A frame from the raw episode footage: two blurry stacked photos of Steve, with no captions" width={540} height={960} loading="lazy" />
-                <figcaption>
-                  <strong>The raw episode moment</strong>
-                  <span>82 seconds straight from the episode video. Repeated still images, no captions, no thumbnail, nothing written, nothing posted.</span>
-                </figcaption>
-              </figure>
-              <figure className="pp-pair-done">
-                <div className="pp-pair-shots">
-                  <img src="/pricing/corvette-finished-opening.webp" alt="Opening frame of the finished clip: car footage with a bold on-screen caption" width={540} height={960} loading="lazy" />
-                  <img src="/pricing/corvette-thumbnail.webp" alt="The thumbnail we designed for the clip, reading Triple Diamond's big secret" width={540} height={960} loading="lazy" />
-                </div>
-                <figcaption>
-                  <strong>The finished clip</strong>
-                  <span>Cut to 70 seconds, with car footage, on-screen captions and its own thumbnail. Captions written for YouTube, Instagram and LinkedIn, then posted for him.</span>
-                </figcaption>
-              </figure>
-            </div>
-            <p className="pp-proof-more"><Link href="/portfolio">See more finished clips</Link> in the portfolio.</p>
-          </div>
-        </section>
-
         {/* Pricing FAQ */}
         <section className="faq pp-faq" id="faq" aria-labelledby="pp-faq-title">
           <div className="container">
