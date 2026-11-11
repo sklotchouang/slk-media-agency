@@ -12,9 +12,10 @@ import PricingCalculator from '../../../components/PricingCalculator';
 // With You card, the hero was rewritten, and the calculator moved up directly
 // under the packages with a prompt that points to it.
 // 11 Nov 2026 (Samuel approved the positioning "Your podcast content team"):
-// new hero, client proof moved directly under the cards, dated channel
-// growth, a freelancer vs AI tool vs content team comparison and a raw vs
-// finished clip block. The agency and salary comparison line, the four
+// new hero, client proof, a freelancer vs AI tool vs content team comparison
+// and a raw vs finished clip block. Later the same day (Samuel): all pricing
+// (cards, calculator, add-ons, package table) sits at the top, client quotes
+// come after it, and no client channel numbers, view counts or channel links. The agency and salary comparison line, the four
 // portfolio clips and the Why SLK Media Agency block were removed to keep the
 // page short. Prices, plans, checkouts and the calculator are unchanged.
 
@@ -56,17 +57,14 @@ const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
 // Video testimonials. Steve's quote is his own words from
 // testimonial-steve.mp4 (transcribed 11 Nov 2026; the older quote shown for
 // him was not in the video). Brian's matches testimonial-brian.mp4. Preston
-// Hurd's card was dropped here to keep the page short (still on /testimonials). The chips are whole-channel YouTube
-// figures from the production system's growth record
-// (scripts/growth-record.js): start from the first report, measured
-// 27 Oct to 2 Nov 2025; now from the weekly report for 2 to 8 Nov 2026.
+// Hurd's card was dropped here to keep the page short (still on /testimonials). Channel numbers and links to client
+// channels were removed on 11 Nov 2026 (Samuel: the results are not impressive
+// enough to help).
 const TESTIMONIALS = [
   {
     name: 'Steve Garrett',
     show: 'Corvette Today Podcast',
     initials: 'SG',
-    chip: 'YouTube: 11,500 to 13,900 subscribers',
-    icon: 'fab fa-youtube',
     video: 'steve',
     quote: "That was one thing that was on my list of things to do is to make these videos. And with you guys doing that, it's really helped me out a lot. It takes one thing off of my plate. I think you guys do a great job. You're professional. I'm very happy with everything so far.",
   },
@@ -74,17 +72,9 @@ const TESTIMONIALS = [
     name: 'Brian Burton',
     show: 'Waste No Day Podcast',
     initials: 'BB',
-    chip: 'YouTube: 1,700 to 2,580 subscribers',
-    icon: 'fab fa-youtube',
     video: 'brian',
     quote: 'I have several teams across three different businesses and I consider you one of the "A-Players" on the teams that I would like to make sure we do business with for a long time. The quality of the short reels created out of full episodes has been surprising, and also the communication, the support, and the professionalism.',
   },
-];
-
-// Channel growth while we worked together (same source as the chips).
-const GROWTH = [
-  { show: 'Corvette Today', host: 'Steve Garrett', from: '11,500', to: '13,900' },
-  { show: 'Waste No Day', host: 'Brian Burton', from: '1,700', to: '2,580' },
 ];
 
 // A freelancer vs doing it yourself with an AI tool vs us. No prices and no
@@ -292,7 +282,31 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Proof straight under the cards: client video quotes, then dated channel growth */}
+        {/* Build your plan */}
+        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
+          <div className="container">
+            <p className="pp-eyebrow">Pricing calculator</p>
+            <h2 id="pp-build-title">Build your own plan</h2>
+            <p className="pp-lead">Pick your clips, add full episode edits or show notes, or choose to post the clips yourself. The price updates as you go.</p>
+            <PricingCalculator />
+          </div>
+        </section>
+
+        {/* Optional add-ons, under the calculator */}
+        <section className="pp-details pp-details-addons">
+          <div className="container">
+            <AddOns />
+          </div>
+        </section>
+
+        {/* What each package includes */}
+        <section className="pp-details">
+          <div className="container">
+            <CompareTable />
+          </div>
+        </section>
+
+        {/* Client video quotes, after all the pricing */}
         <section className="pp-proof" aria-labelledby="pp-clips-title">
           <div className="container">
             <h2 id="pp-clips-title">What clients say</h2>
@@ -306,7 +320,6 @@ export default function PricingPage() {
                     }}
                   />
                   <div className="pp-tbody">
-                    <span className="pp-tchip"><i className={t.icon} aria-hidden="true"></i> {t.chip}</span>
                     <blockquote className="pp-tquote">&ldquo;{t.quote}&rdquo;</blockquote>
                     <figcaption className="pp-tperson">
                       <span className="pp-tavatar" aria-hidden="true">{t.initials}</span>
@@ -318,21 +331,6 @@ export default function PricingPage() {
                   </div>
                 </figure>
               ))}
-            </div>
-            <div className="pp-growth" aria-labelledby="pp-growth-title">
-              <h3 id="pp-growth-title">Their YouTube channels while we worked together</h3>
-              <ul className="pp-growth-list">
-                {GROWTH.map((g) => (
-                  <li key={g.show}>
-                    <span className="pp-growth-show">{g.show}<span>{g.host}</span></span>
-                    <span className="pp-growth-nums">
-                      <span className="pp-growth-big"><strong>{g.from}</strong> to <strong>{g.to}</strong> subscribers</span>
-                      <span className="pp-growth-when">October 2025 to 8 November 2026</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <p className="pp-growth-note">Whole-channel numbers, full episodes included, not only our clips. Each is one client&apos;s result, not an average.</p>
             </div>
             <p className="pp-proof-more"><Link href="/testimonials">See all testimonials</Link> or <Link href="/success/case-studies">read the case studies</Link>.</p>
           </div>
@@ -371,7 +369,7 @@ export default function PricingPage() {
         {/* Raw vs finished: one real Corvette Today moment (production clip
             d622cdf2, Opus candidate "Corvette Triple Diamond", raw export
             82.2 s, finished 70.2 s). Frames taken at 1 s from the stored raw
-            and finished files on 11 Nov 2026; YouTube views read that day. */}
+            and finished files on 11 Nov 2026 */}
         <section className="pp-pair" aria-labelledby="pp-pair-title">
           <div className="container">
             <h2 id="pp-pair-title">One moment, before and after</h2>
@@ -391,36 +389,11 @@ export default function PricingPage() {
                 </div>
                 <figcaption>
                   <strong>The finished clip</strong>
-                  <span>Cut to 70 seconds, with car footage, on-screen captions and its own thumbnail. Captions written for YouTube, Instagram and LinkedIn, then posted for him. On YouTube since 9 November 2026: 623 views two days later.</span>
-                  <a href="https://www.youtube.com/shorts/9Ll0SdxGvKA" className="pp-more" target="_blank" rel="noopener">Watch it on YouTube <i className="fas fa-arrow-right" aria-hidden="true"></i></a>
+                  <span>Cut to 70 seconds, with car footage, on-screen captions and its own thumbnail. Captions written for YouTube, Instagram and LinkedIn, then posted for him.</span>
                 </figcaption>
               </figure>
             </div>
             <p className="pp-proof-more"><Link href="/portfolio">See more finished clips</Link> in the portfolio.</p>
-          </div>
-        </section>
-
-        {/* Build your plan */}
-        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
-          <div className="container">
-            <p className="pp-eyebrow">Pricing calculator</p>
-            <h2 id="pp-build-title">Build your own plan</h2>
-            <p className="pp-lead">Pick your clips, add full episode edits or show notes, or choose to post the clips yourself. The price updates as you go.</p>
-            <PricingCalculator />
-          </div>
-        </section>
-
-        {/* Optional add-ons, under the calculator */}
-        <section className="pp-details pp-details-addons">
-          <div className="container">
-            <AddOns />
-          </div>
-        </section>
-
-        {/* Comparison table (moved below the proof) */}
-        <section className="pp-details">
-          <div className="container">
-            <CompareTable />
           </div>
         </section>
 
