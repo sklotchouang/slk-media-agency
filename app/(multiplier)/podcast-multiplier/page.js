@@ -306,7 +306,7 @@ export default function PodcastMultiplierPage() {
             <div className="step-item">
               <div className="step-item-number">3</div>
               <div className="step-item-content">
-                <h3>Omnichannel Distribution (Autopilot)</h3>
+                <h3>Omnichannel Distribution (Done For You)</h3>
                 <p>We don't just create content. We publish it strategically across your entire ecosystem:</p>
                 <p>
                   ✅ <strong>Multi-Platform Scheduling:</strong> LinkedIn, YouTube, Instagram, TikTok, X, Facebook (wherever your audience spends time)<br /><br />
@@ -510,7 +510,7 @@ export default function PodcastMultiplierPage() {
               <div className="accordion-content">
                 <p>Because <strong>you're not buying editing hours. You're buying the whole job, done.</strong></p>
                 <p><strong>Freelancers on Fiverr give you:</strong> Task-based labor (you tell them what to do), inconsistent quality (depends on their mood, workload, skill level), zero strategy (they edit what you send, with no plan behind it), management burden (you're revising, giving feedback, chasing deadlines).</p>
-                <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), a plan behind every clip (each one picked for the people you want to reach), full autonomy (we run on autopilot after Week 1).</p>
+                <p><strong>The Podcast Multiplier™ gives you:</strong> Strategic content partner (we own the plan, you don't manage us), consistent quality (dedicated team, not rotating contractors), a plan behind every clip (each one picked for the people you want to reach), full autonomy (our team runs it for you after Week 1).</p>
                 <p><strong>The real difference:</strong> a freelancer costs you management time on top of their fee, and still leaves you as the bottleneck. We take the whole job off your desk.</p>
               </div>
             </div>

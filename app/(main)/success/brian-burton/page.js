@@ -67,7 +67,7 @@ const data = {
   ],
   after: [
     { icon: 'fas fa-rocket', text: '8-12 clips per episode going viral' },
-    { icon: 'fas fa-robot', text: '100% automated clip production' },
+    { icon: 'fas fa-users', text: '100% done for him by our team' },
     { icon: 'fas fa-users', text: 'Reaching ideal clients on 4+ platforms' },
     { icon: 'fas fa-trophy', text: '800+ views per short consistently' },
     { icon: 'fas fa-clock', text: 'Zero hours added to workweek' },
@@ -76,7 +76,7 @@ const data = {
     <>We transformed Brian's podcast into a <strong>library of high-performing social clips</strong> designed to capture attention, deliver value, and drive engagement where his ideal clients scroll daily.</>
   ),
   process: [
-    { icon: 'fas fa-bullseye', title: 'Automated Content Submission', text: 'Brian records his podcast episodes as usual and submits them to SLK Media. No extra work required, no change to his normal workflow.' },
+    { icon: 'fas fa-bullseye', title: 'Simple Episode Handoff', text: 'Brian records his podcast episodes as usual and submits them to SLK Media. No extra work required, no change to his normal workflow.' },
     { icon: 'fas fa-video', title: 'Strategic Clip Identification', text: 'Our team watches each full episode and identifies 8-12 high-impact moments: controversial takes, actionable tactics, emotional stories, and "mic drop" moments that stop the scroll.' },
     { icon: 'fas fa-rocket', title: 'Professional Editing & Optimization', text: 'Each clip is edited with attention-grabbing captions, dynamic cuts, strategic zooms, and platform-specific formatting (vertical for Reels/Shorts, horizontal for LinkedIn).' },
     { icon: 'fas fa-sync-alt', title: 'Consistent Delivery & Support', text: "Weekly content packages delivered on schedule with ongoing communication to refine strategy. A dedicated account manager who acts as an extension of Brian's team." },

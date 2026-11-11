@@ -67,7 +67,7 @@ const data = {
   ],
   after: [
     { icon: 'fas fa-expand-arrows-alt', text: 'Content on 4+ platforms' },
-    { icon: 'fas fa-magic', text: 'Fully automated repurposing' },
+    { icon: 'fas fa-users', text: 'Repurposing fully done by our team' },
     { icon: 'fas fa-arrow-trend-up', text: 'New audience discovery daily' },
     { icon: 'fas fa-fire', text: 'Clips generating viral moments' },
     { icon: 'fas fa-clock', text: 'Zero extra hours per week' },
