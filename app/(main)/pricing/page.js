@@ -340,7 +340,7 @@ export default function PricingPage() {
         <section className="pp-ways" aria-labelledby="pp-ways-title">
           <div className="container">
             <h2 id="pp-ways-title">Three ways to get your clips made</h2>
-            <p className="pp-lead">We use an AI tool for the first cut too. The difference is everything a tool, or one freelancer, leaves for you to do after it.</p>
+            <p className="pp-lead">The difference is everything a tool, or one freelancer, leaves for you to do.</p>
             <div className="pp-ways-box">
               <table className="pp-ways-table">
                 <thead>
@@ -373,13 +373,13 @@ export default function PricingPage() {
         <section className="pp-pair" aria-labelledby="pp-pair-title">
           <div className="container">
             <h2 id="pp-pair-title">One moment, before and after</h2>
-            <p className="pp-lead">A real Corvette Today clip. First what the AI clipping tool handed us, then what went out.</p>
+            <p className="pp-lead">A real Corvette Today clip. First the moment as it sat in the episode, then what went out.</p>
             <div className="pp-pair-grid">
               <figure className="pp-pair-raw">
-                <img src="/pricing/corvette-raw-opening.webp?v=2" alt="A frame from the raw AI cut: two blurry stacked photos of Steve, with no captions" width={540} height={960} loading="lazy" />
+                <img src="/pricing/corvette-raw-opening.webp?v=2" alt="A frame from the raw episode footage: two blurry stacked photos of Steve, with no captions" width={540} height={960} loading="lazy" />
                 <figcaption>
-                  <strong>The AI first cut</strong>
-                  <span>82 seconds of the episode video. Repeated still images, no captions, no thumbnail, nothing written, nothing posted.</span>
+                  <strong>The raw episode moment</strong>
+                  <span>82 seconds straight from the episode video. Repeated still images, no captions, no thumbnail, nothing written, nothing posted.</span>
                 </figcaption>
               </figure>
               <figure className="pp-pair-done">
