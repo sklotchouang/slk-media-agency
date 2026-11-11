@@ -40,6 +40,7 @@ Calculator (`components/PricingCalculator.js`), minimum 6 clips, default Done Fo
 ## Honor rule for leads already quoted a promotion price (until 30 November 2026)
 
 - Anyone who was ALREADY shown or quoted a promotion price before 2 November 2026 can still buy at that promotion price until 30 November 2026 (inclusive). New askers get the normal prices only. After 30 November 2026 nobody gets a promotion price.
+- "Shown or quoted" includes being SENT the promotion page (https://slkmediaagency.com/pricing/promotion) by any message of ours before 2 November 2026, even if no price was written in the message itself (Samuel, 11 November 2026). The reply agents' facts sheet already reads it this way.
 - Never advertise it and never raise it first. Only when an honored lead asks to buy at the price they were quoted.
 - The promotion checkouts are reserved for those honored leads, sent only when that lead asks to buy at the quoted price, until 30 November 2026: Done For You Starter $697 https://pay.myfundbox.com/OVP/?token=SIoJ8jmLealcbfdLHdTGGw ; Done For You (promo) $997 https://pay.myfundbox.com/OVP/?token=yvTAp4UksMbLKpwqkAbLtg ; Done For You Plus (promo) $1,597 https://pay.myfundbox.com/OVP/?token=ap4vMqLYmIo6jPOsQ5RLzA
 - The website chatbot never names a promotion price and never shares these checkouts: if a visitor says they were quoted one before 2 November, it says the quoted price stands until 30 November and points to the strategy call.
