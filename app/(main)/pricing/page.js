@@ -378,7 +378,7 @@ export default function PricingPage() {
             <p className="pp-lead">A real Corvette Today clip. First what the AI clipping tool handed us, then what went out.</p>
             <div className="pp-pair-grid">
               <figure className="pp-pair-raw">
-                <img src="/pricing/corvette-raw-opening.webp" alt="Opening frame of the raw AI cut: a stretched, repeated graphic with no captions" width={540} height={960} loading="lazy" />
+                <img src="/pricing/corvette-raw-opening.webp?v=2" alt="A frame from the raw AI cut: two blurry stacked photos of Steve, with no captions" width={540} height={960} loading="lazy" />
                 <figcaption>
                   <strong>The AI first cut</strong>
                   <span>82 seconds of the episode video. Repeated still images, no captions, no thumbnail, nothing written, nothing posted.</span>
