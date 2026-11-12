@@ -1,0 +1,106 @@
+{
+  "status": "draft",
+  "title": "How Many Downloads Is Good for a Podcast? Benchmarks With the Month and Host Named",
+  "shortTitle": "How many downloads is good for a podcast?",
+  "seoTitle": "How Many Downloads Is Good for a Podcast? October 2026 Benchmarks",
+  "description": "28 first-week downloads put an episode in the top half on Buzzsprout in October 2026, and 99 in the top 25%. The full table, five years of months, and how downloads are counted.",
+  "dek": "Most pages copy one benchmark table and drop the month. Here are the numbers with the month, the host and the 7-day window named, plus five years of history.",
+  "topic": "growth",
+  "author": "claire-peter",
+  "publishedAt": "2026-11-12",
+  "updatedAt": "2026-11-12",
+  "image": {
+    "src": "/blog/how-many-downloads-is-good-for-a-podcast/header.webp",
+    "card": "/blog/how-many-downloads-is-good-for-a-podcast/card.webp",
+    "og": "/blog/how-many-downloads-is-good-for-a-podcast/og.jpg",
+    "alt": "A home podcast studio at dusk: a microphone on a boom arm in front of a laptop showing a bar chart of weekly downloads, with a mug and headphones on the desk"
+  },
+  "art": {
+    "kicker": "Buzzsprout benchmarks, October 2026",
+    "headline": "How many downloads is good for a podcast?",
+    "accent": "good",
+    "cardTitle": "First 7 days, Oct 2026",
+    "rows": [
+      [
+        "Top 50% of episodes",
+        "note",
+        "28 or more"
+      ],
+      [
+        "Top 25% of episodes",
+        "note",
+        "99 or more"
+      ],
+      [
+        "Top 10% of episodes",
+        "note",
+        "425 or more"
+      ],
+      [
+        "Top 1% of episodes",
+        "note",
+        "4,658 or more"
+      ]
+    ]
+  },
+  "shortAnswer": {
+    "text": "In October 2026, 28 downloads in an episode's first 7 days put it in the top half of Buzzsprout episodes, and 99 put it in the top 25%. That top-half line has stayed between 27 and 32 for five years. The dated table below shows nine months from 2021 to 2026, so you can compare your show with the right month."
+  },
+  "toolkit": "podcast-growth-audit-workbook",
+  "toolkitPitch": "Know your number, then find what is holding it back. The workbook walks you through the one part of your show that limits growth, with the steps to fix it.",
+  "faq": [
+    {
+      "q": "How many downloads is good for a podcast episode?",
+      "a": "On Buzzsprout in October 2026, 28 or more downloads in an episode's first 7 days put it in the top half of episodes. 99 or more put it in the top 25%, and 425 or more in the top 10%."
+    },
+    {
+      "q": "Is 100 downloads per episode good?",
+      "a": "Yes. In October 2026, 99 downloads in the first 7 days was enough for the top 25% of Buzzsprout episodes. Whether it is enough for you depends on what the show has to do, such as win clients or earn ad income."
+    },
+    {
+      "q": "How many downloads do most podcasts get?",
+      "a": "Half of Buzzsprout episodes got 27 or fewer downloads in their first week in October 2026. The figure comes from one host with 111,713 active shows that month, so shows hosted elsewhere are not included."
+    },
+    {
+      "q": "Are Spotify plays the same as podcast downloads?",
+      "a": "No. Spotify counts a play when an episode is played for at least 30 seconds on Spotify. Hosts following the IAB guidelines count a download when enough of the file to play one minute is downloaded, from any app. The two numbers will not match."
+    },
+    {
+      "q": "Should I compare downloads after 7 days or 30 days?",
+      "a": "Use the same window as the benchmark you compare with. Buzzsprout's public benchmarks use the first 7 days after release, which it calls a fairer measure than average downloads per episode. Do not compare a 30-day number with a 7-day table."
+    },
+    {
+      "q": "How many podcast downloads do you need to make money?",
+      "a": "No primary source publishes a fixed threshold. Acast, which sells podcast ads, says sponsorships typically become viable around a few thousand downloads a month, but that marketplace ads and listener support can start earning well below that. A show that sells its own service needs the right listeners more than a large audience."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Buzzsprout: Podcast industry statistics (Episode Downloads, First 7 Days)",
+      "url": "https://www.buzzsprout.com/stats",
+      "note": "October 2026 table and platform totals, plus the archived months Oct 2021, Oct 2022, Oct 2023, Oct 2024, Oct 2025, Jan 2026, Apr 2026 and Jul 2026 (buzzsprout.com/stats?date=YYYY-MM-01). Read on 12 November 2026"
+    },
+    {
+      "label": "IAB Tech Lab: Podcast Measurement Technical Guidelines v2.3",
+      "url": "https://github.com/IABTechLab/Podcast-Technical-Measurement/blob/main/PTM-Guidelines_v2.3.md",
+      "note": "Valid download definition, filtering and rolling windows. Version page: iabtechlab.com/standards/podcast-measurement-guidelines. Read on 12 November 2026"
+    },
+    {
+      "label": "Spotify for Creators: Analytics glossary",
+      "url": "https://support.spotify.com/us/creators/article/analytics-glossary/",
+      "note": "Definitions of Plays and Downloads. Read on 12 November 2026"
+    },
+    {
+      "label": "Acast: What's a good download number for a podcast?",
+      "url": "https://www.acast.com/en/blog/whats-a-good-download-number-for-a-podcast",
+      "note": "Published 4 August 2026. Benchmarks citing Buzzsprout and the sponsorship view. Read on 12 November 2026"
+    }
+  ],
+  "neuron": {
+    "query": "cf0ff90b23f3838d",
+    "keyword": "how many downloads is good for a podcast",
+    "score": 73,
+    "bestCompetitor": "Captivate 67",
+    "scoredAt": "2026-11-12"
+  }
+}
