@@ -1,0 +1,120 @@
+{
+  "status": "draft",
+  "title": "Why AI Clipping Tools Pick the Wrong Moments (and How to Fix Each Clip)",
+  "shortTitle": "Why AI clipping tools pick the wrong moments",
+  "seoTitle": "Why AI Video Clipping Tools Pick the Wrong Moments: 7 Fixes",
+  "description": "AI clips not good? AI video tools rank clips by a score, so a story that needs setup can lose. What OpusClip, Riverside and Choppity say, and 7 fixes.",
+  "dek": "The tools rank clips by a score, not by what landed in the room. Here is what their own help pages say, and the fix for each kind of bad clip.",
+  "topic": "ai",
+  "author": "rachel-davis",
+  "publishedAt": "2026-11-17",
+  "updatedAt": "2026-11-17",
+  "image": {
+    "src": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/header.webp",
+    "card": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/card.webp",
+    "og": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/og.jpg",
+    "alt": "A podcaster seen from behind at a desk at night, looking at a laptop that shows a grid of vertical podcast clips with one highlighted, next to a studio microphone and headphones"
+  },
+  "art": {
+    "kicker": "Tool help pages, read 17 Nov 2026",
+    "headline": "Why AI clipping tools pick the wrong moments",
+    "accent": "the wrong moments",
+    "cardTitle": "Seven faults, seven fixes",
+    "rows": [
+      [
+        "The moment needs setup",
+        "note",
+        "Add the setup line back"
+      ],
+      [
+        "Detail beats story",
+        "note",
+        "Search for the moment you noted"
+      ],
+      [
+        "Clip starts mid-sentence",
+        "note",
+        "Move the cut point"
+      ],
+      [
+        "Wrong speaker in frame",
+        "note",
+        "Fix the framing by hand"
+      ]
+    ]
+  },
+  "shortAnswer": {
+    "text": "AI clipping tools rank segments by a score for things like hook and flow, so a story that needs setup can lose to a weaker segment that stands alone. Riverside calls its Magic Clips \"experimental\" and Choppity says its AI \"is not mind-reading\". The chart further down lists the seven faults this causes and the fix for each one."
+  },
+  "toolkit": "clip-formula",
+  "toolkitPitch": "This article names the faults. The kit gives you the steps inside each tool: keep, fix or bin every clip your AI tool hands you, with fix cards for OpusClip, Descript, Riverside and Vizard.",
+  "faq": [
+    {
+      "q": "Why do AI clipping tools pick the wrong moments?",
+      "a": "They rank segments by a score. OpusClip lists Hook, Flow, Value and Trend as what its score looks at. Choppity says its AI favors clips that work as standalone posts, so a strong middle without setup may lose to a weaker segment that stands alone."
+    },
+    {
+      "q": "Does AI clipping actually work?",
+      "a": "It saves time on finding candidates. In one editor's published account of a two-hour episode, the AI suggested 30 moments, about 20 were fine, and transcription plus picking took 40 minutes instead of about 3.5 hours. The editor still made the final picks and found problems in almost a third of the finished clips. That is one job, not a study."
+    },
+    {
+      "q": "What does the OpusClip Virality Score measure?",
+      "a": "OpusClip's help center says the score runs from 0 to 99 and looks at Hook, Flow, Value and Trend. It says higher scores suggest a greater chance of engagement and shares on social media. The score is shown on Pro and Starter plans."
+    },
+    {
+      "q": "What does a score of 99 mean on a Riverside Magic Clip?",
+      "a": "Riverside ranks each clip between 99 and 70 and says the score reflects how engaging or relevant the clip is compared with others in the same batch. So 99 marks the strongest clip from that recording, not a promise that the clip will perform."
+    },
+    {
+      "q": "How do I fix an AI clip that starts mid-sentence?",
+      "a": "Move the cut point by hand. In Riverside's editor you drag the boundary between the selected and unselected parts of the timeline, or restore struck-through text in the transcript. Then play the first three seconds with the sound on before you export."
+    },
+    {
+      "q": "Will a better prompt make the AI pick better clips?",
+      "a": "It can, when you already know what you want. Riverside lets Pro and Business users set duration, speaker focus and keywords, and Choppity suggests custom instructions. Choppity also warns that a narrow brief can filter out moments outside that theme."
+    },
+    {
+      "q": "Is an AI clip the same as an AI-generated video?",
+      "a": "No. An AI-generated video is made by a model that invents the pictures. An AI clip is cut from your real recording. The AI only chose where to cut, how to frame it and what the captions say, which is why a human review fixes most of the problems."
+    }
+  ],
+  "sources": [
+    {
+      "label": "OpusClip Help Center: What is the Virality Score on OpusClip?",
+      "url": "https://help.opus.pro/docs/article/virality-score",
+      "note": "Score range, the Hook, Flow, Value and Trend criteria, ClipAnything prompt relevance and plan access. The page shows no date. Read on 17 November 2026"
+    },
+    {
+      "label": "Riverside Help Center: About Magic Clips",
+      "url": "https://support.riverside.com/hc/en-us/articles/12124048765981-About-Magic-Clips",
+      "note": "Magic Clips scoring (99 to 70, same batch), the experimental note, clip length and the duration, speaker focus and keywords settings. Updated 12 November 2026. Read on 17 November 2026"
+    },
+    {
+      "label": "Riverside Help Center: How can I adjust what the Magic Clip includes?",
+      "url": "https://support.riverside.com/hc/en-us/articles/16175385028637-How-can-I-adjust-what-the-Magic-Clip-includes",
+      "note": "Restoring struck-through transcript text and dragging the timeline boundary. Read on 17 November 2026"
+    },
+    {
+      "label": "Choppity help center: Why did the AI miss a moment I expected to see?",
+      "url": "https://choppity.featurebase.app/help/articles/3181556-why-did-the-ai-miss-a-moment-i-expected-to",
+      "note": "Scoring tradeoffs, length target, overlap caps, audio quality and custom instructions. The page says last updated 6 months ago. Read on 17 November 2026"
+    },
+    {
+      "label": "Choppity help center: Viral score, hooks and how clips are ranked",
+      "url": "https://choppity.featurebase.app/help/articles/1679666-viral-score-hooks-and-how-clips-are-ranked",
+      "note": "Composite score and the line that it is not a guarantee of views. The page says last updated 6 months ago. Read on 17 November 2026"
+    },
+    {
+      "label": "Wei Zhang on DEV Community: I Turned a 2-Hour Podcast into 20 Short Clips",
+      "url": "https://dev.to/weizhang_dev/i-turned-a-2-hour-podcast-into-20-short-clips-heres-the-full-workflow-and-where-ai-actually-156b",
+      "note": "Published 26 March 2026. One editor's account of one client job: 30 suggestions, about 20 fine, framing fixed on about 6 of 20 clips, 40 minutes against about 3.5 hours. Read on 17 November 2026"
+    }
+  ],
+  "neuron": {
+    "query": "730c49db604cefa9",
+    "keyword": "ai clips not good",
+    "score": 65,
+    "bestCompetitor": "Roboneo 64",
+    "scoredAt": "2026-11-17"
+  }
+}

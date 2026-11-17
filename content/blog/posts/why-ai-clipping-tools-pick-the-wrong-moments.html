@@ -1,0 +1,126 @@
+<p>Picture a common complaint. You upload a two-hour episode to an AI clipping tool. It hands back thirty clips with scores next to them. The top one is a guest explaining a detail nobody will share. The story everyone talked about after the recording is not on the list. If your AI clips are not good, the AI video tool is usually doing what it was built to do. This article explains why that happens, using what the tools' own help pages say, and gives the fix for each kind of bad clip. Every source was read on 17 November 2026.</p>
+
+<h2 id="why-wrong">Why do AI clipping tools often choose poor clips?</h2>
+<p>An AI clipping tool is an AI video editing tool with one job: find the moments. It cuts the recording into candidate segments and gives each one a score. The clips you see are the segments with the highest scores. The transcript matters in this. Riverside creates Magic Clips for content "longer than 3 minutes with a transcript", and Choppity says poor audio "hurts transcript confidence".</p>
+<p>OpusClip describes its score in its help center. The AI "assigns Virality Scores based on how likely each clip is to go viral", on a scale from 0 to 99. It lists four things the score looks at:</p>
+<ul>
+<li><strong>Hook:</strong> "Does the introduction grab attention and directly relate to the main topic of the video?"</li>
+<li><strong>Flow:</strong> "Does the video flow logically from one part to the next, with a satisfying conclusion?"</li>
+<li><strong>Value:</strong> "Does the video offer value, resonate emotionally, and create a personal connection with the audience?"</li>
+<li><strong>Trend:</strong> "Is the video aligned with current trends and audience interests?"</li>
+</ul>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/opusclip-virality-score.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/opusclip-virality-score.webp" alt="Screenshot of the OpusClip help center article What is the Virality Score on OpusClip, showing the 0 to 99 range and the Hook, Flow, Value and Trend criteria" width="1600" height="900" loading="lazy"></a>
+<figcaption>OpusClip's help center lists the four things its Virality Score looks at. Captured 17 November 2026.</figcaption>
+</figure>
+<p>Those are sensible questions. Look at what they favor, though. Hook and Flow reward a segment that opens strongly and ends neatly. A story whose payoff depends on something said minutes earlier has no hook of its own. Choppity says this about its own tool: "A brilliant middle without setup may lose to a weaker but self-contained segment."</p>
+<p>One editor put it plainly. Wei Zhang wrote up a client job on DEV Community on 26 March 2026, turning a two-hour podcast into 20 short clips: "AI is excellent at identifying what was said but terrible at judging what will perform". In that job the AI flagged "a detailed technical explanation about microphone placement" as a high-engagement moment "because it had lots of specific information". It missed "a 30-second story about a guest's worst interview experience". Zhang does not name the AI that made those picks.</p>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/score-pipeline.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/score-pipeline.webp" alt="Diagram of how an AI clipping tool picks clips: the transcript is cut into segments, each segment gets a score, and the top scores become your clips. Below it, three things the sources say went missing: setup said minutes earlier, a short story, and the right speaker on screen" width="1600" height="860" loading="lazy"></a>
+<figcaption>How the pick is made, and what the sources say went missing. OpusClip, Choppity and Wei Zhang, read 17 November 2026.</figcaption>
+</figure>
+
+<h2 id="vendors-say">What do the AI video tools say about their own scores?</h2>
+<p>We read the help pages of three AI video tools that podcasters use to generate clips: OpusClip, Riverside and Choppity. Riverside says results may vary, and Choppity says its score is not a guarantee of views. Here is what each page says, quoted.</p>
+<div class="bl-table">
+<table>
+<thead><tr><th>Tool</th><th>How clips are scored</th><th>What the page says about limits</th></tr></thead>
+<tbody>
+<tr><td>OpusClip</td><td>Virality Score from 0 to 99, built on Hook, Flow, Value and Trend. Shown on Pro and Starter plans.</td><td>The page lists no limits. It says higher scores suggest "a greater chance of engagement and shares on social media".</td></tr>
+<tr><td>Riverside Magic Clips</td><td>"a score between 99 and 70, where 99 represents the strongest clip and 70 the least strong"</td><td>"Magic Clips are experimental and results may vary." The score compares a clip "to others in the same batch".</td></tr>
+<tr><td>Choppity</td><td>"a composite score built from hook strength, contextual framing, story coherence, and emotional pull"</td><td>"Think of it as a viral-readiness snapshot, not a guarantee of views." And: "AI clip picking is smart, but it is not mind-reading."</td></tr>
+</tbody>
+</table>
+</div>
+<p class="bl-note">Sources: OpusClip help center, "What is the Virality Score on OpusClip?"; Riverside Help Center, "About Magic Clips" (updated 12 November 2026); Choppity help center, "Viral score, hooks and how clips are ranked" and "Why did the AI miss a moment I expected to see?". All read 17 November 2026.</p>
+<p>Read the Riverside line again. The score compares each clip with the others from the same recording. Read that way, a 99 means the best clip this episode produced. It does not mean the clip is good.</p>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/choppity-viral-score.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/choppity-viral-score.webp" alt="Screenshot of the Choppity help center article Viral score, hooks and how clips are ranked, with the line Think of it as a viral-readiness snapshot, not a guarantee of views" width="1600" height="900" loading="lazy"></a>
+<figcaption>Choppity's help page calls its score a snapshot, "not a guarantee of views". Captured 17 November 2026.</figcaption>
+</figure>
+
+<h2 id="seven-faults">What goes wrong in an AI video clip, and how do you fix each mistake?</h2>
+<p>These are the AI video editing mistakes to avoid posting. The sources above describe seven faults between them. Five are about the wrong moment being picked. Two are about a good moment being cut badly. Each has its own fix, and none of the fixes is "generate again and hope".</p>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/seven-faults.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/seven-faults.webp" alt="Chart of seven faults in AI clips with the fix for each: the moment needs setup, detail beats story, the length setting cut the story, the best moments sit close together, crosstalk muddied the transcript, the clip starts mid-sentence, and the wrong speaker is in frame" width="1600" height="1100" loading="lazy"></a>
+<figcaption>Seven faults and the fix for each. Drawn from Choppity's help center and Wei Zhang's write-up, read 17 November 2026.</figcaption>
+</figure>
+
+<h3>1. The moment needs setup</h3>
+<p>Choppity's help page says its AI "favors clips that work as standalone posts". In Zhang's job, 10 of the 30 suggested moments "had zero standalone value".</p>
+<p><strong>Fix:</strong> find the line that sets the moment up and add it back. In Riverside's editor, the text around a Magic Clip is shown struck through. You select it and choose Restore. If the setup is minutes away, write one line of on-screen text that gives the context instead.</p>
+
+<h3>2. Detail beats story</h3>
+<p>This is the microphone placement problem from Zhang's job. A detailed explanation was flagged. A short story was missed.</p>
+<p><strong>Fix:</strong> do not start from the tool's list. Note two or three timestamps while you record or while you listen back, the moments where the room reacted. Then search for those lines. Choppity calls this "Find moment" search. In other tools, search the transcript for a phrase you remember and cut from there.</p>
+
+<h3>3. The length setting cut the story</h3>
+<p>Choppity again: "your clip duration setting may skip a 90-second story if you asked for 30-second cuts." Riverside says its clips are "generally 30 to 90 seconds long".</p>
+<p><strong>Fix:</strong> raise the length setting and generate again, or cut the story by hand and trim the slow middle yourself.</p>
+
+<h3>4. The best moments sit close together</h3>
+<p>If two strong moments sit close together, you may get only one of them. Choppity's page says "the AI avoids ten clips from the same 60-second stretch".</p>
+<p><strong>Fix:</strong> when one clip from a stretch is good, open the full recording at that point and look at the minutes on either side yourself.</p>
+
+<h3>5. Crosstalk muddied the transcript</h3>
+<p>When two people talk over each other, the transcript at that point gets worse. Choppity lists it as a cause of missed moments: "crosstalk, music, or silence hurts transcript confidence."</p>
+<p><strong>Fix:</strong> record each speaker on a separate track if your setup allows it. Choppity's own tip is to "upload an isolated speaker track when possible".</p>
+
+<h3>6. The clip starts or ends mid-sentence</h3>
+<p>Zhang found "a clip that started mid-sentence because the AI timestamp was off by two seconds". Two seconds is enough to lose the first word of the hook.</p>
+<p><strong>Fix:</strong> move the cut point. Riverside's help page describes it: where the selected and unselected parts of the timeline meet, "click and drag the boundary left or right". Then play the first three seconds with the sound on before you export.</p>
+
+<h3>7. The wrong speaker is in frame</h3>
+<p>Zhang reframed the clips for vertical with an AI editor. In the two-person clips, "the tracking would jump between them or settle on the wrong person entirely". Zhang fixed the framing by hand on about 6 of the 20 clips. The rule Zhang took from that job: "Plan on manual fixes for 25-30% of your clips if your source has multiple speakers."</p>
+<p><strong>Fix:</strong> watch every two-person clip from start to finish. Set the speaker by hand where the tool allows it, or use a split layout that keeps both people on screen.</p>
+
+<h2 id="does-it-work">Does AI clipping actually work?</h2>
+<p>For speed, yes. In the same write-up, transcribing the episode and picking the moments took "40 minutes (AI-assisted) vs ~3.5 hours (fully manual)". About 20 of the 30 suggestions "were fine". That is a real saving.</p>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/test-results.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/test-results.webp" alt="Chart of one editor's job on a two-hour podcast: the AI suggested 30 moments, about 20 were fine and 10 had no standalone value, about 6 of the 20 clips needed the framing fixed by hand, and transcription plus picking moments took 40 minutes with AI against about 3.5 hours by hand" width="1600" height="610" loading="lazy"></a>
+<figcaption>One editor, one two-hour episode. Wei Zhang on DEV Community, 26 March 2026, read 17 November 2026.</figcaption>
+</figure>
+<p>What it did not do is make the final call. Zhang reviewed all 30 candidates and made the final picks by hand. Later, Zhang watched every finished clip and "caught problems in almost a third of them". The conclusion in the write-up: "AI cannot do your final QA pass."</p>
+<p>Keep the size of this evidence in mind. It is one person's account of one episode, not a study. We did not find an independent test across many shows, and the vendor pages we read do not include one. Your own numbers may be better or worse. Count them for one episode and you will know.</p>
+
+<h2 id="two-minute-check">How do you check an AI video clip in two minutes?</h2>
+<p>You do not need to rewatch the entire video or re-edit everything the tool makes. You need a fast way to sort each clip into keep, fix or bin. Play it once with the sound on and ask four questions.</p>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/two-minute-check.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/two-minute-check.webp" alt="Four question check for an AI clip: would a stranger understand it with no setup, does the first sentence start clean, is the right person on screen the whole time, and do the captions match the words. Four yes answers mean keep, a no on questions two to four means fix, a no on question one means add the setup or bin it" width="1600" height="780" loading="lazy"></a>
+<figcaption>Four questions per clip. Keep, fix or bin.</figcaption>
+</figure>
+<ol>
+<li><strong>Would a stranger understand it with no setup?</strong> If not, add the setup line or bin the clip.</li>
+<li><strong>Does the first sentence start clean?</strong> If the first word is clipped, move the cut point.</li>
+<li><strong>Is the right person on screen the whole time?</strong> If not, fix the framing. Check the visual details too. Zhang found "a lower-third that covered the guest's face in one shot".</li>
+<li><strong>Do the captions match the words?</strong> Zhang's example was a subtitle that said "their" instead of "there". Fix it in the caption editor.</li>
+</ol>
+<p>Four yes answers: keep. A no on two, three or four: fix it. A no on the first question is the expensive one. If you cannot add the setup in one line, bin the clip and go find the moment you wanted.</p>
+
+<h2 id="better-prompt">Can a better prompt make the AI pick better moments?</h2>
+<p>It can help, within limits. All three tools let you steer the pick before they generate.</p>
+<ul>
+<li><strong>Riverside:</strong> Pro and Business users can generate extra Magic Clips and set "duration, speaker focus, and keywords" for each.</li>
+<li><strong>Choppity:</strong> its first suggestion for a missed moment reads: "Add custom instructions describing the topic, speaker, or quote before regenerating."</li>
+<li><strong>OpusClip:</strong> with its ClipAnything model, the AI "will also evaluate whether the clip is relevant to your prompt".</li>
+</ul>
+<p>A prompt has a cost too. Choppity warns that "a narrow brief can filter out moments outside that theme". If you tell the tool to find pricing advice, it will skip the funny story. Use a prompt when you already know what you are looking for. Do not use one to discover what was good.</p>
+
+<h2 id="workflow">Where should you use AI in a clip workflow?</h2>
+<p>Use AI for the parts that are slow and mechanical. Zhang's write-up shows the split. A transcript now takes "about 45 seconds" and is "maybe 95% accurate". Automatic reframing for vertical video "worked well for single-speaker segments". Those are jobs to hand to the tool. AI can speed up that part of the editing process without hurting the result.</p>
+<p>Keep a person on the two calls the score cannot make: which moment goes out, and whether the finished clip is right. A workable order looks like this. Upload the episode. Let the tool generate the transcript, the candidates and the captions. Pick by hand. Fix each pick in the editor. Then post to TikTok, Instagram Reels or YouTube Shorts.</p>
+<p>Used this way, the AI output is a first draft. It still needs human review before a single clip goes out, and the creator decides what the show is seen for.</p>
+
+<h2 id="alternative">Do you need an OpusClip alternative?</h2>
+<p>Maybe, but not for this problem. Video editing tools differ on price, caption styles, templates, layouts and how well they handle two speakers, and those are fair reasons to switch. The wrong-moment problem is not one of them. Every tool in the table above ranks clips with a score. Riverside says results may vary, and Choppity says its score is not a guarantee of views.</p>
+<figure>
+<a href="/blog/why-ai-clipping-tools-pick-the-wrong-moments/choppity-missed-moment.webp" class="bl-zoom" target="_blank" rel="noopener" aria-label="Open the full-size image"><img src="/blog/why-ai-clipping-tools-pick-the-wrong-moments/choppity-missed-moment.webp" alt="Screenshot of the Choppity help center article Why did the AI miss a moment I expected to see, listing scoring tradeoffs, length target, overlap caps, audio quality and custom instructions as reasons" width="1600" height="900" loading="lazy"></a>
+<figcaption>A vendor's own list of reasons its AI misses a moment. Choppity help center, captured 17 November 2026.</figcaption>
+</figure>
+<p>If you switch tools and keep posting whatever scores highest, you will get the same result with different captions. The review pass moves with you. Fix the workflow first. Then compare tools on what is left.</p>
+
+<h2 id="ai-video">Is an AI clip the same as an AI-generated video?</h2>
+<p>No, and the difference matters. Much of what is written about bad AI video is about AI-generated videos, where a generative AI model such as Sora or Veo invents the pictures. Articles on why AI videos look wrong, with uncanny faces or characters that change between shots, are about AI video generation. People call the worst of it AI slop. An AI clip is different. The footage is your real recording. The AI only chose where to cut, how to frame it and what the captions say.</p>
+<p>That is why the fix here is human input, not better video generation. Nothing in the clip is fake. The pick is simply unreviewed. A creator who posts thirty unreviewed clips a week from one template can still look mass-produced, and YouTube has a rule about that. We covered it in <a href="/blog/does-youtube-monetize-podcast-clips">Does YouTube monetize podcast clips?</a></p>
+
+<p class="bl-note">Tool descriptions in this article are quoted from each company's help pages as read on 17 November 2026. Features and plan names change, so check the linked page before you rely on one. The time and clip counts come from one editor's published account of one job and are not a benchmark.</p>
