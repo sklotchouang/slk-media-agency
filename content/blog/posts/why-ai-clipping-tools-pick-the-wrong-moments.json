@@ -1,5 +1,5 @@
 {
-  "status": "draft",
+  "status": "published",
   "title": "Why AI Clipping Tools Pick the Wrong Moments (and How to Fix Each Clip)",
   "shortTitle": "Why AI clipping tools pick the wrong moments",
   "seoTitle": "Why AI Video Clipping Tools Pick the Wrong Moments: 7 Fixes",
@@ -7,8 +7,8 @@
   "dek": "The tools rank clips by a score, not by what landed in the room. Here is what their own help pages say, and the fix for each kind of bad clip.",
   "topic": "ai",
   "author": "rachel-davis",
-  "publishedAt": "2026-11-17",
-  "updatedAt": "2026-11-17",
+  "publishedAt": "2026-11-23",
+  "updatedAt": "2026-11-23",
   "image": {
     "src": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/header.webp",
     "card": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/card.webp",
