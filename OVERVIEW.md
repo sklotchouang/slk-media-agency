@@ -395,15 +395,24 @@ Read this before you encode a replacement clip, because the older files on disk 
 
 Both surfaces that show these clips render them in a **9:16 box with `object-fit: cover`**: `.portfolio-video` and `.social-proof .client-video`, set in the scoped block near the end of `public/styles.css`. Whatever you hand the browser gets cropped to 9:16 and centred.
 
-The legacy files (`Clip-8`, `Clip-9`, `Clip-11`, `Clip-12`, plus `Brian-Before-After` and `Steve-Before-After`) are **720x406 landscape with the real 9:16 composition pillarboxed in the middle**, so the CSS crops the black bars back off and only about 228x406 of each file is ever visible. They also carry a roughly 96 kbps AAC track that can never be heard: the markup hard-codes `muted` and `SiteBehaviors.js` only ever toggles play/pause, it never unmutes. Two thirds of the frame and the whole audio track are wasted.
+The legacy files (`Clip-8`, `Clip-9`, `Clip-11`, `Clip-12`) are **720x406 landscape with the real 9:16 composition pillarboxed in the middle**, so the CSS crops the black bars back off and only about 228x406 of each file is ever visible. They carry a roughly 96 kbps AAC track. `Brian-Before-After` and `Steve-Before-After` are 720x1280 with AAC audio.
 
-`Clip-1` through `Clip-7` and `Clip-10` are native and are the pattern to follow: **540x960 (native 9:16), H.264 High, level 4.0, no audio track, faststart**. `Clip-1` through `Clip-6` were re-encoded on 2026-08-04; `Clip-7` (Global Dispatch) and `Clip-10` (Sunflower Podcast) on 2026-08-06. At 540 wide they serve a 2x display for the ~267px card the grid gives them. The recipe:
+**Sound on `/portfolio` (24 Nov 2026).** Every clip still autoplays muted, but each card with an audio track gets a "Tap for sound" button (the same `.ao-sound` button and `components/ClipSoundToggles.js` as `/portfolio/audio-only`; one clip is heard at a time). Clip-1 to Clip-6 had their audio added back on 2026-11-24 by muxing the master's audio onto the existing video (video stream copied, not re-encoded). **Clip-7 (Global Dispatch) and Clip-10 (Sunflower Podcast) still have no audio track**: their masters came from a Downloads zip that is gone and are not on S:, D:, C: or Google Drive. They are listed in `silentClips` in `app/(main)/portfolio/page.js`, so they get no button. When their masters turn up, mux them with the command below and remove them from `silentClips`. The home page clips (`app/(main)/page.js`) stay muted with no button. Masters for Clip-1 to Clip-6 live in `S:\PODCAST RESOURCES\CLIENTS\BEFORE-AFTER\NEW\` (Clip-1 Ingleside Reviews, Clip-2 The Filtered Brew, Clip-3 Corvette Today, Clip-4 Mindset Neuroscience, Clip-5 Pine Forest Media, Clip-6 Waste No Day).
+
+`Clip-1` through `Clip-7` and `Clip-10` are native and are the pattern to follow: **540x960 (native 9:16), H.264 High, level 4.0, AAC 96k stereo (Clip-7 and Clip-10 excepted, see above), faststart**. `Clip-1` through `Clip-6` were re-encoded on 2026-08-04; `Clip-7` (Global Dispatch) and `Clip-10` (Sunflower Podcast) on 2026-08-06. At 540 wide they serve a 2x display for the ~267px card the grid gives them. The recipe:
 
 ```
 ffmpeg -i <source>.mp4 -vf "scale=540:960:flags=lanczos" \
   -c:v libx264 -profile:v high -level 4.0 -preset veryslow -crf 32 \
-  -maxrate 850k -bufsize 1700k -pix_fmt yuv420p -g 60 -an \
-  -movflags +faststart public/portfolio/Clip-<n>.mp4
+  -maxrate 850k -bufsize 1700k -pix_fmt yuv420p -g 60 \
+  -c:a aac -b:a 96k -ac 2 -movflags +faststart public/portfolio/Clip-<n>.mp4
+```
+
+To add sound to a clip already encoded without it, copy the video and take the audio from the master:
+
+```
+ffmpeg -i public/portfolio/Clip-<n>.mp4 -i <master>.mp4 -map 0:v:0 -map 1:a:0 \
+  -c:v copy -c:a aac -b:a 96k -ac 2 -shortest -movflags +faststart <out>.mp4
 ```
 
 The poster must match the video's shape, so grab it from the encoded file rather than reusing a 16:9 still:
@@ -415,7 +424,7 @@ ffmpeg -ss <seconds> -i public/portfolio/Clip-<n>.mp4 -frames:v 1 -q:v 4 \
 
 CRF 32 was chosen by comparing frames: it keeps the fine detail in these compositions (the editing-timeline strip and the logo strapline) legible while holding a 40 to 50 second clip near 1.5 MB. A 60 to 70 second clip lands near 2.1 to 2.6 MB. Source masters are 1080x1920 or larger (the Sunflower Podcast master was 2160x3840, and the single lanczos downscale to 540 wide handled it fine). If you raise the resolution or lower the CRF, remember `/portfolio` autoplays twelve of these at once and the home page pulls three of them.
 
-Note that the recipe carries no `-r` flag, so the **source frame rate passes straight through**. Most masters are 30fps, which is where the "30fps" in the profile above comes from, but `Clip-7` is 23.976fps because its master was. That is intentional: forcing 23.976 up to 30 duplicates every fifth frame unevenly and adds judder for no benefit on a silent looping clip. Do not add `-r 30` to "fix" a clip that probes below 30fps. The `-g 60` keyframe interval simply becomes a 2.5 second GOP instead of 2 seconds, which is immaterial here.
+Note that the recipe carries no `-r` flag, so the **source frame rate passes straight through**. Most masters are 30fps, which is where the "30fps" in the profile above comes from, but `Clip-7` is 23.976fps because its master was. That is intentional: forcing 23.976 up to 30 duplicates every fifth frame unevenly and adds judder for no benefit on a looping clip. Do not add `-r 30` to "fix" a clip that probes below 30fps. The `-g 60` keyframe interval simply becomes a 2.5 second GOP instead of 2 seconds, which is immaterial here.
 
 ### Audio-only showcase clips (`public/portfolio/audio-only/`)
 

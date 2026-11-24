@@ -3473,7 +3473,8 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   object-fit: contain;
 }
 
-.ao-page .ao-sound {
+.ao-page .ao-sound,
+.portfolio-video .ao-sound {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -3495,16 +3496,20 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 .ao-page .ao-sound:hover,
-.ao-page .ao-sound:focus-visible {
+.ao-page .ao-sound:focus-visible,
+.portfolio-video .ao-sound:hover,
+.portfolio-video .ao-sound:focus-visible {
   border-color: var(--accent);
 }
 
-.ao-page .ao-sound:focus-visible {
+.ao-page .ao-sound:focus-visible,
+.portfolio-video .ao-sound:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-.ao-page .ao-sound.is-on {
+.ao-page .ao-sound.is-on,
+.portfolio-video .ao-sound.is-on {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-ink);
@@ -3571,7 +3576,8 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
     grid-template-columns: 1fr;
   }
 
-  .ao-page .ao-sound {
+  .ao-page .ao-sound,
+  .portfolio-video .ao-sound {
     top: 8px;
     right: 8px;
     padding: 6px 10px;
@@ -3584,7 +3590,8 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 @media (max-width: 400px) {
-  .ao-page .ao-sound .ao-sound-label {
+  .ao-page .ao-sound .ao-sound-label,
+  .portfolio-video .ao-sound .ao-sound-label {
     display: none;
   }
 }

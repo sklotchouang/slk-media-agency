@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ClipSoundToggles from '../../../components/ClipSoundToggles';
 
 export const metadata = {
   title: "Portfolio: Podcast Clips We've Produced | SLK Media Agency",
@@ -24,6 +25,15 @@ export const viewport = {
 };
 
 const clipNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+// Clip-7 (Global Dispatch) and Clip-10 (Sunflower Podcast) have no audio
+// track: their masters with sound could not be found (24 Nov 2026), so they
+// get no sound button. Every other clip carries AAC audio.
+const silentClips = [7, 10];
+
+// Same button as /portfolio/audio-only; ClipSoundToggles wires it up.
+const SOUND_BUTTON =
+  '<button type="button" class="ao-sound" data-sound-toggle aria-pressed="false"><i class="fas fa-volume-xmark" aria-hidden="true"></i><span class="ao-sound-label">Tap for sound</span></button>';
 
 export default function PortfolioPage() {
   return (
@@ -68,11 +78,12 @@ export default function PortfolioPage() {
                 key={clipNumber}
                 className="portfolio-video"
                 dangerouslySetInnerHTML={{
-                  __html: `<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-${clipNumber}.jpg" data-autoplay aria-label="Portfolio clip ${clipNumber}"><source src="/portfolio/Clip-${clipNumber}.mp4" type="video/mp4"></video>`,
+                  __html: `<video autoplay muted loop playsinline poster="/portfolio/thumbnails/Clip-${clipNumber}.jpg" data-autoplay aria-label="Portfolio clip ${clipNumber}"><source src="/portfolio/Clip-${clipNumber}.mp4" type="video/mp4"></video>${silentClips.includes(clipNumber) ? '' : SOUND_BUTTON}`,
                 }}
               />
             ))}
           </div>
+          <ClipSoundToggles />
 
           <div className="portfolio-cta">
             <h2>Ready to Scale Your Podcast Show?</h2>
