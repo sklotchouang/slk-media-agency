@@ -3474,7 +3474,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 }
 
 .ao-page .ao-sound,
-.portfolio-video .ao-sound {
+[data-sound-card] .ao-sound {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -3497,22 +3497,43 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 
 .ao-page .ao-sound:hover,
 .ao-page .ao-sound:focus-visible,
-.portfolio-video .ao-sound:hover,
-.portfolio-video .ao-sound:focus-visible {
+[data-sound-card] .ao-sound:hover,
+[data-sound-card] .ao-sound:focus-visible {
   border-color: var(--accent);
 }
 
 .ao-page .ao-sound:focus-visible,
-.portfolio-video .ao-sound:focus-visible {
+[data-sound-card] .ao-sound:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
 .ao-page .ao-sound.is-on,
-.portfolio-video .ao-sound.is-on {
+[data-sound-card] .ao-sound.is-on {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-ink);
+}
+
+/* Sound button on clips outside /portfolio/audio-only (home, /portfolio,
+   case studies). Small home tiles get the icon only. */
+[data-sound-card] {
+  position: relative;
+}
+
+.home-v3 .hp-tile .ao-sound,
+.home-v3 .hp-phone-in .ao-sound,
+.home-v3 .hp-mini .ao-sound {
+  top: 8px;
+  right: 8px;
+  padding: 6px 8px;
+  font-size: 0.72rem;
+}
+
+.home-v3 .hp-tile .ao-sound-label,
+.home-v3 .hp-phone-in .ao-sound-label,
+.home-v3 .hp-mini .ao-sound-label {
+  display: none;
 }
 
 .ao-page .ao-card figcaption {
@@ -3577,7 +3598,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
   }
 
   .ao-page .ao-sound,
-  .portfolio-video .ao-sound {
+  [data-sound-card] .ao-sound {
     top: 8px;
     right: 8px;
     padding: 6px 10px;
@@ -3591,7 +3612,7 @@ html[data-motion="on"] .price-anchor-go .pt-price-now {
 
 @media (max-width: 400px) {
   .ao-page .ao-sound .ao-sound-label,
-  .portfolio-video .ao-sound .ao-sound-label {
+  [data-sound-card] .ao-sound .ao-sound-label {
     display: none;
   }
 }

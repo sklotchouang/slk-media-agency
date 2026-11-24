@@ -3,9 +3,10 @@
 import { useEffect } from 'react';
 
 /**
- * Sound buttons for /portfolio and /portfolio/audio-only. Every clip on those
+ * Sound buttons for muted autoplay clips (home, /portfolio, /portfolio/audio-only,
+ * case studies). Every clip on those
  * pages autoplays muted (SiteBehaviors handles play/pause while on screen).
- * A button belongs to the clip in its nearest .ao-card or .portfolio-video
+ * A button belongs to the clip in its nearest .ao-card or [data-sound-card]
  * box. A tap on a clip's
  * sound button restarts it with sound and mutes every other clip, so only one
  * clip is ever heard at a time.
@@ -14,7 +15,7 @@ export default function ClipSoundToggles() {
   useEffect(() => {
     const buttons = Array.from(document.querySelectorAll('[data-sound-toggle]'));
     const pairs = buttons
-      .map((button) => ({ button, video: button.closest('.ao-card, .portfolio-video')?.querySelector('video') }))
+      .map((button) => ({ button, video: button.closest('[data-sound-card], .ao-card')?.querySelector('video') }))
       .filter((p) => p.video);
 
     const setState = (button, on) => {

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ClipSoundToggles from '../../components/ClipSoundToggles';
+import { SOUND_BUTTON } from '../../components/soundButton';
 import HeroAtmosphere from '../../components/HeroAtmosphere';
 import ClipChecklist from '../../components/ClipChecklist';
 import ClipCostCalculator from '../../components/ClipCostCalculator';
@@ -64,8 +66,9 @@ function Clip({ src, poster, label, className }) {
   return (
     <div
       className={className}
+      data-sound-card
       dangerouslySetInnerHTML={{
-        __html: `<video muted loop playsinline preload="none" poster="${poster}" data-autoplay${aria}><source src="${src}" type="video/mp4"></video>`,
+        __html: `<video muted loop playsinline preload="none" poster="${poster}" data-autoplay${aria}><source src="${src}" type="video/mp4"></video>${SOUND_BUTTON}`,
       }}
     />
   );
@@ -482,6 +485,7 @@ export default function HomePage() {
           <a href={STRMEET} className="primary-cta" target="_blank" rel="noopener">Book a strategy call</a>
         </div>
       </div>
+      <ClipSoundToggles />
     </>
   );
 }

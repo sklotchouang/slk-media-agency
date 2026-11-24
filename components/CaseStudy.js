@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ClipSoundToggles from './ClipSoundToggles';
+import { SOUND_BUTTON } from './soundButton';
 
 /**
  * Shared template for every client case study page. Each page under
@@ -268,12 +270,14 @@ export default function CaseStudy({ data }) {
                 <div
                   key={clip.src}
                   className="client-video"
+                  data-sound-card
                   dangerouslySetInnerHTML={{
-                    __html: `<video autoplay muted loop playsinline data-autoplay${clip.poster ? ` poster="${clip.poster}"` : ''} aria-label="${clip.label}"><source src="${clip.src}" type="video/mp4"></video>`,
+                    __html: `<video autoplay muted loop playsinline data-autoplay${clip.poster ? ` poster="${clip.poster}"` : ''} aria-label="${clip.label}"><source src="${clip.src}" type="video/mp4"></video>${SOUND_BUTTON}`,
                   }}
                 />
               ))}
             </div>
+            <ClipSoundToggles />
           </div>
         </section>
       ) : null}
