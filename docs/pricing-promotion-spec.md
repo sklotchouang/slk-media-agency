@@ -10,7 +10,7 @@ If `components/PricingPlans.js`, `components/PricingCalculator.js` or `lib/check
 - Straight to the calculator: https://slkmediaagency.com/pricing#build
 - Strategy call (unchanged): https://link.slkmediaagency.com/strmeet
 - After-payment page: https://slkmediaagency.com/welcome. Myfundbox sends the new client there only once Samuel sets it as the redirect inside each checkout (not set yet).
-- Never send https://slkmediaagency.com/pricing/promotion. It redirects to /pricing.
+- Never send https://slkmediaagency.com/pricing/promotion. It shows a "This promotion has ended" page that points to /pricing.
 
 ## The three plans (new prospects only)
 

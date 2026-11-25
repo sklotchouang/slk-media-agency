@@ -72,7 +72,7 @@ export default function WelcomePage() {
                   {formUrl ? (
                     <a href={formUrl} className="primary-cta wl-cta" target="_blank" rel="noopener">Open the onboarding form</a>
                   ) : (
-                    <p className="wl-note">We email you your onboarding form. Can&apos;t find it? Check your spam folder, or email <a href={`mailto:${CONTACT_EMAIL}?subject=My%20onboarding%20form`}>{CONTACT_EMAIL}</a> and we send it again.</p>
+                    <p className="wl-note">To get your onboarding form, email <a href={`mailto:${CONTACT_EMAIL}?subject=My%20onboarding%20form`}>{CONTACT_EMAIL}</a> with the name of your show. We reply with your form.</p>
                   )}
                 </div>
               </li>

@@ -167,7 +167,9 @@ export default function PricingCalculator() {
         <p className="pp-hint" id="pp-calc-how">
           {weekly
             ? 'Plans with 3 or more episodes start with a 30-minute call, where we agree your schedule.'
-            : 'Plans with add-ons start with a 30-minute call. Without add-ons, the Monthly Show and Biweekly Show can be bought online.'}
+            : buyLink(episodes === 1 ? 'monthly' : 'biweekly').checkout
+              ? `Plans with add-ons start with a 30-minute call. Without add-ons, ${name} can be bought online.`
+              : 'Plans with add-ons start with a 30-minute call.'}
         </p>
       </>
     );

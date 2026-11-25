@@ -5,7 +5,12 @@ import { buyLink } from '../../../lib/checkout';
 
 // True once at least one Myfundbox checkout link is set in lib/checkout.js.
 // Until then no copy on this page may say "buy online" or "no call needed".
-const CHECKOUT_LIVE = buyLink('monthly').checkout || buyLink('biweekly').checkout;
+const LIVE_PLANS = [
+  buyLink('monthly').checkout ? 'Monthly Show' : null,
+  buyLink('biweekly').checkout ? 'Biweekly Show' : null,
+].filter(Boolean);
+const CHECKOUT_LIVE = LIVE_PLANS.length > 0;
+const LIVE_NAMES = LIVE_PLANS.join(' and ');
 
 // The /pricing page: three packages, proof, the comparison table, the add-ons,
 // the plan calculator and a pricing FAQ. Rebuilt 16 October 2026 (Samuel
@@ -125,7 +130,7 @@ const FAQ = [
     q: 'Do I need a call to start?',
     a: [
       CHECKOUT_LIVE
-        ? 'Not for Monthly Show or Biweekly Show: you can buy them online and start right away. Right after you pay, you see what happens next.'
+        ? `Not for ${LIVE_NAMES}: you can buy ${LIVE_PLANS.length > 1 ? 'them' : 'it'} online and start right away. Right after you pay, you see what happens next. Every other plan starts with a 30-minute call.`
         : 'Online checkout for Monthly Show and Biweekly Show is not live yet, so for now every plan starts with a 30-minute call.',
       'Weekly Show, and any plan with 3 or more episodes or with add-ons, starts with a 30-minute call. Want to talk first on any plan? Book the call.',
     ],
@@ -276,7 +281,7 @@ export default function PricingPage() {
             <p className="pp-hero-sub">The whole job, off your plate. You record. We pick the best moments, edit the clips, design a thumbnail for each one, write the captions, post on every platform and report back.</p>
             <ul className="pp-hero-points">
               <li><i className="fas fa-check" aria-hidden="true"></i> From $597 a month: 1 episode, 5 clips</li>
-              {CHECKOUT_LIVE ? <li><i className="fas fa-check" aria-hidden="true"></i> Buy online, no call needed (Monthly and Biweekly Show)</li> : null}
+              {CHECKOUT_LIVE ? <li><i className="fas fa-check" aria-hidden="true"></i> Buy {LIVE_NAMES} online, no call needed</li> : null}
               <li><i className="fas fa-check" aria-hidden="true"></i> Month to month, pause up to 60 days</li>
               <li><i className="fas fa-check" aria-hidden="true"></i> You own every clip</li>
             </ul>
