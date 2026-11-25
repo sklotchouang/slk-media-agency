@@ -16,8 +16,8 @@ If `components/PricingPlans.js`, `components/PricingCalculator.js` or `lib/check
 
 | Plan | Episodes a month | Clips a month | Price | Call and report | How to buy |
 |---|---|---|---|---|---|
-| Monthly Show | 1 | 5 | $597 a month | A monthly call and a monthly report | Direct checkout, no call needed (once the checkout link exists; until then the strategy call) |
-| Biweekly Show (badge: Most popular) | 2 | 10 | $997 a month | A monthly call and a monthly report | Direct checkout, no call needed (once the checkout link exists; until then the strategy call) |
+| Monthly Show | 1 | 5 | $597 a month | A monthly call and a monthly report | Direct checkout, no call needed |
+| Biweekly Show (badge: Most popular) | 2 | 10 | $997 a month | A monthly call and a monthly report | Direct checkout, no call needed |
 | Weekly Show | 4 | 20 | $1,597 a month | A weekly call and a weekly report | Book a call. No direct checkout |
 
 Every plan is full service:
@@ -61,8 +61,8 @@ Every plan is full service:
 
 All checkout links live in ONE place: `lib/checkout.js` in the website repo.
 
-- Monthly Show, $597 a month: NOT CREATED YET. Samuel creates it in Myfundbox and pastes the link into `lib/checkout.js`. Until then the website button goes to the strategy call.
-- Biweekly Show, $997 a month: NOT CREATED YET. Same as above.
+- Monthly Show, $597 a month: https://pay.myfundbox.com/OVP/?token=1DDrjflsY6e2JMpnU6jKzA (Samuel, 25 November 2026).
+- Biweekly Show, $997 a month: https://pay.myfundbox.com/OVP/?token=IXcC8MsKeFTU-UGVJfv9ig (Samuel, 25 November 2026).
 - An older $997 checkout exists (https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw). It charges the right amount, but its page reads "Done With You". It is NOT wired in. It may only be used for Biweekly Show if Samuel says yes.
 - Weekly Show has no checkout. It is sold on the strategy call.
 - Every new checkout should send the buyer to https://slkmediaagency.com/welcome after payment (Samuel sets this inside Myfundbox).
