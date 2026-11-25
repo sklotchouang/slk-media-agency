@@ -32,12 +32,12 @@ import { SOUND_BUTTON } from './soundButton';
 // Samuel, 25 Nov 2026: the old "strategy document before the first clip" is
 // split into preliminary research and a social media strategy plan.
 const SHARED = [
-  'A custom thumbnail for every clip',
+  'Custom thumbnail for every clip',
   'Captions, hashtags and calls to action for every clip',
-  'Every clip posted for you on every platform',
-  'A dedicated project manager',
+  'Every clip posted for you on your social media platforms',
+  'Dedicated project manager',
   'Preliminary research on your show and audience',
-  'A social media strategy plan',
+  'Social media strategy plan',
 ];
 
 const PLANS = [
