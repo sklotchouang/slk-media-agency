@@ -124,7 +124,6 @@ export default function CaseStudiesPage() {
           <ul className="nav-menu" id="primary-nav">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
-            <li><a href="#" aria-current="page">Case Studies</a></li>
             <li><Link href="/testimonials">Testimonials</Link></li>
             <li><Link href="/#faq">FAQ</Link></li>
             <li><a href="/blog">Blog</a></li>

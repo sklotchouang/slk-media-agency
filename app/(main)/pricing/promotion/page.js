@@ -39,7 +39,6 @@ export default function PromotionEndedPage() {
           <ul className="nav-menu" id="primary-nav">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/portfolio">Portfolio</Link></li>
-            <li><Link href="/success/case-studies">Case Studies</Link></li>
             <li><Link href="/testimonials">Testimonials</Link></li>
             <li><Link href="/pricing">Pricing</Link></li>
             <li><a href="/blog">Blog</a></li>

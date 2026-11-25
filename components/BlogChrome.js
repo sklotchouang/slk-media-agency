@@ -21,7 +21,6 @@ export function BlogNav() {
         <ul className="nav-menu" id="primary-nav">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/portfolio">Portfolio</Link></li>
-          <li><Link href="/success/case-studies">Case Studies</Link></li>
           <li><Link href="/testimonials">Testimonials</Link></li>
           <li><Link href="/blog" aria-current="page">Blog</Link></li>
           <li><a href="https://link.slkmediaagency.com/strmeet" className="cta-button" target="_blank" rel="noopener">Book Strategy Call</a></li>
