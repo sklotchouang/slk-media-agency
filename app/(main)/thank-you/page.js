@@ -116,7 +116,7 @@ export default function ThankYouPage() {
             <div className="wl-box">
               <h2 className="wl-h2">How episodes work</h2>
               <ul className="wl-rules">
-                <li><strong>Every episode gets 5 clips.</strong> Monthly Show is 5 clips a month, Biweekly Show is 10.</li>
+                <li><strong>Every episode gets 5 clips.</strong> Monthly Show Plan is 5 clips a month, Bi-weekly Show Plan is 10.</li>
                 <li><strong>No new episode this month?</strong> We cut your clips from your back catalogue.</li>
                 <li><strong>More episodes than your plan covers?</strong> You pick which episode we clip. Tell your project manager on your board.</li>
               </ul>

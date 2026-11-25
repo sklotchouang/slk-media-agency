@@ -43,7 +43,7 @@ const SHARED = [
 const PLANS = [
   {
     id: 'monthly',
-    name: 'Monthly Show',
+    name: 'Monthly Show Plan',
     label: 'Monthly Show Plan',
     price: '$597',
     perEpisode: '$597',
@@ -55,7 +55,7 @@ const PLANS = [
   },
   {
     id: 'biweekly',
-    name: 'Biweekly Show',
+    name: 'Bi-weekly Show Plan',
     label: 'Bi-weekly Show Plan',
     base: 'Monthly Show Plan',
     price: '$997',
@@ -69,7 +69,7 @@ const PLANS = [
   },
   {
     id: 'weekly',
-    name: 'Weekly Show',
+    name: 'Weekly Show Plan',
     label: 'Weekly Show Plan',
     base: 'Bi-weekly Show Plan',
     price: '$1,597',
@@ -101,7 +101,7 @@ function CardActions({ plan }) {
     return (
       <div className="pp-actions">
         <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book a call to start</a>
-        <p className="pp-howbuy">Weekly Show starts with a 30-minute call, where we agree your posting schedule. No online checkout for this plan.</p>
+        <p className="pp-howbuy">Weekly Show Plan starts with a 30-minute call, where we agree your posting schedule. No online checkout for this plan.</p>
         <Assure />
       </div>
     );
