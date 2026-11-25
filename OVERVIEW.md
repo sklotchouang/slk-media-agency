@@ -600,6 +600,8 @@ What was deliberately **kept**, because it is real and verifiable rather than an
 
 ## 12. The website chatbot (LIVE)
 
+**2026-11-25, per-episode pricing:** `kb-01`, `kb-02`, `kb-04`, `kb-05`, `_persona.md` and `02-restrictions.md` rewritten for Monthly Show / Biweekly Show / Weekly Show (no prepay, no clips only, checkout described as not live yet). Rebuilt and pasted into re:tune from commit 92d13c7; verified after reload: Base Prompt 32,655 characters, Restrictions 7,362. When the Myfundbox links go into `lib/checkout.js`, update the "not live yet" lines in kb-01 and 02-restrictions, rebuild and re-paste.
+
 A public chatbot was built and published on 2026-09-01. The only thing in this repo is **one script tag in each of the two root layouts** (`app/(main)/layout.js` and `app/(multiplier)/layout.js`). Everything else, the prompt, the knowledge, the settings, lives in a third-party dashboard (re:tune), so there is no component, route or CSS to find here.
 
 ```html
