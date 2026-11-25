@@ -157,7 +157,7 @@ export default function PricingCalculator() {
     action = (
       <>
         <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener" id="pp-calc-cta">Book a call to start</a>
-        <p className="pp-hint" id="pp-calc-how">Online checkout for {name} opens soon. Until then, start with a 30-minute call.</p>
+        <p className="pp-hint" id="pp-calc-how">Online checkout for {name} is not live yet. For now, start with a 30-minute call.</p>
       </>
     );
   } else {

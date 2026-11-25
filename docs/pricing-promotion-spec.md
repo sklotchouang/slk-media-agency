@@ -16,8 +16,8 @@ If `components/PricingPlans.js`, `components/PricingCalculator.js` or `lib/check
 
 | Plan | Episodes a month | Clips a month | Price | Call and report | How to buy |
 |---|---|---|---|---|---|
-| Monthly Show | 1 | 5 | $597 a month | A monthly call and a monthly report | Direct checkout, no call needed |
-| Biweekly Show (badge: Most popular) | 2 | 10 | $997 a month | A monthly call and a monthly report | Direct checkout, no call needed |
+| Monthly Show | 1 | 5 | $597 a month | A monthly call and a monthly report | Direct checkout, no call needed (once the checkout link exists; until then the strategy call) |
+| Biweekly Show (badge: Most popular) | 2 | 10 | $997 a month | A monthly call and a monthly report | Direct checkout, no call needed (once the checkout link exists; until then the strategy call) |
 | Weekly Show | 4 | 20 | $1,597 a month | A weekly call and a weekly report | Book a call. No direct checkout |
 
 Every plan is full service:

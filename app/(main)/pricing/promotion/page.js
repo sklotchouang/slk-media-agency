@@ -53,7 +53,7 @@ export default function PromotionEndedPage() {
           <div className="container">
             <p className="pp-ended-badge"><i className="fas fa-clock" aria-hidden="true"></i> Promotion ended</p>
             <h1>This promotion has ended.</h1>
-            <p className="pp-hero-sub">The limited pricing promotion closed on 2 November 2026, so the prices on this page are no longer available. Our current packages start at $997 a month for 10 clips, edited, captioned and posted for you.</p>
+            <p className="pp-hero-sub">The limited pricing promotion closed on 2 November 2026, so the prices on this page are no longer available. Our current plans start at $597 a month for 1 episode and 5 clips, edited, captioned and posted for you.</p>
             <div className="pp-hero-ctas">
               <Link href="/pricing" className="primary-cta pp-hero-cta">See current pricing</Link>
               <Link href="/pricing#build" className="pp-hero-alt"><i className="fas fa-sliders" aria-hidden="true"></i> Build your own plan</Link>

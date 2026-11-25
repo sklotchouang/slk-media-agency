@@ -4,7 +4,7 @@ import HeroAtmosphere from '../../../components/HeroAtmosphere';
 export const metadata = {
   title: 'The Podcast Multiplier™: Done-For-You Clips for Podcasters | SLK Media Agency',
   description:
-    'The Podcast Multiplier™ turns your episodes into 20 clips a month and posts them on every platform. Done-for-you content production for podcasters who publish consistently.',
+    'The Podcast Multiplier™ turns every episode into 5 clips and posts them on every platform. Done-for-you content production for podcasters who publish consistently.',
   robots: { index: true, follow: true },
   alternates: { canonical: '/podcast-multiplier' },
   openGraph: {
@@ -88,7 +88,7 @@ export default function PodcastMultiplierPage() {
                 <p><strong>Meanwhile, your best episodes die after publication because you're too exhausted to promote them.</strong></p>
               </div>
             </div>
-            <p><strong>Here's what you actually need:</strong> A dedicated content team that turns your episodes into 20 finished clips a month and posts them for you, while you focus on recording and running your business.</p>
+            <p><strong>Here's what you actually need:</strong> A dedicated content team that turns every episode into 5 finished clips and posts them for you, while you focus on recording and running your business.</p>
           </div>
         </div>
       </section>
@@ -291,12 +291,12 @@ export default function PodcastMultiplierPage() {
               <div className="step-item-number">2</div>
               <div className="step-item-content">
                 <h3>Content Multiplication (Ongoing, Every Episode)</h3>
-                <p>Our team turns your episodes into <strong>20 finished clips a month</strong>, or more if you add extra clips.</p>
+                <p>Our team turns every episode into <strong>5 finished clips</strong>, or more if you add extra clips.</p>
                 <p><strong>But here's what makes us different: We don't edit chronologically. We edit strategically.</strong></p>
                 <p>
                   ✅ <strong>Strategic Clip Selection:</strong> We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode<br /><br />
                   ✅ <strong>Platform-Native Optimization:</strong> LinkedIn clips focus on credibility. TikTok clips focus on virality. YouTube clips focus on watch time. Same episode, different psychology<br /><br />
-                  ✅ <strong>Reported Every Week:</strong> Every clip includes engagement metrics, audience demographics, and CTA performance in our weekly reports<br /><br />
+                  ✅ <strong>Reported Every Week:</strong> Every clip includes engagement metrics, audience demographics, and CTA performance in your report (monthly, or weekly on the Weekly Show plan)<br /><br />
                   ✅ <strong>Brand Consistency Obsession:</strong> Custom style guides, tone matching, zero generic templates<br />
                   <br />
                   <strong>We don't just edit. We turn your podcast into an omnipresent content machine.</strong>
@@ -422,7 +422,7 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="section-title">What We Commit To</h2>
           <div className="guarantee-content">
-            <p>Every month you get the clips your package includes (20, or more if you add extra clips), posted on the schedule we agree with you, and a weekly report on how they performed. We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
+            <p>Every month you get the clips your plan includes (5 for every episode, or more if you add extra clips), posted on the schedule we agree with you, and a report on how they performed (monthly, or weekly on the Weekly Show plan). We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
           </div>
         </div>
       </section>
@@ -463,7 +463,7 @@ export default function PodcastMultiplierPage() {
               </li>
               <li>
                 <h3>Step 3: We Handle Everything (While You Focus on Your Show)</h3>
-                <p>Send us your episodes. We deliver the 20 clips a month your package includes, post them across your social platforms, and send you a weekly performance report.</p>
+                <p>Send us your episodes. We deliver 5 clips for every episode, post them across your social platforms, and send you a performance report (monthly, or weekly on the Weekly Show plan).</p>
               </li>
             </ul>
             <div className="limited-spots">
@@ -523,7 +523,7 @@ export default function PodcastMultiplierPage() {
               <div className="accordion-content">
                 <p><strong>No, and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and posting. We don't control: Your recording quality, guest selection, or topic relevance; How each platform chooses to show your clips; Market conditions in your niche; Your existing audience quality and engagement rates.</p>
-                <p><strong>What we DO commit to:</strong> 20 professionally edited clips a month (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A weekly report showing what every clip did.</p>
+                <p><strong>What we DO commit to:</strong> 5 professionally edited clips for every episode (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A report showing what every clip did (monthly, or weekly on the Weekly Show plan).</p>
                 <p>We never promise downloads, views or sponsors. We do the work and show you the numbers every week.</p>
               </div>
             </div>
@@ -558,10 +558,8 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>Honest answer:</strong> We work best with shows publishing <strong>2-4 episodes/month.</strong></p>
-                <p>Here's why: steady posting needs steady material. With 2-4 episodes a month we have plenty of strong moments to fill your 20 clips. With one episode, every clip comes from the same conversation, and your feed can start to feel repetitive.</p>
-                <p><strong>If you're publishing 1 episode/month:</strong> Option 1: Batch-record 3-4 episodes per quarter and release them consistently (2/month). Option 2: Start with our service once you increase production cadence. Option 3: We can still work together, but set expectations: Growth will be slower due to content gaps.</p>
-                <p>We're happy to strategize on increasing output sustainably. Many clients successfully shift from 1 episode/month to 2-3 with better planning.</p>
+                <p><strong>That works.</strong> Every episode gets 5 clips, so one episode a month gives you 5 clips, posted for you, with a monthly call and a monthly report.</p>
+                <p>In a month with no new episode, we cut your clips from your back catalogue, so your feed keeps going. If you release more episodes than your plan covers, you pick which episode we clip.</p>
               </div>
             </div>
 
@@ -618,8 +616,8 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Depends on what "results" means to you:</strong></p>
-                <p><strong>If "results" = finished clips delivered consistently:</strong> that part is in our hands. Every package includes 20 clips a month (more if you add extra clips) and we deliver it on the schedule agreed at onboarding.</p>
-                <p><strong>If "results" = more listeners, more views or new clients:</strong> we can't promise a number or a date, and nobody honestly can. What we do promise is the work: the clips, posted on schedule, with a weekly report so you can see exactly what is happening.</p>
+                <p><strong>If "results" = finished clips delivered consistently:</strong> that part is in our hands. Every plan includes 5 clips for every episode (more if you add extra clips) and we deliver it on the schedule agreed at onboarding.</p>
+                <p><strong>If "results" = more listeners, more views or new clients:</strong> we can't promise a number or a date, and nobody honestly can. What we do promise is the work: the clips, posted on schedule, with a regular report so you can see exactly what is happening.</p>
               </div>
             </div>
 

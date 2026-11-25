@@ -64,6 +64,11 @@ const PLANS = [
   },
 ];
 
+// "Buy online" only once that plan's checkout link is set; until then a call.
+function startLabel(plan) {
+  return buyLink(plan).checkout ? 'Buy online' : 'A 30-minute call';
+}
+
 // One row per deliverable. A string is shown as text, true as a tick.
 const ROWS = [
   { label: 'Episodes a month', monthly: '1', biweekly: '2', weekly: '4' },
@@ -75,7 +80,7 @@ const ROWS = [
   { label: 'A strategy call', monthly: 'Monthly', biweekly: 'Monthly', weekly: 'Weekly' },
   { label: 'Reporting', monthly: 'Monthly', biweekly: 'Monthly', weekly: 'Weekly' },
   { label: 'A strategy document before the first clip', monthly: true, biweekly: true, weekly: true },
-  { label: 'How you start', monthly: 'Buy online', biweekly: 'Buy online', weekly: 'A 30-minute call' },
+  { label: 'How you start', monthly: startLabel('monthly'), biweekly: startLabel('biweekly'), weekly: 'A 30-minute call' },
 ];
 
 const ADDONS = [
@@ -148,7 +153,7 @@ function CardActions({ plan }) {
       <a href={BOOK_URL} className={plan.featured ? 'primary-cta pp-cta' : 'primary-cta pp-cta pp-cta-quiet'} target="_blank" rel="noopener">
         Book a call to start {plan.name}
       </a>
-      <p className="pp-howbuy">Online checkout for {plan.name} opens soon. Until then, start with a 30-minute call.</p>
+      <p className="pp-howbuy">Online checkout for {plan.name} is not live yet. For now, start with a 30-minute call.</p>
     </div>
   );
 }
