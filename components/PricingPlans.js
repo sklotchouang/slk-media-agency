@@ -29,18 +29,22 @@ import { BOOK_URL, buyLink } from '../lib/checkout';
 import { SOUND_BUTTON } from './soundButton';
 
 // What every plan includes (spec: "Every plan is full service").
+// Samuel, 25 Nov 2026: the old "strategy document before the first clip" is
+// split into preliminary research and a social media strategy plan.
 const SHARED = [
   'A custom thumbnail for every clip',
   'Captions, hashtags and calls to action for every clip',
   'Every clip posted for you on every platform',
   'A dedicated project manager',
-  'A strategy document before the first clip',
+  'Preliminary research on your show and audience',
+  'A social media strategy plan',
 ];
 
 const PLANS = [
   {
     id: 'monthly',
     name: 'Monthly Show',
+    label: 'Monthly Show Plan',
     price: '$597',
     perEpisode: '$597',
     who: 'For shows that release one episode a month.',
@@ -52,18 +56,22 @@ const PLANS = [
   {
     id: 'biweekly',
     name: 'Biweekly Show',
+    label: 'Bi-weekly Show Plan',
+    base: 'Monthly Show Plan',
     price: '$997',
     perEpisode: '$498.50',
     who: 'For shows that release an episode every two weeks.',
     episodes: '2 episodes a month',
     clips: '10 clips a month',
-    cadence: 'A monthly call and a monthly report',
+    cadence: null,
     buy: 'biweekly',
     featured: true,
   },
   {
     id: 'weekly',
     name: 'Weekly Show',
+    label: 'Weekly Show Plan',
+    base: 'Bi-weekly Show Plan',
     price: '$1,597',
     perEpisode: '$399.25',
     who: 'For shows that release an episode every week.',
@@ -103,7 +111,7 @@ function CardActions({ plan }) {
     return (
       <div className="pp-actions">
         <a href={link.href} className={plan.featured ? 'primary-cta pp-cta' : 'primary-cta pp-cta pp-cta-quiet'} target="_blank" rel="noopener">
-          Buy {plan.name}
+          Buy {plan.label}
         </a>
         <p className="pp-howbuy">Pay online, no call needed.</p>
         <Assure />
@@ -114,15 +122,15 @@ function CardActions({ plan }) {
   return (
     <div className="pp-actions">
       <a href={BOOK_URL} className={plan.featured ? 'primary-cta pp-cta' : 'primary-cta pp-cta pp-cta-quiet'} target="_blank" rel="noopener">
-        Book a call to start {plan.name}
+        Book a call to start {plan.label}
       </a>
-      <p className="pp-howbuy">Online checkout for {plan.name} is not live yet. For now, start with a 30-minute call.</p>
+      <p className="pp-howbuy">Online checkout for {plan.label} is not live yet. For now, start with a 30-minute call.</p>
       <Assure />
     </div>
   );
 }
 
-// The band above the cards: the sample clip (Samuel chose the Brian Burton
+// The band above the cards (no caption, Samuel 25 Nov 2026): the sample clip (Samuel chose the Brian Burton
 // clip, Clip-6, on 25 Nov 2026) and the list every plan shares. The video
 // markup matches the home page clips (muted, plays while on screen, sound
 // button). It is raw HTML because React does not render the muted attribute
@@ -138,19 +146,11 @@ function IncludesBand() {
             __html: `<video muted loop playsinline preload="none" poster="/portfolio/thumbnails/Clip-6.jpg" data-autoplay aria-label="Sample clip: Brian Burton, Waste No Day Podcast"><source src="/portfolio/Clip-6.mp4" type="video/mp4"></video>${SOUND_BUTTON}`,
           }}
         />
-        <figcaption>Real client work: a clip we made for Brian Burton, Waste No Day Podcast.</figcaption>
       </figure>
       <div className="pp-includes">
-        <p className="pp-eyebrow">Every plan includes</p>
+        <p className="pp-eyebrow">Plans</p>
         <h2 id="pp-plans-title">You record. We make the clips and post them.</h2>
-        <ul className="pp-includes-list">
-          {SHARED.map((f) => (
-            <li key={f}>
-              <span className="pp-ic" aria-hidden="true">&#10003;</span>
-              <span>{f}</span>
-            </li>
-          ))}
-        </ul>
+        <EpisodeRules />
       </div>
     </div>
   );
@@ -166,7 +166,7 @@ export function PlanCards() {
           <article className={plan.featured ? 'pp-card pp-card-dfy' : 'pp-card'} key={plan.id} aria-labelledby={`pp-${plan.id}-name`}>
             {plan.featured ? <span className="pp-tag">Most popular</span> : null}
             <div>
-              <h3 className="pp-name" id={`pp-${plan.id}-name`}>{plan.name}</h3>
+              <h3 className="pp-name" id={`pp-${plan.id}-name`}>{plan.label}</h3>
               <p className="pp-who">{plan.who}</p>
             </div>
             <div>
@@ -176,17 +176,18 @@ export function PlanCards() {
               </p>
               <p className="pp-per">{plan.perEpisode} per episode</p>
             </div>
+            {plan.base ? <p className="pp-plus">Everything in {plan.base}, plus:</p> : null}
             <ul className="pp-diff">
               <li><strong>{plan.episodes}</strong></li>
               <li><strong>{plan.clips}</strong></li>
-              <li>{plan.cadence}</li>
+              {plan.cadence ? <li>{plan.cadence}</li> : null}
+              {plan.base ? null : SHARED.map((f) => <li key={f}>{f}</li>)}
             </ul>
             <CardActions plan={plan} />
           </article>
         ))}
       </div>
 
-      <EpisodeRules />
       <CalcPrompt />
     </>
   );

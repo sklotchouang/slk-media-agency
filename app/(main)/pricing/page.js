@@ -146,7 +146,7 @@ const FAQ = [
     a: [
       '1. You fill in your onboarding form about your show, your audience and your brand.',
       '2. You share your episodes. We set up your project board, where you upload files and talk to your project manager.',
-      '3. You get your strategy document before the first clip.',
+      '3. We research your show and audience and send you your social media strategy plan.',
       '4. Your first clips arrive 3 to 5 business days after onboarding, then on the schedule we agree.',
     ],
   },
@@ -212,17 +212,17 @@ const structuredData = {
   offers: [
     monthlyOffer(
       'Monthly Show',
-      '1 episode a month, 5 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report and a strategy document before the first clip.',
+      '1 episode a month, 5 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report preliminary research on the show and audience, and a social media strategy plan.',
       '597'
     ),
     monthlyOffer(
       'Biweekly Show',
-      '2 episodes a month, 10 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report and a strategy document before the first clip.',
+      '2 episodes a month, 10 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report preliminary research on the show and audience, and a social media strategy plan.',
       '997'
     ),
     monthlyOffer(
       'Weekly Show',
-      '4 episodes a month, 20 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, a weekly report and a strategy document before the first clip.',
+      '4 episodes a month, 20 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, a weekly report preliminary research on the show and audience, and a social media strategy plan.',
       '1597'
     ),
   ],

@@ -4955,3 +4955,53 @@ html[data-motion="on"] .home-v3 .hp-mini:nth-child(3) { animation-delay: -3.2s; 
 .pricing-page .pp-trio .pp-card .pp-actions {
   margin-top: 0;
 }
+
+/* Feedback round 1 (Samuel, 25 Nov 2026): full list on the first card,
+   "Everything in ..., plus" on the next two, episode note inside the band,
+   buttons back at the card bottom. */
+.pricing-page .pp-trio .pp-card .pp-actions {
+  margin-top: auto;
+}
+
+.pricing-page .pp-plus {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-plus + .pp-diff {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.pricing-page .pp-diff li {
+  padding-left: 22px;
+  position: relative;
+}
+
+.pricing-page .pp-diff li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.pricing-page .pp-band .pp-rulenote {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.pricing-page .pp-band .pp-rulenote ul {
+  display: grid;
+  gap: 6px;
+}
+
+.pricing-page .pp-includes h2 {
+  margin-bottom: 16px;
+}

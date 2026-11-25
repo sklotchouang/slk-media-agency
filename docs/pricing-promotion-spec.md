@@ -29,7 +29,10 @@ Every plan is full service:
 - captions, hashtags and calls to action for every clip,
 - posting on every platform,
 - a dedicated project manager,
-- a strategy document before the first clip.
+- preliminary research on the show and audience,
+- a social media strategy plan.
+
+(Samuel, 25 November 2026: the old wording "a strategy document before the first clip" is replaced by these two items. On /pricing the cards are headed Monthly Show Plan, Bi-weekly Show Plan and Weekly Show Plan; the first card lists everything, the next two say "Everything in ..., plus:" and only the differences.)
 
 ## The episode rules
 
