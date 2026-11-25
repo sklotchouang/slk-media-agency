@@ -1,100 +1,71 @@
 'use client';
 
 import { useState } from 'react';
+import { BOOK_URL, buyLink } from '../lib/checkout';
 
-// "Build your plan" on /pricing. 2 Nov 2026, Samuel: the done-for-you choice
-// below 20 clips is Done For You Starter ($997 at 10 clips, $60 a clip up or
-// down, monthly call and report); at 20 clips and up it is Done For You. Done
-// With You (clips only, the visitor posts) is no longer a card but stays here
-// as the second choice. Default is Done For You at 20 clips.
+// "Build your own plan" on /pricing. Per-episode pricing, approved by Samuel on
+// 25 November 2026. Change nothing here without his yes, and re-check the
+// reference prices in OVERVIEW.md section 7.1 and docs/pricing-promotion-spec.md
+// after any change.
 //
-// History: the visitor picks Done With You or Done For
-// You directly (20 Oct 2026, Samuel: no per-item prices, so the page does not
-// read like a shop; the old four "handle it for me" boxes are gone). Every
-// episode counted is a long-form edit at $150 (20 Oct 2026, Samuel: choosing
-// the number of episodes adds the per-episode price by itself; the separate
-// "Long-form episode edit" checkbox is gone). A Done For You plan with 4 or more
-// episodes becomes Done For You Plus: the first 4 edits come inside the package
-// price (the package discount), and only edits above 4 are charged at the $150
-// rate. Done With You always pays the $150 rate. The server renders the defaults (20 clips,
-// Done For You since 2 Nov 2026, 0 episodes), so the page is complete without JavaScript.
-// Clips start at 6 and episodes at 0, with no upper limit: the slider covers
-// the usual range and the number box next to it takes any larger amount. The
-// show notes boxes only show once episodes is 1 or more.
+// - Episodes a month: 1 to 8. 1 = $597, 2 = $997, then +$300 for every episode
+//   above 2 (3 = $1,297, 4 = $1,597, 5 = $1,897, 8 = $2,797).
+// - Every episode gets 5 clips. Extra clips are $60 each.
+// - Full-episode (long-form) edits are $150 per episode, up to the number of
+//   episodes. Show notes $50 and SEO show notes $100 per episode.
+// - 1 or 2 episodes: monthly call and report. 3 or more: weekly call and
+//   report, and the plan starts with a call.
+// - The direct checkout shows only for a plain 1 or 2 episode plan with nothing
+//   added, because each Myfundbox checkout charges one fixed amount (a website
+//   choice, flagged to Samuel). Everything else goes to the strategy call.
+// - The old "Clips only" choice (the client posts) is left out on purpose:
+//   Samuel has not decided on it.
+//
+// The server renders the default (2 episodes, nothing added), so the page is
+// complete without JavaScript.
 
-// Prices approved 16 Oct 2026 by Samuel; minimum raised to 20 clips on 18 Oct
-// 2026 (no plan below $997 a month, $597 retired). Done For You Plus added 19
-// Oct 2026 by Samuel at $1,897 with 4 long-form edits. Change nothing here without
-// his yes, and re-run the reference values in OVERVIEW.md section 7.1 after any change.
-// 20 Oct 2026, Samuel: clips go down to 6 and episodes down to 1, nothing capped
-// at the top; below 20 clips each clip takes $50 / $75 off the 20-clip price.
 const PRICE = {
-  baseClips: 20, // the clip count every base price below is quoted at
-  minClips: 6, // the smallest number of clips we make
-  minEpisodes: 0,
-  starterClips: 10, // Done For You Starter is quoted at 10 clips
-  starterBase: 997, // Done For You Starter at 10 clips
-  starterPerClip: 60, // each clip up or down from 10 on Starter (19 clips = $1,537)
-  dwyBase: 997, // Done With You at 20 clips
-  dwyPerClip: 50, // each clip up or down from 20 on Done With You
-  dfyBase: 1597, // Done For You at 20 clips
-  dfyPerClip: 75, // each clip above 20 on Done For You (below 20 it is Starter)
-  plusBase: 1897, // Done For You Plus at 20 clips, 4 long-form edits included
-  plusEdits: 4, // long-form edits included in Done For You Plus
-  longForm: 150, // per episode
-  showNotes: 50, // per episode
-  seoShowNotes: 100, // per episode
+  minEpisodes: 1,
+  maxEpisodes: 8,
+  oneEpisode: 597,
+  twoEpisodes: 997,
+  perEpisodeAbove2: 300,
+  clipsPerEpisode: 5,
+  extraClip: 60,
+  fullEdit: 150,
+  showNotes: 50,
+  seoShowNotes: 100,
+  maxExtraClips: 40,
 };
 
-const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
+// The plan price for a number of episodes (1 to 8).
+export function episodePrice(episodes) {
+  if (episodes <= 1) return PRICE.oneEpisode;
+  return PRICE.twoEpisodes + (episodes - 2) * PRICE.perEpisodeAbove2;
+}
 
-// The two choices the visitor picks between.
-const PLANS = [
-  {
-    id: 'dfy',
-    name: 'Done For You',
-    blurb: 'We make the clips and the thumbnails, write the captions and post on every platform.',
-  },
-  { id: 'dwy', name: 'Clips only (Done With You)', blurb: 'We make the clips, you post them yourself.' },
-];
+function planName(episodes) {
+  if (episodes === 1) return 'Monthly Show';
+  if (episodes === 2) return 'Biweekly Show';
+  if (episodes === 4) return 'Weekly Show';
+  return `Your ${episodes}-episode plan`;
+}
 
 function money(n) {
   return '$' + n.toLocaleString('en-US');
-}
-
-// No upper limit; anything not a whole number at or above `min` becomes `min`.
-function atLeast(n, min) {
-  return Number.isFinite(n) ? Math.max(min, Math.floor(n)) : min;
 }
 
 function plural(n, one, many) {
   return n === 1 ? one : many;
 }
 
-function dwyPrice(clips) {
-  return PRICE.dwyBase + (clips - PRICE.baseClips) * PRICE.dwyPerClip;
+function clamp(n, min, max) {
+  if (!Number.isFinite(n)) return min;
+  return Math.min(max, Math.max(min, Math.floor(n)));
 }
 
-// Below 20 clips the done-for-you service is Starter.
-function isStarter(clips) {
-  return clips < PRICE.baseClips;
-}
-
-function dfyPrice(clips) {
-  if (isStarter(clips)) return PRICE.starterBase + (clips - PRICE.starterClips) * PRICE.starterPerClip;
-  return PRICE.dfyBase + (clips - PRICE.baseClips) * PRICE.dfyPerClip;
-}
-
-// Extra clips on Done For You Plus cost the same as on Done For You.
-function plusPrice(clips) {
-  return PRICE.plusBase + (clips - PRICE.baseClips) * PRICE.dfyPerClip;
-}
-
-// The slider covers min to `sliderMax`; the number box takes any amount from
-// `min` up, and the slider stretches to reach a larger typed number.
-function Stepper({ id, label, value, min, sliderMax, onChange, unit }) {
-  const [draft, setDraft] = useState(null);
-  const top = Math.max(sliderMax, value);
+// A slider with minus and plus buttons and the current number beside it.
+function Stepper({ id, label, value, min, max, onChange, unit, hint }) {
   return (
     <div className="pp-field">
       <label htmlFor={id}>{label}</label>
@@ -105,7 +76,7 @@ function Stepper({ id, label, value, min, sliderMax, onChange, unit }) {
           aria-label={`Fewer ${unit}`}
           aria-controls={id}
           disabled={value <= min}
-          onClick={() => onChange(atLeast(value - 1, min))}
+          onClick={() => onChange(clamp(value - 1, min, max))}
         >
           <i className="fas fa-minus" aria-hidden="true"></i>
         </button>
@@ -113,201 +84,174 @@ function Stepper({ id, label, value, min, sliderMax, onChange, unit }) {
           type="range"
           id={id}
           min={min}
-          max={top}
+          max={max}
           step="1"
           value={value}
-          onChange={(e) => onChange(atLeast(Number(e.target.value), min))}
+          aria-valuetext={`${value} ${unit}`}
+          onChange={(e) => onChange(clamp(Number(e.target.value), min, max))}
         />
         <button
           type="button"
           className="pp-step"
           aria-label={`More ${unit}`}
           aria-controls={id}
-          onClick={() => onChange(value + 1)}
+          disabled={value >= max}
+          onClick={() => onChange(clamp(value + 1, min, max))}
         >
           <i className="fas fa-plus" aria-hidden="true"></i>
         </button>
-        <input
-          type="number"
-          className="pp-count"
-          aria-label={`Number of ${unit}`}
-          inputMode="numeric"
-          min={min}
-          step="1"
-          value={draft ?? value}
-          onChange={(e) => {
-            setDraft(e.target.value);
-            const n = Number(e.target.value);
-            if (e.target.value !== '' && Number.isFinite(n) && n >= min) onChange(Math.floor(n));
-          }}
-          onBlur={() => {
-            if (draft !== null) onChange(atLeast(Number(draft), min));
-            setDraft(null);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') e.currentTarget.blur();
-          }}
-        />
+        <output className="pp-count" htmlFor={id} aria-live="off">{value}</output>
       </div>
+      {hint ? <p className="pp-epi-hint">{hint}</p> : null}
     </div>
   );
 }
 
 export default function PricingCalculator() {
-  const [clips, setClips] = useState(20);
-  const [plan, setPlan] = useState('dfy');
-  const [episodes, setEpisodes] = useState(0);
+  const [episodes, setEpisodesRaw] = useState(2);
+  const [extraClips, setExtraClips] = useState(0);
+  const [edits, setEdits] = useState(0);
   const [showNotes, setShowNotes] = useState(false);
   const [seoNotes, setSeoNotes] = useState(false);
 
-  const isDfy = plan === 'dfy';
-  const starter = isDfy && isStarter(clips);
-  // Done For You Plus needs the full 20 clips; Starter pays every edit at $150.
-  const isPlus = isDfy && !starter && episodes >= PRICE.plusEdits;
-  let planName = 'Done With You';
-  let planPrice = dwyPrice(clips);
-  if (isPlus) {
-    planName = 'Done For You Plus';
-    planPrice = plusPrice(clips);
-  } else if (starter) {
-    planName = 'Done For You Starter';
-    planPrice = dfyPrice(clips);
-  } else if (isDfy) {
-    planName = 'Done For You';
-    planPrice = dfyPrice(clips);
+  // Full-episode edits can never be more than the episodes.
+  function setEpisodes(n) {
+    setEpisodesRaw(n);
+    if (edits > n) setEdits(n);
   }
 
-  // Every episode is a long-form edit. Edits charged at the $150 rate: all of
-  // them, except the 4 that Done For You Plus already includes. The show notes
-  // boxes only count while episodes is 1 or more (they are hidden at 0).
-  const paidEdits = isPlus ? episodes - PRICE.plusEdits : episodes;
+  const base = episodePrice(episodes);
+  const name = planName(episodes);
+  const clips = episodes * PRICE.clipsPerEpisode + extraClips;
+  const weekly = episodes >= 3;
 
   const addons = [];
-  if (paidEdits > 0) {
-    addons.push({
-      label: isPlus
-        ? `${paidEdits} extra long-form ${plural(paidEdits, 'edit', 'edits')}`
-        : `${paidEdits} long-form ${plural(paidEdits, 'edit', 'edits')}`,
-      amount: paidEdits * PRICE.longForm,
-    });
+  if (extraClips > 0) {
+    addons.push({ label: `${extraClips} extra ${plural(extraClips, 'clip', 'clips')}`, amount: extraClips * PRICE.extraClip });
   }
-  if (episodes > 0 && showNotes) {
-    addons.push({
-      label: `Show notes for ${episodes} ${plural(episodes, 'episode', 'episodes')}`,
-      amount: episodes * PRICE.showNotes,
-    });
+  if (edits > 0) {
+    addons.push({ label: `${edits} full-episode ${plural(edits, 'edit', 'edits')}`, amount: edits * PRICE.fullEdit });
   }
-  if (episodes > 0 && seoNotes) {
-    addons.push({
-      label: `SEO show notes for ${episodes} ${plural(episodes, 'episode', 'episodes')}`,
-      amount: episodes * PRICE.seoShowNotes,
-    });
+  if (showNotes) {
+    addons.push({ label: `Show notes for ${episodes} ${plural(episodes, 'episode', 'episodes')}`, amount: episodes * PRICE.showNotes });
   }
-  const total = planPrice + addons.reduce((sum, a) => sum + a.amount, 0);
+  if (seoNotes) {
+    addons.push({ label: `SEO show notes for ${episodes} ${plural(episodes, 'episode', 'episodes')}`, amount: episodes * PRICE.seoShowNotes });
+  }
+  const total = base + addons.reduce((sum, a) => sum + a.amount, 0);
 
-  let why = 'We make the clips, you post them.';
-  if (isPlus) {
-    why = `We handle the clips, thumbnails, captions and posting, and edit ${episodes} full episodes. The first ${PRICE.plusEdits} episode edits are included in the package.`;
-  } else if (starter) {
-    why = 'We make the clips, the thumbnails and the captions, post them for you, and check in with a monthly call and report.';
-  } else if (isDfy) {
-    why = 'We make the clips, the thumbnails and the captions, post them for you, and check in with a weekly call and report.';
-  }
+  // A plain Monthly Show or Biweekly Show can be bought online; anything else
+  // starts with a call.
+  const plain = addons.length === 0;
+  const direct = !weekly && plain ? buyLink(episodes === 1 ? 'monthly' : 'biweekly') : null;
 
-  // Done For You with 1 to 3 paid episode edits: point to Done For You Plus,
-  // which includes 4 edits for a set price.
-  const plusHint = isDfy && !starter && !isPlus && episodes > 0;
+  let action;
+  if (direct && direct.checkout) {
+    action = (
+      <>
+        <a href={direct.href} className="primary-cta pp-cta" target="_blank" rel="noopener" id="pp-calc-cta">Buy {name}, {money(total)} a month</a>
+        <p className="pp-hint" id="pp-calc-how">Pay online, no call needed. Right after you pay, you get the next steps on screen.</p>
+      </>
+    );
+  } else if (direct) {
+    action = (
+      <>
+        <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener" id="pp-calc-cta">Book a call to start</a>
+        <p className="pp-hint" id="pp-calc-how">Online checkout for {name} opens soon. Until then, start with a 30-minute call.</p>
+      </>
+    );
+  } else {
+    action = (
+      <>
+        <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener" id="pp-calc-cta">Book a call to start</a>
+        <p className="pp-hint" id="pp-calc-how">
+          {weekly
+            ? 'Plans with 3 or more episodes start with a 30-minute call, where we agree your schedule.'
+            : 'Plans with add-ons start with a 30-minute call. Without add-ons, the Monthly Show and Biweekly Show can be bought online.'}
+        </p>
+      </>
+    );
+  }
 
   return (
     <div className="pp-calc">
       <div className="pp-panel">
         <Stepper
-          id="pp-clips"
-          label="How many clips a month?"
-          value={clips}
-          min={PRICE.minClips}
-          sliderMax={40}
-          onChange={setClips}
-          unit="clips"
+          id="pp-episodes"
+          label="How many episodes do you release a month?"
+          value={episodes}
+          min={PRICE.minEpisodes}
+          max={PRICE.maxEpisodes}
+          onChange={setEpisodes}
+          unit="episodes"
+          hint="Every episode gets 5 clips."
         />
 
-        <fieldset className="pp-group">
-          <legend>Do you want us to post the clips for you?</legend>
-          <div className="pp-planpick">
-            {PLANS.map((p) => (
-              <label className={`pp-planopt${plan === p.id ? ' is-on' : ''}`} htmlFor={`pp-p-${p.id}`} key={p.id}>
-                <input
-                  type="radio"
-                  name="pp-plan"
-                  id={`pp-p-${p.id}`}
-                  value={p.id}
-                  checked={plan === p.id}
-                  onChange={() => setPlan(p.id)}
-                />
-                <span className="pp-planopt-name">{p.name}</span>
-                <span className="pp-planopt-blurb">{p.blurb}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <Stepper
+          id="pp-extra"
+          label="Extra clips a month"
+          value={extraClips}
+          min={0}
+          max={PRICE.maxExtraClips}
+          onChange={setExtraClips}
+          unit="extra clips"
+          hint="$60 each."
+        />
 
         <fieldset className="pp-group">
           <legend className="pp-sr">Episode add-ons</legend>
           <Stepper
-            id="pp-episodes"
-            label="Long-form episodes to edit each month"
-            value={episodes}
-            min={PRICE.minEpisodes}
-            sliderMax={8}
-            onChange={setEpisodes}
-            unit="episodes"
+            id="pp-edits"
+            label="Full episodes to edit each month"
+            value={edits}
+            min={0}
+            max={episodes}
+            onChange={setEdits}
+            unit="full-episode edits"
+            hint="We edit the whole long-form episode. $150 per episode."
           />
-          {episodes > 0 ? (
-            <>
-              <p className="pp-epi-hint">Each episode is a full long-form edit, $150 per episode.</p>
-              <label className="pp-opt" htmlFor="pp-a-notes">
-                <input
-                  type="checkbox"
-                  id="pp-a-notes"
-                  checked={showNotes}
-                  onChange={(e) => {
-                    setShowNotes(e.target.checked);
-                    if (e.target.checked) setSeoNotes(false);
-                  }}
-                />
-                <span>Show notes ($50 per episode)</span>
-              </label>
-              <label className="pp-opt" htmlFor="pp-a-seo">
-                <input
-                  type="checkbox"
-                  id="pp-a-seo"
-                  checked={seoNotes}
-                  onChange={(e) => {
-                    setSeoNotes(e.target.checked);
-                    if (e.target.checked) setShowNotes(false);
-                  }}
-                />
-                <span>SEO show notes ($100 per episode)</span>
-              </label>
-            </>
-          ) : (
-            <p className="pp-epi-hint">Want full episodes edited too? Set how many episodes a month. Each one is a long-form edit at $150.</p>
-          )}
+          <label className="pp-opt" htmlFor="pp-a-notes">
+            <input
+              type="checkbox"
+              id="pp-a-notes"
+              checked={showNotes}
+              onChange={(e) => {
+                setShowNotes(e.target.checked);
+                if (e.target.checked) setSeoNotes(false);
+              }}
+            />
+            <span>Show notes ($50 per episode)</span>
+          </label>
+          <label className="pp-opt" htmlFor="pp-a-seo">
+            <input
+              type="checkbox"
+              id="pp-a-seo"
+              checked={seoNotes}
+              onChange={(e) => {
+                setSeoNotes(e.target.checked);
+                if (e.target.checked) setShowNotes(false);
+              }}
+            />
+            <span>SEO show notes ($100 per episode)</span>
+          </label>
         </fieldset>
       </div>
 
       <div className="pp-result" aria-live="polite">
         <p className="pp-eyebrow">Your plan</p>
-        <p className="pp-plan" id="pp-calc-plan">{planName}</p>
-        <p id="pp-calc-why">{why}</p>
+        <p className="pp-plan" id="pp-calc-plan">{name}</p>
+        <ul className="pp-calc-facts" id="pp-calc-facts">
+          <li><i className="fas fa-clapperboard" aria-hidden="true"></i> <span id="pp-calc-clips">{clips} clips a month</span></li>
+          <li><i className="fas fa-phone" aria-hidden="true"></i> <span id="pp-calc-cadence">{weekly ? 'A weekly call and a weekly report' : 'A monthly call and a monthly report'}</span></li>
+        </ul>
         <p className="pp-big" id="pp-calc-price">
           {money(total)}
           <span> /month</span>
         </p>
         <ul className="pp-breakdown" id="pp-calc-breakdown">
           <li>
-            <span>{isPlus ? `${clips} clips and ${PRICE.plusEdits} long-form edits` : `${clips} clips`}</span>
-            <span>{money(planPrice)}</span>
+            <span>{episodes} {plural(episodes, 'episode', 'episodes')}, {episodes * PRICE.clipsPerEpisode} clips</span>
+            <span>{money(base)}</span>
           </li>
           {addons.map((a) => (
             <li key={a.label}>
@@ -320,27 +264,7 @@ export default function PricingCalculator() {
             <span>{money(total)}</span>
           </li>
         </ul>
-        {isDfy ? null : (
-          <p className="pp-hint" id="pp-calc-hint">
-            Want us to post them too? {isStarter(clips) ? 'Done For You Starter' : 'Done For You'} at this volume is {money(dfyPrice(clips))}/month.
-          </p>
-        )}
-        {starter && episodes < PRICE.plusEdits - 1 ? (
-          <p className="pp-hint" id="pp-calc-starter-hint">
-            At 20 clips you get Done For You, with a weekly call and weekly reporting, for {money(PRICE.dfyBase)}/month.
-          </p>
-        ) : null}
-        {starter && episodes >= PRICE.plusEdits - 1 ? (
-          <p className="pp-hint" id="pp-calc-starter-plus-hint">
-            At 20 clips, Done For You Plus includes {PRICE.plusEdits} long-form episode edits, a weekly call and weekly reporting for {money(PRICE.plusBase)}/month.
-          </p>
-        ) : null}
-        {plusHint ? (
-          <p className="pp-hint" id="pp-calc-plus-hint">
-            Done For You Plus includes {PRICE.plusEdits} long-form episode edits a month for {money(plusPrice(clips))}/month at this volume.
-          </p>
-        ) : null}
-        <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
+        {action}
       </div>
     </div>
   );

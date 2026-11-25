@@ -1,41 +1,81 @@
-// The three packages on /pricing and everything that describes them: the
-// three cards, the terms line, the calculator prompt, the full comparison
-// table and the Optional Add-ons. Samuel approved Done For You on 16 October
-// 2026 and Done For You Plus ($1,897, Done For You plus 4 long-form episode
-// edits a month) on 19 October 2026. On 2 November 2026 he replaced the Done
-// With You card with Done For You Starter ($997, 10 clips, a monthly call and
-// a monthly report). Done With You lives on only as a calculator choice.
+// The three per-episode plans on /pricing and everything that describes them:
+// the three cards, the episode rules, what happens after you pay, the terms
+// line, the calculator prompt, the comparison table and the add-ons.
+//
+// Per-episode pricing, approved by Samuel on 25 November 2026 for NEW
+// prospects (existing clients keep their plans): Monthly Show ($597, 1 episode,
+// 5 clips), Biweekly Show ($997, 2 episodes, 10 clips, most popular) and Weekly
+// Show ($1,597, 4 episodes, 20 clips). Monthly and Biweekly are bought directly
+// by checkout; Weekly is sold on a call. Done For You Starter, Done For You and
+// Done For You Plus are retired (see git history and docs/pricing-promotion-spec.md).
+//
+// Checkout links live in lib/checkout.js. While a link is empty, the buy button
+// goes to the strategy call and the copy around it says so.
 //
 // No state, so these are server components and the page is complete without
-// JavaScript. The calculator is components/PricingCalculator.js. The page
-// places each export where it belongs (cards, then proof, then the table).
+// JavaScript. The calculator is components/PricingCalculator.js.
 
-const BOOK_URL = 'https://link.slkmediaagency.com/strmeet';
+import { BOOK_URL, buyLink } from '../lib/checkout';
 
-// Myfundbox checkouts, one per package, given by Samuel on 20 Oct 2026. Each
-// was opened and checked that day. Starter reuses the $997 checkout that was
-// made for Done With You (Samuel, 2 Nov 2026): the amount is right, the plan
-// name on the checkout page still says Done With You. Every card keeps the
-// strategy call as its main button; the checkout is the small "Ready now?"
-// link under it.
-const PAY_URL = {
-  starter: 'https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw',
-  dfy: 'https://pay.myfundbox.com/OVP/?token=YqnycQ4nQ-hWYXg64XvGBg',
-  plus: 'https://pay.myfundbox.com/OVP/?token=xAlmD9YT1xUcuR5nBQPv_g',
-};
+// What every plan includes, word for word on all three cards.
+const SHARED = [
+  'A custom thumbnail for every clip',
+  'Captions, hashtags and calls to action for every clip',
+  'Every clip posted for you on every platform',
+  'A dedicated project manager',
+];
 
-// One row per deliverable. starter / dfy / plus: true = included, false = not
-// included, a string = shown as text. Column order matches the cards.
+const STRATEGY = 'A strategy document before the first clip';
+
+const PLANS = [
+  {
+    id: 'monthly',
+    name: 'Monthly Show',
+    episodes: '1 episode a month',
+    price: '$597',
+    who: 'For shows that release one episode a month.',
+    clips: '5 clips a month from your episode',
+    cadence: 'A monthly call and a monthly report',
+    commit: '5 clips a month, the posting schedule and a monthly report.',
+    buy: 'monthly',
+  },
+  {
+    id: 'biweekly',
+    name: 'Biweekly Show',
+    episodes: '2 episodes a month',
+    price: '$997',
+    who: 'For shows that release an episode every two weeks.',
+    clips: '10 clips a month, 5 from each episode',
+    cadence: 'A monthly call and a monthly report',
+    commit: '10 clips a month, the posting schedule and a monthly report.',
+    buy: 'biweekly',
+    featured: true,
+  },
+  {
+    id: 'weekly',
+    name: 'Weekly Show',
+    episodes: '4 episodes a month',
+    price: '$1,597',
+    who: 'For shows that release an episode every week.',
+    clips: '20 clips a month, 5 from each episode',
+    cadence: 'A weekly call and a weekly report',
+    commit: '20 clips a month, the posting schedule and a weekly report.',
+    buy: null,
+  },
+];
+
+// One row per deliverable. A string is shown as text, true as a tick.
 const ROWS = [
-  { label: 'Clips per month', starter: '10', dfy: '20', plus: '20' },
-  { label: 'A custom thumbnail for every clip', starter: true, dfy: true, plus: true },
-  { label: 'Captions, hashtags and calls to action', starter: true, dfy: true, plus: true },
-  { label: 'Posting on every platform', starter: true, dfy: true, plus: true },
-  { label: 'A dedicated project manager', starter: true, dfy: true, plus: true },
-  { label: 'A strategy call', starter: 'Monthly', dfy: 'Weekly', plus: 'Weekly' },
-  { label: 'Reporting', starter: 'Monthly', dfy: 'Weekly', plus: 'Weekly' },
-  { label: 'A strategy document before the first clip', starter: true, dfy: true, plus: true },
-  { label: 'Long-form episode edits', starter: false, dfy: false, plus: '4 a month' },
+  { label: 'Episodes a month', monthly: '1', biweekly: '2', weekly: '4' },
+  { label: 'Clips a month', monthly: '5', biweekly: '10', weekly: '20' },
+  { label: 'A custom thumbnail for every clip', monthly: true, biweekly: true, weekly: true },
+  { label: 'Captions, hashtags and calls to action', monthly: true, biweekly: true, weekly: true },
+  { label: 'Posting on every platform', monthly: true, biweekly: true, weekly: true },
+  { label: 'A dedicated project manager', monthly: true, biweekly: true, weekly: true },
+  { label: 'A strategy call', monthly: 'Monthly', biweekly: 'Monthly', weekly: 'Weekly' },
+  { label: 'Reporting', monthly: 'Monthly', biweekly: 'Monthly', weekly: 'Weekly' },
+  { label: 'A strategy document before the first clip', monthly: true, biweekly: true, weekly: true },
+  { label: 'How you start', monthly: 'Buy online', biweekly: 'Buy online', weekly: 'A 30-minute call' },
 ];
 
 const ADDONS = [
@@ -43,16 +83,17 @@ const ADDONS = [
     name: 'Extra Clips',
     icon: 'fa-clapperboard',
     tone: 'pp-tone-a',
-    price: '$75',
-    unit: 'per clip',
-    note: 'On Done For You and Done For You Plus. $60 per clip on Starter.',
+    price: '$60',
+    unit: 'each',
+    note: 'Added to any plan, every month.',
   },
   {
-    name: 'Long-form Episode Edit',
+    name: 'Full-Episode Edit',
     icon: 'fa-film',
     tone: 'pp-tone-b',
     price: '$150',
     unit: 'per episode',
+    note: 'We edit your whole long-form episode.',
   },
   {
     name: 'Show Notes',
@@ -70,28 +111,6 @@ const ADDONS = [
   },
 ];
 
-// The Done For You deliverables, shared word for word by Done For You Plus.
-const DFY_FEATURES = [
-  '20 short clips a month, edited and ready to post',
-  'A custom thumbnail for every clip',
-  'Captions, hashtags and calls to action written for every clip',
-  'Every clip posted for you on every platform',
-  'A dedicated project manager',
-  'A weekly call',
-  'Weekly reporting',
-  'A strategy document before the first clip',
-];
-
-// Starter: 10 clips, and a monthly call and report instead of weekly ones.
-// Everything else matches Done For You word for word.
-const STARTER_FEATURES = [
-  '10 short clips a month, edited and ready to post',
-  ...DFY_FEATURES.slice(1, 5),
-  'A monthly call',
-  'Monthly reporting',
-  'A strategy document before the first clip',
-];
-
 function Yes({ children }) {
   return (
     <li className="pp-yes">
@@ -101,23 +120,136 @@ function Yes({ children }) {
   );
 }
 
-function No({ children }) {
+// The card footer. Monthly and Biweekly: the checkout button (or, while the
+// checkout link is not set yet, a call button that says so). Weekly: the call.
+function CardActions({ plan }) {
+  if (!plan.buy) {
+    return (
+      <div className="pp-actions">
+        <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book a call to start</a>
+        <p className="pp-howbuy">Weekly Show starts with a 30-minute call, where we agree your posting schedule. There is no online checkout for this plan.</p>
+      </div>
+    );
+  }
+  const link = buyLink(plan.buy);
+  if (link.checkout) {
+    return (
+      <div className="pp-actions">
+        <a href={link.href} className={plan.featured ? 'primary-cta pp-cta' : 'primary-cta pp-cta pp-cta-quiet'} target="_blank" rel="noopener">
+          Buy {plan.name}, {plan.price} a month
+        </a>
+        <p className="pp-howbuy">Pay online, no call needed. Right after you pay, you get the next steps on screen.</p>
+        <a href={BOOK_URL} className="pp-pay" target="_blank" rel="noopener">Questions first? Book a call</a>
+      </div>
+    );
+  }
   return (
-    <li className="pp-no">
-      <span className="pp-ic" aria-hidden="true">&#10005;</span>
-      <span>{children}</span>
-    </li>
+    <div className="pp-actions">
+      <a href={BOOK_URL} className={plan.featured ? 'primary-cta pp-cta' : 'primary-cta pp-cta pp-cta-quiet'} target="_blank" rel="noopener">
+        Book a call to start {plan.name}
+      </a>
+      <p className="pp-howbuy">Online checkout for {plan.name} opens soon. Until then, start with a 30-minute call.</p>
+    </div>
   );
 }
 
-// The card footer: the call button, named after the plan, and the checkout
-// link under it.
-function CardActions({ label, pay, quiet }) {
+export function PlanCards() {
   return (
-    <div className="pp-actions">
-      <a href={BOOK_URL} className={quiet ? 'primary-cta pp-cta pp-cta-quiet' : 'primary-cta pp-cta'} target="_blank" rel="noopener">{label}</a>
-      <a href={pay} className="pp-pay" target="_blank" rel="noopener">Ready now? Skip the call and pay</a>
-    </div>
+    <>
+      <div className="pp-trio">
+        {PLANS.map((plan) => (
+          <div className={plan.featured ? 'pp-col pp-col-dfy' : 'pp-col'} key={plan.id}>
+            <article className={plan.featured ? 'pp-card pp-card-dfy' : 'pp-card'} aria-labelledby={`pp-${plan.id}-name`}>
+              {plan.featured ? <span className="pp-tag">Most popular</span> : null}
+              <div>
+                <h2 className="pp-name" id={`pp-${plan.id}-name`}>{plan.name}</h2>
+                <p className="pp-sub">{plan.episodes}</p>
+              </div>
+              <p className="pp-price">
+                <b>{plan.price}</b>
+                <span>/month</span>
+              </p>
+              <p className="pp-who">{plan.who}</p>
+              <ul className="pp-feat">
+                <Yes>{plan.clips}</Yes>
+                {SHARED.map((f) => (
+                  <Yes key={f}>{f}</Yes>
+                ))}
+                <Yes>{plan.cadence}</Yes>
+                <Yes>{STRATEGY}</Yes>
+              </ul>
+              <CardActions plan={plan} />
+            </article>
+            <p className="pp-commit"><strong>What we commit to:</strong> {plan.commit}</p>
+          </div>
+        ))}
+      </div>
+
+      <p className="pp-terms">
+        <span>Month to month, billed monthly</span>
+        <span>Pause up to 60 days</span>
+        <span>You own every clip</span>
+      </p>
+
+      <EpisodeRules />
+      <AfterYouPay />
+      <CalcPrompt />
+    </>
+  );
+}
+
+// The three episode rules (Samuel, 25 Nov 2026), right under the cards.
+export function EpisodeRules() {
+  return (
+    <section className="pp-rules" aria-labelledby="pp-rules-title">
+      <h2 id="pp-rules-title">How episodes and clips work</h2>
+      <ul className="pp-rules-list">
+        <li>
+          <span className="pp-rules-ic" aria-hidden="true"><i className="fas fa-scissors"></i></span>
+          <p><strong>Every episode gets 5 clips.</strong> One episode a month is 5 clips, two is 10, four is 20.</p>
+        </li>
+        <li>
+          <span className="pp-rules-ic" aria-hidden="true"><i className="fas fa-box-archive"></i></span>
+          <p><strong>No new episode this month?</strong> We cut your clips from your back catalogue, so your feed keeps going.</p>
+        </li>
+        <li>
+          <span className="pp-rules-ic" aria-hidden="true"><i className="fas fa-hand-pointer"></i></span>
+          <p><strong>More episodes than your plan covers?</strong> You pick which episode we clip.</p>
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+// What happens after a direct purchase. A real sequence, so it is numbered.
+// Every timing here is approved copy: "a strategy document before the first
+// clip" and "first clips within 3 to 5 business days after onboarding".
+export function AfterYouPay() {
+  return (
+    <section className="pp-next" aria-labelledby="pp-next-title">
+      <h2 id="pp-next-title">What happens after you pay</h2>
+      <ol className="pp-next-list">
+        <li><strong>You fill in your onboarding form.</strong> It tells us about your show, your audience and your brand.</li>
+        <li><strong>You share your episodes.</strong> We set up your project board, where you upload files and talk to your project manager.</li>
+        <li><strong>You get your strategy document.</strong> It arrives before the first clip, so every clip has a plan behind it.</li>
+        <li><strong>Your first clips arrive.</strong> Within 3 to 5 business days after onboarding, then on the schedule we agree.</li>
+      </ol>
+    </section>
+  );
+}
+
+// The prompt under the cards that sends anyone who did not find a fit to the
+// calculator.
+export function CalcPrompt() {
+  return (
+    <a href="#build" className="pp-calcpush">
+      <span className="pp-calcpush-ic" aria-hidden="true"><i className="fas fa-sliders"></i></span>
+      <span className="pp-calcpush-text">
+        <strong>Release 3, 5 or more episodes a month?</strong>
+        <span>Build your own plan: pick your episodes, add extra clips or full-episode edits. Your price shows as you go.</span>
+      </span>
+      <span className="pp-calcpush-btn">Open the pricing calculator <i className="fas fa-arrow-down" aria-hidden="true"></i></span>
+    </a>
   );
 }
 
@@ -134,172 +266,35 @@ function Cell({ value, us }) {
   );
 }
 
-export function PlanCards() {
-  return (
-    <>
-      <div className="pp-trio">
-        <div className="pp-col">
-          <article className="pp-card" aria-labelledby="pp-starter-name">
-            <div>
-              <h2 className="pp-name" id="pp-starter-name">Done For You Starter</h2>
-              <p className="pp-sub">Content Starter</p>
-            </div>
-            <p className="pp-price">
-              <b>$997</b>
-              <span>/month</span>
-            </p>
-            <p className="pp-who">The full done-for-you service at 10 clips a month, with a monthly check-in.</p>
-            <ul className="pp-feat">
-              {STARTER_FEATURES.map((f) => (
-                <Yes key={f}>{f}</Yes>
-              ))}
-              <No>Long-form episode edits</No>
-            </ul>
-            <CardActions label="Start with Starter" pay={PAY_URL.starter} quiet />
-          </article>
-          <p className="pp-commit"><strong>What we commit to:</strong> 10 clips a month, the posting schedule and a monthly report.</p>
-        </div>
-
-        <div className="pp-col pp-col-dfy">
-          <article className="pp-card pp-card-dfy" aria-labelledby="pp-dfy-name">
-            <span className="pp-tag">Most Popular</span>
-            <div>
-              <h2 className="pp-name" id="pp-dfy-name">Done For You</h2>
-              <p className="pp-sub">Content Engine</p>
-            </div>
-            <p className="pp-price">
-              <b>$1,597</b>
-              <span>/month</span>
-            </p>
-            <p className="pp-who">We make the clips and run your short-form content for you.</p>
-            <ul className="pp-feat">
-              {DFY_FEATURES.map((f) => (
-                <Yes key={f}>{f}</Yes>
-              ))}
-              <No>Long-form episode edits</No>
-            </ul>
-            <CardActions label="Start Done For You" pay={PAY_URL.dfy} />
-          </article>
-          <p className="pp-commit"><strong>What we commit to:</strong> 20 clips a month, the posting schedule and a weekly report.</p>
-        </div>
-
-        <div className="pp-col">
-          <article className="pp-card" aria-labelledby="pp-plus-name">
-              <div>
-              <h2 className="pp-name" id="pp-plus-name">Done For You Plus</h2>
-              <p className="pp-sub">Content Accelerator</p>
-            </div>
-            <p className="pp-price">
-              <b>$1,897</b>
-              <span>/month</span>
-            </p>
-            <p className="pp-who">We run your short-form content and edit your full episodes.</p>
-            <ul className="pp-feat">
-              {DFY_FEATURES.map((f) => (
-                <Yes key={f}>{f}</Yes>
-              ))}
-              <Yes>4 long-form episode edits a month</Yes>
-            </ul>
-            <CardActions label="Start Done For You Plus" pay={PAY_URL.plus} quiet />
-          </article>
-          <p className="pp-commit"><strong>What we commit to:</strong> 20 clips and 4 episode edits a month, the posting schedule and a weekly report.</p>
-        </div>
-      </div>
-
-      <p className="pp-terms">
-        <span>Month to month</span>
-        <span>Pause up to 60 days</span>
-        <span>You own every clip</span>
-      </p>
-
-      <CalcPrompt />
-    </>
-  );
-}
-
-// The prompt under the cards that sends anyone who did not find a fit to the
-// calculator (Samuel, 2 Nov 2026: the calculator was too easy to miss).
-export function CalcPrompt() {
-  return (
-    <a href="#build" className="pp-calcpush">
-      <span className="pp-calcpush-ic" aria-hidden="true"><i className="fas fa-sliders"></i></span>
-      <span className="pp-calcpush-text">
-        <strong>None of these quite fit?</strong>
-        <span>Build your own plan: pick any number of clips, add full episode edits or show notes, or post the clips yourself. Your price shows as you go.</span>
-      </span>
-      <span className="pp-calcpush-btn">Open the pricing calculator <i className="fas fa-arrow-down" aria-hidden="true"></i></span>
-    </a>
-  );
-}
-
-// Why SLK Media Agency, under the cards (audit fix approved by Samuel on
-// 20 Oct 2026). Every line is reused from approved copy: the first two from
-// the home page and /podcast-multiplier, the third from the
-// /podcast-multiplier FAQ.
-const WHY = [
-  {
-    icon: 'fa-users',
-    title: 'Part of your team',
-    text: 'We work like part of your team, not a vendor you have to manage.',
-  },
-  {
-    icon: 'fa-bullseye',
-    title: 'A plan behind every clip',
-    text: 'Each one picked for the people you want to reach.',
-  },
-  {
-    icon: 'fa-arrows-rotate',
-    title: 'Not happy after week 2?',
-    text: 'We assign a different team who better matches your style.',
-  },
-];
-
-export function WhyUs() {
-  return (
-    <section className="pp-why" aria-labelledby="pp-why-title">
-      <h2 id="pp-why-title">Why SLK Media Agency</h2>
-      <ul className="pp-why-grid">
-        {WHY.map((w) => (
-          <li key={w.title}>
-            <span className="pp-why-ic" aria-hidden="true"><i className={`fas ${w.icon}`}></i></span>
-            <h3>{w.title}</h3>
-            <p>{w.text}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 export function CompareTable() {
   return (
     <section className="pp-compare" aria-labelledby="pp-compare-title">
       <p className="pp-eyebrow">Side by side</p>
-      <h2 id="pp-compare-title">Everything in each package</h2>
+      <h2 id="pp-compare-title">Everything in each plan</h2>
       <div className="pp-tablebox" role="region" aria-labelledby="pp-compare-title" tabIndex={0}>
         <table className="pp-table">
           <thead>
             <tr>
               <th scope="col">What you get</th>
-              <th scope="col">Done For You Starter</th>
-              <th scope="col" className="pp-us">Done For You</th>
-              <th scope="col">Done For You Plus</th>
+              <th scope="col">Monthly Show</th>
+              <th scope="col" className="pp-us">Biweekly Show</th>
+              <th scope="col">Weekly Show</th>
             </tr>
           </thead>
           <tbody>
             {ROWS.map((row) => (
               <tr key={row.label}>
                 <th scope="row">{row.label}</th>
-                <Cell value={row.starter} />
-                <Cell value={row.dfy} us />
-                <Cell value={row.plus} />
+                <Cell value={row.monthly} />
+                <Cell value={row.biweekly} us />
+                <Cell value={row.weekly} />
               </tr>
             ))}
             <tr className="pp-tot">
               <th scope="row">Monthly price</th>
-              <td>$997</td>
-              <td className="pp-us">$1,597</td>
-              <td>$1,897</td>
+              <td>$597</td>
+              <td className="pp-us">$997</td>
+              <td>$1,597</td>
             </tr>
           </tbody>
         </table>
@@ -312,7 +307,7 @@ export function AddOns() {
   return (
     <section className="pp-addons" id="add-ons" aria-labelledby="pp-addons-title">
       <h2 id="pp-addons-title">Optional Add-ons</h2>
-      <p className="pp-lead">Add-ons work with any package.</p>
+      <p className="pp-lead">Add-ons work with any plan. Add them on your call, or tell your project manager.</p>
       <ul className="pp-addon-grid">
         {ADDONS.map((a) => (
           <li className="pp-addon" key={a.name}>

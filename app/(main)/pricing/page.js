@@ -18,12 +18,16 @@ import PricingCalculator from '../../../components/PricingCalculator';
 // come after it, and no client channel numbers, view counts or channel links. The agency and salary comparison line, the four
 // portfolio clips and the Why SLK Media Agency block were removed to keep the
 // page short. Prices, plans, checkouts and the calculator are unchanged.
+// 25 Nov 2026 (Samuel): per-episode pricing for new prospects. Monthly Show
+// ($597), Biweekly Show ($997, most popular) and Weekly Show ($1,597) replaced
+// the three Done For You packages; Monthly and Biweekly are bought directly by
+// checkout (links in lib/checkout.js), Weekly on a call. Prepay discount gone.
 
 const DESCRIPTION =
-  'SLK Media Agency pricing: Done For You Starter at $997 a month (10 clips, thumbnails, captions, posting, a project manager, a monthly call and report), Done For You at $1,597 a month (20 clips, weekly calls and reporting) or Done For You Plus at $1,897 a month (everything in Done For You plus 4 long-form episode edits). Add-ons and a plan calculator.';
+  'SLK Media Agency pricing, per episode: Monthly Show at $597 a month (1 episode, 5 clips), Biweekly Show at $997 a month (2 episodes, 10 clips) or Weekly Show at $1,597 a month (4 episodes, 20 clips). Every plan includes a thumbnail for every clip, captions, posting on every platform and a project manager. Add-ons and a plan calculator.';
 
 const SHARE_DESCRIPTION =
-  'Your podcast content team: we pick the moments, edit the clips, design the thumbnails, write the captions, post everywhere and report back. From $997 a month for 10 clips.';
+  'Your podcast content team: we pick the moments, edit the clips, design the thumbnails, write the captions, post everywhere and report back. From $597 a month for 1 episode and 5 clips.';
 
 export const metadata = {
   title: 'Pricing: Podcast Clip Production Plans | SLK Media Agency',
@@ -96,40 +100,41 @@ const WAYS = [
 // approved timelines in slkwebsitechatbotknowledge.md. Added 19 Oct 2026.
 const FAQ = [
   {
-    q: 'What is the difference between the three packages?',
+    q: 'What is the difference between the three plans?',
     a: [
       'All three are fully done for you: we edit the clips, make a custom thumbnail for every clip, write the captions, hashtags and calls to action, post every clip on every platform, and give you a dedicated project manager and a strategy document before the first clip.',
-      'Done For You Starter ($997 a month): 10 clips a month, with a monthly call and a monthly report.',
-      'Done For You ($1,597 a month): 20 clips a month, with a weekly call and weekly reporting.',
-      'Done For You Plus ($1,897 a month): everything in Done For You, plus 4 long-form episode edits a month.',
+      'Monthly Show ($597 a month): 1 episode, 5 clips a month, with a monthly call and a monthly report.',
+      'Biweekly Show ($997 a month): 2 episodes, 10 clips a month, with a monthly call and a monthly report.',
+      'Weekly Show ($1,597 a month): 4 episodes, 20 clips a month, with a weekly call and a weekly report.',
     ],
   },
   {
-    q: 'Which package should I pick?',
+    q: 'Which plan should I pick?',
     a: [
-      'Done For You Starter if you publish 1 or 2 episodes a month. Done For You if you publish 2 to 4. Done For You Plus if you also want your full episodes edited.',
-      'Already have someone posting for you? Pick "Clips only" in the Build your own plan calculator: we make the clips and you post them.',
+      'Pick the plan that matches how often you release episodes: Monthly Show for one a month, Biweekly Show for two, Weekly Show for four.',
+      'Release 3, 5 or more a month? Set your number of episodes in the Build your own plan calculator. Each episode above 2 adds $300 a month.',
       'Still not sure? Book a 30-minute strategy call and we will work it out with you.',
     ],
   },
   {
-    q: 'Why is Done For You Plus cheaper than adding episode edits myself?',
+    q: 'Do I need a call to start?',
     a: [
-      'A long-form episode edit costs $150 as an add-on. Done For You with 4 edits added would be $1,597 plus $600, so $2,197 a month.',
-      'Done For You Plus includes those 4 edits for $1,897 a month, which is $300 a month less, because you take them as part of the full done-for-you package.',
-    ],
-  },
-  {
-    q: 'Can I add more clips or episode edits?',
-    a: [
-      'Yes. Extra clips are $60 each on Done For You Starter, and $75 each on Done For You and Done For You Plus. Extra long-form episode edits are $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any package.',
-      'Use the Build your own plan calculator above to see your monthly price.',
+      'Not for Monthly Show or Biweekly Show: you can buy them online and start right away. Right after you pay, you see what happens next.',
+      'Weekly Show, and any plan with 3 or more episodes or with add-ons, starts with a 30-minute call. Want to talk first on any plan? Book the call.',
     ],
   },
   {
     q: 'How many clips do I get?',
     a: [
-      'We count clips per month, not per episode. Done For You Starter comes with 10 clips a month, Done For You and Done For You Plus with 20, and you can add extra clips on top. We pick the strongest moments from all the episodes you send that month.',
+      'Every episode gets 5 clips. Monthly Show is 5 clips a month, Biweekly Show 10 and Weekly Show 20. You can add extra clips at $60 each.',
+      'No new episode this month? We cut your clips from your back catalogue. Release more episodes than your plan covers? You pick which episode we clip.',
+    ],
+  },
+  {
+    q: 'Can I add more clips or full-episode edits?',
+    a: [
+      'Yes. Extra clips are $60 each. A full-episode (long-form) edit is $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any plan.',
+      'Use the Build your own plan calculator above to see your monthly price.',
     ],
   },
   {
@@ -141,7 +146,7 @@ const FAQ = [
   {
     q: "What's your cancellation policy?",
     a: [
-      'Month to month. Cancel anytime before your next billing cycle.',
+      'Month to month, billed at the start of each month. Cancel anytime before your next billing cycle.',
       'Can I pause instead of canceling? Yes. Pause for up to 60 days.',
       "Notice period: give us 14 days' notice so we can finish any in-progress work.",
     ],
@@ -149,14 +154,13 @@ const FAQ = [
   {
     q: 'Do you guarantee downloads, views or sponsors?',
     a: [
-      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree, with a report showing what every clip did (monthly on Starter, weekly on Done For You and Done For You Plus).',
+      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree, with a report showing what every clip did (monthly on Monthly Show and Biweekly Show, weekly on Weekly Show).',
     ],
   },
   {
     q: 'What if I only publish 1 episode a month?',
     a: [
-      'Done For You Starter is built for that. Its 10 clips a month fit one or two episodes without your feed starting to feel repetitive.',
-      'For 20 clips a month we work best with shows publishing 2 to 4 episodes. With one episode, every clip comes from the same conversation.',
+      'Monthly Show is built for that: 5 clips a month from your one episode, at $597 a month.',
     ],
   },
   {
@@ -166,7 +170,7 @@ const FAQ = [
   {
     q: 'Do you provide analytics or reports?',
     a: [
-      'Yes, on every package: weekly on Done For You and Done For You Plus, monthly on Done For You Starter. We report on which clips got the most views and engagement, how each platform performed, and what we recommend next.',
+      'Yes, on every plan: monthly on Monthly Show and Biweekly Show, weekly on Weekly Show. We report on which clips got the most views and engagement, how each platform performed, and what we recommend next.',
     ],
   },
   {
@@ -206,19 +210,19 @@ const structuredData = {
   image: 'https://slkmediaagency.com/og-image.jpg',
   offers: [
     monthlyOffer(
-      'Done For You',
-      '20 short clips a month with a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, weekly reporting and a strategy document before the first clip.',
-      '1597'
+      'Monthly Show',
+      '1 episode a month, 5 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report and a strategy document before the first clip.',
+      '597'
     ),
     monthlyOffer(
-      'Done For You Starter',
-      '10 short clips a month with a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, monthly reporting and a strategy document before the first clip.',
+      'Biweekly Show',
+      '2 episodes a month, 10 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report and a strategy document before the first clip.',
       '997'
     ),
     monthlyOffer(
-      'Done For You Plus',
-      'Everything in Done For You plus 4 long-form episode edits a month.',
-      '1897'
+      'Weekly Show',
+      '4 episodes a month, 20 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, a weekly report and a strategy document before the first clip.',
+      '1597'
     ),
   ],
 };
@@ -264,7 +268,8 @@ export default function PricingPage() {
             <h1>Your podcast content team.</h1>
             <p className="pp-hero-sub">The whole job, off your plate. You record. We pick the best moments, edit the clips, design a thumbnail for each one, write the captions, post on every platform and report back.</p>
             <ul className="pp-hero-points">
-              <li><i className="fas fa-check" aria-hidden="true"></i> From $997 a month for 10 clips</li>
+              <li><i className="fas fa-check" aria-hidden="true"></i> From $597 a month: 1 episode, 5 clips</li>
+              <li><i className="fas fa-check" aria-hidden="true"></i> Buy online, no call needed (Monthly and Biweekly Show)</li>
               <li><i className="fas fa-check" aria-hidden="true"></i> Month to month, pause up to 60 days</li>
               <li><i className="fas fa-check" aria-hidden="true"></i> You own every clip</li>
             </ul>
@@ -287,7 +292,7 @@ export default function PricingPage() {
           <div className="container">
             <p className="pp-eyebrow">Pricing calculator</p>
             <h2 id="pp-build-title">Build your own plan</h2>
-            <p className="pp-lead">Pick your clips, add full episode edits or show notes, or choose to post the clips yourself. The price updates as you go.</p>
+            <p className="pp-lead">Set how many episodes you release a month, then add extra clips, full-episode edits or show notes. The price updates as you go.</p>
             <PricingCalculator />
           </div>
         </section>
@@ -392,7 +397,7 @@ export default function PricingPage() {
         <section className="pp-close">
           <div className="container">
             <div className="pp-strip">
-              <h2>Done For You Starter $997, Done For You $1,597 or Done For You Plus $1,897 a month. Not sure which one fits? We&apos;ll work it out with you on a 30-minute call.</h2>
+              <h2>Monthly Show $597, Biweekly Show $997 or Weekly Show $1,597 a month. Not sure which one fits? We&apos;ll work it out with you on a 30-minute call.</h2>
               <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
             </div>
           </div>

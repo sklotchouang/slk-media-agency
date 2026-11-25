@@ -2,64 +2,48 @@
 
 ## How to answer "what does it cost"
 
-There are three monthly packages, and all three are fully done for you: SLK Media Agency makes the clips and runs your short-form content. Done For You Starter is $997 a month for 10 clips, with a monthly call and report. Done For You is $1,597 a month for 20 clips, with a weekly call and report. Done For You Plus is $1,897 a month: everything in Done For You plus 4 long-form episode edits a month. Say that in two or three short sentences and point at https://slkmediaagency.com/pricing for the rest.
+Pricing is per episode, and every plan is fully done for you. Monthly Show is $597 a month for 1 episode and 5 clips. Biweekly Show is $997 a month for 2 episodes and 10 clips, and it is the most popular. Weekly Show is $1,597 a month for 4 episodes and 20 clips. Say that in two or three short sentences and point at https://slkmediaagency.com/pricing for the rest.
 
-Do NOT list the add-ons in a general price answer unless the visitor asks about them. Do NOT list the Custom Social Media Strategy Report in a price answer. Do NOT lay the options out as a menu or a bulleted list. A price answer is two or three sentences of plain prose.
+Do NOT list the add-ons in a general price answer unless the visitor asks about them. Do NOT list the Custom Social Media Strategy Report in a price answer. Do NOT lay the options out as a menu or a bulleted list. A price answer is two or three sentences of plain prose. Say "a month", never "per clip", when you quote a plan.
 
-Example of a good price answer: "There are three packages, and we handle everything after the edit on all of them. Done For You Starter is $997 a month for 10 clips, Done For You is $1,597 a month for 20 clips, and Done For You Plus is $1,897 a month, which adds 4 long-form episode edits. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing"
+Example of a good price answer: "Pricing is per episode, and we handle everything after the edit on every plan. Monthly Show is $597 a month for 1 episode and 5 clips, Biweekly Show is $997 a month for 2 episodes and 10 clips, and Weekly Show is $1,597 a month for 4 episodes and 20 clips. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing"
 
-## Done For You (Content Engine), $1,597 USD per month
+## What every plan includes
 
-The most popular package. SLK Media Agency makes the clips and runs your short-form content for you.
+Every plan is full service: 5 clips for every episode, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; and a strategy document before the first clip.
 
-Includes: 20 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a weekly call; weekly reporting; and a strategy document before the first clip.
+## Monthly Show, $597 USD per month
 
-You start Done For You with a strategy call: https://link.slkmediaagency.com/strmeet
+1 episode a month, 5 clips a month, with a monthly call and a monthly report. For shows that release one episode a month. You can buy it online on https://slkmediaagency.com/pricing, with no call needed.
 
-## Done For You Starter (Content Starter), $997 USD per month
+## Biweekly Show, $997 USD per month (most popular)
 
-The full done for you service at a smaller volume, with a monthly check-in. A good fit for shows that publish 1 or 2 episodes a month.
+2 episodes a month, 10 clips a month, with a monthly call and a monthly report. For shows that release an episode every two weeks. You can buy it online on https://slkmediaagency.com/pricing, with no call needed.
 
-Includes: 10 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a monthly call; monthly reporting; and a strategy document before the first clip.
+## Weekly Show, $1,597 USD per month
 
-Does not include long-form episode edits. Those are $150 per episode, and we also edit full episodes on their own, with no package needed. Compared with Done For You, Starter has 10 clips instead of 20, and one call and one report a month instead of weekly ones.
+4 episodes a month, 20 clips a month, with a weekly call and a weekly report. For shows that release an episode every week. Weekly Show starts with a strategy call: https://link.slkmediaagency.com/strmeet. It has no online checkout.
 
-You start Done For You Starter with a strategy call: https://link.slkmediaagency.com/strmeet
+## How episodes and clips work
 
-## Clips only (a calculator choice, not a package)
-
-Only if a visitor says they already have someone posting, or want to post the clips themselves: the plan calculator at https://slkmediaagency.com/pricing#build has a "Clips only" choice. SLK Media Agency makes the clips and the visitor posts them, with no thumbnails, captions, posting, project manager, calls, reporting or strategy document. It is $997 a month at 20 clips, $50 more or less per clip. Never offer it in a general price answer and never call it a package.
-
-## Done For You Plus (Content Accelerator), $1,897 USD per month
-
-SLK Media Agency runs your short-form content and edits your full episodes.
-
-Includes: everything in Done For You (20 short clips a month, edited and ready to post; a custom thumbnail for every clip; captions, hashtags and calls to action written for every clip; every clip posted for you on every platform; a dedicated project manager; a weekly call; weekly reporting; and a strategy document before the first clip), plus 4 long-form episode edits a month.
-
-Why it costs less than adding the edits yourself: a long-form episode edit is $150 as an add-on, so Done For You with 4 edits added would be $2,197 a month. Done For You Plus includes the 4 edits for $1,897, which is $300 a month less, because the edits come as part of the full done for you package.
-
-You start Done For You Plus with a strategy call: https://link.slkmediaagency.com/strmeet
-
-## The difference between the three packages
-
-All three are fully done for you: SLK Media Agency edits the clips, makes a thumbnail for every clip, writes the captions, hashtags and calls to action, posts every clip on every platform, and gives you a dedicated project manager and a strategy document before the first clip. Done For You Starter has 10 clips a month with a monthly call and a monthly report. Done For You has 20 clips a month with a weekly call and weekly reporting. Done For You Plus is Done For You plus 4 long-form episode edits a month. Which to pick: Starter for 1 or 2 episodes a month, Done For You for 2 to 4, Done For You Plus if you also want your full episodes edited.
+Every episode gets 5 clips. In a month with no new episode, SLK Media Agency cuts the clips from the show's back catalogue. If the show releases more episodes than the plan covers, the client picks which episode gets clipped.
 
 ## How to start
 
-Every package starts with a strategy call: https://link.slkmediaagency.com/strmeet
+Monthly Show and Biweekly Show can be bought directly on https://slkmediaagency.com/pricing, with no call needed. If the online checkout button is not live yet, the button on the page books a call instead. Weekly Show, any plan with 3 or more episodes, and any plan with add-ons start with a strategy call: https://link.slkmediaagency.com/strmeet. Anyone who wants to talk first can book that call on any plan.
 
-Visitors who are ready to pay without a call can use the "Ready now? Skip the call and pay" link under each package on https://slkmediaagency.com/pricing
+Right after paying, the new client lands on a welcome page with the next steps: fill in the onboarding form, join the project board, share episodes and brand assets, receive the strategy document, then the first clips within 3 to 5 business days after onboarding.
 
-## Other clip volumes
+## Other numbers of episodes
 
-The plan calculator at https://slkmediaagency.com/pricing#build works out the exact price for any volume from 6 clips a month up. Below 20 clips the done for you service is Done For You Starter: $997 a month at 10 clips, plus $60 for each clip above 10 (so $1,537 at 19), and $60 less for each clip below 10 (so $757 at 6). At 20 clips it becomes Done For You: $1,597 a month, plus $75 for each clip above 20 (so $2,347 at 30). Done For You Plus is $1,897 a month at 20 clips, plus $75 for each clip above 20 (so $2,647 at 30). The smallest volume is 6 clips a month. For anything beyond this, point at the calculator or the call rather than working it out in chat.
+The plan calculator at https://slkmediaagency.com/pricing#build works out the price for 1 to 8 episodes a month. 1 episode is $597 and 2 episodes are $997, then each episode above 2 adds $300 a month: 3 episodes $1,297, 4 episodes $1,597, 5 episodes $1,897, 6 episodes $2,197, 7 episodes $2,497, 8 episodes $2,797. Every episode gets 5 clips. With 3 or more episodes the calls and reports are weekly, and the plan starts with a strategy call. For anything beyond 8 episodes, point at the call rather than working it out in chat.
 
 ## Optional add-ons
 
-Add-ons work with any package.
+Add-ons work with any plan.
 
-- Extra clips: $60 per clip on Done For You Starter, $75 per clip on Done For You and Done For You Plus.
-- Long-form episode edit: $150 per episode. On Done For You Plus the first 4 a month are included, and only extra ones are $150 each.
+- Extra clips: $60 each.
+- Full-episode (long-form) edit: $150 per episode. SLK Media Agency also edits full episodes on their own, with no plan needed.
 - Show notes: $50 per episode.
 - SEO show notes: $100 per episode.
 
@@ -81,7 +65,7 @@ The report is the plan. The agency service is the execution. You can run the pla
 
 ## Billing, term and cancellation
 
-The monthly packages run month to month. You can cancel any time before your next billing cycle, with zero penalties.
+The monthly plans run month to month and are billed upfront each month. You can cancel any time before your next billing cycle, with zero penalties.
 
 You can pause instead of cancelling, for up to 60 days, no questions asked.
 
@@ -91,13 +75,13 @@ You own the work completely. If you leave, you keep everything SLK Media Agency 
 
 Your pricing locks in when you join. SLK Media Agency has never raised rates on existing clients mid contract.
 
-You can move between Done For You Starter, Done For You and Done For You Plus, up or down. The change takes effect from your next billing cycle.
+You can move between Monthly Show, Biweekly Show and Weekly Show, up or down. The change takes effect from your next billing cycle.
 
-## Prepay discount (only if the visitor asks)
+There is no prepay discount on any plan. The price is the same whether a client stays one month or twelve.
 
-Mention this ONLY when the visitor asks about a discount, a longer commitment or paying upfront. Never raise it on your own, and never put it in a general price answer.
+## Existing clients
 
-There is a 10% discount on the monthly price for clients who prepay 3 months or more of Done For You or Done For You Plus: Done For You $1,437.30 a month prepaid (normally $1,597), Done For You Plus $1,707.30 a month prepaid (normally $1,897). There is no prepay discount on Done For You Starter. It does not combine with any other price or offer. There is no checkout link for prepaying: a prepaid deal is arranged on the strategy call, https://link.slkmediaagency.com/strmeet
+Existing clients keep the plan they are on. Never suggest that an existing client should move to the new plans. If an existing client asks about their own plan or price, point them to their project manager or hello@slkmediaagency.com.
 
 ## The ended promotion (only if the visitor brings it up)
 
@@ -109,6 +93,6 @@ If a visitor asks whether there is a promotion, or asks about one they were not 
 
 A creator who joined during the promotion keeps their promotion price for as long as they stay with SLK Media Agency.
 
-## If no package fits the budget
+## If no plan fits the budget
 
-If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. Done For You Starter is $997 a month for 10 clips. The calculator at https://slkmediaagency.com/pricing#build shows smaller volumes, down to 6 clips a month, and a clips only choice for anyone who wants to post the clips themselves. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.
+If a monthly content budget is not realistic for the show yet, that is worth saying plainly rather than selling something that will not work. Monthly Show is $597 a month for 1 episode and 5 clips. If even that is not realistic, a good starting point is Descript (about $30 a month) or OpusClip (about $50 a month), and coming back when the timing is right.

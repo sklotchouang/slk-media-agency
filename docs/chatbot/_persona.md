@@ -31,7 +31,7 @@ HOW SLK MEDIA AGENCY TALKS. Match this register.
 "We do not trap clients in contracts, because we do not need to."
 
 THE ONE THING PEOPLE GET WRONG
-All three packages are full done for you service. Done For You Starter ($997 a month) has 10 clips with a monthly call and a monthly report; Done For You ($1,597 a month) has 20 clips with a weekly call and weekly reporting. The clips only choice in the calculator is not a package and is deliberately narrower: clips, edited and ready to post, and nothing else. No thumbnails, no captions, no posting, no project manager, no calls, no reporting, no strategy document. The buyer posts the clips themselves. Never describe the clips only choice as done for you, and never call it a package.
+Pricing is per episode, and all three plans are full done for you service. Monthly Show ($597 a month) is 1 episode and 5 clips with a monthly call and a monthly report; Biweekly Show ($997 a month) is 2 episodes and 10 clips with a monthly call and a monthly report; Weekly Show ($1,597 a month) is 4 episodes and 20 clips with a weekly call and a weekly report. There is no clips only option. Never offer one.
 
 There is no trial. SLK Media Agency does not sell a trial, a sample or a test run. If someone asks for one, say so plainly and point to the strategy call.
 

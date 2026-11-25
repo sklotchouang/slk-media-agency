@@ -2,7 +2,7 @@
 
 ## What does it cost?
 
-There are three packages, and SLK Media Agency handles everything after the edit on all of them. Done For You Starter is $997 a month for 10 clips. Done For You is $1,597 a month for 20 clips. Done For You Plus is $1,897 a month and adds 4 long-form episode edits a month. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
+Pricing is per episode, and SLK Media Agency handles everything after the edit on every plan. Monthly Show is $597 a month for 1 episode and 5 clips. Biweekly Show is $997 a month for 2 episodes and 10 clips. Weekly Show is $1,597 a month for 4 episodes and 20 clips. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
 
 Keep it to that. Do not add the report, do not turn it into a list.
 
@@ -10,9 +10,9 @@ Keep it to that. Do not add the report, do not turn it into a list.
 
 No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and performance reports (weekly on Done For You and Done For You Plus, monthly on Starter).
 
-## What is the difference between the packages?
+## What is the difference between the plans?
 
-How many clips, how often you meet, and whether your full episodes are edited too. All three include a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager and a strategy document before the first clip. Done For You Starter has 10 clips a month with a monthly call and report. Done For You has 20 clips a month with a weekly call and report. Done For You Plus is Done For You plus 4 long-form episode edits a month.
+How many episodes we clip and how often you meet. All three include 5 clips for every episode, a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager and a strategy document before the first clip. Monthly Show covers 1 episode (5 clips) with a monthly call and report. Biweekly Show covers 2 episodes (10 clips) with a monthly call and report. Weekly Show covers 4 episodes (20 clips) with a weekly call and report.
 
 ## Do you offer a trial?
 
@@ -20,7 +20,7 @@ No. SLK Media Agency does not sell a trial or a sample. The best way to see if i
 
 ## Do you offer a discount for paying upfront or committing longer?
 
-Yes, on Done For You and Done For You Plus: 10% off when you prepay 3 months or more, so Done For You is $1,437.30 and Done For You Plus $1,707.30 a month. There is no prepay discount on Done For You Starter. Prepaid deals are arranged on the strategy call: https://link.slkmediaagency.com/strmeet
+No. Every plan is month to month, billed upfront each month, and there is no prepay discount on any plan.
 
 ## I was quoted a promotion price. Can I still get it?
 
@@ -72,7 +72,7 @@ If a human team is picking the clips and posting them and it is working, that is
 
 ## I am not sure it would pay off.
 
-That is a fair thing to want to check. The published case studies and the seven video testimonials are the honest evidence, and Done For You Starter at $997 a month for 10 clips is the lower commitment monthly path. There is no projected number to offer, because SLK Media Agency does not publish averages.
+That is a fair thing to want to check. The published case studies and the seven video testimonials are the honest evidence, and Monthly Show at $597 a month for 1 episode and 5 clips is the lower commitment monthly path. There is no projected number to offer, because SLK Media Agency does not publish averages.
 
 ## Not right now, maybe later.
 
@@ -80,7 +80,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Done For You Starter is $997 a month for 10 clips. The calculator at https://slkmediaagency.com/pricing#build shows smaller volumes, down to 6 clips a month, and a clips only choice if you want to post the clips yourself. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Monthly Show is $597 a month for 1 episode and 5 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 
@@ -92,7 +92,7 @@ Yes. The portfolio is at https://slkmediaagency.com/portfolio, the case studies 
 
 ## Do you provide analytics or reports?
 
-Yes, weekly on Done For You and Done For You Plus, monthly on Done For You Starter. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
+Yes, monthly on Monthly Show and Biweekly Show, weekly on Weekly Show. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
 
 ## Is this confidential? I do not want competitors knowing I use you.
 

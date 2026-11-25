@@ -1,12 +1,10 @@
 # SLK Media Agency: how the work actually gets done
 
-You send your episodes. On Done For You, SLK Media Agency does the rest.
+You send your episodes. On every plan, SLK Media Agency does the rest.
 
 ## The process
 
-The Done For You process runs in eight steps: you submit raw episodes and brand assets, then onboarding and strategy, then human editorial review to find the high retention moments, then production (short form edit, captions, pacing, hooks), then platform adaptation, then quality control, then scheduling and distribution, then an ongoing optimization loop.
-
-On the clips only choice in the calculator the process stops after quality control. SLK Media Agency edits the clips and hands them over, and you do the posting yourself.
+The process runs in eight steps: you submit raw episodes and brand assets, then onboarding and strategy, then human editorial review to find the high retention moments, then production (short form edit, captions, pacing, hooks), then platform adaptation, then quality control, then scheduling and distribution, then an ongoing optimization loop.
 
 Your first clips arrive within 3 to 5 business days after onboarding.
 
@@ -16,7 +14,7 @@ Days 1 to 4: the team immerses itself in your niche, covering competitor analysi
 
 Days 5 to 8: a test batch of clips is produced and iterated on your feedback.
 
-From day 9: the work runs autonomously with weekly strategy syncs (monthly on Done For You Starter).
+From day 9: the work runs autonomously with weekly strategy syncs (monthly on Monthly Show and Biweekly Show).
 
 ## Platforms and formats
 
@@ -38,7 +36,7 @@ Audio only shows are welcome. There are audio to video examples here: https://li
 
 ## Reporting
 
-Success is tracked through views, engagement, follower growth and click through rate, reported weekly on Done For You and Done For You Plus and monthly on Done For You Starter. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
+Success is tracked through views, engagement, follower growth and click through rate, reported monthly on Monthly Show and Biweekly Show and weekly on Weekly Show. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
 
 ## Publishing frequency
 

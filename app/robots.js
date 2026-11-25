@@ -7,7 +7,7 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/pre-call', '/pre-call.html', '/*.md$'],
+        disallow: ['/pre-call', '/pre-call.html', '/welcome', '/*.md$'],
       },
     ],
     sitemap: 'https://slkmediaagency.com/sitemap.xml',
