@@ -18,7 +18,7 @@ import { ONBOARDING_URL, CONTACT_EMAIL } from '../../../lib/checkout';
 
 export const metadata = {
   title: 'Thank you, here is what happens next | SLK Media Agency',
-  description: 'You are in. The next steps for new SLK Media Agency clients: your onboarding form, your project board, your strategy document and your first clips.',
+  description: 'You are in. The next steps for new SLK Media Agency clients: your onboarding form, your project board, your social media strategy plan and your first clips.',
   robots: { index: false, follow: false },
   alternates: { canonical: '/thank-you' },
 };
@@ -29,7 +29,8 @@ const INCLUDED = [
   'Captions, hashtags and calls to action for every clip',
   'Every clip posted for you on every platform',
   'A dedicated project manager',
-  'A strategy document before the first clip',
+  'Preliminary research on your show and audience',
+  'A social media strategy plan',
 ];
 
 export default function ThankYouPage() {
@@ -88,8 +89,8 @@ export default function ThankYouPage() {
               </li>
               <li className="wl-step">
                 <div className="wl-step-body">
-                  <h3>Get your strategy document</h3>
-                  <p>It is the plan behind every clip: who the clips are for and where we post them. You get it before the first clip.</p>
+                  <h3>Get your social media strategy plan</h3>
+                  <p>We research your show and audience first. Your social media strategy plan says who the clips are for and where we post them. You get it before the first clip.</p>
                 </div>
               </li>
               <li className="wl-step">

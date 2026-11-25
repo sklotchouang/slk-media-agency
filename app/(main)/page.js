@@ -179,7 +179,7 @@ export default function HomePage() {
           <h2 className="section-title">One team does every step after you stop recording.</h2>
           <div className="hp-how-grid">
             <ol className="hp-steps">
-              <li><div><h3>We plan before the first clip</h3><p>We study your niche and what similar shows post, then write you a strategy document: which moments to clip, which platforms, how often.</p></div></li>
+              <li><div><h3>We plan before the first clip</h3><p>We study your niche and what similar shows post, then write your social media strategy plan: which moments to clip, which platforms, how often.</p></div></li>
               <li><div><h3>You upload the episode</h3><p>That is the last thing you do. No editor, no scheduler, no captions to write.</p></div></li>
               <li><div><h3>We pick and edit the clips</h3><p>Moments that show your expertise, hold one complete idea, and give a viewer a reason to hear the full episode. Each gets captions, a hook and a custom thumbnail.</p></div></li>
               <li><div><h3>We post on every platform</h3><p>Captions, hashtags and a call to action for each clip, posted on the schedule we agree with you.</p></div></li>
@@ -222,7 +222,8 @@ export default function HomePage() {
               <li>Every clip posted on every platform</li>
               <li>A dedicated project manager</li>
               <li>Regular calls and performance reports</li>
-              <li>A strategy document before the first clip</li>
+              <li>Preliminary research on your show and audience</li>
+              <li>A social media strategy plan</li>
               <li>Full episode edits if you want them</li>
             </ul>
             <div className="hp-report" aria-label="Example report layout">
