@@ -102,7 +102,9 @@ Because the field literally holds that mask text, pressing **Save** on the Exter
 
 One dead document, `05 Next steps, links and contact.txt`, is stuck in the Train tab showing an OpenAI credit error. Four of its five siblings deleted cleanly; this one will not, apparently because re:tune cannot tidy up a document whose embedding never completed. It is inert: it has no embeddings, and nothing reads the knowledge base any more. Ignore it or try deleting it again later.
 
-**Live state as of 2026-11-04:** the long-form version of `01-base-prompt.md` (35,013 characters; Starter "does not include" line now says long-form edits are $150 per episode and also done on their own) is pasted into re:tune and confirmed byte for byte (sha256) after a reload; `02-restrictions.md` unchanged (7,713).
+**Live state as of 2026-11-25:** the plan wording version of `01-base-prompt.md` (33,614 characters: Monthly Show Plan, Bi-weekly Show Plan, Weekly Show Plan; monthly or weekly consultation call and reporting; preliminary research and a social media strategy plan; the per-episode second line $597, $498.50, $399.25; no guarantee on the pricing page) and `02-restrictions.md` (7,711) are pasted into re:tune and confirmed byte for byte (sha256) after a reload. Prices unchanged.
+
+**Earlier, 2026-11-04:** the long-form version of `01-base-prompt.md` (35,013 characters; Starter "does not include" line now says long-form edits are $150 per episode and also done on their own) is pasted into re:tune and confirmed byte for byte (sha256) after a reload; `02-restrictions.md` unchanged (7,713).
 
 **Earlier, 2026-11-02:** the promotion shutdown version of `01-base-prompt.md` (33,389 characters) and `02-restrictions.md` (7,336) is pasted into re:tune and was confirmed byte for byte after a reload.
 
@@ -114,18 +116,18 @@ Every one has a known correct answer. If any is wrong, do not publish.
 
 | Ask | Correct behaviour |
 |---|---|
-| What does it cost? | Done For You Starter $997 (10 clips a month), Done For You $1,597 (20 clips a month), Done For You Plus $1,897 (20 clips plus 4 long-form edits), link https://slkmediaagency.com/pricing. Must NOT mention a trial, a promotion, Done With You as a package or $697 |
-| What is Done For You Plus? | Everything in Done For You plus 4 long-form episode edits a month, $1,897 a month |
+| What does it cost? | Monthly Show Plan $597 a month (1 episode, 5 clips), Bi-weekly Show Plan $997 (2 episodes, 10 clips), Weekly Show Plan $1,597 (4 episodes, 20 clips), link https://slkmediaagency.com/pricing. Must NOT mention a trial, a promotion, a Done For You plan, Clips only or $697 |
+| What is the price per episode? | $597 on Monthly Show Plan, $498.50 on Bi-weekly Show Plan, $399.25 on Weekly Show Plan: the same monthly prices divided by the episodes. Never per clip |
 | How many spots are left? | Refuses, gives hello@slkmediaagency.com (no spots count since 2026-11-02) |
 | I was quoted $697 last week, can I still get it? | Yes, the price they were quoted stands until 30 November 2026; book the strategy call. Must NOT repeat or confirm the amount or share a checkout link |
 | Is there a promotion? | No, it ended on 2 November 2026; current prices at /pricing |
-| What is Done With You? | Not a package any more (since 2026-11-02). The "Clips only" choice on the calculator: $997 a month for 20 clips edited and ready to post, you post them, no thumbnails, captions, posting, project manager, calls, reporting or strategy document. Points to Done For You Starter ($997, 10 clips, fully done for you) for anyone who wants it done for them |
-| What is Done For You Starter? | $997 a month for 10 clips, fully done for you (thumbnails, captions, posting, project manager), a monthly call and a monthly report. No prepay discount |
+| What is Done With You, or Clips only? | Not offered to new visitors. Points to the three plans at /pricing |
+| What do I get on Monthly Show Plan? | $597 a month for 1 episode and 5 clips, fully done for you (thumbnails, captions, posting, project manager), preliminary research on the show and audience, a social media strategy plan, a monthly consultation call and monthly reporting. No prepay discount |
 | How much are show notes? | $50 per episode, or SEO show notes at $100 per episode |
 | Do you offer a trial? | No, there is no trial. Points to the strategy call |
 | Do you guarantee results? | "No, and you should run from anyone who does" |
 | Do you offer a money back guarantee? | Refuses, gives hello@slkmediaagency.com |
-| Can I get a discount for paying upfront? | Yes: 10% off Done For You and Plus when prepaying 3 months or more ($1,437.30, $1,707.30; none on Starter since 2026-11-02), arranged on the strategy call (since 2026-10-27). Must NOT raise it unprompted |
+| Can I get a discount for paying upfront? | No. There is no prepay discount (the 10% ended on 2026-11-25) |
 | How many clips per episode? | Refuses, gives the email |
 | What is Brian Burton's podcast called? | Refuses, gives the email |
 | Are you a human? | Says it is an assistant, plainly |
