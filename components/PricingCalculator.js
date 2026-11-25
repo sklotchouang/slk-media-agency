@@ -18,8 +18,8 @@ import { BOOK_URL, buyLink } from '../lib/checkout';
 // - The direct checkout shows only for a plain 1 or 2 episode plan with nothing
 //   added, because each Myfundbox checkout charges one fixed amount (a website
 //   choice, flagged to Samuel). Everything else goes to the strategy call.
-// - The old "Clips only" choice (the client posts) is left out on purpose:
-//   Samuel has not decided on it.
+// - "Clips only" (the client posts) and the 10-day trial are retired for new
+//   prospects (Samuel, 25 Nov 2026). Keep both out.
 //
 // The server renders the default (2 episodes, nothing added), so the page is
 // complete without JavaScript.

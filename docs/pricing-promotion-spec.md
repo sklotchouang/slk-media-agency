@@ -41,7 +41,7 @@ Every plan is full service:
 - Extra clips: $60 each.
 - 1 or 2 episodes: a monthly call and a monthly report. 3 or more episodes: a weekly call and a weekly report, and the plan is started by booking a call.
 - Website behaviour (a build choice, not part of Samuel's spec; flagged to him): the calculator shows the direct checkout only for a plain Monthly Show (1 episode) or Biweekly Show (2 episodes) with nothing added, because each checkout charges one fixed amount. Anything with extras or add-ons, and anything at 3 or more episodes, goes to the strategy call.
-- The old "Clips only" choice (the client posts the clips) is NOT in the new calculator. Samuel has not decided whether it survives. Do not offer it.
+- "Clips only" (the client posts the clips) is RETIRED for new prospects (Samuel, 25 November 2026). It is not in the calculator and is never offered.
 
 ## Add-ons (per episode, any plan)
 
@@ -73,6 +73,7 @@ All checkout links live in ONE place: `lib/checkout.js` in the website repo.
 - Done For You Starter ($997, 10 clips), Done For You ($1,597, 20 clips) and Done For You Plus ($1,897, dropped entirely).
 - Their checkouts (tokens nqEFAw0ZzvYeM2sHwa0ABw, YqnycQ4nQ-hWYXg64XvGBg, xAlmD9YT1xUcuR5nBQPv_g) are off the website and are never sent to a new prospect.
 - Existing clients on these plans keep them.
+- The 10-day trial ($497) and "Clips only" (the client posts the clips) are also retired for new prospects (Samuel, 25 November 2026). If someone asks for a trial: Monthly Show is month to month, so the first month is the low-risk way to start.
 
 ## Honor rule for leads already quoted a promotion price (until 30 November 2026, unchanged)
 
@@ -84,7 +85,7 @@ All checkout links live in ONE place: `lib/checkout.js` in the website repo.
 
 ## Not changed
 
-- The trial ($497) is never offered by an agent unless the prospect asks for a trial or test in their own words. The website and its chatbot say there is no trial.
+- The 10-day trial ($497) is RETIRED for new prospects (Samuel, 25 November 2026). Never offer it, even when asked. If someone asks for a trial, the answer is: There is no trial. Monthly Show is month to month, so the first month is the low-risk way to start.
 - The Custom Social Media Strategy Report is $103.55.
 - No free work. No guarantees of views, downloads or sponsors. Never say "spots left".
 - Never say or imply that AI makes the clips.

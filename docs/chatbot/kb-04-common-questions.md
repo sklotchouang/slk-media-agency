@@ -16,7 +16,7 @@ How many episodes we clip and how often you meet. All three include 5 clips for 
 
 ## Do you offer a trial?
 
-No. SLK Media Agency does not sell a trial or a sample. The best way to see if it fits is the strategy call: https://link.slkmediaagency.com/strmeet
+No. There is no trial. Monthly Show is month to month, so the first month is the low-risk way to start. It is $597 a month for 1 episode and 5 clips, and you can cancel before the next billing cycle. Want to talk it through first? Book the strategy call: https://link.slkmediaagency.com/strmeet
 
 ## Do you offer a discount for paying upfront or committing longer?
 
