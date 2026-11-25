@@ -296,7 +296,7 @@ export default function PodcastMultiplierPage() {
                 <p>
                   ✅ <strong>Strategic Clip Selection:</strong> We look for the moments that show your expertise, tell a complete story, and make a new viewer want the full episode<br /><br />
                   ✅ <strong>Platform-Native Optimization:</strong> LinkedIn clips focus on credibility. TikTok clips focus on virality. YouTube clips focus on watch time. Same episode, different psychology<br /><br />
-                  ✅ <strong>Reported Every Month:</strong> Every clip includes engagement metrics, audience demographics, and CTA performance in your report (monthly, or weekly on the Weekly Show Plan)<br /><br />
+                  ✅ <strong>Reported Every Month:</strong> Every clip includes engagement metrics, audience demographics, and CTA performance in your report (monthly, or weekly on the 4-Episode Plan)<br /><br />
                   ✅ <strong>Brand Consistency Obsession:</strong> Custom style guides, tone matching, zero generic templates<br />
                   <br />
                   <strong>We don't just edit. We turn your podcast into an omnipresent content machine.</strong>
@@ -312,7 +312,7 @@ export default function PodcastMultiplierPage() {
                   ✅ <strong>Multi-Platform Scheduling:</strong> LinkedIn, YouTube, Instagram, TikTok, X, Facebook (wherever your audience spends time)<br /><br />
                   ✅ <strong>Engagement Amplification:</strong> We monitor comments, tag relevant industry figures, cross-promote with guests<br /><br />
                   ✅ <strong>A Fixed Posting Schedule:</strong> Every clip goes out on the schedule we agree with you, so your feed never goes quiet<br /><br />
-                  ✅ <strong>Performance Report:</strong> Which clips got the most views? Which platforms performed best? You see it every month, or every week on the Weekly Show Plan<br />
+                  ✅ <strong>Performance Report:</strong> Which clips got the most views? Which platforms performed best? You see it every month, or every week on the 4-Episode Plan<br />
                   <br />
                   <strong>The result:</strong> You show up on every platform, every week, while you spend your time on recording and your business.
                 </p>
@@ -391,12 +391,12 @@ export default function PodcastMultiplierPage() {
                 <tr>
                   <td className="warning">⚠️ 3-5 hrs/week cleanup</td>
                   <td className="warning">⚠️ 2-4 hrs/week managing</td>
-                  <td className="positive">✅ One strategy call a month (weekly on Weekly Show Plan)</td>
+                  <td className="positive">✅ One strategy call a month (weekly on the 4-Episode Plan)</td>
                 </tr>
                 <tr>
                   <td className="negative">❌ Basic analytics</td>
                   <td className="negative">❌ No reporting</td>
-                  <td className="positive">✅ Monthly performance reports (weekly on Weekly Show Plan)</td>
+                  <td className="positive">✅ Monthly performance reports (weekly on the 4-Episode Plan)</td>
                 </tr>
                 <tr>
                   <td className="negative">❌ Algorithm-driven</td>
@@ -422,7 +422,7 @@ export default function PodcastMultiplierPage() {
         <div className="container">
           <h2 className="section-title">What We Commit To</h2>
           <div className="guarantee-content">
-            <p>Every month you get the clips your plan includes (5 for every episode, or more if you add extra clips), posted on the schedule we agree with you, and a report on how they performed (monthly, or weekly on the Weekly Show Plan). We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
+            <p>Every month you get the clips your plan includes (5 for every episode, or more if you add extra clips), posted on the schedule we agree with you, and a report on how they performed (monthly, or weekly on the 4-Episode Plan). We never promise downloads, views or sponsors, because nobody controls those. We do control the work, and that is what we commit to.</p>
           </div>
         </div>
       </section>
@@ -463,7 +463,7 @@ export default function PodcastMultiplierPage() {
               </li>
               <li>
                 <h3>Step 3: We Handle Everything (While You Focus on Your Show)</h3>
-                <p>Send us your episodes. We deliver 5 clips for every episode, post them across your social platforms, and send you a performance report (monthly, or weekly on the Weekly Show Plan).</p>
+                <p>Send us your episodes. We deliver 5 clips for every episode, post them across your social platforms, and send you a performance report (monthly, or weekly on the 4-Episode Plan).</p>
               </li>
             </ul>
             <div className="limited-spots">
@@ -523,7 +523,7 @@ export default function PodcastMultiplierPage() {
               <div className="accordion-content">
                 <p><strong>No, and you should run from anyone who does.</strong></p>
                 <p>Here's why: We control content production and posting. We don't control: Your recording quality, guest selection, or topic relevance; How each platform chooses to show your clips; Market conditions in your niche; Your existing audience quality and engagement rates.</p>
-                <p><strong>What we DO commit to:</strong> 5 professionally edited clips for every episode (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A report showing what every clip did (monthly, or weekly on the Weekly Show Plan).</p>
+                <p><strong>What we DO commit to:</strong> 5 professionally edited clips for every episode (more if you add extra clips), delivered on time. Posting on your platforms on the schedule we agree with you. A report showing what every clip did (monthly, or weekly on the 4-Episode Plan).</p>
                 <p>We never promise downloads, views or sponsors. We do the work and show you the numbers in every report.</p>
               </div>
             </div>
@@ -547,7 +547,7 @@ export default function PodcastMultiplierPage() {
               </div>
               <div className="accordion-content">
                 <p><strong>Yes.</strong> We've produced content for: B2B SaaS and sales podcasts, Health, wellness, and nutrition experts, Financial planning and investing shows, Real estate and entrepreneurship podcasts, Comedy, storytelling, and true crime shows, Technical deep-dives (AI, blockchain, biotech).</p>
-                <p><strong>Our process:</strong> Day 1-4: We immerse ourselves in your niche (competitor analysis, audience research, what similar shows post). Day 5-8: We produce a test batch of clips and iterate based on your feedback. Day 9+: We run autonomously, with a strategy call every month (every week on Weekly Show Plan).</p>
+                <p><strong>Our process:</strong> Day 1-4: We immerse ourselves in your niche (competitor analysis, audience research, what similar shows post). Day 5-8: We produce a test batch of clips and iterate based on your feedback. Day 9+: We run autonomously, with a strategy call every month (every week on the 4-Episode Plan).</p>
                 <p>If your podcast is in a niche we haven't tackled, we research it until we're experts. That's included in onboarding.</p>
               </div>
             </div>
@@ -638,7 +638,7 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p>Yes. We track and report monthly (weekly on Weekly Show Plan) on: Which clips got the most views and engagement, Platform performance comparison, Recommendations for what comes next.</p>
+                <p>Yes. We track and report monthly (weekly on the 4-Episode Plan) on: Which clips got the most views and engagement, Platform performance comparison, Recommendations for what comes next.</p>
               </div>
             </div>
 

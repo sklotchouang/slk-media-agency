@@ -45,9 +45,9 @@ export function episodePrice(episodes) {
 }
 
 function planName(episodes) {
-  if (episodes === 1) return 'Monthly Show Plan';
-  if (episodes === 2) return 'Bi-weekly Show Plan';
-  if (episodes === 4) return 'Weekly Show Plan';
+  if (episodes === 1) return '1-Episode Plan';
+  if (episodes === 2) return '2-Episode Plan';
+  if (episodes === 4) return '4-Episode Plan';
   return `Your ${episodes}-episode plan`;
 }
 

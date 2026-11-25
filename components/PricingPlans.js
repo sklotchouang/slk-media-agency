@@ -43,8 +43,8 @@ const SHARED = [
 const PLANS = [
   {
     id: 'monthly',
-    name: 'Monthly Show Plan',
-    label: 'Monthly Show Plan',
+    name: '1-Episode Plan',
+    label: '1-Episode Plan',
     price: '$597',
     perEpisode: '$597',
     who: 'For shows that release one episode a month.',
@@ -55,9 +55,9 @@ const PLANS = [
   },
   {
     id: 'biweekly',
-    name: 'Bi-weekly Show Plan',
-    label: 'Bi-weekly Show Plan',
-    base: 'Monthly Show Plan',
+    name: '2-Episode Plan',
+    label: '2-Episode Plan',
+    base: '1-Episode Plan',
     price: '$997',
     perEpisode: '$498.50',
     who: 'For shows that release an episode every two weeks.',
@@ -69,9 +69,9 @@ const PLANS = [
   },
   {
     id: 'weekly',
-    name: 'Weekly Show Plan',
-    label: 'Weekly Show Plan',
-    base: 'Bi-weekly Show Plan',
+    name: '4-Episode Plan',
+    label: '4-Episode Plan',
+    base: '2-Episode Plan',
     price: '$1,597',
     perEpisode: '$399.25',
     who: 'For shows that release an episode every week.',
@@ -101,7 +101,7 @@ function CardActions({ plan }) {
     return (
       <div className="pp-actions">
         <a href={BOOK_URL} className="primary-cta pp-cta pp-cta-quiet" target="_blank" rel="noopener">Book a call to start</a>
-        <p className="pp-howbuy">Weekly Show Plan starts with a 30-minute call, where we agree your posting schedule. No online checkout for this plan.</p>
+        <p className="pp-howbuy">The 4-Episode Plan starts with a 30-minute call, where we agree your posting schedule. No online checkout for this plan.</p>
         <Assure />
       </div>
     );
@@ -176,7 +176,7 @@ export function PlanCards() {
               </p>
               <p className="pp-per">{plan.perEpisode} per episode</p>
             </div>
-            {plan.base ? <p className="pp-plus">Everything in {plan.base}, plus:</p> : null}
+            {plan.base ? <p className="pp-plus">Everything in the {plan.base}, plus:</p> : null}
             <ul className="pp-diff">
               <li><strong>{plan.episodes}</strong></li>
               <li><strong>{plan.clips}</strong></li>

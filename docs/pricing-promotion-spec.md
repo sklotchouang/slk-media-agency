@@ -14,15 +14,15 @@ If `components/PricingPlans.js`, `components/PricingCalculator.js` or `lib/check
 
 ## The three plans (new prospects only)
 
-Plan names (Samuel, 25 November 2026): Monthly Show Plan, Bi-weekly Show Plan, Weekly Show Plan, everywhere (website, chatbot, SDR agents, price cards). Older notes below may still say "Monthly Show", "Biweekly Show" or "Weekly Show": same plans. Say "consultation call" and "reporting", never "a call and a report".
+Plan names (Samuel, 25 November 2026, final): 1-Episode Plan ($597), 2-Episode Plan ($997), 4-Episode Plan ($1,597), everywhere (website, chatbot, SDR agents, price cards). Named by episode count so nobody reads "weekly" or "bi-weekly" as the billing period; every plan is billed monthly. Earlier names for the same plans: Monthly Show / Monthly Show Plan, Biweekly Show / Bi-weekly Show Plan, Weekly Show / Weekly Show Plan. Never use them with a prospect. Say "consultation call" and "reporting", never "a call and a report".
 
 | Plan | Episodes a month | Clips a month | Price | Call and report | How to buy |
 |---|---|---|---|---|---|
-| Monthly Show Plan | 1 | 5 | $597 a month | Monthly consultation call and monthly reporting | Direct checkout, no call needed |
-| Bi-weekly Show Plan (badge: Most popular) | 2 | 10 | $997 a month | Monthly consultation call and monthly reporting | Direct checkout, no call needed |
-| Weekly Show Plan | 4 | 20 | $1,597 a month | Weekly consultation call and weekly reporting | Book a call. No direct checkout |
+| 1-Episode Plan | 1 | 5 | $597 a month | Monthly consultation call and monthly reporting | Direct checkout, no call needed |
+| 2-Episode Plan (badge: Most popular) | 2 | 10 | $997 a month | Monthly consultation call and monthly reporting | Direct checkout, no call needed |
+| 4-Episode Plan | 4 | 20 | $1,597 a month | Weekly consultation call and weekly reporting | Book a call. No direct checkout |
 
-Price per episode, shown on the pricing page as a smaller second line under the monthly price (Samuel, 25 November 2026): Monthly Show Plan $597, Bi-weekly Show Plan $498.50, Weekly Show Plan $399.25. The monthly price stays the main price. This is a display of the same prices, not a new price. Still never quote per clip.
+Price per episode, shown on the pricing page as a smaller second line under the monthly price (Samuel, 25 November 2026): 1-Episode Plan $597, 2-Episode Plan $498.50, 4-Episode Plan $399.25. The monthly price stays the main price. This is a display of the same prices, not a new price. Still never quote per clip.
 
 No guarantee of any kind on the pricing page: no money-back, redo or results promise (Samuel, 25 November 2026).
 
@@ -34,7 +34,7 @@ Every plan is full service:
 - preliminary research on the show and audience,
 - a social media strategy plan.
 
-(Samuel, 25 November 2026: the old wording "a strategy document before the first clip" is replaced by these two items. On /pricing the cards are headed Monthly Show Plan, Bi-weekly Show Plan and Weekly Show Plan; the first card lists everything, the next two say "Everything in ..., plus:" and only the differences.)
+(Samuel, 25 November 2026: the old wording "a strategy document before the first clip" is replaced by these two items. On /pricing the cards are headed 1-Episode Plan, 2-Episode Plan and 4-Episode Plan; the first card lists everything, the next two say "Everything in ..., plus:" and only the differences.)
 
 ## The episode rules
 

@@ -6,8 +6,8 @@ import { buyLink } from '../../../lib/checkout';
 // True once at least one Myfundbox checkout link is set in lib/checkout.js.
 // Until then no copy on this page may say "buy online" or "no call needed".
 const LIVE_PLANS = [
-  buyLink('monthly').checkout ? 'Monthly Show Plan' : null,
-  buyLink('biweekly').checkout ? 'Bi-weekly Show Plan' : null,
+  buyLink('monthly').checkout ? '1-Episode Plan' : null,
+  buyLink('biweekly').checkout ? '2-Episode Plan' : null,
 ].filter(Boolean);
 const CHECKOUT_LIVE = LIVE_PLANS.length > 0;
 const LIVE_NAMES = LIVE_PLANS.join(' and ');
@@ -42,7 +42,7 @@ const LIVE_NAMES = LIVE_PLANS.join(' and ');
 // trimmed. No guarantee anywhere (Samuel). Prices and checkouts unchanged.
 
 const DESCRIPTION =
-  'SLK Media Agency pricing, per episode: Monthly Show Plan at $597 a month (1 episode, 5 clips), Bi-weekly Show Plan at $997 a month (2 episodes, 10 clips) or Weekly Show Plan at $1,597 a month (4 episodes, 20 clips). Every plan includes a thumbnail for every clip, captions, posting on every platform and a project manager. Add-ons and a plan calculator.';
+  'SLK Media Agency pricing, per episode: 1-Episode Plan at $597 a month (1 episode, 5 clips), 2-Episode Plan at $997 a month (2 episodes, 10 clips) or 4-Episode Plan at $1,597 a month (4 episodes, 20 clips). Every plan includes a thumbnail for every clip, captions, posting on every platform and a project manager. Add-ons and a plan calculator.';
 
 const SHARE_DESCRIPTION =
   'Your podcast content team: we pick the moments, edit the clips, design the thumbnails, write the captions, post everywhere and report back. From $597 a month for 1 episode and 5 clips.';
@@ -120,7 +120,7 @@ const FAQ = [
   {
     q: 'Which plan should I pick?',
     a: [
-      'Pick the plan that matches how often you release episodes: Monthly Show Plan for one a month, Bi-weekly Show Plan for two, Weekly Show Plan for four.',
+      'Pick the plan that matches how often you release episodes: 1-Episode Plan for one a month, 2-Episode Plan for two, 4-Episode Plan for four.',
       'Release 3, 5 or more a month? Set your number of episodes in the Build your own plan calculator. Each episode above 2 adds $300 a month.',
       'Still not sure? Book a 30-minute strategy call and we will work it out with you.',
     ],
@@ -129,9 +129,9 @@ const FAQ = [
     q: 'Do I need a call to start?',
     a: [
       CHECKOUT_LIVE
-        ? `Not for ${LIVE_NAMES}: you can buy ${LIVE_PLANS.length > 1 ? 'them' : 'it'} online and start right away. Right after you pay, you see what happens next. Every other plan starts with a 30-minute call.`
-        : 'Online checkout for Monthly Show Plan and Bi-weekly Show Plan is not live yet, so for now every plan starts with a 30-minute call.',
-      'Weekly Show Plan, and any plan with 3 or more episodes or with add-ons, starts with a 30-minute call. Want to talk first on any plan? Book the call.',
+        ? `Not for the ${LIVE_NAMES}: you can buy ${LIVE_PLANS.length > 1 ? 'them' : 'it'} online and start right away. Right after you pay, you see what happens next. Every other plan starts with a 30-minute call.`
+        : 'Online checkout for the 1-Episode Plan and 2-Episode Plan is not live yet, so for now every plan starts with a 30-minute call.',
+      'The 4-Episode Plan, and any plan with 3 or more episodes or with add-ons, starts with a 30-minute call. Want to talk first on any plan? Book the call.',
     ],
   },
   {
@@ -161,7 +161,7 @@ const FAQ = [
   {
     q: 'Do you guarantee downloads, views or sponsors?',
     a: [
-      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree, with a report showing what every clip did (monthly on Monthly Show Plan and Bi-weekly Show Plan, weekly on Weekly Show Plan).',
+      'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree, with a report showing what every clip did (monthly on the 1-Episode Plan and 2-Episode Plan, weekly on the 4-Episode Plan).',
     ],
   },
   {
@@ -171,7 +171,7 @@ const FAQ = [
   {
     q: 'Do you provide analytics or reports?',
     a: [
-      'Yes, on every plan: monthly on Monthly Show Plan and Bi-weekly Show Plan, weekly on Weekly Show Plan. We report on which clips got the most views and engagement, how each platform performed, and what we recommend next.',
+      'Yes, on every plan: monthly on the 1-Episode Plan and 2-Episode Plan, weekly on the 4-Episode Plan. We report on which clips got the most views and engagement, how each platform performed, and what we recommend next.',
     ],
   },
   {
@@ -211,17 +211,17 @@ const structuredData = {
   image: 'https://slkmediaagency.com/og-image.jpg',
   offers: [
     monthlyOffer(
-      'Monthly Show Plan',
+      '1-Episode Plan',
       '1 episode a month, 5 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly consultation call, monthly reporting, preliminary research on the show and audience, and a social media strategy plan.',
       '597'
     ),
     monthlyOffer(
-      'Bi-weekly Show Plan',
+      '2-Episode Plan',
       '2 episodes a month, 10 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly consultation call, monthly reporting, preliminary research on the show and audience, and a social media strategy plan.',
       '997'
     ),
     monthlyOffer(
-      'Weekly Show Plan',
+      '4-Episode Plan',
       '4 episodes a month, 20 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly consultation call, weekly reporting, preliminary research on the show and audience, and a social media strategy plan.',
       '1597'
     ),
@@ -268,7 +268,7 @@ export default function PricingPage() {
             <p className="pp-kicker">Pricing</p>
             <h1><span className="pp-h1-line">One episode in.</span> <span className="pp-h1-line">Five finished clips out.</span></h1>
             <p className="pp-hero-sub">Send us your episode. We pick the best moments, edit 5 clips, make a thumbnail for each one, write the captions and post them for you on every platform. Your first clips arrive 3 to 5 business days after onboarding.</p>
-            <p className="pp-hero-note">From $597 a month. Month to month.{CHECKOUT_LIVE ? ` Buy ${LIVE_NAMES} online, no call needed.` : ''}</p>
+            <p className="pp-hero-note">From $597 a month. Month to month.{CHECKOUT_LIVE ? ` Buy the ${LIVE_NAMES} online, no call needed.` : ''}</p>
             <div className="pp-hero-ctas">
               <a href="#pricing" className="primary-cta pp-hero-cta">See the plans</a>
               <a href={BOOK_URL} className="pp-hero-alt" target="_blank" rel="noopener"><i className="fas fa-calendar" aria-hidden="true"></i> Book a call</a>
