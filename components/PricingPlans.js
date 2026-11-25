@@ -50,7 +50,7 @@ const PLANS = [
     who: 'For shows that release one episode a month.',
     episodes: '1 episode a month',
     clips: '5 clips a month',
-    cadence: 'A monthly call and a monthly report',
+    cadence: ['Monthly consultation call', 'Monthly reporting'],
     buy: 'monthly',
   },
   {
@@ -77,7 +77,7 @@ const PLANS = [
     who: 'For shows that release an episode every week.',
     episodes: '4 episodes a month',
     clips: '20 clips a month',
-    cadence: 'A weekly call and a weekly report',
+    cadence: ['Weekly consultation call', 'Weekly reporting'],
     buy: null,
   },
 ];
@@ -180,7 +180,7 @@ export function PlanCards() {
             <ul className="pp-diff">
               <li><strong>{plan.episodes}</strong></li>
               <li><strong>{plan.clips}</strong></li>
-              {plan.cadence ? <li>{plan.cadence}</li> : null}
+              {plan.cadence ? plan.cadence.map((line) => <li key={line}>{line}</li>) : null}
               {plan.base ? null : SHARED.map((f) => <li key={f}>{f}</li>)}
             </ul>
             <CardActions plan={plan} />
