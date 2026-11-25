@@ -110,7 +110,7 @@ export default function ThankYouPage() {
                 {INCLUDED.map((item) => (
                   <li key={item}><i className="fas fa-check" aria-hidden="true"></i> {item}</li>
                 ))}
-                <li><i className="fas fa-check" aria-hidden="true"></i> A monthly call and a monthly report</li>
+                <li><i className="fas fa-check" aria-hidden="true"></i> Monthly consultation call and monthly reporting</li>
               </ul>
             </div>
             <div className="wl-box">

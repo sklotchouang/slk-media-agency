@@ -244,7 +244,7 @@ export default function PricingCalculator() {
         <p className="pp-plan" id="pp-calc-plan">{name}</p>
         <ul className="pp-calc-facts" id="pp-calc-facts">
           <li><i className="fas fa-clapperboard" aria-hidden="true"></i> <span id="pp-calc-clips">{clips} clips a month</span></li>
-          <li><i className="fas fa-phone" aria-hidden="true"></i> <span id="pp-calc-cadence">{weekly ? 'A weekly call and a weekly report' : 'A monthly call and a monthly report'}</span></li>
+          <li><i className="fas fa-phone" aria-hidden="true"></i> <span id="pp-calc-cadence">{weekly ? 'Weekly consultation call and weekly reporting' : 'Monthly consultation call and monthly reporting'}</span></li>
         </ul>
         <p className="pp-big" id="pp-calc-price">
           {money(total)}

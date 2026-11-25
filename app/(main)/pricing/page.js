@@ -212,17 +212,17 @@ const structuredData = {
   offers: [
     monthlyOffer(
       'Monthly Show',
-      '1 episode a month, 5 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report preliminary research on the show and audience, and a social media strategy plan.',
+      '1 episode a month, 5 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly consultation call, monthly reporting, preliminary research on the show and audience, and a social media strategy plan.',
       '597'
     ),
     monthlyOffer(
       'Biweekly Show',
-      '2 episodes a month, 10 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly call, a monthly report preliminary research on the show and audience, and a social media strategy plan.',
+      '2 episodes a month, 10 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a monthly consultation call, monthly reporting, preliminary research on the show and audience, and a social media strategy plan.',
       '997'
     ),
     monthlyOffer(
       'Weekly Show',
-      '4 episodes a month, 20 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly call, a weekly report preliminary research on the show and audience, and a social media strategy plan.',
+      '4 episodes a month, 20 short clips, a custom thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, a weekly consultation call, weekly reporting, preliminary research on the show and audience, and a social media strategy plan.',
       '1597'
     ),
   ],

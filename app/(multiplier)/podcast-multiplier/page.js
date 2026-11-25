@@ -558,7 +558,7 @@ export default function PodcastMultiplierPage() {
                 <span className="accordion-icon"><i className="fas fa-plus"></i></span>
               </div>
               <div className="accordion-content">
-                <p><strong>That works.</strong> Every episode gets 5 clips, so one episode a month gives you 5 clips, posted for you, with a monthly call and a monthly report.</p>
+                <p><strong>That works.</strong> Every episode gets 5 clips, so one episode a month gives you 5 clips, posted for you, with a monthly consultation call and monthly reporting.</p>
                 <p>In a month with no new episode, we cut your clips from your back catalogue, so your feed keeps going. If you release more episodes than your plan covers, you pick which episode we clip.</p>
               </div>
             </div>
