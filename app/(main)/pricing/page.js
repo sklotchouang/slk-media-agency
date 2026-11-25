@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PlanCards, CompareTable, AddOns } from '../../../components/PricingPlans';
+import { PlanCards } from '../../../components/PricingPlans';
 import PricingCalculator from '../../../components/PricingCalculator';
 import { buyLink } from '../../../lib/checkout';
 
@@ -32,6 +32,14 @@ const LIVE_NAMES = LIVE_PLANS.join(' and ');
 // ($597), Biweekly Show ($997, most popular) and Weekly Show ($1,597) replaced
 // the three Done For You packages; Monthly and Biweekly are bought directly by
 // checkout (links in lib/checkout.js), Weekly on a call. Prepay discount gone.
+// 25 Nov 2026 (later, layout rebuild from the research report
+// slk-research-crew/reports/2026-11-25-pricing-page-conversion-lessons.md):
+// new hero (primary button to the plans, secondary Book a call), the Brian
+// Burton sample clip and one "Every plan includes" band above slimmer cards
+// with the price per episode, the testimonials moved up under the cards, the
+// add-ons block and the package table removed (calculator and cards cover
+// them), the three-ways table folded into a closed details block, and the FAQ
+// trimmed. No guarantee anywhere (Samuel). Prices and checkouts unchanged.
 
 const DESCRIPTION =
   'SLK Media Agency pricing, per episode: Monthly Show at $597 a month (1 episode, 5 clips), Biweekly Show at $997 a month (2 episodes, 10 clips) or Weekly Show at $1,597 a month (4 episodes, 20 clips). Every plan includes a thumbnail for every clip, captions, posting on every platform and a project manager. Add-ons and a plan calculator.';
@@ -110,15 +118,6 @@ const WAYS = [
 // approved timelines in slkwebsitechatbotknowledge.md. Added 19 Oct 2026.
 const FAQ = [
   {
-    q: 'What is the difference between the three plans?',
-    a: [
-      'All three are fully done for you: we edit the clips, make a custom thumbnail for every clip, write the captions, hashtags and calls to action, post every clip on every platform, and give you a dedicated project manager and a strategy document before the first clip.',
-      'Monthly Show ($597 a month): 1 episode, 5 clips a month, with a monthly call and a monthly report.',
-      'Biweekly Show ($997 a month): 2 episodes, 10 clips a month, with a monthly call and a monthly report.',
-      'Weekly Show ($1,597 a month): 4 episodes, 20 clips a month, with a weekly call and a weekly report.',
-    ],
-  },
-  {
     q: 'Which plan should I pick?',
     a: [
       'Pick the plan that matches how often you release episodes: Monthly Show for one a month, Biweekly Show for two, Weekly Show for four.',
@@ -136,13 +135,6 @@ const FAQ = [
     ],
   },
   {
-    q: 'How many clips do I get?',
-    a: [
-      'Every episode gets 5 clips. Monthly Show is 5 clips a month, Biweekly Show 10 and Weekly Show 20. You can add extra clips at $60 each.',
-      'No new episode this month? We cut your clips from your back catalogue. Release more episodes than your plan covers? You pick which episode we clip.',
-    ],
-  },
-  {
     q: 'Can I add more clips or full-episode edits?',
     a: [
       'Yes. Extra clips are $60 each. A full-episode (long-form) edit is $150 per episode. Show notes ($50) and SEO show notes ($100) are available per episode on any plan.',
@@ -150,9 +142,12 @@ const FAQ = [
     ],
   },
   {
-    q: "What's your turnaround time?",
+    q: 'What happens after I pay?',
     a: [
-      'Your first clips arrive within 3 to 5 business days after onboarding. After that we deliver on the schedule we agree with you at onboarding.',
+      '1. You fill in your onboarding form about your show, your audience and your brand.',
+      '2. You share your episodes. We set up your project board, where you upload files and talk to your project manager.',
+      '3. You get your strategy document before the first clip.',
+      '4. Your first clips arrive 3 to 5 business days after onboarding, then on the schedule we agree.',
     ],
   },
   {
@@ -167,12 +162,6 @@ const FAQ = [
     q: 'Do you guarantee downloads, views or sponsors?',
     a: [
       'No. Nobody can honestly promise those. What we commit to is the work: your clips every month, posted on the schedule we agree, with a report showing what every clip did (monthly on Monthly Show and Biweekly Show, weekly on Weekly Show).',
-    ],
-  },
-  {
-    q: 'What if I only publish 1 episode a month?',
-    a: [
-      'Monthly Show is built for that: 5 clips a month from your one episode, at $597 a month.',
     ],
   },
   {
@@ -273,63 +262,37 @@ export default function PricingPage() {
       </nav>
 
       <main id="main" className="pricing-page">
-        {/* Hero */}
-        <section className="pp-hero">
+        {/* Hero. data-no-reveal keeps it out of the scroll-in fade, so the
+            text is readable at first paint (research report, problem 10). */}
+        <section className="pp-hero" data-no-reveal>
           <div className="container">
             <p className="pp-kicker">Pricing</p>
-            <h1>Your podcast content team.</h1>
-            <p className="pp-hero-sub">The whole job, off your plate. You record. We pick the best moments, edit the clips, design a thumbnail for each one, write the captions, post on every platform and report back.</p>
-            <ul className="pp-hero-points">
-              <li><i className="fas fa-check" aria-hidden="true"></i> From $597 a month: 1 episode, 5 clips</li>
-              {CHECKOUT_LIVE ? <li><i className="fas fa-check" aria-hidden="true"></i> Buy {LIVE_NAMES} online, no call needed</li> : null}
-              <li><i className="fas fa-check" aria-hidden="true"></i> Month to month, pause up to 60 days</li>
-              <li><i className="fas fa-check" aria-hidden="true"></i> You own every clip</li>
-            </ul>
+            <h1><span className="pp-h1-line">One episode in.</span> <span className="pp-h1-line">Five finished clips out.</span></h1>
+            <p className="pp-hero-sub">Send us your episode. We pick the best moments, edit 5 clips, make a thumbnail for each one, write the captions and post them for you on every platform. Your first clips arrive 3 to 5 business days after onboarding.</p>
+            <p className="pp-hero-note">From $597 a month. Month to month.{CHECKOUT_LIVE ? ` Buy ${LIVE_NAMES} online, no call needed.` : ''}</p>
             <div className="pp-hero-ctas">
-              <a href={BOOK_URL} className="primary-cta pp-hero-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
-              <a href="#build" className="pp-hero-alt"><i className="fas fa-sliders" aria-hidden="true"></i> Build your own plan</a>
+              <a href="#pricing" className="primary-cta pp-hero-cta">See the plans</a>
+              <a href={BOOK_URL} className="pp-hero-alt" target="_blank" rel="noopener"><i className="fas fa-calendar" aria-hidden="true"></i> Book a call</a>
             </div>
           </div>
         </section>
 
-        {/* The three packages and the terms line */}
-        <section className="pp-plans" id="pricing">
+        {/* The sample clip, what every plan includes, the three cards, the
+            episode rules and the calculator prompt */}
+        <section className="pp-plans" id="pricing" aria-labelledby="pp-plans-title">
           <div className="container">
             <PlanCards />
           </div>
         </section>
 
-        {/* Build your plan */}
-        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
-          <div className="container">
-            <p className="pp-eyebrow">Pricing calculator</p>
-            <h2 id="pp-build-title">Build your own plan</h2>
-            <p className="pp-lead">Set how many episodes you release a month, then add extra clips, full-episode edits or show notes. The price updates as you go.</p>
-            <PricingCalculator />
-          </div>
-        </section>
-
-        {/* Optional add-ons, under the calculator */}
-        <section className="pp-details pp-details-addons">
-          <div className="container">
-            <AddOns />
-          </div>
-        </section>
-
-        {/* What each package includes */}
-        <section className="pp-details">
-          <div className="container">
-            <CompareTable />
-          </div>
-        </section>
-
-        {/* Client video quotes, after all the pricing */}
+        {/* Client video quotes, right under the cards. Testimonials only: no
+            results, numbers, logos or show artwork (Samuel, 25 Nov 2026). */}
         <section className="pp-proof" aria-labelledby="pp-clips-title">
           <div className="container">
             <h2 id="pp-clips-title">What clients say</h2>
-            <div className="pp-tlist">
+            <div className="pp-tlist pp-tlist-pair">
               {TESTIMONIALS.map((t) => (
-                <figure className={t.vertical ? 'pp-tcard pp-tcard-vertical' : 'pp-tcard'} key={t.name}>
+                <figure className="pp-tcard" key={t.name}>
                   <div
                     className="pp-tvideo"
                     dangerouslySetInnerHTML={{
@@ -349,37 +312,56 @@ export default function PricingPage() {
                 </figure>
               ))}
             </div>
-            <p className="pp-proof-more"><Link href="/testimonials">See all testimonials</Link> or <Link href="/success/case-studies">read the case studies</Link>.</p>
+            <p className="pp-proof-more"><Link href="/testimonials">See all testimonials</Link> or <Link href="/portfolio">see more clips in the portfolio</Link>.</p>
           </div>
         </section>
 
-        {/* Three ways to get it done (positioning approved 11 Nov 2026) */}
+        {/* Build your plan */}
+        <section className="pp-build" id="build" aria-labelledby="pp-build-title">
+          <div className="container">
+            <p className="pp-eyebrow">Pricing calculator</p>
+            <h2 id="pp-build-title">Build your own plan</h2>
+            <p className="pp-lead">Set how many episodes you release a month, then add extra clips, full-episode edits or show notes. The price updates as you go.</p>
+            <PricingCalculator />
+          </div>
+        </section>
+
+        {/* Three ways to get it done (positioning approved 11 Nov 2026).
+            Closed by default since 25 Nov 2026 to keep the page short. */}
         <section className="pp-ways" aria-labelledby="pp-ways-title">
           <div className="container">
-            <h2 id="pp-ways-title">Three ways to get your clips made</h2>
-            <p className="pp-lead">The difference is everything a tool, or one freelancer, leaves for you to do.</p>
-            <div className="pp-ways-box">
-              <table className="pp-ways-table">
-                <thead>
-                  <tr>
-                    <th scope="col"><span className="pp-sr">Task</span></th>
-                    <th scope="col">A freelancer</th>
-                    <th scope="col">You, with an AI clipping tool</th>
-                    <th scope="col" className="pp-us">Your podcast content team</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {WAYS.map((w) => (
-                    <tr key={w.label}>
-                      <th scope="row">{w.label}</th>
-                      <td data-label="Freelancer">{w.free}</td>
-                      <td data-label="AI tool">{w.ai}</td>
-                      <td data-label="Us" className="pp-us">{w.us}</td>
+            <details className="pp-ways-details">
+              <summary>
+                <span>
+                  <span className="pp-ways-title" id="pp-ways-title">Three ways to get your clips made</span>
+                  <span className="pp-ways-sub">A freelancer, you with an AI clipping tool, or your podcast content team.</span>
+                </span>
+                <span className="pp-ways-toggle" aria-hidden="true"><i className="fas fa-plus"></i></span>
+              </summary>
+              <p className="pp-lead">The difference is everything a tool, or one freelancer, leaves for you to do.</p>
+              <div className="pp-ways-box">
+                <table className="pp-ways-table">
+                  <thead>
+                    <tr>
+                      <th scope="col"><span className="pp-sr">Task</span></th>
+                      <th scope="col">A freelancer</th>
+                      <th scope="col">You, with an AI clipping tool</th>
+                      <th scope="col" className="pp-us">Your podcast content team</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {WAYS.map((w) => (
+                      <tr key={w.label}>
+                        <th scope="row">{w.label}</th>
+                        <td data-label="Freelancer">{w.free}</td>
+                        <td data-label="AI tool">{w.ai}</td>
+                        <td data-label="Us" className="pp-us">{w.us}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </details>
           </div>
         </section>
 
@@ -409,8 +391,8 @@ export default function PricingPage() {
         <section className="pp-close">
           <div className="container">
             <div className="pp-strip">
-              <h2>Monthly Show $597, Biweekly Show $997 or Weekly Show $1,597 a month. Not sure which one fits? We&apos;ll work it out with you on a 30-minute call.</h2>
-              <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a Strategy Call</a>
+              <h2>Not sure which plan fits? We&apos;ll work it out with you on a 30-minute call.</h2>
+              <a href={BOOK_URL} className="primary-cta pp-cta" target="_blank" rel="noopener">Book a call</a>
             </div>
           </div>
         </section>

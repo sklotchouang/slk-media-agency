@@ -4591,3 +4591,367 @@ html[data-motion="on"] .home-v3 .hp-mini:nth-child(3) { animation-delay: -3.2s; 
 
 .welcome-page .wl-step-body p + p { margin-top: 10px; }
 .welcome-page .wl-seal-fail { background: #e5484d; color: #fff; box-shadow: 0 0 0 10px rgba(229, 72, 77, 0.14); }
+
+/* ==========================================================================
+   /pricing layout rebuild (25 Nov 2026). Research report:
+   slk-research-crew/reports/2026-11-25-pricing-page-conversion-lessons.md.
+   Hero note, the "Every plan includes" band with the Brian Burton sample
+   clip, slim cards with the price per episode, the reassurance lines, the
+   episode note, side-by-side testimonials and the closed three-ways block.
+   Scoped under .pricing-page like the rest (see the note at the top of the
+   pricing section).
+   ========================================================================== */
+.pricing-page .pp-hero-note {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-hero-ctas .pp-hero-alt i {
+  font-size: 0.9em;
+}
+
+/* The band: sample clip left, shared list right. */
+.pricing-page .pp-band {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  margin: 8px 0 56px;
+  padding: 28px;
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+}
+
+.pricing-page .pp-sample {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.pricing-page .pp-sample-video {
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--hairline);
+}
+
+.pricing-page .pp-sample-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pricing-page .pp-sample figcaption {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-includes h2 {
+  margin-bottom: 20px;
+}
+
+.pricing-page .pp-includes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+}
+
+.pricing-page .pp-includes-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.pricing-page .pp-includes-list .pp-ic,
+.pricing-page .pp-diff .pp-ic {
+  flex: none;
+  background: rgba(76, 178, 240, 0.14);
+  color: var(--accent);
+}
+
+/* Slim cards: the cards are direct grid items now, no commit line. */
+.pricing-page .pp-trio {
+  grid-template-rows: auto;
+  padding-top: 0;
+  align-items: stretch;
+}
+
+.pricing-page .pp-card {
+  position: relative;
+  gap: 20px;
+}
+
+.pricing-page .pp-card-dfy {
+  border-width: 2px;
+  background: linear-gradient(180deg, rgba(76, 178, 240, 0.18), rgba(76, 178, 240, 0.05) 55%, var(--bg-raised));
+  box-shadow: 0 28px 80px -30px rgba(76, 178, 240, 0.6);
+}
+
+.pricing-page .pp-card-dfy .pp-tag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+}
+
+.pricing-page .pp-card .pp-who {
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.pricing-page .pp-per {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .pp-diff {
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 0;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--hairline);
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-diff strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.pricing-page .pp-assure {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted-2);
+}
+
+/* The three episode rules, one short note under the cards. */
+.pricing-page .pp-rulenote {
+  margin: 28px 0 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.pricing-page .pp-rulenote-title {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted-2);
+}
+
+.pricing-page .pp-rulenote ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+}
+
+.pricing-page .pp-rulenote strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.pricing-page .pp-plans .pp-calcpush {
+  margin-top: 24px;
+}
+
+/* Testimonials side by side: video on top, quote under it. */
+.pricing-page .pp-proof {
+  padding-top: 64px;
+}
+
+.pricing-page .pp-tlist-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.pricing-page .pp-tlist-pair .pp-tcard {
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 22px;
+}
+
+.pricing-page .pp-tlist-pair .pp-tquote {
+  font-size: 1rem;
+}
+
+/* Three ways: closed by default. */
+.pricing-page .pp-ways {
+  padding-top: 56px;
+}
+
+.pricing-page .pp-ways-details {
+  background: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  padding: 0 24px;
+}
+
+.pricing-page .pp-ways-details summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 0;
+}
+
+.pricing-page .pp-ways-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.pricing-page .pp-ways-details summary > span:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.pricing-page .pp-ways-title {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pricing-page .pp-ways-sub {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.pricing-page .pp-ways-toggle {
+  flex: none;
+  color: var(--accent);
+  transition: transform var(--dur-quick) var(--ease-out);
+}
+
+.pricing-page .pp-ways-details[open] .pp-ways-toggle {
+  transform: rotate(45deg);
+}
+
+.pricing-page .pp-ways-details[open] {
+  padding-bottom: 24px;
+}
+
+.pricing-page .pp-ways-details .pp-lead {
+  margin-top: 0;
+}
+
+.pricing-page .pp-ways-details summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .pricing-page .pp-band {
+    grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .pricing-page .pp-includes-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-page .pp-tlist-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-page .pp-band {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
+  .pricing-page .pp-sample {
+    grid-template-columns: 120px minmax(0, 1fr);
+    align-items: end;
+    gap: 14px;
+  }
+
+  .pricing-page .pp-rulenote ul {
+    display: grid;
+  }
+
+  .pricing-page .pp-ways-details {
+    padding: 0 18px;
+  }
+}
+
+/* Hero headline on two fixed lines; FAQ in two columns on wide screens;
+   smaller sample clip (all /pricing, 25 Nov 2026). */
+.pricing-page .pp-h1-line {
+  display: block;
+}
+
+.pricing-page .pp-hero h1 {
+  max-width: 900px;
+}
+
+.pricing-page .pp-band {
+  grid-template-columns: minmax(0, 190px) minmax(0, 1fr);
+}
+
+@media (min-width: 901px) {
+  .pricing-page .pp-faq .accordion {
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing-page .pp-band {
+    grid-template-columns: minmax(0, 150px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-page .pp-band {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Buttons line up across the three cards: the actions sit straight under the
+   plan details instead of being pushed to the card bottom. */
+.pricing-page .pp-trio .pp-card .pp-actions {
+  margin-top: 0;
+}

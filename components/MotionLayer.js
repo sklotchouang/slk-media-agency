@@ -29,6 +29,9 @@ const STAGGER_CONTAINERS = [
 function annotateReveals(root) {
   const annotated = [];
   root.querySelectorAll('main section, body > section, .pt-page section').forEach((section) => {
+    // A section marked data-no-reveal stays visible from first paint (used on
+    // the /pricing hero, 25 Nov 2026, so its text never waits on JavaScript).
+    if (section.hasAttribute('data-no-reveal')) return;
     const container = section.querySelector(':scope > .container') || section;
     Array.from(container.children).forEach((child) => {
       if (child.matches('script, style, .grid-pattern, .grid-pattern-overlay')) return;

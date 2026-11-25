@@ -20,6 +20,10 @@ If `components/PricingPlans.js`, `components/PricingCalculator.js` or `lib/check
 | Biweekly Show (badge: Most popular) | 2 | 10 | $997 a month | A monthly call and a monthly report | Direct checkout, no call needed |
 | Weekly Show | 4 | 20 | $1,597 a month | A weekly call and a weekly report | Book a call. No direct checkout |
 
+Price per episode, shown on the pricing page as a smaller second line under the monthly price (Samuel, 25 November 2026): Monthly Show $597, Biweekly Show $498.50, Weekly Show $399.25. The monthly price stays the main price. This is a display of the same prices, not a new price. Still never quote per clip.
+
+No guarantee of any kind on the pricing page: no money-back, redo or results promise (Samuel, 25 November 2026).
+
 Every plan is full service:
 - a custom thumbnail for every clip,
 - captions, hashtags and calls to action for every clip,
