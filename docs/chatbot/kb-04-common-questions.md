@@ -2,21 +2,21 @@
 
 ## What does it cost?
 
-Pricing is per episode, and SLK Media Agency handles everything after the edit on every plan. Monthly Show is $597 a month for 1 episode and 5 clips. Biweekly Show is $997 a month for 2 episodes and 10 clips. Weekly Show is $1,597 a month for 4 episodes and 20 clips. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
+Pricing is per episode, and SLK Media Agency handles everything after the edit on every plan. Monthly Show Plan is $597 a month for 1 episode and 5 clips. Bi-weekly Show Plan is $997 a month for 2 episodes and 10 clips. Weekly Show Plan is $1,597 a month for 4 episodes and 20 clips. The full breakdown and a plan calculator are at https://slkmediaagency.com/pricing
 
 Keep it to that. Do not add the report, do not turn it into a list.
 
 ## Do you guarantee download growth or sponsor revenue?
 
-No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and performance reports (weekly on Done For You and Done For You Plus, monthly on Starter).
+No, and you should run from anyone who does. SLK Media Agency controls content production and distribution, not your recording quality, your guest selection, how aggressively you pursue sponsor outreach, or market conditions in your niche. What SLK Media Agency does commit to is the clip volume your plan states delivered on time, multi platform distribution on schedule, and performance reporting (monthly on Monthly Show Plan and Bi-weekly Show Plan, weekly on Weekly Show Plan).
 
 ## What is the difference between the plans?
 
-How many episodes we clip and how often you meet. All three include 5 clips for every episode, a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager and a strategy document before the first clip. Monthly Show covers 1 episode (5 clips) with a monthly call and report. Biweekly Show covers 2 episodes (10 clips) with a monthly call and report. Weekly Show covers 4 episodes (20 clips) with a weekly call and report.
+How many episodes we clip and how often you meet. All three include 5 clips for every episode, a thumbnail for every clip, captions, hashtags and calls to action, posting on every platform, a dedicated project manager, preliminary research on your show and audience, and a social media strategy plan. Monthly Show Plan covers 1 episode (5 clips) with a monthly consultation call and monthly reporting. Bi-weekly Show Plan covers 2 episodes (10 clips) with a monthly consultation call and monthly reporting. Weekly Show Plan covers 4 episodes (20 clips) with a weekly consultation call and weekly reporting.
 
 ## Do you offer a trial?
 
-No. There is no trial. Monthly Show is month to month, so the first month is the low-risk way to start. It is $597 a month for 1 episode and 5 clips, and you can cancel before the next billing cycle. Want to talk it through first? Book the strategy call: https://link.slkmediaagency.com/strmeet
+No. There is no trial. Monthly Show Plan is month to month, so the first month is the low-risk way to start. It is $597 a month for 1 episode and 5 clips, and you can cancel before the next billing cycle. Want to talk it through first? Book the strategy call: https://link.slkmediaagency.com/strmeet
 
 ## Do you offer a discount for paying upfront or committing longer?
 
@@ -72,7 +72,7 @@ If a human team is picking the clips and posting them and it is working, that is
 
 ## I am not sure it would pay off.
 
-That is a fair thing to want to check. The published case studies and the seven video testimonials are the honest evidence, and Monthly Show at $597 a month for 1 episode and 5 clips is the lower commitment monthly path. There is no projected number to offer, because SLK Media Agency does not publish averages.
+That is a fair thing to want to check. The published case studies and the seven video testimonials are the honest evidence, and Monthly Show Plan at $597 a month for 1 episode and 5 clips is the lower commitment monthly path. There is no projected number to offer, because SLK Media Agency does not publish averages.
 
 ## Not right now, maybe later.
 
@@ -80,7 +80,7 @@ That is completely fine. Timing matters more than anything else here.
 
 ## What if none of these fit my budget right now?
 
-Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Monthly Show is $597 a month for 1 episode and 5 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
+Then this is not the right time, and SLK Media Agency will say so rather than sell you something that will not work. Monthly Show Plan is $597 a month for 1 episode and 5 clips. If a monthly content budget is not realistic for your show yet, start with Descript (about $30 a month) or OpusClip (about $50 a month). Come back when the timing is right.
 
 ## Do you do the sponsor outreach for me?
 
@@ -92,7 +92,7 @@ Yes. The portfolio is at https://slkmediaagency.com/portfolio, the case studies 
 
 ## Do you provide analytics or reports?
 
-Yes, monthly on Monthly Show and Biweekly Show, weekly on Weekly Show. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
+Yes, monthly on Monthly Show Plan and Bi-weekly Show Plan, weekly on Weekly Show Plan. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
 
 ## Is this confidential? I do not want competitors knowing I use you.
 

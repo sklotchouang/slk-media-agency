@@ -14,7 +14,7 @@ Days 1 to 4: the team immerses itself in your niche, covering competitor analysi
 
 Days 5 to 8: a test batch of clips is produced and iterated on your feedback.
 
-From day 9: the work runs autonomously with weekly strategy syncs (monthly on Monthly Show and Biweekly Show).
+From day 9: the work runs autonomously with a weekly consultation call (monthly on Monthly Show Plan and Bi-weekly Show Plan).
 
 ## Platforms and formats
 
@@ -36,7 +36,7 @@ Audio only shows are welcome. There are audio to video examples here: https://li
 
 ## Reporting
 
-Success is tracked through views, engagement, follower growth and click through rate, reported monthly on Monthly Show and Biweekly Show and weekly on Weekly Show. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
+Success is tracked through views, engagement, follower growth and click through rate, reported monthly on Monthly Show Plan and Bi-weekly Show Plan and weekly on Weekly Show Plan. The reports cover which clips got the most views and engagement, which drove sponsor adjacent traffic, a platform comparison, sponsor signals, and recommendations for what comes next.
 
 ## Publishing frequency
 
