@@ -4588,3 +4588,5 @@ html[data-motion="on"] .home-v3 .hp-mini:nth-child(3) { animation-delay: -3.2s; 
 .welcome-page > section.wl-help { padding: 32px 0 0; }
 .welcome-page .wl-checks li { display: flex; gap: 10px; align-items: baseline; }
 .welcome-page .wl-checks i { flex: none; }
+
+.welcome-page .wl-step-body p + p { margin-top: 10px; }

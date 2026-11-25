@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { onboardingFormUrl, CONTACT_EMAIL } from '../../../lib/checkout';
+import { ONBOARDING_URL, CONTACT_EMAIL } from '../../../lib/checkout';
 
-// /welcome: the page a new client lands on right after paying for Monthly Show
+// /thank-you (was /welcome until 25 Nov 2026, which now redirects here): the page a new client lands on right after paying for Monthly Show
 // or Biweekly Show by Myfundbox checkout (per-episode pricing, Samuel, 25 Nov
-// 2026). Samuel sets https://slkmediaagency.com/welcome as the redirect inside
+// 2026). Samuel sets https://slkmediaagency.com/thank-you as the redirect inside
 // each Myfundbox checkout. Not indexed and not in the sitemap.
 //
 // The steps follow how onboarding runs today: the Formaloo "Onboarding Intake
@@ -12,14 +12,15 @@ import { onboardingFormUrl, CONTACT_EMAIL } from '../../../lib/checkout';
 // approved ones: "a strategy document before the first clip" and "first clips
 // within 3 to 5 business days after onboarding". No prices on this page.
 //
-// The onboarding form link is ONBOARDING_FORM_URL in lib/checkout.js. While it
-// is empty, step 1 says we email the form and gives the hello@ address.
+// Step 1 (Samuel, 25 Nov 2026): the welcome email with the onboarding
+// instructions, check spam after 10 minutes, and a button to the Waybook
+// instructions (ONBOARDING_URL in lib/checkout.js).
 
 export const metadata = {
-  title: 'Welcome, here is what happens next | SLK Media Agency',
+  title: 'Thank you, here is what happens next | SLK Media Agency',
   description: 'You are in. The next steps for new SLK Media Agency clients: your onboarding form, your project board, your strategy document and your first clips.',
   robots: { index: false, follow: false },
-  alternates: { canonical: '/welcome' },
+  alternates: { canonical: '/thank-you' },
 };
 
 const INCLUDED = [
@@ -31,8 +32,7 @@ const INCLUDED = [
   'A strategy document before the first clip',
 ];
 
-export default function WelcomePage() {
-  const formUrl = onboardingFormUrl();
+export default function ThankYouPage() {
   return (
     <>
       <a href="#main" className="skip-link">Skip to content</a>
@@ -67,13 +67,11 @@ export default function WelcomePage() {
             <ol className="wl-list">
               <li className="wl-step wl-step-now">
                 <div className="wl-step-body">
-                  <h3>Fill in your onboarding form</h3>
-                  <p>Tell us about your show, your audience, your goals and your brand. We build your strategy from it.</p>
-                  {formUrl ? (
-                    <a href={formUrl} className="primary-cta wl-cta" target="_blank" rel="noopener">Open the onboarding form</a>
-                  ) : (
-                    <p className="wl-note">To get your onboarding form, email <a href={`mailto:${CONTACT_EMAIL}?subject=My%20onboarding%20form`}>{CONTACT_EMAIL}</a> with the name of your show. We reply with your form.</p>
-                  )}
+                  <h3>Look out for your welcome email</h3>
+                  <p>We send you a welcome email with your onboarding instructions. Not in your inbox within 10 minutes? Check your spam folder.</p>
+                  <p>Follow every step of the instructions, on a laptop or desktop rather than a phone. They tell us about your show, your audience and your brand, and we build your strategy from them.</p>
+                  <a href={ONBOARDING_URL} className="primary-cta wl-cta" target="_blank" rel="noopener">Open the onboarding instructions</a>
+                  <p className="wl-note">Still no email? Write to <a href={`mailto:${CONTACT_EMAIL}?subject=My%20welcome%20email`}>{CONTACT_EMAIL}</a> and we send it again.</p>
                 </div>
               </li>
               <li className="wl-step">

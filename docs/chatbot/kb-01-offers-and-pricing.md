@@ -32,7 +32,7 @@ Every episode gets 5 clips. In a month with no new episode, SLK Media Agency cut
 
 Monthly Show and Biweekly Show can be bought directly on https://slkmediaagency.com/pricing, with no call needed. Send the pricing page, never a checkout link. Weekly Show, any plan with 3 or more episodes, and any plan with add-ons start with a strategy call: https://link.slkmediaagency.com/strmeet. Anyone who wants to talk first can book that call on any plan.
 
-Right after paying, the new client lands on a welcome page with the next steps: fill in the onboarding form, join the project board, share episodes and brand assets, receive the strategy document, then the first clips within 3 to 5 business days after onboarding.
+Right after paying, the new client lands on a thank you page with the next steps: look out for the welcome email with the onboarding instructions (check spam if it is not there within 10 minutes), follow them, join the project board, share episodes and brand assets, receive the strategy document, then the first clips within 3 to 5 business days after onboarding.
 
 ## Other numbers of episodes
 

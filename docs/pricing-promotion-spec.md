@@ -9,7 +9,7 @@ If `components/PricingPlans.js`, `components/PricingCalculator.js` or `lib/check
 - Pricing page: https://slkmediaagency.com/pricing
 - Straight to the calculator: https://slkmediaagency.com/pricing#build
 - Strategy call (unchanged): https://link.slkmediaagency.com/strmeet
-- After-payment page: https://slkmediaagency.com/welcome. Myfundbox sends the new client there only once Samuel sets it as the redirect inside each checkout (not set yet).
+- After-payment page: https://slkmediaagency.com/thank-you. Myfundbox sends the new client there only once Samuel sets it as the redirect inside each checkout (not set yet).
 - Never send https://slkmediaagency.com/pricing/promotion. It shows a "This promotion has ended" page that points to /pricing.
 
 ## The three plans (new prospects only)
@@ -65,7 +65,7 @@ All checkout links live in ONE place: `lib/checkout.js` in the website repo.
 - Biweekly Show, $997 a month: https://pay.myfundbox.com/OVP/?token=IXcC8MsKeFTU-UGVJfv9ig (Samuel, 25 November 2026).
 - An older $997 checkout exists (https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw). It charges the right amount, but its page reads "Done With You". It is NOT wired in. It may only be used for Biweekly Show if Samuel says yes.
 - Weekly Show has no checkout. It is sold on the strategy call.
-- Every new checkout should send the buyer to https://slkmediaagency.com/welcome after payment (Samuel sets this inside Myfundbox).
+- Every new checkout should send the buyer to https://slkmediaagency.com/thank-you after payment (Samuel sets this inside Myfundbox).
 - Both new checkouts must charge every month (recurring). The old products were described in the wiki as a one-time charge.
 
 ## Retired for new prospects (25 November 2026)

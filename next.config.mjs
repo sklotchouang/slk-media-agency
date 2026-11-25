@@ -22,6 +22,7 @@ const nextConfig = {
       { source: '/podcast-multiplier.html', destination: '/podcast-multiplier', statusCode: 301 },
       { source: '/testimonials.html', destination: '/testimonials', statusCode: 301 },
       { source: '/pre-call.html', destination: '/pre-call', statusCode: 301 },
+      { source: '/welcome', destination: '/thank-you', statusCode: 301 },
       { source: '/privacy-policy.html', destination: '/privacy-policy', statusCode: 301 },
       { source: '/terms-and-conditions.html', destination: '/terms-and-conditions', statusCode: 301 },
 
