@@ -218,6 +218,7 @@ Design tokens, the palette, the type scale, spacing, and the motion system are d
 | `/success/sales-fix` | `app/(main)/success/sales-fix/page.js` | Case study | strmeet |
 | `/success/alpine-institute` | `app/(main)/success/alpine-institute/page.js` | Case study | strmeet |
 | `/pre-call` | `app/(main)/pre-call/page.js` | Instructions before a booked call (video + portfolio + testimonials) | mailto |
+| `/payment-failed` | `app/(main)/payment-failed/page.js` | Myfundbox failure page (2026-11-25): payment not completed, try again (back to /pricing), book a call, or email if charged. `noindex`, disallowed in robots, reuses `.welcome-page` styles | mailto |
 | `/thank-you` | `app/(main)/thank-you/page.js` | After-payment page (2026-11-25; was `/welcome`, which now 301-redirects here in `next.config.mjs`). Step 1 (Samuel): look out for the welcome email with the onboarding instructions, check spam after 10 minutes, button to the Waybook instructions (`ONBOARDING_URL` in `lib/checkout.js`). "You're in.", five numbered next steps (onboarding form, Nifty project board, share episodes and brand, strategy document, first clips within 3 to 5 business days after onboarding), what every plan includes and the episode rules. No prices. `noindex`, disallowed in `app/robots.js`, not in the sitemap. CSS: the `.welcome-page` block at the end of `premium.css` | mailto |
 | `/privacy-policy` | `app/(main)/privacy-policy/page.js` | Legal | none |
 | `/terms-and-conditions` | `app/(main)/terms-and-conditions/page.js` | Legal | none |

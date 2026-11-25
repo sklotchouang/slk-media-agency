@@ -4590,3 +4590,4 @@ html[data-motion="on"] .home-v3 .hp-mini:nth-child(3) { animation-delay: -3.2s; 
 .welcome-page .wl-checks i { flex: none; }
 
 .welcome-page .wl-step-body p + p { margin-top: 10px; }
+.welcome-page .wl-seal-fail { background: #e5484d; color: #fff; box-shadow: 0 0 0 10px rgba(229, 72, 77, 0.14); }

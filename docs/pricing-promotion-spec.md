@@ -65,6 +65,7 @@ All checkout links live in ONE place: `lib/checkout.js` in the website repo.
 - Biweekly Show, $997 a month: https://pay.myfundbox.com/OVP/?token=IXcC8MsKeFTU-UGVJfv9ig (Samuel, 25 November 2026).
 - An older $997 checkout exists (https://pay.myfundbox.com/OVP/?token=nqEFAw0ZzvYeM2sHwa0ABw). It charges the right amount, but its page reads "Done With You". It is NOT wired in. It may only be used for Biweekly Show if Samuel says yes.
 - Weekly Show has no checkout. It is sold on the strategy call.
+- Failed payments go to https://slkmediaagency.com/payment-failed (Failure Page URL in the Myfundbox Checkout Customizer).
 - Every new checkout should send the buyer to https://slkmediaagency.com/thank-you after payment (Samuel sets this inside Myfundbox).
 - Both new checkouts must charge every month (recurring). The old products were described in the wiki as a one-time charge.
 
