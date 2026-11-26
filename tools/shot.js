@@ -27,7 +27,7 @@ async function main() {
   const [width, height] = size.split('x').map(Number);
   const settle = Number(settleRaw);
 
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await puppeteer.launch({ headless: 'shell' }); // 'shell': no window. 'new' flashes a blank box on Windows (26 Nov 2026)
   const page = await browser.newPage();
   await page.setViewport({ width, height, deviceScaleFactor: 1 });
   if (reducedMotion) {

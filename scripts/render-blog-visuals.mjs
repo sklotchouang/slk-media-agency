@@ -19,7 +19,7 @@ const out = path.join(root, 'public/blog', slug);
 fs.mkdirSync(out, { recursive: true });
 const files = fs.readdirSync(dir).filter((f) => f.endsWith('.html') && (!only || f === `${only}.html`));
 
-const browser = await puppeteer.launch({ headless: 'new' });
+const browser = await puppeteer.launch({ headless: 'shell' }); // 'shell': no window. 'new' flashes a blank box on Windows (26 Nov 2026)
 const page = await browser.newPage();
 for (const f of files) {
   const html = fs.readFileSync(path.join(dir, f), 'utf8');

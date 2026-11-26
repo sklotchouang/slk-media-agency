@@ -71,7 +71,7 @@ function html(w, h, compact) {
 
 const outDir = path.join(root, 'public/blog', slug);
 fs.mkdirSync(outDir, { recursive: true });
-const browser = await puppeteer.launch({ headless: 'new' });
+const browser = await puppeteer.launch({ headless: 'shell' }); // 'shell': no window. 'new' flashes a blank box on Windows (26 Nov 2026)
 const page = await browser.newPage();
 const all = process.argv.includes('--all');
 const jobs = [

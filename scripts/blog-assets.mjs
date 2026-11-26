@@ -38,7 +38,7 @@ if (cmd === 'photo') {
 const listFile = path.join(root, 'content/blog/visuals', slug, 'shots.json');
 const list = fs.existsSync(listFile) ? JSON.parse(fs.readFileSync(listFile, 'utf8')) : [];
 const result = { ok: [], failed: [] };
-const browser = await puppeteer.launch({ headless: 'new' });
+const browser = await puppeteer.launch({ headless: 'shell' }); // 'shell': no window. 'new' flashes a blank box on Windows (26 Nov 2026)
 try {
   for (const s of list) {
     const name = String(s.name || '');
