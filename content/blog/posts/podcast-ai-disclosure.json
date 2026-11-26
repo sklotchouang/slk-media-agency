@@ -13,7 +13,7 @@
     "src": "/blog/podcast-ai-disclosure/header.webp",
     "card": "/blog/podcast-ai-disclosure/card.webp",
     "og": "/blog/podcast-ai-disclosure/og.jpg",
-    "alt": "Cover: Do you need to disclose AI in your podcast?, with a card titled Who asks for a disclosure (Apple Podcasts: Any AI audio or video; Acast: Material or realistic AI; YouTube: Realistic AI content)"
+    "alt": "A podcast host recording a solo episode at home, reading her notes aloud"
   },
   "art": {
     "kicker": "Platform rules, read 26 Nov 2026",
@@ -141,8 +141,5 @@
     "score": 69,
     "bestCompetitor": "Spotify episode on New York AI disclosure 61",
     "scoredAt": "2026-11-26"
-  },
-  "cover": {
-    "palette": 1
   }
 }
