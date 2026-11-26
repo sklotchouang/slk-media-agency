@@ -43,6 +43,10 @@ try {
   for (const s of list) {
     const name = String(s.name || '');
     if (!/^[a-z0-9-]{2,60}$/.test(name) || !/^https?:\/\//.test(String(s.url || ''))) { result.failed.push({ name, error: 'bad name or url' }); continue; }
+    // Public pages only: never this PC, the local network or a bare IP address.
+    let host = '';
+    try { host = new URL(s.url).hostname.toLowerCase(); } catch { /* bad url */ }
+    if (!host || host === 'localhost' || host.endsWith('.local') || host.endsWith('.localhost') || /^[\d.]+$/.test(host) || host.includes(':')) { result.failed.push({ name, error: 'not a public address' }); continue; }
     const page = await browser.newPage();
     try {
       await page.setViewport({ width: Math.min(Math.max(Number(s.width) || 1280, 600), 1920), height: Math.min(Math.max(Number(s.height) || 800, 400), 2000) });
