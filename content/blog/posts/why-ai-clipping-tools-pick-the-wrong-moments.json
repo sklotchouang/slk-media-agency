@@ -13,7 +13,7 @@
     "src": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/header.webp",
     "card": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/card.webp",
     "og": "/blog/why-ai-clipping-tools-pick-the-wrong-moments/og.jpg",
-    "alt": "Cover: Why AI clipping tools pick the wrong moments, with a card titled Seven faults, seven fixes (The moment needs setup: Add the setup line back; Detail beats story: Search for the moment you noted; Clip starts mid-sentence: Move the cut point)"
+    "alt": "A video editor looking unsure at a timeline of podcast clips on a large screen"
   },
   "art": {
     "kicker": "Tool help pages, read 17 Nov 2026",
@@ -116,8 +116,5 @@
     "score": 65,
     "bestCompetitor": "Roboneo 64",
     "scoredAt": "2026-11-17"
-  },
-  "cover": {
-    "palette": 2
   }
 }

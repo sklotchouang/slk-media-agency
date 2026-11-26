@@ -13,7 +13,7 @@
     "src": "/blog/how-many-downloads-is-good-for-a-podcast/header.webp",
     "card": "/blog/how-many-downloads-is-good-for-a-podcast/card.webp",
     "og": "/blog/how-many-downloads-is-good-for-a-podcast/og.jpg",
-    "alt": "Cover: How many downloads is good for a podcast?, with a card titled First 7 days, Oct 2026 (Top 50% of episodes: 28 or more; Top 25% of episodes: 99 or more; Top 10% of episodes: 425 or more)"
+    "alt": "Two podcast co-hosts laughing in a small studio while one checks the episode numbers on a tablet"
   },
   "art": {
     "kicker": "Buzzsprout benchmarks, October 2026",
@@ -102,8 +102,5 @@
     "score": 73,
     "bestCompetitor": "Captivate 67",
     "scoredAt": "2026-11-12"
-  },
-  "cover": {
-    "palette": 1
   }
 }
