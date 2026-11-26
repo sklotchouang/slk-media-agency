@@ -28,17 +28,29 @@ const post = fs.existsSync(postFile) ? JSON.parse(fs.readFileSync(postFile, 'utf
 const spec = arg('--spec') ? JSON.parse(fs.readFileSync(arg('--spec'), 'utf8')) : {};
 const d = { ...(post.art || {}), ...(post.cover || {}), ...spec };
 if (!d.headline || !Array.isArray(d.rows) || d.rows.length < 2) { console.error('needs art.headline and at least 2 art.rows'); process.exit(1); }
-const rows = d.rows.slice(0, 3);   // 3 rows: the blind review found 4 unreadable at thumbnail size
+const allRows = d.rows;   // the cover shows 3 (the blind review found 4 unreadable at thumbnail size), 2 if 3 do not fit
 
 // Three backgrounds from the SLK blue family, so a row of covers does not read as one ad.
 // The post picks one with "cover": { "palette": 0 | 1 | 2 }; otherwise it follows from the slug.
 const PALETTES = [
   { base: 'linear-gradient(118deg,#0a2a6e 0%,#1747c4 46%,#2a86e0 100%)', glowA: 'rgba(140,210,255,.55)', glowB: 'rgba(76,178,240,.55)', ac: '#8fd3ff', kick: '#bfe3ff' },
   { base: 'linear-gradient(125deg,#061226 0%,#0c2f5c 50%,#0f6fa8 100%)', glowA: 'rgba(76,178,240,.45)', glowB: 'rgba(56,214,220,.40)', ac: '#5fe0e6', kick: '#a6e9ff' },
-  { base: 'linear-gradient(115deg,#1b1460 0%,#3a3fd1 48%,#4c8ff0 100%)', glowA: 'rgba(170,180,255,.50)', glowB: 'rgba(110,170,255,.50)', ac: '#b7c4ff', kick: '#d6dcff' },
+  { base: 'linear-gradient(120deg,#0b2547 0%,#1f5fbf 50%,#49b6f2 100%)', glowA: 'rgba(160,220,255,.50)', glowB: 'rgba(73,182,242,.50)', ac: '#a9e4ff', kick: '#cdeeff' },
 ];
 const hash = [...slug].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
-const PAL = PALETTES[Number.isInteger(d.palette) ? d.palette % 3 : hash % 3];
+// No palette set: take the one after the newest other post's, so neighbours on the blog differ.
+function pickPalette() {
+  if (Number.isInteger(d.palette)) return d.palette % 3;
+  const dir = path.join(root, 'content/blog/posts');
+  const others = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== `${slug}.json`)
+    .map(f => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')))
+    .filter(o => o.cover && Number.isInteger(o.cover.palette))
+    .sort((a, b) => String(a.publishedAt || '').localeCompare(String(b.publishedAt || '')));
+  return others.length ? (others[others.length - 1].cover.palette + 1) % 3 : hash % 3;
+}
+const PALETTE = pickPalette();
+const PAL = PALETTES[PALETTE];
+const FONT = `data:font/woff2;base64,${fs.readFileSync(path.join(root, 'scripts/fonts/inter-latin.woff2')).toString('base64')}`;  // the site's own Inter
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/[–—]/g, ', ');
 const headline = (() => {
@@ -52,12 +64,14 @@ const MARK = {
   no: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg>',
 };
 
-function page(W, H) {
+function page(W, H, fit = 0) {
+  const shrink = [1, 0.9, 0.8, 0.72][fit];
+  const rows = allRows.slice(0, fit >= 2 ? 2 : 3);
   const S = H / 720;                       // everything scales with height
   const wide = W / H > 2;                  // header (2.33) vs card (1.78)
   const textW = wide ? 720 * S : 540 * S;
   const cardW = wide ? 700 * S : 560 * S;
-  const hSize = (d.headline.length > 40 ? 62 : 70) * S * (wide ? 1 : 0.86);
+  const hSize = (d.headline.length > 40 ? 62 : 70) * S * (wide ? 1 : 0.86) * shrink;
   const rowHtml = rows.map(([label, kind, value]) => {
     const pill = kind === 'yes' || kind === 'no'
       ? `<span class="pill ${kind}"><i>${MARK[kind]}</i>${esc(value)}</span>`
@@ -65,8 +79,9 @@ function page(W, H) {
     return `<div class="row"><span class="lb">${esc(label)}</span>${pill}</div>`;
   }).join('');
   return `<!doctype html><html><head><meta charset="utf-8"><style>
+  @font-face{font-family:"SLK Inter";src:url(${FONT}) format("woff2");font-weight:100 900;font-style:normal}
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:${W}px;height:${H}px;overflow:hidden;font-family:Inter,"Segoe UI",system-ui,sans-serif}
+  html,body{width:${W}px;height:${H}px;overflow:hidden;font-family:"SLK Inter",sans-serif}
   body{position:relative;background:
      radial-gradient(${520 * S}px ${520 * S}px at ${W * 0.9}px ${-60 * S}px,${PAL.glowA},transparent 70%),
      radial-gradient(${700 * S}px ${600 * S}px at ${W * 0.72}px ${H + 120 * S}px,${PAL.glowB},transparent 70%),
@@ -115,17 +130,24 @@ try {
   for (const [name, W, H, q] of [['header', 1680, 720, 86], ['card', 1280, 720, 86]]) {
     const p = await browser.newPage();
     await p.setViewport({ width: W, height: H, deviceScaleFactor: 1 });
-    await p.setContent(page(W, H), { waitUntil: 'load' });
-    // Refuse a cover whose text runs off the canvas or into the card.
-    const clash = await p.evaluate(() => {
-      const t = document.querySelector('.txt').getBoundingClientRect(), c = document.querySelector('.stack').getBoundingClientRect();
-      return t.bottom > innerHeight - 20 || t.top < 120 || t.right > c.left - 10 || c.top < 10 || c.bottom > innerHeight - 10;
-    });
-    if (clash && !process.argv.includes("--force")) throw new Error(`${name}: text does not fit (shorten the headline or the card rows)`);
+    // Fit: try full size, then smaller headline, then 2 rows. Fail only if nothing fits.
+    let fitted = -1;
+    for (let fit = 0; fit < 4 && fitted < 0; fit++) {
+      await p.setContent(page(W, H, fit), { waitUntil: 'load' });
+      await p.evaluate(() => document.fonts.ready);
+      const ok = await p.evaluate(() => {
+        if (!document.fonts.check('800 60px "SLK Inter"')) return 'font';
+        const t = document.querySelector('.txt').getBoundingClientRect(), c = document.querySelector('.stack').getBoundingClientRect();
+        return !(t.bottom > innerHeight - 20 || t.top < 120 || t.right > c.left - 10 || c.top < 10 || c.bottom > innerHeight - 10);
+      });
+      if (ok === 'font') throw new Error('the Inter font did not load');
+      if (ok) fitted = fit;
+    }
+    if (fitted < 0) throw new Error(`${name}: text does not fit even at the smallest size (shorten the headline or the card rows)`);
     const png = await p.screenshot({ type: 'png' });
     await sharp(png).webp({ quality: q }).toFile(path.join(out, `${name}.webp`));
     if (pngDir) { fs.mkdirSync(pngDir, { recursive: true }); fs.writeFileSync(path.join(pngDir, `${slug}-${name}.png`), png); }
     await p.close();
   }
-  console.log(JSON.stringify({ ok: ['header.webp', 'card.webp'] }));
+  console.log(JSON.stringify({ ok: ['header.webp', 'card.webp'], palette: PALETTE }));
 } finally { await browser.close(); }
