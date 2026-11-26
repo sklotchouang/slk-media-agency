@@ -1,0 +1,135 @@
+{
+  "status": "draft",
+  "title": "Podcast Sponsorship Rates in 2026: What the Data Can and Cannot Tell You",
+  "shortTitle": "Podcast sponsorship rates in 2026",
+  "seoTitle": "Podcast Sponsorship Rates 2026: CPM Data, Sources and Math",
+  "description": "Podcast sponsorship rates in 2026: every published CPM with its source and date, the last measured average ($21.37), and the math for your show size.",
+  "dek": "Most rate pages repeat numbers without saying where they came from. Here is each published CPM with its source and date, and the math for a show your size.",
+  "topic": "monetization",
+  "author": "natalie-nicholas",
+  "publishedAt": "2026-11-26",
+  "updatedAt": "2026-11-26",
+  "image": {
+    "src": "/blog/podcast-sponsorship-rates/header.webp",
+    "card": "/blog/podcast-sponsorship-rates/card.webp",
+    "og": "/blog/podcast-sponsorship-rates/og.jpg",
+    "alt": "A home podcast studio desk in warm window light with a microphone on a boom arm, headphones, a laptop showing rows of numbers and a printed rate card"
+  },
+  "art": {
+    "kicker": "Rate sources, read 26 Nov 2026",
+    "headline": "Podcast sponsorship rates in 2026",
+    "accent": "sponsorship rates",
+    "cardTitle": "Four sources, four kinds of number",
+    "rows": [
+      [
+        "Libsyn, Sep 2024",
+        "note",
+        "$21.37 measured average"
+      ],
+      [
+        "Libsyn Ads rate page",
+        "note",
+        "$24 to $26 host-read"
+      ],
+      [
+        "Acast guide",
+        "note",
+        "$25 to $40 host-read"
+      ],
+      [
+        "Buzzsprout guide",
+        "note",
+        "$18 and $25 stated"
+      ]
+    ]
+  },
+  "shortAnswer": {
+    "text": "Published 2026 podcast sponsorship rates run from about $15 to $40 CPM, with host-read ads at the top and business and finance shows above $40. The last measured market average is older than it looks: $21.37 for a 60-second spot in September 2024, the last month of Libsyn's monthly series we could find. The table further down shows that series month by month, next to the math for a show your size."
+  },
+  "toolkit": "sponsor-media-kit-guide",
+  "toolkitPitch": "This article gives you the rates and where they come from. The guide turns them into a numbers sheet, a rate card and a one-page media kit, with five pitch emails to send to potential sponsors.",
+  "faq": [
+    {
+      "q": "What is a good CPM rate for a podcast?",
+      "a": "The last measured marketplace average was $21.37 for a 60-second ad in September 2024, from Libsyn. Published 2026 ranges sit around it: Libsyn Ads lists $24 to $26 for a 60-second host-read ad, and Acast gives $15 to $30 for pre-recorded ads and $25 to $40 for host-read sponsorships. A rate near the middle of those ranges is defensible. Your category and your own data decide where you sit."
+    },
+    {
+      "q": "How are podcast sponsorship rates calculated?",
+      "a": "Downloads per episode times the CPM, divided by 1,000. Libsyn Ads prices on downloads in the first 30 days after release. So 5,000 downloads at a $25 CPM comes to $125 for one ad slot in one episode, before any share a network or platform keeps."
+    },
+    {
+      "q": "How much does a podcast with 10,000 downloads make from one ad?",
+      "a": "At the September 2024 average of $21.37 CPM, one 60-second slot in an episode with 10,000 downloads comes to $213.70. At $25 CPM it is $250, and at $40 CPM it is $400. That is what the advertiser pays. A network or platform may keep a share."
+    },
+    {
+      "q": "How many downloads do you need to get podcast sponsors?",
+      "a": "There is no single threshold. Buzzsprout says a sponsorship deal is not worth chasing below about 200 downloads per episode, and that networks suit shows with 5,000 to 10,000 or more. Affiliate deals have no download minimum. The Spotify Partner Program uses consumption hours and audience count on Spotify instead of downloads."
+    },
+    {
+      "q": "Do podcast networks take a cut of ad revenue?",
+      "a": "Yes. Buzzsprout says networks usually take around 30%, and the share varies by network. Under the Spotify Partner Program, the creator earns a 50% share of the revenue from ads Spotify sells into the episodes."
+    },
+    {
+      "q": "Should I charge CPM, a flat rate or use affiliate deals?",
+      "a": "CPM suits shows whose downloads produce an invoice worth sending. A flat rate per episode or season suits niche shows selling access to a clear audience; build it from the CPM math and price extras such as show notes links and newsletter mentions as separate lines. Affiliate deals have no minimum but pay only when listeners buy."
+    },
+    {
+      "q": "What do sponsors get in return?",
+      "a": "The ad read itself (length, placement, host-read or pre-recorded), the audience that hears it, and a way to measure results, usually a promo code or a tracked link. Buzzsprout advises keeping ads under 10% of an episode's length."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Libsyn blog: September 2024 Podcast Ad Rates",
+      "url": "https://libsyn.com/blog/september-2024-podcast-ad-rates/",
+      "note": "Average CPM $21.37 for a 60-second spot, August $21.36, September 2023 $22.84, top categories Government $31, Technology $29, Health and Fitness $24. Posted 1 October 2024, now marked archived. Read on 26 November 2026"
+    },
+    {
+      "label": "Libsyn blog: monthly Podcast Ad Rates posts, December 2023 to August 2024",
+      "url": "https://libsyn.com/blog/december-2023-podcast-ad-rates/",
+      "note": "Eight more monthly posts at the same address pattern (january-2024 to august-2024). Monthly averages and top categories, plus full-year 2022 ($23.87) and 2023 ($22.58) averages in the December 2023 post. Read on 26 November 2026"
+    },
+    {
+      "label": "Libsyn Ads: Podcast Advertising Rates",
+      "url": "https://www.advertisecast.com/podcast-advertising-rates",
+      "note": "Host-read 60 s $24 to $26 and 30 s $18 to $22, the four ad unit ranges, the category table and the cost = reach x CPM / 1000 formula. The page shows no date; footer 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "Acast: How Much Does Podcast Advertising Cost? Complete Guide to Podcast Advertising Rates [2026]",
+      "url": "https://www.acast.com/en/news-and-insights/how-much-does-podcast-advertising-cost",
+      "note": "Pre-recorded $15 to $30, host-read $25 to $40, business and finance $40+, basic network campaign around $15, pre-roll and mid-roll rules, FAQ figure of $15 to $50. Page shows published and updated 20 November 2023. Read on 26 November 2026"
+    },
+    {
+      "label": "Buzzsprout: How to Get Podcast Sponsors [2026]",
+      "url": "https://www.buzzsprout.com/blog/get-podcast-sponsors",
+      "note": "200 downloads per episode, networks for 5,000 to 10,000+ and their cut of around 30%, $18 and $25 stated standard, affiliate with no download minimum, 10% ad time. Published 13 January 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "Spotify for Creators: Spotify Partner Program",
+      "url": "https://support.spotify.com/us/creators/article/spotify-partner-program/",
+      "note": "50% ad revenue share, Premium video revenue, eligible markets, eligibility criteria and the 6-month activity rule. The page shows no date. Read on 26 November 2026"
+    },
+    {
+      "label": "IAB and PwC: Internet Advertising Revenue Report, Full Year 2025",
+      "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf",
+      "note": "US podcast advertising revenue $2,862.2 million in 2025, up 17.6% from $2,433.1 million in 2024 (page 24). Published April 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "Nielsen: Host-read podcast ads pack a brand recall punch",
+      "url": "https://www.nielsen.com/insights/2020/host-read-podcast-ads-pack-a-brand-recall-punch/",
+      "note": "Host-read ads produced an average 50% increase in purchase and recommendation intent compared with non-host-read ads. Published October 2020. Read on 26 November 2026"
+    },
+    {
+      "label": "Castos: Podcast Advertising Rates in 2026",
+      "url": "https://castos.com/podcast-advertising-rates/",
+      "note": "Reaches the same conclusion that the Libsyn monthly series ended and nothing replaced it. Published 9 September 2026. Read on 26 November 2026"
+    }
+  ],
+  "neuron": {
+    "query": "6ea37c7108952b5f",
+    "keyword": "podcast sponsorship rates",
+    "score": 78,
+    "bestCompetitor": "ThePod.fm 76",
+    "scoredAt": "2026-11-26"
+  }
+}
