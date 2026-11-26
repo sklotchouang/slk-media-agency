@@ -6,7 +6,9 @@
 //
 //   node scripts/blog-assets.mjs shots <slug>
 //     Reads content/blog/visuals/<slug>/shots.json, a list of
-//       { "url": "https://...", "name": "libsyn-rates", "width": 1280, "height": 800, "scroll": 0 }
+//       { "url": "https://...", "name": "libsyn-rates", "width": 1280, "height": 800, "scroll": 0, "find": "1.11" }
+//     "find" (optional) scrolls to the first heading, paragraph or list item holding that text,
+//     so the shot shows the passage the post quotes; "scroll" is used when it is not found.
 //     and saves each page as public/blog/<slug>/<name>.webp (800 px wide, quality 82).
 //     Prints one JSON line: { "ok": [names], "failed": [{ name, error }] }. A failed page is
 //     left out; the runner removes figures whose image is missing.
@@ -53,11 +55,21 @@ try {
         const words = /^(reject all|decline|accept all|accept|i agree|got it|ok)$/i;
         for (const b of document.querySelectorAll('button, a[role="button"]')) { if (words.test((b.textContent || '').trim())) { b.click(); break; } }
       }).catch(() => {});
-      if (s.scroll) await page.evaluate((y) => window.scrollTo(0, y), Number(s.scroll));
+      let found = false;
+      if (s.find) {
+        found = await page.evaluate((t) => {
+          const want = String(t).toLowerCase();
+          for (const el of document.querySelectorAll('h1,h2,h3,h4,h5,p,li,td,th,dt,dd,blockquote')) {
+            if ((el.textContent || '').toLowerCase().includes(want)) { const y = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo(0, Math.max(0, y)); return true; }
+          }
+          return false;
+        }, String(s.find).slice(0, 120)).catch(() => false);
+      }
+      if (!found && s.scroll) await page.evaluate((y) => window.scrollTo(0, y), Number(s.scroll));
       await new Promise((r) => setTimeout(r, 1200));
       const png = await page.screenshot({ type: 'png' });
       await sharp(png).resize(800).webp({ quality: 82 }).toFile(path.join(out, `${name}.webp`));
-      result.ok.push(name);
+      result.ok.push(s.find && !found ? `${name} (text not found, top of page)` : name);
     } catch (e) {
       result.failed.push({ name, error: String(e.message).slice(0, 160) });
     } finally {
