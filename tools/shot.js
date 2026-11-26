@@ -64,6 +64,21 @@ async function main() {
     // let reveals and lazy media catch up
     await new Promise((r) => setTimeout(r, Math.max(800, settle / 3)));
   }
+  if (scrollRaw === 'full') {
+    // A full-page shot never scrolls, so loading="lazy" images stayed blank in the blog review
+    // screenshots (26 Nov 2026). Load every image now, walk the page once, wait for all of them.
+    await page.evaluate(async () => {
+      document.querySelectorAll('img[loading="lazy"]').forEach((i) => { i.loading = 'eager'; });
+      for (let y = 0; y < document.documentElement.scrollHeight; y += Math.round(innerHeight * 0.8)) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 120));
+      }
+      window.scrollTo(0, 0);
+      await Promise.all([...document.images].map((i) => (i.complete ? null : new Promise((r) => { i.onload = i.onerror = r; setTimeout(r, 15000); }))));
+    });
+    const missing = await page.evaluate(() => [...document.images].filter((i) => !i.complete || !i.naturalWidth).map((i) => i.getAttribute('src')));
+    if (missing.length) errors.push(`images not loaded: ${missing.join(', ')}`);
+  }
   await new Promise((r) => setTimeout(r, settle));
 
   const overflowX = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
