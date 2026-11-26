@@ -144,7 +144,12 @@ export default async function BlogPost({ params }) {
         {post.image?.src ? (
           <div className="bl-wrap">
             <figure className="bl-hero-img">
-              <img src={post.image.src} alt={post.image.alt} width={1680} height={720} fetchPriority="high" />
+              {/* Phones show the hero at 16:9 (blog.css), so they get the 16:9 card image:
+                  the wide header cropped to 16:9 cut the cover's headline off (26 Nov 2026). */}
+              <picture>
+                {post.image.card ? <source media="(max-width: 600px)" srcSet={post.image.card} width={1280} height={720} /> : null}
+                <img src={post.image.src} alt={post.image.alt} width={1680} height={720} fetchPriority="high" />
+              </picture>
             </figure>
           </div>
         ) : null}
