@@ -1,0 +1,145 @@
+{
+  "status": "draft",
+  "title": "Do You Need to Disclose AI in Your Podcast? Apple, Spotify, YouTube, Acast and EU Rules (2026 Table)",
+  "shortTitle": "Do you need to disclose AI in your podcast?",
+  "seoTitle": "Podcast AI Disclosure Rules 2026: Apple, Spotify, YouTube, EU",
+  "description": "Do you need to disclose AI in your podcast? The AI disclosure rules of Apple, Acast, YouTube, Spotify and the EU AI Act in one dated table, quoted from each.",
+  "dek": "Five rulebooks, five different triggers. Here is what Apple, Acast, YouTube, Spotify and the EU AI Act each say, quoted from their own pages, and which of your AI uses they actually cover.",
+  "topic": "ai",
+  "author": "claire-peter",
+  "publishedAt": "2026-11-26",
+  "updatedAt": "2026-11-26",
+  "image": {
+    "src": "/blog/podcast-ai-disclosure/header.webp",
+    "card": "/blog/podcast-ai-disclosure/card.webp",
+    "og": "/blog/podcast-ai-disclosure/og.jpg",
+    "alt": "A home podcast studio desk at dusk with a microphone on a boom arm, headphones and a laptop showing an audio waveform split into a warm half and a blue half"
+  },
+  "art": {
+    "kicker": "Platform rules, read 26 Nov 2026",
+    "headline": "Do you need to disclose AI in your podcast?",
+    "accent": "disclose AI",
+    "cardTitle": "Who asks for a disclosure",
+    "rows": [
+      [
+        "Apple Podcasts",
+        "note",
+        "Any AI audio or video"
+      ],
+      [
+        "Acast",
+        "note",
+        "Material or realistic AI"
+      ],
+      [
+        "YouTube",
+        "note",
+        "Realistic AI content"
+      ],
+      [
+        "Spotify",
+        "note",
+        "No label rule, bans impersonation"
+      ]
+    ]
+  },
+  "shortAnswer": {
+    "text": "Yes, if AI made audio or video your audience hears or sees, such as a synthetic voice, an AI host or a cloned voice: Apple Podcasts asks for a disclosure in every episode and the show metadata, while Acast and YouTube ask when the AI part is large or looks real. AI help with scripts, show notes, captions and audio cleanup needs no label on the platforms we read. The table further down puts all five rulebooks side by side, with what each one exempts."
+  },
+  "toolkit": "podcast-ai-prompt-playbook",
+  "toolkitPitch": "This article shows where AI needs a label. The playbook covers the text work that, on YouTube and Acast, does not: titles, show notes and captions written in your show's voice, from a one-page voice brief and 75 prompts in 8 groups.",
+  "faq": [
+    {
+      "q": "Do you need to disclose AI in your podcast?",
+      "a": "If AI generated audio or video in the episode, such as a synthetic voice, an AI host or a cloned voice, Apple Podcasts requires a disclosure in the content and metadata of each episode and the show. Acast requires one when AI made a material portion or a realistic imitation, and YouTube when the content seems realistic. AI help with text and audio cleanup is not named as needing a label."
+    },
+    {
+      "q": "Does Apple Podcasts require AI disclosure?",
+      "a": "Yes. Rule 1.11 of the Apple Podcasts Content Requirements says creators using AI to generate audio or video content, including synthetic voices, AI-generated hosts and AI replicas of real people, must prominently disclose it in the content and metadata for each episode and show. Rule 1.12 bans using AI to mislead."
+    },
+    {
+      "q": "Does Spotify require you to label AI in a podcast?",
+      "a": "We found no AI disclosure rule for podcasts in Spotify's Platform Rules or its 19 May 2026 announcement. Spotify bans deceptive impersonation and harmful synthetic media presented as authentic, and says it will remove podcast shows that impersonate another creator or host's likeness without permission, including through AI voice cloning."
+    },
+    {
+      "q": "Do I need to disclose using ChatGPT or Claude to write my script or show notes?",
+      "a": "Not on the platforms we read. YouTube lists using generative AI to create or improve an outline or script, captions and idea generation as exempt. Acast exempts captions. Apple's rule covers AI-generated audio or video. If a synthetic voice reads the AI script, that voice needs the disclosure."
+    },
+    {
+      "q": "Does the EU AI Act apply to podcasts?",
+      "a": "Article 50 applies from 2 August 2026. It requires deployers to disclose audio or video that is a deep fake, meaning AI content that resembles real persons, places or events and would falsely appear authentic. A cloned voice of a real person fits that definition closely. Whether a made-up AI host voice counts is not settled in the sources we read. This is not legal advice."
+    },
+    {
+      "q": "Where should a podcast AI disclosure go?",
+      "a": "In three places: a spoken line near the start of the episode, a line in every episode description and the show description, and YouTube's altered or synthetic content setting at upload when the AI part looks or sounds real. Apple asks for both the content and the metadata, for each episode and show."
+    },
+    {
+      "q": "Do listeners mind AI voices in podcasts?",
+      "a": "Many say they do. In Sounds Profitable's Podcast Landscape 2025, reported on 24 September 2025, 47% of US adults who have consumed a podcast said they would be less likely to keep listening to a favorite show if AI voices were introduced, including 28% much less likely. 21% said more likely."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Apple Podcasts for Creators: Apple Podcasts Content Requirements",
+      "url": "https://podcasters.apple.com/support/891-content-and-subscription-guidelines",
+      "note": "Rule 1.11 Artificial Intelligence (AI) Generated Content and rule 1.12 Misleading Use of AI. The page shows no date; footer 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "Acast: Use of AI in podcasting",
+      "url": "https://learn.acast.com/en/articles/9528133-use-of-ai-in-podcasting",
+      "note": "Material portion and non-material realistic portion rules, exempt examples, ban on misleading use. Dated 3 June 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "YouTube Help: Disclosing use of altered or synthetic content",
+      "url": "https://support.google.com/youtube/answer/14328491",
+      "note": "When realistic AI content must be disclosed, the exempt list (outline, script, captions, ideas, filters, minor edits), where labels show and penalties. The page shows no date. Read on 26 November 2026"
+    },
+    {
+      "label": "YouTube Official Blog: How we're helping creators disclose altered or synthetic content",
+      "url": "https://blog.youtube/news-and-events/disclosing-ai-generated-content/",
+      "note": "The original announcement of the disclosure requirement. Published 18 March 2024. Read on 26 November 2026"
+    },
+    {
+      "label": "Spotify: Platform Rules",
+      "url": "https://www.spotify.com/us/safetyandprivacy/platform-rules/",
+      "note": "Deceptive content: impersonation and manipulated or synthetic media presented as authentic. No AI disclosure rule. The page shows no date. Read on 26 November 2026"
+    },
+    {
+      "label": "Spotify Newsroom: Building a More Trusted Podcast Experience for Creators and Listeners",
+      "url": "https://newsroom.spotify.com/2026-05-19/podcast-verification-trust-creators-listeners/",
+      "note": "AI impersonation removal policy and Verified by Spotify badge criteria for podcasts. Published 19 May 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "EU AI Act, Article 50: Transparency obligations (AI Act Explorer)",
+      "url": "https://artificialintelligenceact.eu/article/50/",
+      "note": "Paragraph 4 on deep fakes, creative works and public-interest text; paragraph 5 on timing. Applies from 2 August 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "EU AI Act, Article 3: Definitions (AI Act Explorer)",
+      "url": "https://artificialintelligenceact.eu/article/3/",
+      "note": "Point 60, the definition of a deep fake. Read on 26 November 2026"
+    },
+    {
+      "label": "Goodwin Procter: EU AI Act transparency obligations now in force",
+      "url": "https://www.goodwinlaw.com/en/insights/publications/2026/08/alerts-technology-dpc-eu-ai-act-transparency-obligations-now-in-force",
+      "note": "Article 50 enforceable from 2 August 2026, fines up to EUR 15 million or 3% of worldwide annual turnover. Published 3 August 2026. Read on 26 November 2026"
+    },
+    {
+      "label": "Sounds Profitable (Tom Webster): How Do Humans Feel About AI Voices In Podcasting?",
+      "url": "https://soundsprofitable.com/article/how-do-humans-feel-about-ai-voices-in-podcasting/",
+      "note": "Podcast Landscape 2025: 47% less likely, 28% much less likely, 21% more likely to keep listening to a favorite show with AI voices. Published 24 September 2025. Read on 26 November 2026"
+    },
+    {
+      "label": "Podnews: More new AI-generated podcasts than human ones",
+      "url": "https://podnews.net/update/ai-slop-overtakes-humans",
+      "note": "45.7% of new shows in one 24-hour window potentially produced by AI, from the Podcast Index New Feeds Report. Published 15 April 2026. Read on 26 November 2026"
+    }
+  ],
+  "neuron": {
+    "query": "b53b27770b824ffd",
+    "keyword": "podcast ai disclosure",
+    "score": 69,
+    "bestCompetitor": "Spotify episode on New York AI disclosure 61",
+    "scoredAt": "2026-11-26"
+  }
+}
