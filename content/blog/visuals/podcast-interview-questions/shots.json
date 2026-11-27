@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://www.hks.harvard.edu/centers/cpl/publications/it-doesnt-hurt-ask-question-asking-increases-liking",
+    "name": "question-asking-study",
+    "width": 1280,
+    "height": 800,
+    "find": "are better liked by their conversation partners"
+  },
+  {
+    "url": "https://riverside.com/blog/podcast-interview-questions",
+    "name": "riverside-guide",
+    "width": 1280,
+    "height": 800,
+    "find": "open-ended questions for a 30-minute interview"
+  },
+  {
+    "url": "https://squadcast.fm/blog/the-best-podcast-interview-questions-to-ask-your-guests-w-63-question-ideas/",
+    "name": "squadcast-2022-list",
+    "width": 1280,
+    "height": 800,
+    "find": "Digging deeper"
+  },
+  {
+    "url": "https://www.buzzsprout.com/blog/podcast-interview-questions",
+    "name": "buzzsprout-guide",
+    "width": 1280,
+    "height": 800,
+    "find": "no requirement to send your guest a list of questions"
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "status": "draft",
+  "title": "100 Podcast Interview Questions by Guest Type (Founders, Authors, Experts)",
+  "shortTitle": "100 podcast interview questions by guest type",
+  "seoTitle": "100 Podcast Interview Questions by Guest Type (2026)",
+  "description": "100 podcast interview questions sorted by guest type: founders, authors, experts, coaches and creators, plus openers, follow-ups and closing questions.",
+  "dek": "Most question lists sort by category and treat every guest the same. This one starts from who is sitting in the other chair.",
+  "topic": "guests",
+  "author": "rachel-davis",
+  "publishedAt": "2026-11-27",
+  "updatedAt": "2026-11-27",
+  "image": {
+    "src": "/blog/podcast-interview-questions/header.webp",
+    "card": "/blog/podcast-interview-questions/card.webp",
+    "og": "/blog/podcast-interview-questions/og.jpg",
+    "alt": "A podcast host holding a microphone and a card of questions listens to a young guest telling a story on a sunny outdoor conference terrace"
+  },
+  "art": {
+    "kicker": "Question guides, read 27 Nov 2026",
+    "headline": "100 podcast interview questions by guest type",
+    "accent": "by guest type",
+    "cardTitle": "Three guides, three dates",
+    "rows": [
+      [
+        "Riverside, Jul 2026",
+        "note",
+        "6 to 10 questions per 30 min"
+      ],
+      [
+        "Buzzsprout, Jan 2026",
+        "note",
+        "Send topics, not the list"
+      ],
+      [
+        "SquadCast, Jan 2022",
+        "note",
+        "63 questions, numbers skip"
+      ]
+    ]
+  },
+  "shortAnswer": {
+    "text": "Good podcast interview questions are open-ended, ask one thing at a time and fit the guest: a founder answers best about decisions and numbers, an author about the argument and what was cut. Below are 100 questions sorted by guest type and numbered with no gaps, plus a dated table of what Riverside, Buzzsprout and SquadCast say about how many questions to prepare and whether to send them in advance."
+  },
+  "toolkit": "guest-prep-interview-kit",
+  "toolkitPitch": "This article gives you the questions. The kit gives you what goes around them: a 13-question pre-interview questionnaire to send before the recording, blank and filled in, a one-page guest briefing with a tech checklist, and a moments-to-clip checklist with a worked scoring example, so the answers you get turn into clips.",
+  "faq": [
+    {
+      "q": "What are good podcast interview questions?",
+      "a": "Questions that are open-ended, ask one thing and ask for something only this guest can give: a story, a decision or a reason. Buzzsprout's guide of 6 January 2026 says yes or no questions get yes or no answers. Riverside's guide gives the example of turning \"Was that difficult?\" into asking what made it difficult."
+    },
+    {
+      "q": "How many questions should I prepare for a 30-minute podcast interview?",
+      "a": "Riverside's guide, updated 23 July 2026, says six to ten open-ended questions for a 30-minute interview, including a warm-up question and a strong closer. Mark the three you must ask, and keep the rest in reserve. Buzzsprout adds that you do not need to ask every question on your list."
+    },
+    {
+      "q": "Should I send podcast interview questions to my guest in advance?",
+      "a": "Send the topics, not the full list. Buzzsprout says there is no requirement to send a list of questions and suggests sharing the topics instead. Riverside says to send the full list only when the guest asks for it, or when the topic is sensitive or heavy on facts."
+    },
+    {
+      "q": "What questions should you ask a podcast guest to start and end an interview?",
+      "a": "Start with an easy question about the guest's work today, not their personal life, which Riverside advises against as an opener. End with one question that gives the listener a next step, such as \"What is one thing a listener can do this week based on today?\", and one that tells them where to find the guest. Questions 1 to 10 and 91 to 100 in this article are openers and closers for any guest."
+    },
+    {
+      "q": "What are good business podcast interview questions?",
+      "a": "Ask business owners for the specific moment behind a result: their first paying customer, how they set their first price, the decision they would reverse, the channel that looked good but did not work. Questions 11 to 30 in this article are written for founders and business owners."
+    },
+    {
+      "q": "What questions should you avoid in a podcast interview?",
+      "a": "Riverside names three: personal life questions to open, yes or no questions, and more than one question at a time. Also skip questions the guest's bio already answers, questions that contain their own answer, and the questions the guest has already answered on every other show."
+    },
+    {
+      "q": "Do follow-up questions really matter?",
+      "a": "A 2017 study by Huang, Yeomans, Brooks, Minson and Gino in the Journal of Personality and Social Psychology found that people who ask more questions, particularly follow-up questions, are better liked by their conversation partners. The study looked at get-to-know-you chats and speed dates, not podcasts, but a guest who feels heard tends to say more."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Riverside: 100+ Podcast Interview Questions and Free Template [2026]",
+      "url": "https://riverside.com/blog/podcast-interview-questions",
+      "note": "Six to ten open-ended questions for a 30-minute interview with a warm-up and a strong closer; share topics and send the full list only on request or for sensitive or fact-heavy topics; avoid personal life openers, yes or no questions and double questions; the \"Was that difficult?\" example; list sorted by category. By Stephen Robles, last updated 23 July 2026. Read on 27 November 2026"
+    },
+    {
+      "label": "Buzzsprout: 90+ Podcast Interview Questions to Ask [2026]",
+      "url": "https://www.buzzsprout.com/blog/podcast-interview-questions",
+      "note": "\"If you ask yes/no questions, you're going to get yes/no answers\"; \"There's no requirement to send your guest a list of questions before the episode\"; not every question needs to be asked; list sorted by category. By Alban Brooke, published 6 January 2026. Read on 27 November 2026"
+    },
+    {
+      "label": "SquadCast: The Best Podcast Interview Questions to Ask Your Guests w/63 Question Ideas",
+      "url": "https://squadcast.fm/blog/the-best-podcast-interview-questions-to-ask-your-guests-w-63-question-ideas/",
+      "note": "63 questions in six categories; numbering skips 47 and 48 and repeats 56 and 57. By Zachariah Moreno, dated 27 January 2022. Read on 27 November 2026"
+    },
+    {
+      "label": "Harvard Kennedy School: It Doesn't Hurt to Ask: Question-Asking Increases Liking",
+      "url": "https://www.hks.harvard.edu/centers/cpl/publications/it-doesnt-hurt-ask-question-asking-increases-liking",
+      "note": "Abstract of Huang, Yeomans, Brooks, Minson and Gino, Journal of Personality and Social Psychology (2017): people who ask more questions, particularly follow-up questions, are better liked; people do not anticipate this. Read on 27 November 2026"
+    }
+  ],
+  "neuron": {
+    "query": "7aad05ff26ecdc4e",
+    "keyword": "podcast interview questions",
+    "score": 89,
+    "bestCompetitor": "Motion Agency 81",
+    "scoredAt": "2026-11-27"
+  }
+}
